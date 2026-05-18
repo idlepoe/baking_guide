@@ -10,7 +10,7 @@ class ProgressListView extends GetView<ProgressListController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ProgressListView'),
+        title: const Text('진행'),
         centerTitle: true,
       ),
       body: const Center(

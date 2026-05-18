@@ -1,23 +1,26 @@
 import 'package:get/get.dart';
 
-class RecipeController extends GetxController {
-  //TODO: Implement RecipeController
+import '../../../data/models/recipe_list_item.dart';
+import '../../../data/repositories/recipe_repository.dart';
 
-  final count = 0.obs;
+class RecipeController extends GetxController {
+  RecipeController({RecipeRepository? repository})
+      : _repository = repository ?? RecipeRepository();
+
+  final RecipeRepository _repository;
+
+  final recipes = <RecipeListItem>[].obs;
+  final isLoading = true.obs;
+
   @override
   void onInit() {
     super.onInit();
+    loadRecipes();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> loadRecipes() async {
+    isLoading.value = true;
+    recipes.assignAll(await _repository.loadRecipeList());
+    isLoading.value = false;
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

@@ -1,0 +1,44 @@
+{
+  "id": "soboro_bread",
+  "name": "소보로빵",
+  "category": "bread",
+  "thumbnailUrl": "",
+  "summary": {
+    "examTimeSec": 10800,
+    "mixingMethod": "straight",
+    "oven": {
+      "top": 180,
+      "bottom": 180,
+      "unit": "celsius"
+    },
+    "keyPoints": [
+      {
+        "title": "재료 계량",
+        "items": ["시간 내 계량"]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "재료 계량",
+      "estimatedTimeSec": 600,
+      "imageUrl": "",
+      "description": ["재료를 계량한다."],
+      "tips": [],
+      "checklist": [
+        { "id": "weigh_all", "text": "모든 재료 계량 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "uniform_shape",
+      "text": "형태가 균일해야 한다."
+    }
+  ]
+}

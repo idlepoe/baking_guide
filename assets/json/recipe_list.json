@@ -1,0 +1,18 @@
+[
+  {
+    "id": "chestnut_bread",
+    "name": "밤식빵",
+    "category": "bread",
+    "thumbnailUrl": "",
+    "difficulty": 3,
+    "totalTimeSec": 13200
+  },
+  {
+    "id": "soboro_bread",
+    "name": "소보로빵",
+    "category": "bread",
+    "thumbnailUrl": "",
+    "difficulty": 2,
+    "totalTimeSec": 10800
+  }
+]
