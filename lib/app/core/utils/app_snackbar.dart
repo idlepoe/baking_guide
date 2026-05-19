@@ -28,14 +28,24 @@ abstract final class AppSnackbar {
     String? actionLabel,
     VoidCallback? onAction,
   }) {
-    final messenger = _resolveMessenger(context);
+    final resolvedContext = context ?? Get.context;
+    final messenger = _resolveMessenger(resolvedContext);
     if (messenger == null) return;
+
+    final placement = resolvedContext != null
+        ? _placementFor(resolvedContext)
+        : const _SnackPlacement(
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.fromLTRB(16, 0, 16, 16),
+          );
 
     messenger.clearSnackBars();
     messenger.showSnackBar(
       SnackBar(
         duration: duration,
-        behavior: SnackBarBehavior.floating,
+        behavior: placement.behavior,
+        margin: placement.margin,
+        dismissDirection: DismissDirection.down,
         content: _SnackbarContent(title: title, message: message),
         action: actionLabel != null && onAction != null
             ? SnackBarAction(
@@ -51,6 +61,32 @@ abstract final class AppSnackbar {
       ),
     );
   }
+
+  /// FAB 높이만큼 띄우지 않고, 화면 하단(하단 바 바로 위)에 붙인다.
+  static _SnackPlacement _placementFor(BuildContext context) {
+    final scaffold = Scaffold.maybeOf(context);
+    final hasBottomBar = scaffold?.widget.bottomNavigationBar != null;
+
+    if (hasBottomBar) {
+      return const _SnackPlacement(behavior: SnackBarBehavior.fixed);
+    }
+
+    final bottomInset = MediaQuery.viewPaddingOf(context).bottom + 16;
+    return _SnackPlacement(
+      behavior: SnackBarBehavior.floating,
+      margin: EdgeInsets.fromLTRB(16, 0, 16, bottomInset),
+    );
+  }
+}
+
+class _SnackPlacement {
+  const _SnackPlacement({
+    required this.behavior,
+    this.margin,
+  });
+
+  final SnackBarBehavior behavior;
+  final EdgeInsets? margin;
 }
 
 class _SnackbarContent extends StatelessWidget {

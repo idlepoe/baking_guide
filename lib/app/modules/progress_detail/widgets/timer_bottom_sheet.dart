@@ -12,6 +12,7 @@ import '../../../data/models/enums/timer_kind.dart';
 import '../../../data/models/practice_timer.dart';
 import '../../../data/models/step_timer.dart';
 import '../controllers/progress_detail_controller.dart';
+import 'progress_ring_indicator.dart';
 
 abstract final class TimerBottomSheetColors {
   static const activeRowBackground = Color(0xFFFFF8E1);
@@ -196,18 +197,11 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
     }
 
     final totalSec = listItem.totalTimeSec;
-    final sessionElapsed = _now.difference(session.startedAt);
-    final sessionProgress =
-        totalSec > 0 ? (sessionElapsed.inSeconds / totalSec).clamp(0.0, 1.0) : 0.0;
-
-    final stepStarted = widget.controller.stepStartedAt(step.stepNo);
-    final stepElapsed = stepStarted != null
-        ? _now.difference(stepStarted)
-        : Duration.zero;
+    final sessionElapsed = widget.controller.sessionElapsedAt(_now);
+    final sessionProgress = widget.controller.sessionProgressAt(_now);
+    final stepElapsed = widget.controller.stepElapsedAt(_now);
     final stepTotalSec = step.estimatedTimeSec;
-    final stepProgress = stepTotalSec > 0
-        ? (stepElapsed.inSeconds / stepTotalSec).clamp(0.0, 1.0)
-        : 0.0;
+    final stepProgress = widget.controller.stepProgressAt(_now);
 
     final stepTimers = step.timers;
     final customActive = _activeCustomTimer();
@@ -416,7 +410,6 @@ class _ProgressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final percent = (progress * 100).round();
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -454,28 +447,9 @@ class _ProgressCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            width: 72,
-            height: 72,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                CircularProgressIndicator(
-                  value: progress.clamp(0.0, 1.0),
-                  strokeWidth: 6,
-                  color: progressColor,
-                  backgroundColor:
-                      theme.colorScheme.surfaceContainerHighest,
-                ),
-                Text(
-                  '$percent%',
-                  style: theme.textTheme.labelLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: progressColor,
-                  ),
-                ),
-              ],
-            ),
+          ProgressRingWithLabel(
+            progress: progress,
+            color: progressColor,
           ),
         ],
       ),

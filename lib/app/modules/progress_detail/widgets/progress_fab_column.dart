@@ -1,25 +1,73 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../controllers/progress_detail_controller.dart';
+import 'progress_ring_indicator.dart';
 import 'timer_bottom_sheet.dart';
 
-class ProgressFabColumn extends StatelessWidget {
+class ProgressFabColumn extends StatefulWidget {
   const ProgressFabColumn({super.key, required this.controller});
 
   final ProgressDetailController controller;
 
   @override
+  State<ProgressFabColumn> createState() => _ProgressFabColumnState();
+}
+
+class _ProgressFabColumnState extends State<ProgressFabColumn> {
+  Timer? _tickTimer;
+  DateTime _now = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    _syncTickTimer();
+  }
+
+  @override
+  void didUpdateWidget(ProgressFabColumn oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _syncTickTimer();
+  }
+
+  @override
+  void dispose() {
+    _tickTimer?.cancel();
+    super.dispose();
+  }
+
+  void _syncTickTimer() {
+    if (widget.controller.hasActiveSession) {
+      _tickTimer ??= Timer.periodic(const Duration(seconds: 1), (_) {
+        if (!mounted) return;
+        setState(() => _now = DateTime.now());
+      });
+    } else {
+      _tickTimer?.cancel();
+      _tickTimer = null;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final showProgress = widget.controller.hasActiveSession;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        _FabWithLabel(
+        _TimerFabWithLabel(
           label: '타이머',
           color: scheme.primary,
+          innerColor: scheme.tertiary,
           icon: Icons.timer_outlined,
-          onPressed: () => TimerBottomSheet.show(context, controller),
+          showProgress: showProgress,
+          sessionProgress:
+              widget.controller.sessionProgressAt(_now),
+          stepProgress: widget.controller.stepProgressAt(_now),
+          onPressed: () =>
+              TimerBottomSheet.show(context, widget.controller),
         ),
         const SizedBox(height: 12),
         _FabWithLabel(
@@ -29,6 +77,77 @@ class ProgressFabColumn extends StatelessWidget {
           onPressed: () {
             // TODO: 계산기 FAB 동작 (steps[].calculators 연동)
           },
+        ),
+      ],
+    );
+  }
+}
+
+class _TimerFabWithLabel extends StatelessWidget {
+  const _TimerFabWithLabel({
+    required this.label,
+    required this.color,
+    required this.innerColor,
+    required this.icon,
+    required this.showProgress,
+    required this.sessionProgress,
+    required this.stepProgress,
+    required this.onPressed,
+  });
+
+  final String label;
+  final Color color;
+  final Color innerColor;
+  final IconData icon;
+  final bool showProgress;
+  final double sessionProgress;
+  final double stepProgress;
+  final VoidCallback onPressed;
+
+  static const _fabSize = 56.0;
+  static const _ringContainerSize = 72.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+
+    final fabBody = Material(
+      color: color,
+      shape: const CircleBorder(),
+      elevation: 2,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onPressed,
+        child: SizedBox(
+          width: _fabSize,
+          height: _fabSize,
+          child: Icon(icon, color: Colors.white, size: 28),
+        ),
+      ),
+    );
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (showProgress)
+          DualProgressRing(
+            size: _ringContainerSize,
+            outerProgress: sessionProgress,
+            innerProgress: stepProgress,
+            outerColor: color,
+            innerColor: innerColor,
+            backgroundColor: scheme.surfaceContainerHighest,
+            child: fabBody,
+          )
+        else
+          fabBody,
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: theme.textTheme.labelSmall?.copyWith(
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ],
     );
@@ -55,27 +174,17 @@ class _FabWithLabel extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: Colors.red.shade300,
-              width: 2,
-              strokeAlign: BorderSide.strokeAlignOutside,
-            ),
-          ),
-          child: Material(
-            color: color,
-            shape: const CircleBorder(),
-            elevation: 2,
-            child: InkWell(
-              customBorder: const CircleBorder(),
-              onTap: onPressed,
-              child: SizedBox(
-                width: 56,
-                height: 56,
-                child: Icon(icon, color: Colors.white, size: 28),
-              ),
+        Material(
+          color: color,
+          shape: const CircleBorder(),
+          elevation: 2,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onPressed,
+            child: SizedBox(
+              width: 56,
+              height: 56,
+              child: Icon(icon, color: Colors.white, size: 28),
             ),
           ),
         ),

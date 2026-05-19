@@ -64,6 +64,39 @@ class ProgressDetailController extends GetxController {
     return DateTime.now().difference(started);
   }
 
+  double sessionProgressAt(DateTime now) {
+    final listItem = recipeListItem.value;
+    final current = session.value;
+    if (listItem == null || current == null || listItem.totalTimeSec <= 0) {
+      return 0;
+    }
+    return (now.difference(current.startedAt).inSeconds / listItem.totalTimeSec)
+        .clamp(0.0, 1.0);
+  }
+
+  double stepProgressAt(DateTime now) {
+    final step = currentStep;
+    if (step == null || step.estimatedTimeSec <= 0) return 0;
+    final started = stepStartedAt(step.stepNo);
+    if (started == null) return 0;
+    return (now.difference(started).inSeconds / step.estimatedTimeSec)
+        .clamp(0.0, 1.0);
+  }
+
+  Duration sessionElapsedAt(DateTime now) {
+    final current = session.value;
+    if (current == null) return Duration.zero;
+    return now.difference(current.startedAt);
+  }
+
+  Duration stepElapsedAt(DateTime now) {
+    final step = currentStep;
+    if (step == null) return Duration.zero;
+    final started = stepStartedAt(step.stepNo);
+    if (started == null) return Duration.zero;
+    return now.difference(started);
+  }
+
   @override
   void onInit() {
     super.onInit();
