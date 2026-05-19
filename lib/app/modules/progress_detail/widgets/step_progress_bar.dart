@@ -141,7 +141,6 @@ class _StepNode extends StatelessWidget {
             style: theme.textTheme.labelSmall?.copyWith(
               color: isCurrent ? theme.colorScheme.primary : textColor,
               fontWeight: isCurrent ? FontWeight.w600 : FontWeight.normal,
-              fontSize: 10,
               height: 1.2,
             ),
           ),

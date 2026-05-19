@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProgressSession {
 
- String get sessionId; String get recipeId; int get currentStep; List<String> get checkedItems; String get startedAt; List<SessionTimer> get timers;
+ String get sessionId; String get recipeId; ProgressSessionStatus get status;@IsoDateTimeConverter() DateTime get startedAt;@IsoDateTimeConverter() DateTime get updatedAt;@IsoDateTimeConverter() DateTime? get completedAt; int get currentStepNo; List<int> get completedSteps;
 /// Create a copy of ProgressSession
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProgressSessionCopyWith<ProgressSession> get copyWith => _$ProgressSessionCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProgressSession&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.currentStep, currentStep) || other.currentStep == currentStep)&&const DeepCollectionEquality().equals(other.checkedItems, checkedItems)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&const DeepCollectionEquality().equals(other.timers, timers));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProgressSession&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.status, status) || other.status == status)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.completedAt, completedAt) || other.completedAt == completedAt)&&(identical(other.currentStepNo, currentStepNo) || other.currentStepNo == currentStepNo)&&const DeepCollectionEquality().equals(other.completedSteps, completedSteps));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,sessionId,recipeId,currentStep,const DeepCollectionEquality().hash(checkedItems),startedAt,const DeepCollectionEquality().hash(timers));
+int get hashCode => Object.hash(runtimeType,sessionId,recipeId,status,startedAt,updatedAt,completedAt,currentStepNo,const DeepCollectionEquality().hash(completedSteps));
 
 @override
 String toString() {
-  return 'ProgressSession(sessionId: $sessionId, recipeId: $recipeId, currentStep: $currentStep, checkedItems: $checkedItems, startedAt: $startedAt, timers: $timers)';
+  return 'ProgressSession(sessionId: $sessionId, recipeId: $recipeId, status: $status, startedAt: $startedAt, updatedAt: $updatedAt, completedAt: $completedAt, currentStepNo: $currentStepNo, completedSteps: $completedSteps)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ProgressSessionCopyWith<$Res>  {
   factory $ProgressSessionCopyWith(ProgressSession value, $Res Function(ProgressSession) _then) = _$ProgressSessionCopyWithImpl;
 @useResult
 $Res call({
- String sessionId, String recipeId, int currentStep, List<String> checkedItems, String startedAt, List<SessionTimer> timers
+ String sessionId, String recipeId, ProgressSessionStatus status,@IsoDateTimeConverter() DateTime startedAt,@IsoDateTimeConverter() DateTime updatedAt,@IsoDateTimeConverter() DateTime? completedAt, int currentStepNo, List<int> completedSteps
 });
 
 
@@ -65,15 +65,17 @@ class _$ProgressSessionCopyWithImpl<$Res>
 
 /// Create a copy of ProgressSession
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? sessionId = null,Object? recipeId = null,Object? currentStep = null,Object? checkedItems = null,Object? startedAt = null,Object? timers = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? sessionId = null,Object? recipeId = null,Object? status = null,Object? startedAt = null,Object? updatedAt = null,Object? completedAt = freezed,Object? currentStepNo = null,Object? completedSteps = null,}) {
   return _then(_self.copyWith(
 sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,recipeId: null == recipeId ? _self.recipeId : recipeId // ignore: cast_nullable_to_non_nullable
-as String,currentStep: null == currentStep ? _self.currentStep : currentStep // ignore: cast_nullable_to_non_nullable
-as int,checkedItems: null == checkedItems ? _self.checkedItems : checkedItems // ignore: cast_nullable_to_non_nullable
-as List<String>,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
-as String,timers: null == timers ? _self.timers : timers // ignore: cast_nullable_to_non_nullable
-as List<SessionTimer>,
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as ProgressSessionStatus,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,completedAt: freezed == completedAt ? _self.completedAt : completedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,currentStepNo: null == currentStepNo ? _self.currentStepNo : currentStepNo // ignore: cast_nullable_to_non_nullable
+as int,completedSteps: null == completedSteps ? _self.completedSteps : completedSteps // ignore: cast_nullable_to_non_nullable
+as List<int>,
   ));
 }
 
@@ -158,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sessionId,  String recipeId,  int currentStep,  List<String> checkedItems,  String startedAt,  List<SessionTimer> timers)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sessionId,  String recipeId,  ProgressSessionStatus status, @IsoDateTimeConverter()  DateTime startedAt, @IsoDateTimeConverter()  DateTime updatedAt, @IsoDateTimeConverter()  DateTime? completedAt,  int currentStepNo,  List<int> completedSteps)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProgressSession() when $default != null:
-return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedItems,_that.startedAt,_that.timers);case _:
+return $default(_that.sessionId,_that.recipeId,_that.status,_that.startedAt,_that.updatedAt,_that.completedAt,_that.currentStepNo,_that.completedSteps);case _:
   return orElse();
 
 }
@@ -179,10 +181,10 @@ return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedIt
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sessionId,  String recipeId,  int currentStep,  List<String> checkedItems,  String startedAt,  List<SessionTimer> timers)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sessionId,  String recipeId,  ProgressSessionStatus status, @IsoDateTimeConverter()  DateTime startedAt, @IsoDateTimeConverter()  DateTime updatedAt, @IsoDateTimeConverter()  DateTime? completedAt,  int currentStepNo,  List<int> completedSteps)  $default,) {final _that = this;
 switch (_that) {
 case _ProgressSession():
-return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedItems,_that.startedAt,_that.timers);case _:
+return $default(_that.sessionId,_that.recipeId,_that.status,_that.startedAt,_that.updatedAt,_that.completedAt,_that.currentStepNo,_that.completedSteps);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +201,10 @@ return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedIt
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sessionId,  String recipeId,  int currentStep,  List<String> checkedItems,  String startedAt,  List<SessionTimer> timers)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sessionId,  String recipeId,  ProgressSessionStatus status, @IsoDateTimeConverter()  DateTime startedAt, @IsoDateTimeConverter()  DateTime updatedAt, @IsoDateTimeConverter()  DateTime? completedAt,  int currentStepNo,  List<int> completedSteps)?  $default,) {final _that = this;
 switch (_that) {
 case _ProgressSession() when $default != null:
-return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedItems,_that.startedAt,_that.timers);case _:
+return $default(_that.sessionId,_that.recipeId,_that.status,_that.startedAt,_that.updatedAt,_that.completedAt,_that.currentStepNo,_that.completedSteps);case _:
   return null;
 
 }
@@ -214,25 +216,21 @@ return $default(_that.sessionId,_that.recipeId,_that.currentStep,_that.checkedIt
 @JsonSerializable()
 
 class _ProgressSession implements ProgressSession {
-  const _ProgressSession({required this.sessionId, required this.recipeId, required this.currentStep, final  List<String> checkedItems = const [], this.startedAt = '', final  List<SessionTimer> timers = const []}): _checkedItems = checkedItems,_timers = timers;
+  const _ProgressSession({required this.sessionId, required this.recipeId, required this.status, @IsoDateTimeConverter() required this.startedAt, @IsoDateTimeConverter() required this.updatedAt, @IsoDateTimeConverter() this.completedAt, required this.currentStepNo, final  List<int> completedSteps = const []}): _completedSteps = completedSteps;
   factory _ProgressSession.fromJson(Map<String, dynamic> json) => _$ProgressSessionFromJson(json);
 
 @override final  String sessionId;
 @override final  String recipeId;
-@override final  int currentStep;
- final  List<String> _checkedItems;
-@override@JsonKey() List<String> get checkedItems {
-  if (_checkedItems is EqualUnmodifiableListView) return _checkedItems;
+@override final  ProgressSessionStatus status;
+@override@IsoDateTimeConverter() final  DateTime startedAt;
+@override@IsoDateTimeConverter() final  DateTime updatedAt;
+@override@IsoDateTimeConverter() final  DateTime? completedAt;
+@override final  int currentStepNo;
+ final  List<int> _completedSteps;
+@override@JsonKey() List<int> get completedSteps {
+  if (_completedSteps is EqualUnmodifiableListView) return _completedSteps;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_checkedItems);
-}
-
-@override@JsonKey() final  String startedAt;
- final  List<SessionTimer> _timers;
-@override@JsonKey() List<SessionTimer> get timers {
-  if (_timers is EqualUnmodifiableListView) return _timers;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_timers);
+  return EqualUnmodifiableListView(_completedSteps);
 }
 
 
@@ -249,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProgressSession&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.currentStep, currentStep) || other.currentStep == currentStep)&&const DeepCollectionEquality().equals(other._checkedItems, _checkedItems)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&const DeepCollectionEquality().equals(other._timers, _timers));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProgressSession&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.status, status) || other.status == status)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.completedAt, completedAt) || other.completedAt == completedAt)&&(identical(other.currentStepNo, currentStepNo) || other.currentStepNo == currentStepNo)&&const DeepCollectionEquality().equals(other._completedSteps, _completedSteps));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,sessionId,recipeId,currentStep,const DeepCollectionEquality().hash(_checkedItems),startedAt,const DeepCollectionEquality().hash(_timers));
+int get hashCode => Object.hash(runtimeType,sessionId,recipeId,status,startedAt,updatedAt,completedAt,currentStepNo,const DeepCollectionEquality().hash(_completedSteps));
 
 @override
 String toString() {
-  return 'ProgressSession(sessionId: $sessionId, recipeId: $recipeId, currentStep: $currentStep, checkedItems: $checkedItems, startedAt: $startedAt, timers: $timers)';
+  return 'ProgressSession(sessionId: $sessionId, recipeId: $recipeId, status: $status, startedAt: $startedAt, updatedAt: $updatedAt, completedAt: $completedAt, currentStepNo: $currentStepNo, completedSteps: $completedSteps)';
 }
 
 
@@ -269,7 +267,7 @@ abstract mixin class _$ProgressSessionCopyWith<$Res> implements $ProgressSession
   factory _$ProgressSessionCopyWith(_ProgressSession value, $Res Function(_ProgressSession) _then) = __$ProgressSessionCopyWithImpl;
 @override @useResult
 $Res call({
- String sessionId, String recipeId, int currentStep, List<String> checkedItems, String startedAt, List<SessionTimer> timers
+ String sessionId, String recipeId, ProgressSessionStatus status,@IsoDateTimeConverter() DateTime startedAt,@IsoDateTimeConverter() DateTime updatedAt,@IsoDateTimeConverter() DateTime? completedAt, int currentStepNo, List<int> completedSteps
 });
 
 
@@ -286,15 +284,17 @@ class __$ProgressSessionCopyWithImpl<$Res>
 
 /// Create a copy of ProgressSession
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? sessionId = null,Object? recipeId = null,Object? currentStep = null,Object? checkedItems = null,Object? startedAt = null,Object? timers = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? sessionId = null,Object? recipeId = null,Object? status = null,Object? startedAt = null,Object? updatedAt = null,Object? completedAt = freezed,Object? currentStepNo = null,Object? completedSteps = null,}) {
   return _then(_ProgressSession(
 sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,recipeId: null == recipeId ? _self.recipeId : recipeId // ignore: cast_nullable_to_non_nullable
-as String,currentStep: null == currentStep ? _self.currentStep : currentStep // ignore: cast_nullable_to_non_nullable
-as int,checkedItems: null == checkedItems ? _self._checkedItems : checkedItems // ignore: cast_nullable_to_non_nullable
-as List<String>,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
-as String,timers: null == timers ? _self._timers : timers // ignore: cast_nullable_to_non_nullable
-as List<SessionTimer>,
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as ProgressSessionStatus,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,completedAt: freezed == completedAt ? _self.completedAt : completedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,currentStepNo: null == currentStepNo ? _self.currentStepNo : currentStepNo // ignore: cast_nullable_to_non_nullable
+as int,completedSteps: null == completedSteps ? _self._completedSteps : completedSteps // ignore: cast_nullable_to_non_nullable
+as List<int>,
   ));
 }
 

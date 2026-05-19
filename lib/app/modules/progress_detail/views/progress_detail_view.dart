@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/services/swipe_step_navigation_service.dart';
+import '../../../core/widgets/app_primary_button.dart';
+import '../../../data/models/enums/progress_session_status.dart';
+import '../../../data/models/recipe_step.dart';
 import '../controllers/progress_detail_controller.dart';
 import '../widgets/deduction_points_card.dart';
 import '../widgets/ingredients_bottom_sheet.dart';
@@ -55,6 +59,9 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
           return const Center(child: Text('단계 정보가 없습니다.'));
         }
 
+        final swipeService = Get.find<SwipeStepNavigationService>();
+        final swipeEnabled = swipeService.swipeStepNavigationEnabled.value;
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -68,45 +75,102 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
             ),
             StepHeader(step: step),
             Expanded(
-              child: _ProgressDetailScrollBody(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    StepImage(
-                      key: ValueKey(step.imageUrl),
-                      imageSource: controller.stepImageUrl(step),
-                    ),
-                    StepDescription(descriptions: step.description),
-                    StepChecklist(
-                      items: step.checklist,
-                      checkedCount: controller.checkedCountForCurrentStep,
-                      isChecked: controller.isChecked,
-                      onToggle: controller.toggleChecklist,
-                    ),
-                    DeductionPointsCard(points: step.deductionPoints),
-                    const SizedBox(height: 80),
-                  ],
-                ),
+              child: PageView.builder(
+                controller: controller.pageController,
+                physics: swipeEnabled
+                    ? const ClampingScrollPhysics()
+                    : const NeverScrollableScrollPhysics(),
+                onPageChanged: controller.onPageChanged,
+                itemCount: detail.steps.length,
+                itemBuilder: (context, index) {
+                  final pageStep = detail.steps[index];
+                  return _StepPageContent(
+                    stepIndex: index,
+                    step: pageStep,
+                    controller: controller,
+                  );
+                },
               ),
             ),
           ],
         );
       }),
-      bottomNavigationBar: Obx(
-        () => ProgressBottomBar(
+      bottomNavigationBar: Obx(() {
+        final active = controller.session.value?.status;
+        if (active != ProgressSessionStatus.inProgress) {
+          return SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+              child: AppPrimaryButton(
+                label: '실기 시작',
+                onPressed: controller.startPractice,
+                height: 48,
+                borderRadius: 8,
+              ),
+            ),
+          );
+        }
+
+        return ProgressBottomBar(
           canGoPrevious: controller.canGoPrevious,
-          canGoNext: controller.canGoNext,
+          canGoNext: true,
+          isLastStep: controller.isLastStep,
           onPrevious: controller.goToPreviousStep,
           onNext: controller.goToNextStep,
-        ),
-      ),
+        );
+      }),
     );
   }
 }
 
-class _ProgressDetailScrollBody extends StatefulWidget {
-  const _ProgressDetailScrollBody({required this.child});
+class _StepPageContent extends StatelessWidget {
+  const _StepPageContent({
+    required this.stepIndex,
+    required this.step,
+    required this.controller,
+  });
 
+  final int stepIndex;
+  final RecipeStep step;
+  final ProgressDetailController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() {
+      final checkedCount = controller.checkedCountForStep(step);
+      return _ProgressDetailScrollBody(
+        stepIndex: stepIndex,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            StepImage(
+              key: ValueKey(step.imageUrl),
+              imageSource: controller.stepImageUrl(step),
+            ),
+            StepDescription(descriptions: step.description),
+            StepChecklist(
+              items: step.checklist,
+              checkedCount: checkedCount,
+              isChecked: controller.isChecked,
+              onToggle: controller.toggleChecklist,
+            ),
+            DeductionPointsCard(points: step.deductionPoints),
+            const SizedBox(height: 80),
+          ],
+        ),
+      );
+    });
+  }
+}
+
+class _ProgressDetailScrollBody extends StatefulWidget {
+  const _ProgressDetailScrollBody({
+    required this.stepIndex,
+    required this.child,
+  });
+
+  final int stepIndex;
   final Widget child;
 
   @override
@@ -126,7 +190,11 @@ class _ProgressDetailScrollBodyState extends State<_ProgressDetailScrollBody> {
     _controller = Get.find<ProgressDetailController>();
     _lastStepIndex = _controller.currentStepIndex.value;
     _stepIndexWorker = ever<int>(_controller.currentStepIndex, (index) {
-      if (index != _lastStepIndex) {
+      if (index != widget.stepIndex) {
+        _lastStepIndex = index;
+        return;
+      }
+      if (_lastStepIndex != index) {
         _lastStepIndex = index;
         _scrollToTop();
       }

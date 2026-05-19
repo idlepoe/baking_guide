@@ -5,6 +5,7 @@ export 'enums/calculator_kind.dart';
 export 'enums/deduction_severity.dart';
 export 'enums/ingredient_category.dart';
 export 'enums/mixing_method.dart';
+export 'enums/progress_session_status.dart';
 export 'enums/step_image_type.dart';
 export 'enums/temperature_unit.dart';
 export 'enums/timer_kind.dart';

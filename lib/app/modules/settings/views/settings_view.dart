@@ -99,21 +99,21 @@ class SettingsView extends GetView<SettingsController> {
               onChanged: controller.setKeepScreenOn,
             ),
           ),
-          _SettingsNavigateTile(
-            icon: Icons.text_fields_outlined,
-            title: '글자 크기',
-            trailingText: '중간',
-            onTap: () {
-              // TODO: 글자 크기 설정
-            },
+          Obx(
+            () => _SettingsNavigateTile(
+              icon: Icons.text_fields_outlined,
+              title: '글자 크기',
+              trailingText: controller.selectedFontSizeLabel,
+              onTap: () => controller.showFontSizePicker(context),
+            ),
           ),
-          _SettingsSwitchTile(
-            icon: Icons.swipe_outlined,
-            title: '좌우 스와이프로 단계 이동',
-            value: true,
-            onChanged: (_) {
-              // TODO: 좌우 스와이프로 단계 이동
-            },
+          Obx(
+            () => _SettingsSwitchTile(
+              icon: Icons.swipe_outlined,
+              title: '좌우 스와이프로 단계 이동',
+              value: controller.swipeStepNavigation.value,
+              onChanged: controller.setSwipeStepNavigation,
+            ),
           ),
           _SettingsNavigateTile(
             icon: Icons.view_module_outlined,

@@ -9,10 +9,12 @@ class ProgressBottomBar extends StatelessWidget {
     required this.canGoNext,
     required this.onPrevious,
     required this.onNext,
+    this.isLastStep = false,
   });
 
   final bool canGoPrevious;
   final bool canGoNext;
+  final bool isLastStep;
   final VoidCallback onPrevious;
   final VoidCallback onNext;
 
@@ -37,8 +39,8 @@ class ProgressBottomBar extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: AppPrimaryButton(
-                label: '다음 단계',
-                onPressed: canGoNext ? onNext : null,
+                label: isLastStep ? '완료' : '다음 단계',
+                onPressed: onNext,
                 height: 48,
                 borderRadius: 8,
               ),
