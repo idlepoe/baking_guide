@@ -18,6 +18,6 @@ export 'recipe_ingredient.dart';
 export 'recipe_list_item.dart';
 export 'recipe_step.dart';
 export 'recipe_summary.dart';
-export 'session_timer.dart';
+export 'practice_timer.dart';
 export 'step_image.dart';
 export 'step_timer.dart';

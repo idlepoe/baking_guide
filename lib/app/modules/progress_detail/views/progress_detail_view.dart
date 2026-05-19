@@ -43,7 +43,7 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
           ),
         ],
       ),
-      floatingActionButton: const ProgressFabColumn(),
+      floatingActionButton: ProgressFabColumn(controller: controller),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Obx(() {
         if (controller.isLoading.value) {

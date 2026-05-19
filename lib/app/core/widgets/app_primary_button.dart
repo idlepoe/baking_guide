@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 /// 전체 너비 기본 액션 버튼.
 class AppPrimaryButton extends StatelessWidget {
+  static const double defaultHeight = 56;
+
   const AppPrimaryButton({
     super.key,
     required this.label,
     required this.onPressed,
     this.backgroundColor,
     this.foregroundColor,
-    this.height = 56,
+    this.height = defaultHeight,
     this.borderRadius = 12,
   });
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/datetime_format.dart';
+import '../../../core/utils/duration_format.dart';
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../core/utils/network_image_url.dart';
 import '../../../routes/app_pages.dart';
@@ -103,6 +104,7 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
                     _SessionTimeProgressBar(
                       startedAt: item.session.startedAt,
                       estimatedEndAt: item.estimatedEndAt,
+                      completedAt: item.session.completedAt,
                       isInProgress: item.session.status ==
                           ProgressSessionStatus.inProgress,
                     ),
@@ -129,10 +131,12 @@ class _SessionTimeProgressBar extends StatefulWidget {
     required this.startedAt,
     required this.estimatedEndAt,
     required this.isInProgress,
+    this.completedAt,
   });
 
   final DateTime startedAt;
   final DateTime estimatedEndAt;
+  final DateTime? completedAt;
   final bool isInProgress;
 
   @override
@@ -173,6 +177,14 @@ class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
 
   bool get _isOvertime =>
       widget.isInProgress && DateTime.now().isAfter(widget.estimatedEndAt);
+
+  DateTime get _elapsedEnd {
+    if (widget.isInProgress) return DateTime.now();
+    return widget.completedAt ?? widget.estimatedEndAt;
+  }
+
+  Duration get _elapsedDuration =>
+      _elapsedEnd.difference(widget.startedAt);
 
   @override
   Widget build(BuildContext context) {
@@ -217,6 +229,16 @@ class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
         Row(
           children: [
             Text('시작 ${formatSessionDateTime(widget.startedAt)}', style: labelStyle),
+            const Spacer(),
+            Text(
+              widget.isInProgress
+                  ? '진행 ${formatClockDuration(_elapsedDuration)}'
+                  : '소요 ${formatClockDuration(_elapsedDuration)}',
+              style: labelStyle?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: theme.colorScheme.primary,
+              ),
+            ),
             const Spacer(),
             Text(
               _isOvertime

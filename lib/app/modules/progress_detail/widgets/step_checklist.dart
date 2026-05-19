@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/app_primary_button.dart';
 import '../../../data/models/checklist_item.dart';
 
 class StepChecklist extends StatelessWidget {
@@ -88,10 +89,12 @@ class _ChecklistTile extends StatelessWidget {
         child: InkWell(
           onTap: onToggle,
           borderRadius: BorderRadius.circular(8),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-            child: Row(
-              children: [
+          child: SizedBox(
+            height: AppPrimaryButton.defaultHeight,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                children: [
                 Icon(
                   checked ? Icons.check_box : Icons.check_box_outline_blank,
                   color: checked ? Colors.white : theme.colorScheme.onSurface,
@@ -108,7 +111,8 @@ class _ChecklistTile extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -40,6 +40,29 @@ class ProgressDetailController extends GetxController {
   bool get hasActiveSession =>
       session.value?.status == ProgressSessionStatus.inProgress;
 
+  DateTime? stepStartedAt(int stepNo) {
+    final current = session.value;
+    if (current == null) return null;
+    for (final entry in current.steps) {
+      if (entry.stepNo == stepNo) return entry.startedAt;
+    }
+    return null;
+  }
+
+  Duration get sessionElapsed {
+    final current = session.value;
+    if (current == null) return Duration.zero;
+    return DateTime.now().difference(current.startedAt);
+  }
+
+  Duration get currentStepElapsed {
+    final step = currentStep;
+    if (step == null) return Duration.zero;
+    final started = stepStartedAt(step.stepNo);
+    if (started == null) return Duration.zero;
+    return DateTime.now().difference(started);
+  }
+
   @override
   void onInit() {
     super.onInit();

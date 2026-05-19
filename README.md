@@ -46,3 +46,21 @@ ProgressBottomBar의 next가 눌러질때마다 currentStepNo를 갱신해줘.
 ProgressBottomBar의 마지막 '다음 단계' 버튼은 status 를 completed 로 변경하고 저장하고 화면을 나가는 것으로 해줘.
 
 그리고 해당 저장 정보는 progressList에 표시하는 것으로 하고 recipe의 thumbnailUrl, name, 시작시간, 예상완료시간, 현재 단계를 표시해줘.
+
+## Timer (SharedPreferences: `practice_timers`)
+
+실기 중 단계별 발효 타이머 등을 저장한다. Android는 `android_alarm_manager_plus`, iOS는 `flutter_local_notifications` 예약으로 만료 시 푸시를 보낸다.
+
+```json
+{
+  "timerId": "uuid",
+  "sessionId": "session_uuid",
+  "type": "fermentation",
+  "durationSec": 3000,
+  "startedAt": "2026-05-19T10:00:00Z",
+  "endsAt": "2026-05-19T10:50:00Z",
+  "notificationEnabled": true
+}
+```
+
+- `timer_alarm_map`: Android 알람 ID → `timerId` 매핑 (Timer JSON과 별도)

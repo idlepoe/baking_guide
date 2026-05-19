@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'app/data/repositories/progress_session_repository.dart';
+import 'app/data/repositories/timer_repository.dart';
 import 'app/core/services/font_scale_service.dart';
+import 'app/core/services/timer_schedule_service.dart';
 import 'app/core/services/swipe_step_navigation_service.dart';
 import 'app/core/services/wakelock_service.dart';
 import 'app/core/storage/font_scale_preferences.dart';
@@ -14,6 +16,7 @@ import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await TimerScheduleService.ensureInitialized();
 
   final themePreferences = ThemePreferences();
   final screenWakePreferences = ScreenWakePreferences();
@@ -28,6 +31,8 @@ Future<void> main() async {
   final initialFontScale = await fontScalePreferences.loadFontScale();
 
   Get.put(ProgressSessionRepository(), permanent: true);
+  Get.put(TimerRepository(), permanent: true);
+  Get.put(TimerScheduleService(), permanent: true);
   Get.put(themePreferences, permanent: true);
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);

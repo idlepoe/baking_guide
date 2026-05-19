@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../controllers/progress_detail_controller.dart';
+import 'timer_bottom_sheet.dart';
+
 class ProgressFabColumn extends StatelessWidget {
-  const ProgressFabColumn({super.key});
+  const ProgressFabColumn({super.key, required this.controller});
+
+  final ProgressDetailController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +19,7 @@ class ProgressFabColumn extends StatelessWidget {
           label: '타이머',
           color: scheme.primary,
           icon: Icons.timer_outlined,
-          onPressed: () {
-            // TODO: 타이머 FAB 동작 (steps[].timers 연동)
-          },
+          onPressed: () => TimerBottomSheet.show(context, controller),
         ),
         const SizedBox(height: 12),
         _FabWithLabel(
