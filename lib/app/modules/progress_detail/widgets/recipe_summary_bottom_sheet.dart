@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import '../../../core/utils/app_snackbar.dart';
 import '../../../core/utils/duration_format.dart';
 import '../../../core/utils/network_image_url.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
@@ -37,7 +37,11 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
       final detail = controller.recipe.value;
       final listItem = controller.recipeListItem.value;
       if (detail == null || listItem == null) {
-        Get.snackbar('안내', '레시피 정보를 불러올 수 없습니다.');
+        AppSnackbar.show(
+          context: context,
+          title: '안내',
+          message: '레시피 정보를 불러올 수 없습니다.',
+        );
         return;
       }
 

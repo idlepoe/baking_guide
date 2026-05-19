@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/utils/app_snackbar.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../core/utils/ingredient_format.dart';
@@ -30,7 +31,11 @@ class IngredientsBottomSheet extends StatelessWidget {
 
       final ingredients = controller.recipe.value?.ingredients ?? [];
       if (ingredients.isEmpty) {
-        Get.snackbar('안내', '등록된 재료가 없습니다.');
+        AppSnackbar.show(
+          context: context,
+          title: '안내',
+          message: '등록된 재료가 없습니다.',
+        );
         return;
       }
 

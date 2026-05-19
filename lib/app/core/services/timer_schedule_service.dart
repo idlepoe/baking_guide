@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:timezone/data/latest_all.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
@@ -11,8 +12,11 @@ import '../../data/models/progress_session.dart';
 import '../../data/models/step_timer.dart';
 import '../../data/repositories/timer_repository.dart';
 import 'alarm_callback.dart';
+import 'android_alarm_bootstrap.dart';
+import 'exact_alarm_permission.dart';
 import 'notification_service.dart';
 import 'timer_alarm_handler.dart';
+import 'timer_notify_log.dart';
 
 class TimerScheduleService extends GetxService {
   TimerScheduleService({
@@ -33,8 +37,14 @@ class TimerScheduleService extends GetxService {
     tz.setLocalLocation(tz.getLocation('Asia/Seoul'));
     await NotificationService.instance.init();
     if (Platform.isAndroid) {
-      await AndroidAlarmManager.initialize();
+      await AndroidAlarmBootstrap.ensureReady();
     }
+  }
+
+  /// 타이머 바텀시트 진입 시 호출 권장.
+  static Future<bool> prepareAndroidScheduling() async {
+    if (!Platform.isAndroid) return true;
+    return ExactAlarmPermission.ensureGranted();
   }
 
   TimerDisplayContext? displayContextFor(String timerId) =>
@@ -56,13 +66,18 @@ class TimerScheduleService extends GetxService {
     );
   }
 
-  Future<PracticeTimer> startTimer({
+  /// 타이머를 저장하고 플랫폼 알람/알림을 예약한다. 실패 시 롤백 후 `false`.
+  Future<bool> startTimer({
     required ProgressSession session,
     required int stepNo,
     required StepTimer preset,
     required String recipeName,
     bool notificationEnabled = true,
   }) async {
+    if (notificationEnabled && Platform.isAndroid) {
+      await ExactAlarmPermission.ensureGranted();
+    }
+
     final active = await _timerRepository.findActiveBySession(session.sessionId);
     final existing = _timerRepository.findActiveForPreset(
       activeTimers: active,
@@ -93,19 +108,37 @@ class TimerScheduleService extends GetxService {
       recipeName: recipeName,
     );
 
-    if (notificationEnabled) {
-      await _schedulePlatform(
-        timer: timer,
-        recipeName: recipeName,
-        timerLabel: preset.label,
-      );
+    if (!notificationEnabled) {
+      TimerNotifyLog.d('startTimer timerId=$timerId notifications disabled');
+      return true;
     }
 
-    return timer;
+    TimerNotifyLog.d(
+      'startTimer timerId=$timerId endsAt=${endsAt.toIso8601String()} '
+      'durationSec=${preset.durationSec} label=${preset.label}',
+    );
+    final scheduled = await _schedulePlatform(
+      timer: timer,
+      recipeName: recipeName,
+      timerLabel: preset.label,
+    );
+    if (!scheduled) {
+      TimerNotifyLog.w('startTimer schedule failed, rolling back timerId=$timerId');
+      await cancelTimer(timerId);
+      return false;
+    }
+
+    await _showOngoingForTimer(
+      timer: timer,
+      recipeName: recipeName,
+      timerLabel: preset.label,
+    );
+    return true;
   }
 
   Future<void> cancelTimer(String timerId) async {
     final alarmId = NotificationService.notificationIdFor(timerId);
+    await _notificationService.dismissTimerOngoing(timerId);
     if (Platform.isAndroid) {
       await AndroidAlarmManager.cancel(alarmId);
       await _timerRepository.removeAlarmMapping(alarmId);
@@ -115,7 +148,7 @@ class TimerScheduleService extends GetxService {
     _displayByTimerId.remove(timerId);
   }
 
-  Future<void> _schedulePlatform({
+  Future<bool> _schedulePlatform({
     required PracticeTimer timer,
     required String recipeName,
     required String timerLabel,
@@ -124,16 +157,61 @@ class TimerScheduleService extends GetxService {
 
     if (Platform.isAndroid) {
       await _timerRepository.putAlarmMapping(notificationId, timer.timerId);
-      await AndroidAlarmManager.oneShotAt(
-        timer.endsAt,
-        notificationId,
-        onPracticeTimerAlarm,
-        exact: true,
-        wakeup: true,
-        rescheduleOnReboot: true,
+      final canExact = await ExactAlarmPermission.isGranted();
+      TimerNotifyLog.d(
+        '_schedulePlatform Android timerId=${timer.timerId} '
+        'notificationId=$notificationId canExact=$canExact '
+        'bootstrapReady=${AndroidAlarmBootstrap.isReady}',
       );
-    } else if (Platform.isIOS || Platform.isMacOS) {
-      await _notificationService.scheduleTimerComplete(
+
+      var alarmOk = false;
+      await AndroidAlarmBootstrap.ensureReady();
+      if (AndroidAlarmBootstrap.isReady) {
+        if (canExact) {
+          alarmOk = await AndroidAlarmManager.oneShotAt(
+            timer.endsAt,
+            notificationId,
+            onPracticeTimerAlarm,
+            exact: true,
+            wakeup: true,
+            rescheduleOnReboot: true,
+          );
+        } else {
+          alarmOk = await AndroidAlarmManager.oneShotAt(
+            timer.endsAt,
+            notificationId,
+            onPracticeTimerAlarm,
+            exact: false,
+            allowWhileIdle: true,
+            wakeup: true,
+            rescheduleOnReboot: false,
+          );
+        }
+        TimerNotifyLog.d(
+          '_schedulePlatform oneShotAt alarmOk=$alarmOk exact=$canExact',
+        );
+      } else {
+        TimerNotifyLog.w('_schedulePlatform skipped AlarmManager (not ready)');
+      }
+
+      final notifOk = await _notificationService.scheduleTimerComplete(
+        notificationId: notificationId,
+        endsAt: timer.endsAt,
+        recipeName: recipeName,
+        timerLabel: timerLabel,
+        payload: timer.timerId,
+        androidScheduleMode: canExact
+            ? AndroidScheduleMode.exactAllowWhileIdle
+            : AndroidScheduleMode.inexactAllowWhileIdle,
+      );
+
+      TimerNotifyLog.d(
+        '_schedulePlatform result alarmOk=$alarmOk notifOk=$notifOk',
+      );
+      return alarmOk || notifOk;
+    }
+    if (Platform.isIOS || Platform.isMacOS) {
+      return _notificationService.scheduleTimerComplete(
         notificationId: notificationId,
         endsAt: timer.endsAt,
         recipeName: recipeName,
@@ -141,14 +219,60 @@ class TimerScheduleService extends GetxService {
         payload: timer.timerId,
       );
     }
+    return true;
   }
 
   Future<void> syncExpiredTimers() async {
     final all = await _timerRepository.loadAll();
     final now = DateTime.now();
+    var expiredCount = 0;
     for (final timer in all) {
       if (timer.endsAt.isAfter(now)) continue;
+      expiredCount++;
+      TimerNotifyLog.d(
+        'syncExpiredTimers expired timerId=${timer.timerId} '
+        'endsAt=${timer.endsAt.toIso8601String()}',
+      );
       await TimerAlarmHandler.handleTimerId(timer.timerId);
     }
+    if (expiredCount == 0) {
+      TimerNotifyLog.d('syncExpiredTimers no expired timers (count=${all.length})');
+    } else {
+      TimerNotifyLog.d('syncExpiredTimers handled $expiredCount expired timer(s)');
+    }
+    await refreshOngoingNotifications();
+  }
+
+  /// 앱 재시작·동기화 후 실행 중 타이머 알림을 복구한다.
+  Future<void> refreshOngoingNotifications() async {
+    final all = await _timerRepository.loadAll();
+    final now = DateTime.now();
+    for (final timer in all) {
+      if (!timer.notificationEnabled || !timer.endsAt.isAfter(now)) {
+        await _notificationService.dismissTimerOngoing(timer.timerId);
+        continue;
+      }
+      final ctx = _displayByTimerId[timer.timerId] ??
+          await TimerAlarmHandler.resolveDisplayContext(timer);
+      await _showOngoingForTimer(
+        timer: timer,
+        recipeName: ctx?.recipeName ?? '레시피',
+        timerLabel: ctx?.label ?? TimerAlarmHandler.fallbackLabel(timer),
+      );
+    }
+  }
+
+  Future<void> _showOngoingForTimer({
+    required PracticeTimer timer,
+    required String recipeName,
+    required String timerLabel,
+  }) async {
+    if (!timer.notificationEnabled) return;
+    await _notificationService.showTimerOngoing(
+      timerId: timer.timerId,
+      endsAt: timer.endsAt,
+      recipeName: recipeName,
+      timerLabel: timerLabel,
+    );
   }
 }

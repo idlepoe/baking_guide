@@ -115,7 +115,23 @@
         { "severity": "medium", "text": "계량 오차 주의" },
         { "severity": "low", "text": "정리 상태 불량 감점" }
       ],
-      "timers": [],
+      "timers": [
+        {
+          "type": "step",
+          "label": "1차 계량",
+          "durationSec": 60
+        },
+        {
+          "type": "step",
+          "label": "2차 계량",
+          "durationSec": 1800
+        },
+        {
+          "type": "step",
+          "label": "3차 계량",
+          "durationSec": 1200
+        }
+      ],
       "calculators": [],
       "images": []
     },

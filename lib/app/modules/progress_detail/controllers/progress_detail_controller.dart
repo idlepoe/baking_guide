@@ -10,6 +10,7 @@ import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_step.dart';
 import '../../../data/repositories/progress_session_repository.dart';
 import '../../../data/repositories/recipe_repository.dart';
+import '../../../core/utils/app_snackbar.dart';
 import '../../../routes/app_pages.dart';
 
 class ProgressDetailController extends GetxController {
@@ -149,7 +150,7 @@ class ProgressDetailController extends GetxController {
   void _handleLoadFailure(String message) {
     isLoading.value = false;
     hasError.value = true;
-    Get.snackbar('오류', message);
+    AppSnackbar.show(title: '오류', message: message);
     Future.microtask(() => Get.offAllNamed(Routes.HOME));
   }
 

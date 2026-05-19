@@ -9,6 +9,7 @@ import '../../data/repositories/progress_session_repository.dart';
 import '../../data/repositories/recipe_repository.dart';
 import '../../data/repositories/timer_repository.dart';
 import 'notification_service.dart';
+import 'timer_notify_log.dart';
 
 class TimerDisplayContext {
   const TimerDisplayContext({
@@ -24,38 +25,75 @@ class TimerDisplayContext {
 
 class TimerAlarmHandler {
   static Future<void> handleAlarm(int alarmId) async {
+    TimerNotifyLog.d('handleAlarm start alarmId=$alarmId');
     WidgetsFlutterBinding.ensureInitialized();
+    await NotificationService.instance.initFromBackground();
 
     final timerRepo = TimerRepository();
     final timerId = await timerRepo.findTimerIdByAlarmId(alarmId);
-    if (timerId == null) return;
+    if (timerId == null) {
+      TimerNotifyLog.w(
+        'handleAlarm no timerId for alarmId=$alarmId (mapping missing?)',
+      );
+      return;
+    }
 
-    await _completeTimer(timerId, timerRepo);
+    TimerNotifyLog.d('handleAlarm resolved timerId=$timerId');
+    await _completeTimer(timerId, timerRepo, source: 'alarm');
   }
 
   static Future<void> handleTimerId(String timerId) async {
+    TimerNotifyLog.d('handleTimerId start timerId=$timerId');
     WidgetsFlutterBinding.ensureInitialized();
-    await _completeTimer(timerId, TimerRepository());
+    await _completeTimer(timerId, TimerRepository(), source: 'sync');
   }
 
   static Future<void> _completeTimer(
     String timerId,
-    TimerRepository timerRepo,
-  ) async {
+    TimerRepository timerRepo, {
+    required String source,
+  }) async {
     final timer = await timerRepo.findByTimerId(timerId);
-    if (timer == null) return;
+    if (timer == null) {
+      TimerNotifyLog.w(
+        'completeTimer [$source] timer not found timerId=$timerId',
+      );
+      return;
+    }
+
+    final now = DateTime.now();
+    TimerNotifyLog.d(
+      'completeTimer [$source] timerId=$timerId '
+      'endsAt=${timer.endsAt.toIso8601String()} now=${now.toIso8601String()} '
+      'notificationEnabled=${timer.notificationEnabled} '
+      'platform=${Platform.operatingSystem}',
+    );
 
     final context = await resolveDisplayContext(timer);
     final recipeName = context?.recipeName ?? '레시피';
     final label = context?.label ?? _fallbackLabel(timer);
 
+    await NotificationService.instance.dismissTimerOngoing(timerId);
+    TimerNotifyLog.d('completeTimer [$source] dismissed ongoing notification');
+
     // iOS는 zonedSchedule로 이미 알림이 예약·표시되므로, 동기화 시에는 제거만 한다.
     if (timer.notificationEnabled && Platform.isAndroid) {
       final notificationId = NotificationService.notificationIdFor(timerId);
+      TimerNotifyLog.d(
+        'completeTimer [$source] showTimerComplete '
+        'notificationId=$notificationId recipe=$recipeName label=$label',
+      );
       await NotificationService.instance.showTimerComplete(
         notificationId: notificationId,
         recipeName: recipeName,
         timerLabel: label,
+      );
+    } else if (!timer.notificationEnabled) {
+      TimerNotifyLog.d('completeTimer [$source] skip show (notifications off)');
+    } else {
+      TimerNotifyLog.d(
+        'completeTimer [$source] skip showTimerComplete on iOS '
+        '(rely on zonedSchedule)',
       );
     }
 
@@ -63,6 +101,9 @@ class TimerAlarmHandler {
     await timerRepo.remove(timerId);
     await timerRepo.removeAlarmMapping(alarmId);
     await NotificationService.instance.cancelScheduled(alarmId);
+    TimerNotifyLog.d(
+      'completeTimer [$source] cleaned up timerId=$timerId alarmId=$alarmId',
+    );
   }
 
   static Future<TimerDisplayContext?> resolveDisplayContext(
@@ -121,6 +162,8 @@ class TimerAlarmHandler {
     }
     return null;
   }
+
+  static String fallbackLabel(PracticeTimer timer) => _fallbackLabel(timer);
 
   static String _fallbackLabel(PracticeTimer timer) {
     return switch (timer.type.name) {

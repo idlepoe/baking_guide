@@ -12,11 +12,15 @@ import 'app/core/storage/screen_wake_preferences.dart';
 import 'app/core/storage/swipe_step_preferences.dart';
 import 'app/core/storage/theme_preferences.dart';
 import 'app/core/theme/app_theme_controller.dart';
+import 'app/core/utils/app_snackbar.dart';
 import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await TimerScheduleService.ensureInitialized();
+
+  final timerScheduleService = TimerScheduleService();
+  await timerScheduleService.refreshOngoingNotifications();
 
   final themePreferences = ThemePreferences();
   final screenWakePreferences = ScreenWakePreferences();
@@ -32,7 +36,7 @@ Future<void> main() async {
 
   Get.put(ProgressSessionRepository(), permanent: true);
   Get.put(TimerRepository(), permanent: true);
-  Get.put(TimerScheduleService(), permanent: true);
+  Get.put(timerScheduleService, permanent: true);
   Get.put(themePreferences, permanent: true);
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);
@@ -74,11 +78,12 @@ class BakingGuideApp extends StatelessWidget {
         final _ = fontScaleService.fontScale.value;
         return GetMaterialApp(
           title: 'Application',
+          scaffoldMessengerKey: AppSnackbar.scaffoldMessengerKey,
           theme: themeController.lightTheme,
           darkTheme: themeController.darkTheme,
           themeMode: themeController.themeMode.value,
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
+          initialRoute: AppPages.INITIAL,
+          getPages: AppPages.routes,
           debugShowCheckedModeBanner: false,
         );
       },
