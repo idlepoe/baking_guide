@@ -5,12 +5,14 @@ class ProgressFabColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         _FabWithLabel(
           label: '타이머',
-          color: const Color(0xFFFFC107),
+          color: scheme.primary,
           icon: Icons.timer_outlined,
           onPressed: () {
             // TODO: 타이머 FAB 동작 (steps[].timers 연동)

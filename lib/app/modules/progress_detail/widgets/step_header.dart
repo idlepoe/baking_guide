@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/duration_format.dart';
 import '../../../data/models/recipe_step.dart';
-import '../progress_detail_colors.dart';
-
 class StepHeader extends StatelessWidget {
   const StepHeader({
     super.key,
@@ -24,14 +22,14 @@ class StepHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: ProgressDetailColors.accent,
+              color: theme.colorScheme.primary,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
               '${step.stepNo}단계',
               style: theme.textTheme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w600,
-                color: ProgressDetailColors.accentForeground,
+                color: theme.colorScheme.onPrimary,
               ),
             ),
           ),

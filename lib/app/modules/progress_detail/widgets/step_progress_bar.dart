@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/models/recipe_step.dart';
-import '../progress_detail_colors.dart';
+import '../../../core/theme/progress_detail_colors.dart';
 
 abstract final class StepProgressBarStyles {
   /// 원 영역 고정 높이 — 라벨 줄 수와 무관하게 원 정렬 유지.
@@ -24,6 +24,8 @@ class StepProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     if (steps.isEmpty) return const SizedBox.shrink();
 
+    final scheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
       child: Row(
@@ -40,7 +42,7 @@ class StepProgressBar extends StatelessWidget {
                   child: Container(
                     height: 3,
                     color: i <= currentIndex
-                        ? ProgressDetailColors.accent
+                        ? scheme.primary
                         : ProgressDetailColors.completedStep,
                   ),
                 ),
@@ -86,9 +88,9 @@ class _StepNode extends StatelessWidget {
     Color numberColor;
 
     if (isCurrent) {
-      circleColor = ProgressDetailColors.accent;
-      textColor = ProgressDetailColors.accentForeground;
-      numberColor = ProgressDetailColors.accentForeground;
+      circleColor = theme.colorScheme.primary;
+      textColor = theme.colorScheme.onPrimary;
+      numberColor = theme.colorScheme.onPrimary;
     } else if (isCompleted) {
       circleColor = ProgressDetailColors.completedStep;
       textColor = theme.colorScheme.onSurface;
@@ -137,9 +139,7 @@ class _StepNode extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
             style: theme.textTheme.labelSmall?.copyWith(
-              color: isCurrent
-                  ? ProgressDetailColors.accentForeground
-                  : textColor,
+              color: isCurrent ? theme.colorScheme.primary : textColor,
               fontWeight: isCurrent ? FontWeight.w600 : FontWeight.normal,
               fontSize: 10,
               height: 1.2,

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../controllers/settings_controller.dart';
 
-abstract final class _SettingsColors {
-  static const iconTint = Color(0xFF7E57C2);
+abstract final class _SettingsTileDimensions {
+  static const double height = 56;
 }
 
 class SettingsView extends GetView<SettingsController> {
@@ -13,10 +13,7 @@ class SettingsView extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('설정'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('설정'), centerTitle: true),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 24),
         children: [
@@ -29,12 +26,13 @@ class SettingsView extends GetView<SettingsController> {
               onChanged: controller.setDarkMode,
             ),
           ),
-          _SettingsNavigateTile(
-            icon: Icons.wb_sunny_outlined,
-            title: '앱 테마 색상',
-            onTap: () {
-              // TODO: 앱 테마 색상 설정
-            },
+          Obx(
+            () => _SettingsNavigateTile(
+              icon: Icons.wb_sunny_outlined,
+              title: '앱 테마 색상',
+              trailingText: controller.selectedSeedLabel,
+              onTap: () => controller.showThemeColorPicker(context),
+            ),
           ),
           _SettingsNavigateTile(
             icon: Icons.language_outlined,
@@ -93,13 +91,13 @@ class SettingsView extends GetView<SettingsController> {
             },
           ),
           const _SettingsSectionHeader(title: '화면/사용 설정'),
-          _SettingsNavigateTile(
-            icon: Icons.smartphone_outlined,
-            title: '화면 자동 꺼짐 방지',
-            trailingText: '사용중',
-            onTap: () {
-              // TODO: 화면 자동 꺼짐 방지
-            },
+          Obx(
+            () => _SettingsSwitchTile(
+              icon: Icons.smartphone_outlined,
+              title: '화면 자동 꺼짐 방지',
+              value: controller.keepScreenOn.value,
+              onChanged: controller.setKeepScreenOn,
+            ),
           ),
           _SettingsNavigateTile(
             icon: Icons.text_fields_outlined,
@@ -221,20 +219,19 @@ class _SettingsTileBase extends StatelessWidget {
 
     return Material(
       color: theme.colorScheme.surface,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        child: Row(
-          children: [
-            Icon(icon, color: _SettingsColors.iconTint, size: 24),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                title,
-                style: theme.textTheme.bodyLarge,
-              ),
-            ),
-            trailing,
-          ],
+      child: SizedBox(
+        height: _SettingsTileDimensions.height,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(icon, color: theme.colorScheme.primary, size: 24),
+              const SizedBox(width: 16),
+              Expanded(child: Text(title, style: theme.textTheme.bodyLarge)),
+              trailing,
+            ],
+          ),
         ),
       ),
     );
@@ -256,13 +253,20 @@ class _SettingsSwitchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _SettingsTileBase(
-      icon: icon,
-      title: title,
-      trailing: Switch(
-        value: value,
-        onChanged: onChanged,
-        activeThumbColor: _SettingsColors.iconTint,
+    final theme = Theme.of(context);
+
+    return Material(
+      color: theme.colorScheme.surface,
+      child: SizedBox(
+        height: _SettingsTileDimensions.height,
+        child: SwitchListTile(
+          secondary: Icon(icon, color: theme.colorScheme.primary, size: 24),
+          title: Text(title, style: theme.textTheme.bodyLarge),
+          value: value,
+          onChanged: onChanged,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
       ),
     );
   }

@@ -8,8 +8,7 @@ import '../../../data/models/recipe_ingredient.dart';
 import '../controllers/progress_detail_controller.dart';
 
 abstract final class IngredientsBottomSheetColors {
-  static const summaryBackground = Color(0xFFF3E5F5);
-  static const primary = Color(0xFF7E57C2);
+  static const summaryBackground = Color(0xFFFFF8E1);
 }
 
 class IngredientsBottomSheet extends StatelessWidget {
@@ -132,8 +131,6 @@ class IngredientsBottomSheet extends StatelessWidget {
               child: AppPrimaryButton(
                 label: '닫기',
                 height: 56,
-                backgroundColor: IngredientsBottomSheetColors.primary,
-                foregroundColor: Colors.white,
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),
@@ -223,7 +220,7 @@ class _IngredientRow extends StatelessWidget {
             Icon(
               checked ? Icons.check_box : Icons.check_box_outline_blank,
               color: checked
-                  ? IngredientsBottomSheetColors.primary
+                  ? theme.colorScheme.primary
                   : theme.colorScheme.outline,
               size: 22,
             ),

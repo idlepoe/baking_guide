@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/app_primary_button.dart';
-import '../progress_detail_colors.dart';
 
 class ProgressBottomBar extends StatelessWidget {
   const ProgressBottomBar({
@@ -42,8 +41,6 @@ class ProgressBottomBar extends StatelessWidget {
                 onPressed: canGoNext ? onNext : null,
                 height: 48,
                 borderRadius: 8,
-                backgroundColor: ProgressDetailColors.accent,
-                foregroundColor: ProgressDetailColors.accentForeground,
               ),
             ),
           ],

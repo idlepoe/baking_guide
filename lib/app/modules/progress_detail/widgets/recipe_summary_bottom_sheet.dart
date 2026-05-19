@@ -11,7 +11,6 @@ import '../../../data/models/recipe_summary.dart';
 import '../controllers/progress_detail_controller.dart';
 
 abstract final class RecipeSummaryBottomSheetColors {
-  static const primary = Color(0xFF7E57C2);
   static const cardBackground = Color(0xFFF5F5F5);
   static const warningBackground = Color(0xFFFFEBEE);
 }
@@ -146,8 +145,6 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
               child: AppPrimaryButton(
                 label: '닫기',
                 height: 56,
-                backgroundColor: RecipeSummaryBottomSheetColors.primary,
-                foregroundColor: Colors.white,
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),
