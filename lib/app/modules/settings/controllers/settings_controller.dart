@@ -1,23 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
-  //TODO: Implement SettingsController
+  final isDarkMode = false.obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    isDarkMode.value = Get.isDarkMode;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void setDarkMode(bool enabled) {
+    isDarkMode.value = enabled;
+    Get.changeThemeMode(enabled ? ThemeMode.dark : ThemeMode.light);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
