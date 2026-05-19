@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../data/models/progress_session.dart';
+import '../../../data/models/step_progress.dart';
 import '../../../data/models/recipe_detail.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_step.dart';
@@ -143,6 +144,7 @@ class ProgressDetailController extends GetxController {
       updatedAt: now,
       currentStepNo: firstStepNo,
       completedSteps: const [],
+      steps: [StepProgress(stepNo: firstStepNo, startedAt: now)],
     );
 
     await _sessionRepository.upsert(newSession);
@@ -174,15 +176,37 @@ class ProgressDetailController extends GetxController {
     Get.back();
   }
 
-  Future<void> _persistSession({List<int>? completedSteps}) async {
+  List<StepProgress> _stepsWithStartedAt(
+    List<StepProgress> steps,
+    int stepNo,
+    DateTime startedAt,
+  ) {
+    final index = steps.indexWhere((entry) => entry.stepNo == stepNo);
+    final entry = StepProgress(stepNo: stepNo, startedAt: startedAt);
+    if (index < 0) {
+      return [...steps, entry];
+    }
+    final updated = List<StepProgress>.from(steps);
+    updated[index] = entry;
+    return updated;
+  }
+
+  Future<void> _persistSession({
+    List<int>? completedSteps,
+    bool recordStepStarted = true,
+  }) async {
     final current = session.value;
     final step = currentStep;
     if (current == null || step == null) return;
 
+    final now = DateTime.now();
     final updated = current.copyWith(
       currentStepNo: step.stepNo,
       completedSteps: completedSteps ?? current.completedSteps,
-      updatedAt: DateTime.now(),
+      steps: recordStepStarted
+          ? _stepsWithStartedAt(current.steps, step.stepNo, now)
+          : current.steps,
+      updatedAt: now,
     );
 
     await _sessionRepository.upsert(updated);
@@ -227,7 +251,9 @@ class ProgressDetailController extends GetxController {
     final detail = recipe.value;
     if (detail == null) return;
     if (index < 0 || index >= detail.steps.length) return;
-    if (currentStepIndex.value != index) {
+
+    final stepChanged = currentStepIndex.value != index;
+    if (stepChanged) {
       currentStepIndex.value = index;
     }
     if (pageController.hasClients) {
@@ -236,8 +262,11 @@ class ProgressDetailController extends GetxController {
         pageController.jumpToPage(index);
       }
     }
-    if (hasActiveSession) {
-      await _persistSession(completedSteps: completedSteps);
+    if (hasActiveSession && (stepChanged || completedSteps != null)) {
+      await _persistSession(
+        completedSteps: completedSteps,
+        recordStepStarted: stepChanged,
+      );
     }
   }
 

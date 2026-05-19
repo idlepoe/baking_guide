@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/datetime_format.dart';
+import '../../../data/models/enums/progress_session_status.dart';
 import '../../../core/utils/network_image_url.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/progress_list_controller.dart';
@@ -97,18 +100,11 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
                       ],
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      '시작 ${formatSessionDateTime(item.session.startedAt)}',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      '예상 완료 ${formatSessionDateTime(item.estimatedEndAt)}',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
+                    _SessionTimeProgressBar(
+                      startedAt: item.session.startedAt,
+                      estimatedEndAt: item.estimatedEndAt,
+                      isInProgress: item.session.status ==
+                          ProgressSessionStatus.inProgress,
                     ),
                     const SizedBox(height: 6),
                     Text(
@@ -124,6 +120,115 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _SessionTimeProgressBar extends StatefulWidget {
+  const _SessionTimeProgressBar({
+    required this.startedAt,
+    required this.estimatedEndAt,
+    required this.isInProgress,
+  });
+
+  final DateTime startedAt;
+  final DateTime estimatedEndAt;
+  final bool isInProgress;
+
+  @override
+  State<_SessionTimeProgressBar> createState() => _SessionTimeProgressBarState();
+}
+
+class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.isInProgress) {
+      _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+        if (mounted) setState(() {});
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  double get _progress {
+    if (!widget.isInProgress) return 1.0;
+
+    final totalMs = widget.estimatedEndAt
+        .difference(widget.startedAt)
+        .inMilliseconds;
+    if (totalMs <= 0) return 1.0;
+
+    final elapsedMs =
+        DateTime.now().difference(widget.startedAt).inMilliseconds;
+    return (elapsedMs / totalMs).clamp(0.0, 1.0);
+  }
+
+  bool get _isOvertime =>
+      widget.isInProgress && DateTime.now().isAfter(widget.estimatedEndAt);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final progress = _progress;
+    final percentLabel = '${(progress * 100).round()}%';
+    final labelStyle = theme.textTheme.bodySmall?.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: progress,
+                  minHeight: 8,
+                  backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                  color: _isOvertime
+                      ? theme.colorScheme.error
+                      : theme.colorScheme.primary,
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              percentLabel,
+              style: theme.textTheme.labelMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: _isOvertime
+                    ? theme.colorScheme.error
+                    : theme.colorScheme.primary,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        Row(
+          children: [
+            Text('시작 ${formatSessionDateTime(widget.startedAt)}', style: labelStyle),
+            const Spacer(),
+            Text(
+              _isOvertime
+                  ? '예상 초과 ${formatSessionDateTime(widget.estimatedEndAt)}'
+                  : '예상 완료 ${formatSessionDateTime(widget.estimatedEndAt)}',
+              style: labelStyle?.copyWith(
+                color: _isOvertime ? theme.colorScheme.error : null,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

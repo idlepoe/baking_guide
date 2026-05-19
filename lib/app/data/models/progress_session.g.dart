@@ -24,6 +24,11 @@ _ProgressSession _$ProgressSessionFromJson(
           ?.map((e) => (e as num).toInt())
           .toList() ??
       const [],
+  steps:
+      (json['steps'] as List<dynamic>?)
+          ?.map((e) => StepProgress.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$ProgressSessionToJson(_ProgressSession instance) =>
@@ -39,6 +44,7 @@ Map<String, dynamic> _$ProgressSessionToJson(_ProgressSession instance) =>
       ),
       'currentStepNo': instance.currentStepNo,
       'completedSteps': instance.completedSteps,
+      'steps': instance.steps,
     };
 
 const _$ProgressSessionStatusEnumMap = {

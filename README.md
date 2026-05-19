@@ -19,7 +19,13 @@ ProgressSession
 
   "currentStepNo": 3,
 
-  "completedSteps": [1, 2]
+  "completedSteps": [1, 2],
+
+  "steps": [
+    { "stepNo": 1, "startedAt": "2026-05-19T10:00:00Z" },
+    { "stepNo": 2, "startedAt": "2026-05-19T10:15:00Z" },
+    { "stepNo": 3, "startedAt": "2026-05-19T10:25:00Z" }
+  ]
 }
 
 를 저장하는 것으로 하고 prefshared에 저장하는 것으로 해줘.

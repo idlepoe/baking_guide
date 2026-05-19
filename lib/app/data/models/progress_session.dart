@@ -1,19 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums/progress_session_status.dart';
+import 'iso_datetime_converter.dart';
+import 'step_progress.dart';
 
 part 'progress_session.freezed.dart';
 part 'progress_session.g.dart';
-
-class IsoDateTimeConverter implements JsonConverter<DateTime, String> {
-  const IsoDateTimeConverter();
-
-  @override
-  DateTime fromJson(String json) => DateTime.parse(json).toLocal();
-
-  @override
-  String toJson(DateTime object) => object.toUtc().toIso8601String();
-}
 
 @freezed
 abstract class ProgressSession with _$ProgressSession {
@@ -26,6 +18,7 @@ abstract class ProgressSession with _$ProgressSession {
     @IsoDateTimeConverter() DateTime? completedAt,
     required int currentStepNo,
     @Default([]) List<int> completedSteps,
+    @Default([]) List<StepProgress> steps,
   }) = _ProgressSession;
 
   factory ProgressSession.fromJson(Map<String, dynamic> json) =>
