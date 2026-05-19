@@ -76,9 +76,12 @@ class TimerAlarmHandler {
     await NotificationService.instance.dismissTimerOngoing(timerId);
     TimerNotifyLog.d('completeTimer [$source] dismissed ongoing notification');
 
+    final notificationId = NotificationService.notificationIdFor(timerId);
+    // 예약만 취소(미발화). show 이후 cancel() 호출 시 표시된 알림까지 사라질 수 있음.
+    await NotificationService.instance.cancelScheduled(notificationId);
+
     // iOS는 zonedSchedule로 이미 알림이 예약·표시되므로, 동기화 시에는 제거만 한다.
     if (timer.notificationEnabled && Platform.isAndroid) {
-      final notificationId = NotificationService.notificationIdFor(timerId);
       TimerNotifyLog.d(
         'completeTimer [$source] showTimerComplete '
         'notificationId=$notificationId recipe=$recipeName label=$label',
@@ -97,10 +100,9 @@ class TimerAlarmHandler {
       );
     }
 
-    final alarmId = NotificationService.notificationIdFor(timerId);
+    final alarmId = notificationId;
     await timerRepo.remove(timerId);
     await timerRepo.removeAlarmMapping(alarmId);
-    await NotificationService.instance.cancelScheduled(alarmId);
     TimerNotifyLog.d(
       'completeTimer [$source] cleaned up timerId=$timerId alarmId=$alarmId',
     );

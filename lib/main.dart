@@ -20,7 +20,6 @@ Future<void> main() async {
   await TimerScheduleService.ensureInitialized();
 
   final timerScheduleService = TimerScheduleService();
-  await timerScheduleService.refreshOngoingNotifications();
 
   final themePreferences = ThemePreferences();
   final screenWakePreferences = ScreenWakePreferences();
@@ -36,7 +35,7 @@ Future<void> main() async {
 
   Get.put(ProgressSessionRepository(), permanent: true);
   Get.put(TimerRepository(), permanent: true);
-  Get.put(timerScheduleService, permanent: true);
+  Get.put<TimerScheduleService>(timerScheduleService, permanent: true);
   Get.put(themePreferences, permanent: true);
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);

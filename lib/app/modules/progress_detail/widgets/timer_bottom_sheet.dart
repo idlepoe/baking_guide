@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 
 import '../../../core/services/exact_alarm_permission.dart';
 import '../../../core/utils/app_snackbar.dart';
-import '../../../core/services/notification_service.dart';
 import '../../../core/services/timer_schedule_service.dart';
 import '../../../core/utils/duration_format.dart';
 import '../../../data/models/enums/timer_kind.dart';
@@ -48,22 +47,6 @@ class TimerBottomSheet extends StatefulWidget {
       );
       return;
     }
-
-    await NotificationService.instance.requestPermissions();
-    if (Platform.isAndroid) {
-      final exactGranted =
-          await TimerScheduleService.prepareAndroidScheduling();
-      if (!exactGranted) {
-        AppSnackbar.show(
-          title: '알람 권한',
-          message: '설정에서 「알람 및 리마인더」를 허용하면 타이머가 정확한 시각에 울립니다.',
-          duration: const Duration(seconds: 6),
-          actionLabel: '설정 열기',
-          onAction: ExactAlarmPermission.openSettings,
-        );
-      }
-    }
-    await Get.find<TimerScheduleService>().syncExpiredTimers();
 
     if (!context.mounted) return;
 
@@ -112,7 +95,6 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
   Future<void> _refreshActiveTimers() async {
     final session = widget.controller.session.value;
     if (session == null) return;
-    await _scheduleService.syncExpiredTimers();
     final timers =
         await _scheduleService.activeTimersForSession(session.sessionId);
     if (mounted) {
@@ -174,10 +156,21 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
     if (!ok) {
       AppSnackbar.show(
         title: '타이머',
-        message: '알림 예약에 실패했습니다. 알람 권한을 확인해 주세요.',
+        message: '알림 예약에 실패했습니다. 알림·알람 권한을 확인해 주세요.',
         actionLabel: Platform.isAndroid ? '설정 열기' : null,
         onAction: Platform.isAndroid ? ExactAlarmPermission.openSettings : null,
       );
+    } else if (Platform.isAndroid) {
+      final exactGranted = await ExactAlarmPermission.isGranted();
+      if (!exactGranted && mounted) {
+        AppSnackbar.show(
+          title: '알람 권한',
+          message: '설정에서 「알람 및 리마인더」를 허용하면 타이머가 정확한 시각에 울립니다.',
+          duration: const Duration(seconds: 6),
+          actionLabel: '설정 열기',
+          onAction: ExactAlarmPermission.openSettings,
+        );
+      }
     }
     await _refreshActiveTimers();
     if (mounted) setState(() {});

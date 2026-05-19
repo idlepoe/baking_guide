@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
@@ -32,6 +33,21 @@ class TimerScheduleService extends GetxService {
 
   final _displayByTimerId = <String, TimerDisplayContext>{};
 
+  Timer? _expiryWatcher;
+  bool _expirySyncInFlight = false;
+
+  @override
+  void onInit() {
+    super.onInit();
+    Future.microtask(_bootstrapActiveTimers);
+  }
+
+  @override
+  void onClose() {
+    _stopExpiryWatcher();
+    super.onClose();
+  }
+
   static Future<void> ensureInitialized() async {
     tz_data.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Asia/Seoul'));
@@ -41,7 +57,6 @@ class TimerScheduleService extends GetxService {
     }
   }
 
-  /// 타이머 바텀시트 진입 시 호출 권장.
   static Future<bool> prepareAndroidScheduling() async {
     if (!Platform.isAndroid) return true;
     return ExactAlarmPermission.ensureGranted();
@@ -74,8 +89,11 @@ class TimerScheduleService extends GetxService {
     required String recipeName,
     bool notificationEnabled = true,
   }) async {
-    if (notificationEnabled && Platform.isAndroid) {
-      await ExactAlarmPermission.ensureGranted();
+    if (notificationEnabled) {
+      await _notificationService.requestPermissions();
+      if (Platform.isAndroid) {
+        await ExactAlarmPermission.ensureGranted();
+      }
     }
 
     final active = await _timerRepository.findActiveBySession(session.sessionId);
@@ -110,6 +128,7 @@ class TimerScheduleService extends GetxService {
 
     if (!notificationEnabled) {
       TimerNotifyLog.d('startTimer timerId=$timerId notifications disabled');
+      await _ensureExpiryWatcherRunning();
       return true;
     }
 
@@ -133,6 +152,7 @@ class TimerScheduleService extends GetxService {
       recipeName: recipeName,
       timerLabel: preset.label,
     );
+    await _ensureExpiryWatcherRunning();
     return true;
   }
 
@@ -146,6 +166,7 @@ class TimerScheduleService extends GetxService {
     await _notificationService.cancelScheduled(alarmId);
     await _timerRepository.remove(timerId);
     _displayByTimerId.remove(timerId);
+    await _ensureExpiryWatcherRunning();
   }
 
   Future<bool> _schedulePlatform({
@@ -235,12 +256,53 @@ class TimerScheduleService extends GetxService {
       );
       await TimerAlarmHandler.handleTimerId(timer.timerId);
     }
-    if (expiredCount == 0) {
-      TimerNotifyLog.d('syncExpiredTimers no expired timers (count=${all.length})');
-    } else {
+    if (expiredCount > 0) {
       TimerNotifyLog.d('syncExpiredTimers handled $expiredCount expired timer(s)');
     }
     await refreshOngoingNotifications();
+    await _ensureExpiryWatcherRunning();
+  }
+
+  Future<void> _bootstrapActiveTimers() async {
+    await syncExpiredTimers();
+    await _ensureExpiryWatcherRunning();
+  }
+
+  Future<void> _ensureExpiryWatcherRunning() async {
+    final all = await _timerRepository.loadAll();
+    final now = DateTime.now();
+    final hasActive = all.any((t) => t.endsAt.isAfter(now));
+    if (hasActive) {
+      _startExpiryWatcher();
+    } else {
+      _stopExpiryWatcher();
+    }
+  }
+
+  void _startExpiryWatcher() {
+    if (_expiryWatcher != null) return;
+    TimerNotifyLog.d('expiryWatcher started');
+    _expiryWatcher = Timer.periodic(
+      const Duration(seconds: 1),
+      (_) => unawaited(_tickExpiryWatcher()),
+    );
+  }
+
+  void _stopExpiryWatcher() {
+    if (_expiryWatcher == null) return;
+    TimerNotifyLog.d('expiryWatcher stopped');
+    _expiryWatcher?.cancel();
+    _expiryWatcher = null;
+  }
+
+  Future<void> _tickExpiryWatcher() async {
+    if (_expirySyncInFlight) return;
+    _expirySyncInFlight = true;
+    try {
+      await syncExpiredTimers();
+    } finally {
+      _expirySyncInFlight = false;
+    }
   }
 
   /// 앱 재시작·동기화 후 실행 중 타이머 알림을 복구한다.
