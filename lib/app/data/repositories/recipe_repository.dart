@@ -23,6 +23,14 @@ class RecipeRepository {
     }
   }
 
+  Future<RecipeListItem?> findRecipeListItem(String id) async {
+    final list = await loadRecipeList();
+    for (final item in list) {
+      if (item.id == id) return item;
+    }
+    return null;
+  }
+
   Future<RecipeDetail?> loadRecipeDetail(String id) async {
     try {
       final jsonString =

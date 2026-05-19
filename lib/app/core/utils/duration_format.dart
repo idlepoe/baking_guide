@@ -13,3 +13,11 @@ String formatExamDuration(int totalTimeSec) {
   }
   return '$totalTimeSec초';
 }
+
+String formatStepDuration(int estimatedTimeSec) {
+  final minutes = (estimatedTimeSec / 60).ceil();
+  if (minutes <= 0) {
+    return '$estimatedTimeSec초';
+  }
+  return '$minutes분';
+}
