@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/app_primary_button.dart';
 import '../progress_detail_colors.dart';
 
 class ProgressBottomBar extends StatelessWidget {
@@ -25,36 +26,24 @@ class ProgressBottomBar extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: FilledButton(
+              child: AppPrimaryButton(
+                label: '이전 단계',
                 onPressed: canGoPrevious ? onPrevious : null,
-                style: FilledButton.styleFrom(
-                  backgroundColor: const Color(0xFF424242),
-                  foregroundColor: Colors.white,
-                  disabledBackgroundColor: const Color(0xFFE0E0E0),
-                  disabledForegroundColor: const Color(0xFF9E9E9E),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text('이전 단계'),
+                height: 48,
+                borderRadius: 8,
+                backgroundColor: const Color(0xFF424242),
+                foregroundColor: Colors.white,
               ),
             ),
             const SizedBox(width: 12),
             Expanded(
-              child: FilledButton(
+              child: AppPrimaryButton(
+                label: '다음 단계',
                 onPressed: canGoNext ? onNext : null,
-                style: FilledButton.styleFrom(
-                  backgroundColor: ProgressDetailColors.accent,
-                  foregroundColor: ProgressDetailColors.accentForeground,
-                  disabledBackgroundColor: const Color(0xFFE0E0E0),
-                  disabledForegroundColor: const Color(0xFF9E9E9E),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text('다음 단계'),
+                height: 48,
+                borderRadius: 8,
+                backgroundColor: ProgressDetailColors.accent,
+                foregroundColor: ProgressDetailColors.accentForeground,
               ),
             ),
           ],

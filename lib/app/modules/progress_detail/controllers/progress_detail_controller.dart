@@ -4,6 +4,7 @@ import '../../../data/models/recipe_detail.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_step.dart';
 import '../../../data/repositories/recipe_repository.dart';
+import '../../../routes/app_pages.dart';
 
 class ProgressDetailController extends GetxController {
   ProgressDetailController({
@@ -75,7 +76,7 @@ class ProgressDetailController extends GetxController {
     isLoading.value = false;
     hasError.value = true;
     Get.snackbar('오류', message);
-    Future.microtask(Get.back);
+    Future.microtask(() => Get.offAllNamed(Routes.HOME));
   }
 
   void goToPreviousStep() {

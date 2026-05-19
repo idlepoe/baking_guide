@@ -2,7 +2,7 @@
   "id": "chestnut_bread",
   "name": "밤식빵",
   "category": "bread",
-  "thumbnailUrl": "https://placehold.co/600x400?text=밤식빵",
+  "thumbnailUrl": "https://placehold.co/600x400.png?text=밤식빵",
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",
@@ -13,24 +13,43 @@
     },
     "keyPoints": [
       {
-        "title": "재료 계량",
-        "items": ["시간 내 계량", "정리 정돈"]
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": []
       },
       {
         "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "유지 투입: 클린업 단계",
-          "믹싱 단계: 최종 단계",
-          "반죽온도: 27℃"
+          "반죽법: 스트레이트법",
+          "반죽 온도: 27℃"
         ]
       },
       {
         "title": "발효",
-        "items": ["1차 발효: 40~50분", "2차 발효: 30분 전후"]
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차 발효: 40~50분 (27℃, 습도 75~80%)",
+          "2차 발효: 30분 전후 (팬 위로 1cm)"
+        ]
       },
       {
         "title": "굽기",
-        "items": ["170℃ / 190℃", "30분 전후"]
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "윗불: 170℃",
+          "아랫불: 190℃",
+          "굽는 시간: 30분 전후"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "과발효 주의",
+          "반죽 찢김 주의",
+          "성형 크기 및 균일도 확인"
+        ]
       }
     ]
   },
@@ -85,7 +104,7 @@
       "stepNo": 1,
       "title": "재료 계량",
       "estimatedTimeSec": 600,
-      "imageUrl": "https://placehold.co/600x400?text=step1",
+      "imageUrl": "https://placehold.co/600x400.png?text=step1",
       "description": ["재료를 시간 내 정확하게 계량한다."],
       "tips": [],
       "checklist": [
@@ -104,7 +123,7 @@
       "stepNo": 2,
       "title": "반죽",
       "estimatedTimeSec": 720,
-      "imageUrl": "https://placehold.co/600x400?text=step2",
+      "imageUrl": "https://placehold.co/600x400.png?text=step2",
       "description": [
         "쇼트닝을 제외한 재료를 믹싱한다.",
         "클린업 단계에서 쇼트닝을 투입한다."
@@ -125,7 +144,7 @@
       "stepNo": 3,
       "title": "최종 믹싱",
       "estimatedTimeSec": 480,
-      "imageUrl": "https://placehold.co/600x400?text=step3",
+      "imageUrl": "https://placehold.co/600x400.png?text=step3",
       "description": ["최종 단계까지 믹싱한다."],
       "tips": ["반죽 찢김 주의"],
       "checklist": [{ "id": "gluten_check", "text": "글루텐막 확인" }],
@@ -138,7 +157,7 @@
       "stepNo": 4,
       "title": "반죽 온도 확인",
       "estimatedTimeSec": 300,
-      "imageUrl": "https://placehold.co/600x400?text=step4",
+      "imageUrl": "https://placehold.co/600x400.png?text=step4",
       "description": ["반죽온도는 27℃로 맞춘다."],
       "tips": ["계절에 따라 물온도 조절"],
       "checklist": [{ "id": "dough_temp_check", "text": "반죽온도 측정" }],
@@ -153,7 +172,7 @@
       "stepNo": 5,
       "title": "1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "https://placehold.co/600x400?text=step5",
+      "imageUrl": "https://placehold.co/600x400.png?text=step5",
       "description": ["27℃, 습도 75~80%에서 40~50분 발효한다."],
       "tips": ["손가락 테스트 확인"],
       "checklist": [{ "id": "fermentation_check", "text": "발효 상태 확인" }],

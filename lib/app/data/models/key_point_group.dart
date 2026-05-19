@@ -7,6 +7,7 @@ part 'key_point_group.g.dart';
 abstract class KeyPointGroup with _$KeyPointGroup {
   const factory KeyPointGroup({
     required String title,
+    @Default('') String imageUrl,
     @Default([]) List<String> items,
   }) = _KeyPointGroup;
 

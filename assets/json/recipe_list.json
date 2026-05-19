@@ -3,7 +3,7 @@
     "id": "chestnut_bread",
     "name": "밤식빵",
     "category": "bread",
-    "thumbnailUrl": "https://placehold.co/200x200?text=밤식빵",
+    "thumbnailUrl": "https://placehold.co/200x200.png?text=밤식빵",
     "difficulty": 3,
     "totalTimeSec": 13200
   },
@@ -11,7 +11,7 @@
     "id": "soboro_bread",
     "name": "소보로빵",
     "category": "bread",
-    "thumbnailUrl": "https://placehold.co/200x200?text=소보로빵",
+    "thumbnailUrl": "https://placehold.co/200x200.png?text=소보로빵",
     "difficulty": 2,
     "totalTimeSec": 10800
   }

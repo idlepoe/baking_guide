@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/duration_format.dart';
+import '../../../core/utils/network_image_url.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/recipe_controller.dart';
@@ -152,7 +153,7 @@ class _Thumbnail extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: Image.network(
-        thumbnailUrl,
+        normalizeNetworkImageUrl(thumbnailUrl),
         width: 72,
         height: 72,
         fit: BoxFit.cover,

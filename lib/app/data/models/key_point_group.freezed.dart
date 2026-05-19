@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$KeyPointGroup {
 
- String get title; List<String> get items;
+ String get title; String get imageUrl; List<String> get items;
 /// Create a copy of KeyPointGroup
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $KeyPointGroupCopyWith<KeyPointGroup> get copyWith => _$KeyPointGroupCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyPointGroup&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.items, items));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyPointGroup&&(identical(other.title, title) || other.title == title)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&const DeepCollectionEquality().equals(other.items, items));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(items));
+int get hashCode => Object.hash(runtimeType,title,imageUrl,const DeepCollectionEquality().hash(items));
 
 @override
 String toString() {
-  return 'KeyPointGroup(title: $title, items: $items)';
+  return 'KeyPointGroup(title: $title, imageUrl: $imageUrl, items: $items)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $KeyPointGroupCopyWith<$Res>  {
   factory $KeyPointGroupCopyWith(KeyPointGroup value, $Res Function(KeyPointGroup) _then) = _$KeyPointGroupCopyWithImpl;
 @useResult
 $Res call({
- String title, List<String> items
+ String title, String imageUrl, List<String> items
 });
 
 
@@ -65,9 +65,10 @@ class _$KeyPointGroupCopyWithImpl<$Res>
 
 /// Create a copy of KeyPointGroup
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? items = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? imageUrl = null,Object? items = null,}) {
   return _then(_self.copyWith(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
 as List<String>,
   ));
@@ -154,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  List<String> items)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  String imageUrl,  List<String> items)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _KeyPointGroup() when $default != null:
-return $default(_that.title,_that.items);case _:
+return $default(_that.title,_that.imageUrl,_that.items);case _:
   return orElse();
 
 }
@@ -175,10 +176,10 @@ return $default(_that.title,_that.items);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  List<String> items)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  String imageUrl,  List<String> items)  $default,) {final _that = this;
 switch (_that) {
 case _KeyPointGroup():
-return $default(_that.title,_that.items);case _:
+return $default(_that.title,_that.imageUrl,_that.items);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +196,10 @@ return $default(_that.title,_that.items);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  List<String> items)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  String imageUrl,  List<String> items)?  $default,) {final _that = this;
 switch (_that) {
 case _KeyPointGroup() when $default != null:
-return $default(_that.title,_that.items);case _:
+return $default(_that.title,_that.imageUrl,_that.items);case _:
   return null;
 
 }
@@ -210,10 +211,11 @@ return $default(_that.title,_that.items);case _:
 @JsonSerializable()
 
 class _KeyPointGroup implements KeyPointGroup {
-  const _KeyPointGroup({required this.title, final  List<String> items = const []}): _items = items;
+  const _KeyPointGroup({required this.title, this.imageUrl = '', final  List<String> items = const []}): _items = items;
   factory _KeyPointGroup.fromJson(Map<String, dynamic> json) => _$KeyPointGroupFromJson(json);
 
 @override final  String title;
+@override@JsonKey() final  String imageUrl;
  final  List<String> _items;
 @override@JsonKey() List<String> get items {
   if (_items is EqualUnmodifiableListView) return _items;
@@ -235,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _KeyPointGroup&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._items, _items));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _KeyPointGroup&&(identical(other.title, title) || other.title == title)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&const DeepCollectionEquality().equals(other._items, _items));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_items));
+int get hashCode => Object.hash(runtimeType,title,imageUrl,const DeepCollectionEquality().hash(_items));
 
 @override
 String toString() {
-  return 'KeyPointGroup(title: $title, items: $items)';
+  return 'KeyPointGroup(title: $title, imageUrl: $imageUrl, items: $items)';
 }
 
 
@@ -255,7 +257,7 @@ abstract mixin class _$KeyPointGroupCopyWith<$Res> implements $KeyPointGroupCopy
   factory _$KeyPointGroupCopyWith(_KeyPointGroup value, $Res Function(_KeyPointGroup) _then) = __$KeyPointGroupCopyWithImpl;
 @override @useResult
 $Res call({
- String title, List<String> items
+ String title, String imageUrl, List<String> items
 });
 
 
@@ -272,9 +274,10 @@ class __$KeyPointGroupCopyWithImpl<$Res>
 
 /// Create a copy of KeyPointGroup
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? items = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? imageUrl = null,Object? items = null,}) {
   return _then(_KeyPointGroup(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
 as List<String>,
   ));

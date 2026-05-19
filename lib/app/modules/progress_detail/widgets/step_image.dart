@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/network_image_url.dart';
+
 class StepImage extends StatelessWidget {
   const StepImage({
     super.key,
@@ -24,8 +26,25 @@ class StepImage extends StatelessWidget {
     );
   }
 
+  Widget _onImageError(
+    ThemeData theme,
+    String kind,
+    String source,
+    Object error,
+    StackTrace? stackTrace,
+  ) {
+    debugPrint(
+      '[StepImage] $kind load failed\n'
+      '  source: $source\n'
+      '  error: $error\n'
+      '  stackTrace: $stackTrace',
+    );
+    return _placeholder(theme);
+  }
+
   Widget _buildImage(BuildContext context, ThemeData theme) {
     if (imageSource == null || imageSource!.isEmpty) {
+      debugPrint('[StepImage] imageSource is null or empty');
       return _placeholder(theme);
     }
 
@@ -34,14 +53,21 @@ class StepImage extends StatelessWidget {
       return Image.asset(
         source,
         fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) => _placeholder(theme),
+        errorBuilder: (context, error, stackTrace) =>
+            _onImageError(theme, 'asset', source, error, stackTrace),
       );
     }
 
+    final networkUrl = normalizeNetworkImageUrl(source);
+    if (networkUrl != source) {
+      debugPrint('[StepImage] normalized URL: $source -> $networkUrl');
+    }
+
     return Image.network(
-      source,
+      networkUrl,
       fit: BoxFit.cover,
-      errorBuilder: (context, error, stackTrace) => _placeholder(theme),
+      errorBuilder: (context, error, stackTrace) =>
+          _onImageError(theme, 'network', source, error, stackTrace),
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress == null) return child;
         return Center(

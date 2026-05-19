@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/duration_format.dart';
-import '../../../core/utils/mixing_method_format.dart';
+import '../../../core/utils/network_image_url.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../data/models/key_point_group.dart';
-import '../../../data/models/enums/temperature_unit.dart';
-import '../../../data/models/oven_setting.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_summary.dart';
 import '../controllers/progress_detail_controller.dart';
@@ -15,7 +13,7 @@ import '../controllers/progress_detail_controller.dart';
 abstract final class RecipeSummaryBottomSheetColors {
   static const primary = Color(0xFF7E57C2);
   static const cardBackground = Color(0xFFF5F5F5);
-  static const deductionBackground = Color(0xFFFFEBEE);
+  static const warningBackground = Color(0xFFFFEBEE);
 }
 
 class RecipeSummaryBottomSheet extends StatelessWidget {
@@ -28,7 +26,6 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
 
   final String recipeName;
   final RecipeSummary summary;
-  /// [`recipe_list.json`](assets/json/recipe_list.json) 항목 (난이도·시험 시간 등).
   final RecipeListItem listItem;
 
   static void show(
@@ -61,62 +58,46 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
     });
   }
 
-  KeyPointGroup? _keyPointByTitle(String title) {
-    for (final group in summary.keyPoints) {
-      if (group.title == title) return group;
+  List<String> _linesForKeyPoint(KeyPointGroup group) {
+    if (group.title == '시험 정보') {
+      return ['시험 시간: ${formatExamDuration(listItem.totalTimeSec)}'];
     }
-    return null;
+    return group.items;
   }
 
-  List<String> _examInfoLines() {
-    final lines = <String>[
-      '시간: ${formatExamDuration(listItem.totalTimeSec)}',
-    ];
-    final weighing = _keyPointByTitle('재료 계량');
-    if (weighing != null) {
-      lines.addAll(weighing.items);
-    }
-    return lines;
-  }
-
-  List<String> _doughLines() {
-    final lines = <String>['제법: ${formatMixingMethod(summary.mixingMethod)}'];
-    final dough = _keyPointByTitle('반죽');
-    if (dough != null) {
-      lines.addAll(dough.items);
-    }
-    return lines;
-  }
-
-  List<String> _fermentationLines() {
-    final fermentation = _keyPointByTitle('발효');
-    return fermentation?.items ?? [];
-  }
-
-  List<String> _bakingLines() {
-    final lines = <String>[
-      _formatOven(summary.oven),
-    ];
-    final baking = _keyPointByTitle('굽기');
-    if (baking != null) {
-      lines.addAll(baking.items);
-    }
-    return lines;
-  }
-
-  String _formatOven(OvenSetting oven) {
-    final unit = oven.unit == TemperatureUnit.celsius ? '℃' : '℉';
-    return '상화: ${oven.top}$unit / 하화: ${oven.bottom}$unit';
-  }
+  bool _isWarningKeyPoint(KeyPointGroup group) =>
+      group.title == '주요 감점 포인트';
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final maxHeight = MediaQuery.sizeOf(context).height * 0.88;
+    // 내용 높이에 맞추고, 화면을 넘을 때만 상한까지 스크롤한다.
+    final maxSheetHeight = MediaQuery.sizeOf(context).height * 0.92;
+
+    final cards = <Widget>[];
+    for (var i = 0; i < summary.keyPoints.length; i++) {
+      final group = summary.keyPoints[i];
+      final lines = _linesForKeyPoint(group);
+      if (lines.isEmpty && group.title != '시험 정보') continue;
+
+      if (i > 0) cards.add(const SizedBox(height: 12));
+      cards.add(
+        _SummarySectionCard(
+          imageUrl: group.imageUrl,
+          fallbackIcon: _fallbackIconForTitle(group.title),
+          title: group.title == '시험 정보' ? '' : group.title,
+          lines: lines,
+          trailing: group.title == '시험 정보'
+              ? _DifficultyStars(difficulty: listItem.difficulty)
+              : null,
+          isWarning: _isWarningKeyPoint(group),
+        ),
+      );
+    }
 
     return SafeArea(
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: maxHeight),
+        constraints: BoxConstraints(maxHeight: maxSheetHeight),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -149,35 +130,16 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: ListView(
+              fit: FlexFit.loose,
+              child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                children: [
-                  _SummarySectionCard(
-                    icon: Icons.schedule_outlined,
-                    title: '시험 정보',
-                    lines: _examInfoLines(),
-                    trailing: _DifficultyStars(difficulty: listItem.difficulty),
-                  ),
-                  const SizedBox(height: 12),
-                  _SummarySectionCard(
-                    icon: Icons.blender_outlined,
-                    title: '반죽',
-                    lines: _doughLines(),
-                  ),
-                  const SizedBox(height: 12),
-                  _SummarySectionCard(
-                    icon: Icons.eco_outlined,
-                    title: '발효',
-                    lines: _fermentationLines(),
-                  ),
-                  const SizedBox(height: 12),
-                  _SummarySectionCard(
-                    icon: Icons.microwave_outlined,
-                    title: '굽기',
-                    lines: _bakingLines(),
-                  ),
-                  const SizedBox(height: 16),
-                ],
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ...cards,
+                    const SizedBox(height: 16),
+                  ],
+                ),
               ),
             ),
             AppBottomActionBar(
@@ -194,65 +156,159 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
       ),
     );
   }
+
+  IconData _fallbackIconForTitle(String title) {
+    return switch (title) {
+      '시험 정보' => Icons.schedule_outlined,
+      '반죽' => Icons.blender_outlined,
+      '발효' => Icons.eco_outlined,
+      '굽기' => Icons.microwave_outlined,
+      '주요 감점 포인트' => Icons.warning_amber_rounded,
+      _ => Icons.label_outline_rounded,
+    };
+  }
 }
 
 class _SummarySectionCard extends StatelessWidget {
   const _SummarySectionCard({
-    required this.icon,
+    required this.imageUrl,
+    required this.fallbackIcon,
     required this.title,
     required this.lines,
     this.trailing,
+    this.isWarning = false,
   });
 
-  final IconData icon;
+  final String imageUrl;
+  final IconData fallbackIcon;
   final String title;
   final List<String> lines;
   final Widget? trailing;
+  final bool isWarning;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    if (lines.isEmpty) return const SizedBox.shrink();
+    if (lines.isEmpty && title.isEmpty && trailing == null) {
+      return const SizedBox.shrink();
+    }
+
+    final bgColor = isWarning
+        ? RecipeSummaryBottomSheetColors.warningBackground
+        : RecipeSummaryBottomSheetColors.cardBackground;
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: RecipeSummaryBottomSheetColors.cardBackground,
+        color: bgColor,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(icon, size: 22, color: theme.colorScheme.onSurface),
-              const SizedBox(width: 8),
-              Text(
-                title,
-                style: theme.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              if (trailing != null) ...[
-                const Spacer(),
-                trailing!,
-              ],
-            ],
+          _KeyPointImage(
+            imageUrl: imageUrl,
+            fallbackIcon: fallbackIcon,
+            isWarning: isWarning,
           ),
-          const SizedBox(height: 10),
-          ...lines.map(
-            (line) => Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: Text(
-                line,
-                style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
-              ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (title.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      title,
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: isWarning ? Colors.red.shade900 : null,
+                      ),
+                    ),
+                  ),
+                ...lines.map(
+                  (line) => Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Text(
+                      line,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        height: 1.4,
+                        color: isWarning ? Colors.red.shade900 : null,
+                      ),
+                    ),
+                  ),
+                ),
+                if (trailing != null) ...[
+                  const SizedBox(height: 4),
+                  trailing!,
+                ],
+              ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _KeyPointImage extends StatelessWidget {
+  const _KeyPointImage({
+    required this.imageUrl,
+    required this.fallbackIcon,
+    required this.isWarning,
+  });
+
+  final String imageUrl;
+  final IconData fallbackIcon;
+  final bool isWarning;
+
+  @override
+  Widget build(BuildContext context) {
+    final iconColor = isWarning ? Colors.red.shade700 : null;
+
+    if (imageUrl.isEmpty) {
+      return _iconBox(fallbackIcon, iconColor);
+    }
+
+    if (imageUrl.startsWith('assets/')) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Image.asset(
+          imageUrl,
+          width: 48,
+          height: 48,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) =>
+              _iconBox(fallbackIcon, iconColor),
+        ),
+      );
+    }
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.network(
+        normalizeNetworkImageUrl(imageUrl),
+        width: 48,
+        height: 48,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) =>
+            _iconBox(fallbackIcon, iconColor),
+      ),
+    );
+  }
+
+  Widget _iconBox(IconData icon, Color? color) {
+    return Container(
+      width: 48,
+      height: 48,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Icon(icon, size: 28, color: color),
     );
   }
 }
