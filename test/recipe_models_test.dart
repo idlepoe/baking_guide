@@ -49,6 +49,7 @@ void main() {
       expect(detail.steps, hasLength(5));
       expect(detail.steps[1].checklist.first.id, 'cleanup_done');
       expect(detail.steps[1].calculators.first.type.name, 'doughTemp');
+      expect(detail.steps[1].calculators.first.params.target, isNotNull);
       expect(detail.steps[4].timers.first.type, TimerKind.fermentation);
       expect(detail.resultEvaluation.first.id, 'uniform_loaves');
     });

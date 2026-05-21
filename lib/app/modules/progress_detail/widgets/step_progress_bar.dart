@@ -6,6 +6,13 @@ import '../../../core/theme/progress_detail_colors.dart';
 abstract final class StepProgressBarStyles {
   /// 원 영역 고정 높이 — 라벨 줄 수와 무관하게 원 정렬 유지.
   static const double circleTrackHeight = 32;
+  static const double nodeWidth = 52;
+  static const double connectorWidth = 20;
+  static const double horizontalPadding = 8;
+  static const double stepStride = nodeWidth + connectorWidth;
+
+  static double centerXForIndex(int index) =>
+      horizontalPadding + index * stepStride + nodeWidth / 2;
 }
 
 class StepProgressBar extends StatelessWidget {
@@ -27,7 +34,10 @@ class StepProgressBar extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      padding: const EdgeInsets.symmetric(
+        horizontal: StepProgressBarStyles.horizontalPadding,
+        vertical: 12,
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +45,7 @@ class StepProgressBar extends StatelessWidget {
           for (var i = 0; i < steps.length; i++) ...[
             if (i > 0)
               SizedBox(
-                width: 20,
+                width: StepProgressBarStyles.connectorWidth,
                 height: StepProgressBarStyles.circleTrackHeight,
                 child: Align(
                   alignment: Alignment.center,
@@ -102,7 +112,7 @@ class _StepNode extends StatelessWidget {
     }
 
     final child = SizedBox(
-      width: 52,
+      width: StepProgressBarStyles.nodeWidth,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -150,5 +160,91 @@ class _StepNode extends StatelessWidget {
 
     if (onTap == null) return child;
     return GestureDetector(onTap: onTap, child: child);
+  }
+}
+
+/// 가로 스크롤하며 현재 단계가 뷰포트 중앙에 오도록 한다.
+class CenteredStepProgressBarScroll extends StatefulWidget {
+  const CenteredStepProgressBarScroll({
+    super.key,
+    required this.steps,
+    required this.currentIndex,
+    this.onStepTap,
+  });
+
+  final List<RecipeStep> steps;
+  final int currentIndex;
+  final ValueChanged<int>? onStepTap;
+
+  @override
+  State<CenteredStepProgressBarScroll> createState() =>
+      _CenteredStepProgressBarScrollState();
+}
+
+class _CenteredStepProgressBarScrollState
+    extends State<CenteredStepProgressBarScroll> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToCurrent(animate: false);
+    });
+  }
+
+  @override
+  void didUpdateWidget(CenteredStepProgressBarScroll oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentIndex != widget.currentIndex ||
+        oldWidget.steps.length != widget.steps.length) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollToCurrent(animate: true);
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToCurrent({required bool animate}) {
+    if (!mounted || widget.steps.isEmpty) return;
+    if (!_scrollController.hasClients) return;
+
+    final viewport = _scrollController.position.viewportDimension;
+    if (viewport <= 0) return;
+
+    final index = widget.currentIndex.clamp(0, widget.steps.length - 1);
+    final stepCenter = StepProgressBarStyles.centerXForIndex(index);
+    final target = (stepCenter - viewport / 2).clamp(
+      0.0,
+      _scrollController.position.maxScrollExtent,
+    );
+
+    if (animate) {
+      _scrollController.animateTo(
+        target,
+        duration: const Duration(milliseconds: 280),
+        curve: Curves.easeOutCubic,
+      );
+    } else {
+      _scrollController.jumpTo(target);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: _scrollController,
+      scrollDirection: Axis.horizontal,
+      child: StepProgressBar(
+        steps: widget.steps,
+        currentIndex: widget.currentIndex,
+        onStepTap: widget.onStepTap,
+      ),
+    );
   }
 }

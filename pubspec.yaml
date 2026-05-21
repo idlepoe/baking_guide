@@ -44,4 +44,5 @@ flutter:
     - assets/json/recipes/
     - assets/images/
     - assets/icons/
+    - assets/images/calculator/
 

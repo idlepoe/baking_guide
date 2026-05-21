@@ -221,28 +221,88 @@ class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
         ),
         const SizedBox(height: 6),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('시작 ${formatSessionDateTime(widget.startedAt)}', style: labelStyle),
-            const Spacer(),
-            Text(
-              widget.isInProgress
-                  ? '진행 ${formatClockDuration(_elapsedDuration)}'
-                  : '소요 ${formatClockDuration(_elapsedDuration)}',
-              style: labelStyle?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: theme.colorScheme.primary,
+            Expanded(
+              child: _TimeCell(
+                label: '시작',
+                value: formatSessionDateTime(widget.startedAt),
+                labelStyle: labelStyle,
               ),
             ),
-            const Spacer(),
-            Text(
-              _isOvertime
-                  ? '예상 초과 ${formatSessionDateTime(widget.estimatedEndAt)}'
-                  : '예상 완료 ${formatSessionDateTime(widget.estimatedEndAt)}',
-              style: labelStyle?.copyWith(
-                color: _isOvertime ? theme.colorScheme.error : null,
+            const SizedBox(width: 8),
+            Expanded(
+              child: _TimeCell(
+                label: _isOvertime ? '예상 초과' : '예상 완료',
+                value: formatSessionDateTime(widget.estimatedEndAt),
+                labelStyle: labelStyle,
+                align: TextAlign.end,
+                valueColor:
+                    _isOvertime ? theme.colorScheme.error : null,
               ),
             ),
           ],
+        ),
+        const SizedBox(height: 4),
+        _TimeCell(
+          label: widget.isInProgress ? '진행' : '소요',
+          value: formatClockDuration(_elapsedDuration),
+          labelStyle: labelStyle,
+          valueStyle: labelStyle?.copyWith(
+            fontWeight: FontWeight.w600,
+            color: theme.colorScheme.primary,
+            fontFeatures: const [FontFeature.tabularFigures()],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _TimeCell extends StatelessWidget {
+  const _TimeCell({
+    required this.label,
+    required this.value,
+    required this.labelStyle,
+    this.valueStyle,
+    this.valueColor,
+    this.align = TextAlign.start,
+  });
+
+  final String label;
+  final String value;
+  final TextStyle? labelStyle;
+  final TextStyle? valueStyle;
+  final Color? valueColor;
+  final TextAlign align;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final resolvedValueStyle = valueStyle ??
+        labelStyle?.copyWith(
+          fontWeight: FontWeight.w500,
+          color: valueColor ?? theme.colorScheme.onSurface,
+        );
+
+    return Column(
+      crossAxisAlignment: align == TextAlign.end
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: labelStyle,
+          textAlign: align,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        Text(
+          value,
+          style: resolvedValueStyle,
+          textAlign: align,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );

@@ -1,8 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../core/utils/app_snackbar.dart';
+import '../../../core/utils/calculator_kind_format.dart';
+import '../../../data/models/enums/calculator_kind.dart';
 import '../controllers/progress_detail_controller.dart';
+import 'dough_temp_calculator_bottom_sheet.dart';
 import 'progress_ring_indicator.dart';
 import 'timer_bottom_sheet.dart';
 
@@ -69,17 +74,43 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
           onPressed: () =>
               TimerBottomSheet.show(context, widget.controller),
         ),
-        const SizedBox(height: 12),
-        _FabWithLabel(
-          label: '계산기',
-          color: const Color(0xFF42A5F5),
-          icon: Icons.calculate_outlined,
-          onPressed: () {
-            // TODO: 계산기 FAB 동작 (steps[].calculators 연동)
-          },
-        ),
+        Obx(() {
+          final calculator = widget.controller.currentCalculator;
+          if (calculator == null) {
+            return const SizedBox.shrink();
+          }
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 12),
+              _FabWithLabel(
+                label: calculatorFabLabel(calculator.type),
+                color: const Color(0xFF42A5F5),
+                icon: calculatorFabIcon(calculator.type),
+                onPressed: () => _onCalculatorFabPressed(
+                  context,
+                  calculator.type,
+                ),
+              ),
+            ],
+          );
+        }),
       ],
     );
+  }
+
+  void _onCalculatorFabPressed(BuildContext context, CalculatorKind type) {
+    switch (type) {
+      case CalculatorKind.doughTemp:
+        DoughTempCalculatorBottomSheet.show(context, widget.controller);
+      case CalculatorKind.divisionWeight:
+      case CalculatorKind.bakerPercentage:
+        AppSnackbar.show(
+          context: context,
+          title: '안내',
+          message: '해당 계산기는 준비 중입니다.',
+        );
+    }
   }
 }
 

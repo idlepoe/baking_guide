@@ -5,6 +5,8 @@ import 'package:uuid/uuid.dart';
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../data/models/progress_session.dart';
 import '../../../data/models/step_progress.dart';
+import '../../../data/models/calculator_config.dart';
+import '../../../data/models/enums/calculator_kind.dart';
 import '../../../data/models/recipe_detail.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_step.dart';
@@ -112,6 +114,23 @@ class ProgressDetailController extends GetxController {
   void onClose() {
     pageController.dispose();
     super.onClose();
+  }
+
+  CalculatorConfig? get currentCalculator {
+    final step = currentStep;
+    if (step == null || step.calculators.isEmpty) return null;
+    return step.calculators.first;
+  }
+
+  bool get hasCalculatorOnCurrentStep => currentCalculator != null;
+
+  CalculatorConfig? get currentDoughTempCalculator {
+    final step = currentStep;
+    if (step == null) return null;
+    for (final config in step.calculators) {
+      if (config.type == CalculatorKind.doughTemp) return config;
+    }
+    return null;
   }
 
   RecipeStep? get currentStep {
@@ -345,6 +364,14 @@ class ProgressDetailController extends GetxController {
       checkedIngredientIds.add(name);
     }
     checkedIngredientIds.refresh();
+  }
+
+  bool get allIngredientsChecked {
+    final ingredients = recipe.value?.ingredients ?? [];
+    if (ingredients.isEmpty) return false;
+    return ingredients.every(
+      (ingredient) => checkedIngredientIds.contains(ingredient.name),
+    );
   }
 
   String? stepImageUrl(RecipeStep step) {

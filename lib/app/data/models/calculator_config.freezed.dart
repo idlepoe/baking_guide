@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CalculatorConfig {
 
- CalculatorKind get type;
+ CalculatorKind get type; CalculatorParams get params;
 /// Create a copy of CalculatorConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CalculatorConfigCopyWith<CalculatorConfig> get copyWith => _$CalculatorConfigCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CalculatorConfig&&(identical(other.type, type) || other.type == type));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CalculatorConfig&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type);
+int get hashCode => Object.hash(runtimeType,type,params);
 
 @override
 String toString() {
-  return 'CalculatorConfig(type: $type)';
+  return 'CalculatorConfig(type: $type, params: $params)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $CalculatorConfigCopyWith<$Res>  {
   factory $CalculatorConfigCopyWith(CalculatorConfig value, $Res Function(CalculatorConfig) _then) = _$CalculatorConfigCopyWithImpl;
 @useResult
 $Res call({
- CalculatorKind type
+ CalculatorKind type, CalculatorParams params
 });
 
 
-
+$CalculatorParamsCopyWith<$Res> get params;
 
 }
 /// @nodoc
@@ -65,13 +65,23 @@ class _$CalculatorConfigCopyWithImpl<$Res>
 
 /// Create a copy of CalculatorConfig
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as CalculatorKind,
+as CalculatorKind,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
+as CalculatorParams,
   ));
 }
-
+/// Create a copy of CalculatorConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CalculatorParamsCopyWith<$Res> get params {
+  
+  return $CalculatorParamsCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
+  });
+}
 }
 
 
@@ -153,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CalculatorKind type)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CalculatorKind type,  CalculatorParams params)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CalculatorConfig() when $default != null:
-return $default(_that.type);case _:
+return $default(_that.type,_that.params);case _:
   return orElse();
 
 }
@@ -174,10 +184,10 @@ return $default(_that.type);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CalculatorKind type)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CalculatorKind type,  CalculatorParams params)  $default,) {final _that = this;
 switch (_that) {
 case _CalculatorConfig():
-return $default(_that.type);case _:
+return $default(_that.type,_that.params);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +204,10 @@ return $default(_that.type);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CalculatorKind type)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CalculatorKind type,  CalculatorParams params)?  $default,) {final _that = this;
 switch (_that) {
 case _CalculatorConfig() when $default != null:
-return $default(_that.type);case _:
+return $default(_that.type,_that.params);case _:
   return null;
 
 }
@@ -209,10 +219,11 @@ return $default(_that.type);case _:
 @JsonSerializable()
 
 class _CalculatorConfig implements CalculatorConfig {
-  const _CalculatorConfig({required this.type});
+  const _CalculatorConfig({required this.type, this.params = const CalculatorParams()});
   factory _CalculatorConfig.fromJson(Map<String, dynamic> json) => _$CalculatorConfigFromJson(json);
 
 @override final  CalculatorKind type;
+@override@JsonKey() final  CalculatorParams params;
 
 /// Create a copy of CalculatorConfig
 /// with the given fields replaced by the non-null parameter values.
@@ -227,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CalculatorConfig&&(identical(other.type, type) || other.type == type));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CalculatorConfig&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type);
+int get hashCode => Object.hash(runtimeType,type,params);
 
 @override
 String toString() {
-  return 'CalculatorConfig(type: $type)';
+  return 'CalculatorConfig(type: $type, params: $params)';
 }
 
 
@@ -247,11 +258,11 @@ abstract mixin class _$CalculatorConfigCopyWith<$Res> implements $CalculatorConf
   factory _$CalculatorConfigCopyWith(_CalculatorConfig value, $Res Function(_CalculatorConfig) _then) = __$CalculatorConfigCopyWithImpl;
 @override @useResult
 $Res call({
- CalculatorKind type
+ CalculatorKind type, CalculatorParams params
 });
 
 
-
+@override $CalculatorParamsCopyWith<$Res> get params;
 
 }
 /// @nodoc
@@ -264,14 +275,24 @@ class __$CalculatorConfigCopyWithImpl<$Res>
 
 /// Create a copy of CalculatorConfig
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
   return _then(_CalculatorConfig(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as CalculatorKind,
+as CalculatorKind,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
+as CalculatorParams,
   ));
 }
 
-
+/// Create a copy of CalculatorConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CalculatorParamsCopyWith<$Res> get params {
+  
+  return $CalculatorParamsCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
+  });
+}
 }
 
 // dart format on

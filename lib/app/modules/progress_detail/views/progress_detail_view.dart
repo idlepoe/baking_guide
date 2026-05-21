@@ -28,7 +28,7 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
         toolbarHeight: 64,
         title: Obx(() {
           final name = controller.recipe.value?.name ?? '';
-          return Text(name.isEmpty ? '실기 진행' : '$name 실기 진행');
+          return Text(name);
         }),
         centerTitle: true,
         actions: [
@@ -38,10 +38,13 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
             onPressed: () =>
                 RecipeSummaryBottomSheet.show(context, controller),
           ),
-          _AppBarLabeledIconAction(
-            icon: Icons.egg_alt_outlined,
-            label: '재료 목록',
-            onPressed: () => IngredientsBottomSheet.show(context, controller),
+          Obx(
+            () => _AppBarLabeledIconAction(
+              icon: Icons.egg_alt_outlined,
+              label: '재료 목록',
+              showCompletedBadge: controller.allIngredientsChecked,
+              onPressed: () => IngredientsBottomSheet.show(context, controller),
+            ),
           ),
         ],
         bottom: const PreferredSize(
@@ -77,13 +80,10 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: StepProgressBar(
-                      steps: detail.steps,
-                      currentIndex: controller.currentStepIndex.value,
-                      onStepTap: controller.goToStep,
-                    ),
+                  CenteredStepProgressBarScroll(
+                    steps: detail.steps,
+                    currentIndex: controller.currentStepIndex.value,
+                    onStepTap: controller.goToStep,
                   ),
                   StepHeader(step: step),
                   Expanded(
@@ -247,11 +247,13 @@ class _AppBarLabeledIconAction extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.onPressed,
+    this.showCompletedBadge = false,
   });
 
   final IconData icon;
   final String label;
   final VoidCallback onPressed;
+  final bool showCompletedBadge;
 
   @override
   Widget build(BuildContext context) {
@@ -269,7 +271,17 @@ class _AppBarLabeledIconAction extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 22, color: color),
+              Badge(
+                isLabelVisible: showCompletedBadge,
+                backgroundColor: Colors.green,
+                padding: const EdgeInsets.all(2),
+                label: const Icon(
+                  Icons.check,
+                  size: 10,
+                  color: Colors.white,
+                ),
+                child: Icon(icon, size: 22, color: color),
+              ),
               const SizedBox(height: 2),
               Text(
                 label,
