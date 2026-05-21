@@ -16,12 +16,7 @@ class ProgressListView extends GetView<ProgressListController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('진행'),
-        centerTitle: true,
-      ),
-      body: Obx(() {
+    return Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -42,8 +37,7 @@ class ProgressListView extends GetView<ProgressListController> {
             return _ProgressSessionCard(item: controller.items[index]);
           },
         );
-      }),
-    );
+    });
   }
 }
 

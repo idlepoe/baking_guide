@@ -5,6 +5,7 @@ import '../../../core/services/swipe_step_navigation_service.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../data/models/recipe_step.dart';
+import '../../home/widgets/active_timers_bar.dart';
 import '../controllers/progress_detail_controller.dart';
 import '../widgets/deduction_points_card.dart';
 import '../widgets/ingredients_bottom_sheet.dart';
@@ -43,59 +44,72 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
             onPressed: () => IngredientsBottomSheet.show(context, controller),
           ),
         ],
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(1),
+          child: Divider(height: 1),
+        ),
       ),
       floatingActionButton: ProgressFabColumn(controller: controller),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      body: Obx(() {
-        if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (controller.hasError.value || controller.recipe.value == null) {
-          return const Center(child: Text('레시피를 불러올 수 없습니다.'));
-        }
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const ActiveTimersBar(),
+          Expanded(
+            child: Obx(() {
+              if (controller.isLoading.value) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (controller.hasError.value || controller.recipe.value == null) {
+                return const Center(child: Text('레시피를 불러올 수 없습니다.'));
+              }
 
-        final detail = controller.recipe.value!;
-        final step = controller.currentStep;
-        if (step == null) {
-          return const Center(child: Text('단계 정보가 없습니다.'));
-        }
+              final detail = controller.recipe.value!;
+              final step = controller.currentStep;
+              if (step == null) {
+                return const Center(child: Text('단계 정보가 없습니다.'));
+              }
 
-        final swipeService = Get.find<SwipeStepNavigationService>();
-        final swipeEnabled = swipeService.swipeStepNavigationEnabled.value;
+              final swipeService = Get.find<SwipeStepNavigationService>();
+              final swipeEnabled =
+                  swipeService.swipeStepNavigationEnabled.value;
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: StepProgressBar(
-                steps: detail.steps,
-                currentIndex: controller.currentStepIndex.value,
-                onStepTap: controller.goToStep,
-              ),
-            ),
-            StepHeader(step: step),
-            Expanded(
-              child: PageView.builder(
-                controller: controller.pageController,
-                physics: swipeEnabled
-                    ? const ClampingScrollPhysics()
-                    : const NeverScrollableScrollPhysics(),
-                onPageChanged: controller.onPageChanged,
-                itemCount: detail.steps.length,
-                itemBuilder: (context, index) {
-                  final pageStep = detail.steps[index];
-                  return _StepPageContent(
-                    stepIndex: index,
-                    step: pageStep,
-                    controller: controller,
-                  );
-                },
-              ),
-            ),
-          ],
-        );
-      }),
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: StepProgressBar(
+                      steps: detail.steps,
+                      currentIndex: controller.currentStepIndex.value,
+                      onStepTap: controller.goToStep,
+                    ),
+                  ),
+                  StepHeader(step: step),
+                  Expanded(
+                    child: PageView.builder(
+                      controller: controller.pageController,
+                      physics: swipeEnabled
+                          ? const ClampingScrollPhysics()
+                          : const NeverScrollableScrollPhysics(),
+                      onPageChanged: controller.onPageChanged,
+                      itemCount: detail.steps.length,
+                      itemBuilder: (context, index) {
+                        final pageStep = detail.steps[index];
+                        return _StepPageContent(
+                          stepIndex: index,
+                          step: pageStep,
+                          controller: controller,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
+        ],
+      ),
       bottomNavigationBar: Obx(() {
         final active = controller.session.value?.status;
         if (active != ProgressSessionStatus.inProgress) {

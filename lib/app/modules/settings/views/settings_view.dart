@@ -12,11 +12,9 @@ class SettingsView extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('설정'), centerTitle: true),
-      body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
-        children: [
+    return ListView(
+      padding: const EdgeInsets.only(bottom: 24),
+      children: [
           const _SettingsSectionHeader(title: '일반 설정'),
           Obx(
             () => _SettingsSwitchTile(
@@ -175,7 +173,6 @@ class SettingsView extends GetView<SettingsController> {
             },
           ),
         ],
-      ),
     );
   }
 }

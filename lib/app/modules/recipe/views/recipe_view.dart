@@ -12,12 +12,7 @@ class RecipeView extends GetView<RecipeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('레시피'),
-        centerTitle: true,
-      ),
-      body: Obx(() {
+    return Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -37,8 +32,7 @@ class RecipeView extends GetView<RecipeController> {
             return _RecipeCard(recipe: controller.recipes[index]);
           },
         );
-      }),
-    );
+    });
   }
 }
 

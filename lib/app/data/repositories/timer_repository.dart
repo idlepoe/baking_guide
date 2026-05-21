@@ -62,6 +62,12 @@ class TimerRepository {
     return timers.where((t) => t.endsAt.isAfter(now)).toList();
   }
 
+  Future<List<PracticeTimer>> findAllActive() async {
+    final now = DateTime.now();
+    final timers = await loadAll();
+    return timers.where((t) => t.endsAt.isAfter(now)).toList();
+  }
+
   PracticeTimer? findActiveForPreset({
     required List<PracticeTimer> activeTimers,
     required TimerKind type,

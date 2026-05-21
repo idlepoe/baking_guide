@@ -8,9 +8,11 @@ import 'package:timezone/data/latest_all.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:uuid/uuid.dart';
 
+import '../models/active_timer_entry.dart';
 import '../../data/models/practice_timer.dart';
 import '../../data/models/progress_session.dart';
 import '../../data/models/step_timer.dart';
+import '../../data/repositories/progress_session_repository.dart';
 import '../../data/repositories/timer_repository.dart';
 import 'alarm_callback.dart';
 import 'android_alarm_bootstrap.dart';
@@ -32,6 +34,9 @@ class TimerScheduleService extends GetxService {
   final _uuid = const Uuid();
 
   final _displayByTimerId = <String, TimerDisplayContext>{};
+
+  /// Home 상단 등에서 구독하는 진행 중 타이머 목록.
+  final activeEntries = <ActiveTimerEntry>[].obs;
 
   Timer? _expiryWatcher;
   bool _expirySyncInFlight = false;
@@ -64,6 +69,56 @@ class TimerScheduleService extends GetxService {
 
   TimerDisplayContext? displayContextFor(String timerId) =>
       _displayByTimerId[timerId];
+
+  /// 전역 진행 중 타이머를 조회해 [activeEntries]를 갱신한다.
+  Future<void> refreshActiveEntries() async {
+    final timers = await _timerRepository.findAllActive();
+    final now = DateTime.now();
+    timers.sort((a, b) => a.endsAt.compareTo(b.endsAt));
+
+    final sessions = await _loadSessionsMap();
+    final entries = <ActiveTimerEntry>[];
+
+    for (final timer in timers) {
+      if (!timer.endsAt.isAfter(now)) continue;
+
+      final session = sessions[timer.sessionId];
+      final recipeId = session?.recipeId ?? '';
+      final memCtx = _displayByTimerId[timer.timerId];
+
+      if (memCtx != null) {
+        entries.add(
+          ActiveTimerEntry(
+            timer: timer,
+            recipeName: memCtx.recipeName,
+            label: memCtx.label,
+            recipeId: recipeId,
+          ),
+        );
+        continue;
+      }
+
+      final ctx = await TimerAlarmHandler.resolveDisplayContext(timer);
+      entries.add(
+        ActiveTimerEntry(
+          timer: timer,
+          recipeName: ctx?.recipeName ?? '레시피',
+          label: ctx?.label ?? TimerAlarmHandler.fallbackLabel(timer),
+          recipeId: recipeId,
+        ),
+      );
+    }
+
+    activeEntries.assignAll(entries);
+  }
+
+  Future<Map<String, ProgressSession>> _loadSessionsMap() async {
+    final repo = Get.isRegistered<ProgressSessionRepository>()
+        ? Get.find<ProgressSessionRepository>()
+        : ProgressSessionRepository();
+    final sessions = await repo.loadAll();
+    return {for (final s in sessions) s.sessionId: s};
+  }
 
   Future<List<PracticeTimer>> activeTimersForSession(String sessionId) {
     return _timerRepository.findActiveBySession(sessionId);
@@ -129,6 +184,7 @@ class TimerScheduleService extends GetxService {
     if (!notificationEnabled) {
       TimerNotifyLog.d('startTimer timerId=$timerId notifications disabled');
       await _ensureExpiryWatcherRunning();
+      await refreshActiveEntries();
       return true;
     }
 
@@ -153,6 +209,7 @@ class TimerScheduleService extends GetxService {
       timerLabel: preset.label,
     );
     await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
     return true;
   }
 
@@ -167,6 +224,7 @@ class TimerScheduleService extends GetxService {
     await _timerRepository.remove(timerId);
     _displayByTimerId.remove(timerId);
     await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
   }
 
   Future<bool> _schedulePlatform({
@@ -261,11 +319,13 @@ class TimerScheduleService extends GetxService {
     }
     await refreshOngoingNotifications();
     await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
   }
 
   Future<void> _bootstrapActiveTimers() async {
     await syncExpiredTimers();
     await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
   }
 
   Future<void> _ensureExpiryWatcherRunning() async {

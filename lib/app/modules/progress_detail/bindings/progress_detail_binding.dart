@@ -7,8 +7,11 @@ class ProgressDetailBinding extends Bindings {
   @override
   void dependencies() {
     final recipeId = Get.arguments as String? ?? '';
-    Get.lazyPut<ProgressDetailController>(
-      () => ProgressDetailController(
+    if (Get.isRegistered<ProgressDetailController>()) {
+      Get.delete<ProgressDetailController>(force: true);
+    }
+    Get.put(
+      ProgressDetailController(
         recipeId: recipeId,
         repository: RecipeRepository(),
       ),
