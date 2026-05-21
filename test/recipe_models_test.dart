@@ -22,10 +22,13 @@ void main() {
           .map((e) => RecipeListItem.fromJson(e as Map<String, dynamic>))
           .toList();
 
-      expect(items, hasLength(2));
+      expect(items, hasLength(4));
       expect(items.first.id, 'chestnut_bread');
       expect(items.first.name, '밤식빵');
       expect(items.first.totalTimeSec, 13200);
+      expect(items[1].id, 'milk_bread');
+      expect(items[2].totalTimeSec, 9600);
+      expect(items[3].id, 'sweet_roll');
     });
   });
 

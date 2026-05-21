@@ -1,0 +1,545 @@
+{
+  "id": "emergency_white_bread",
+  "name": "식빵(비상법)",
+  "category": "bread",
+  "thumbnailUrl": "https://placehold.co/600x400.png?text=emergency_white_bread",
+
+  "summary": {
+    "examTimeSec": 9600,
+    "mixingMethod": "emergency_straight",
+
+    "oven": {
+      "top": 180,
+      "bottom": 210,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+
+    "fermentation": {
+      "first": {
+        "temperature": "27~30",
+        "humidity": "75~80%",
+        "timeSec": 1800
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~38",
+        "humidity": "85~90%",
+        "timeSec": 2400
+      }
+    },
+
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "시험 시간: 2시간 40분",
+          "비상스트레이트법 사용",
+          "이스트 2배 사용"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "반죽 온도 30℃",
+          "클린업 단계에서 유지 투입",
+          "최종 단계까지 믹싱"
+        ]
+      },
+      {
+        "title": "발효",
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차 발효: 15~30분",
+          "중간발효: 실온 15분",
+          "2차 발효: 식빵 틀 높이까지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "가스 제거 후 3겹 접기",
+          "팽팽하게 말아주기",
+          "이음매는 아래 방향"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "윗불 180℃",
+          "아랫불 210℃",
+          "30분 전후 굽기"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "과발효 주의",
+          "반죽 찢김 주의",
+          "성형 크기 균일 유지",
+          "팬닝 방향 확인"
+        ]
+      }
+    ]
+  },
+
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 1200,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "물",
+      "amount": 756,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "인스턴트 드라이이스트",
+      "amount": 60,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 24,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "설탕",
+      "amount": 60,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "소금",
+      "amount": 24,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 48,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "분유",
+      "amount": 36,
+      "unit": "g",
+      "category": "powder"
+    }
+  ],
+
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "재료 계량",
+      "estimatedTimeSec": 480,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step1.jpg",
+
+      "description": [
+        "재료를 정확하게 계량한다.",
+        "가루 재료를 한 볼에 모아 준비한다."
+      ],
+
+      "tips": [
+        "비상법은 작업 속도가 중요",
+        "물 온도를 계절에 따라 조절"
+      ],
+
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "powder_grouped",
+          "text": "가루 재료 준비 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        },
+        {
+          "severity": "low",
+          "text": "작업대 정리 상태 확인"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 30
+          }
+        }
+      ],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 2,
+      "title": "반죽 믹싱",
+      "estimatedTimeSec": 720,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step2.jpg",
+
+      "description": [
+        "유지를 제외한 전 재료를 믹싱한다.",
+        "1단에서 믹싱 후 클린업 단계에서 유지를 투입한다.",
+        "2~3단으로 최종 단계까지 믹싱한다."
+      ],
+
+      "tips": [
+        "글루텐막 상태 확인",
+        "반죽 온도 30℃ 확인"
+      ],
+
+      "checklist": [
+        {
+          "id": "cleanup_stage",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "shortening_added",
+          "text": "쇼트닝 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "유지 조기 투입 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "과믹싱 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 30
+          }
+        }
+      ],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 3,
+      "title": "1차 발효",
+      "estimatedTimeSec": 1800,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step3.jpg",
+
+      "description": [
+        "27~30℃, 습도 75~80%에서 15~30분 발효한다.",
+        "반죽 상태를 확인하며 진행한다."
+      ],
+
+      "tips": [
+        "비상법은 과발효 주의",
+        "발효 상태를 반드시 확인"
+      ],
+
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 1800
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 4,
+      "title": "분할 및 둥글리기",
+      "estimatedTimeSec": 600,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step4.jpg",
+
+      "description": [
+        "반죽을 180g씩 분할한다.",
+        "둥글리기를 진행한다."
+      ],
+
+      "tips": [
+        "분할 중량을 균일하게 맞춘다"
+      ],
+
+      "checklist": [
+        {
+          "id": "divide_done",
+          "text": "180g 분할 완료"
+        },
+        {
+          "id": "round_done",
+          "text": "둥글리기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분할 오차 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 5,
+      "title": "중간 발효",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step5.jpg",
+
+      "description": [
+        "실온에서 약 15분간 중간발효한다."
+      ],
+
+      "tips": [
+        "반죽 마름 방지"
+      ],
+
+      "checklist": [
+        {
+          "id": "bench_rest_done",
+          "text": "중간발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "low",
+          "text": "반죽 건조 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "rest",
+          "label": "중간발효",
+          "durationSec": 900
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 6,
+      "title": "정형 및 팬닝",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
+
+      "description": [
+        "밀대로 가스를 제거한다.",
+        "3겹 접기 후 팽팽하게 말아준다.",
+        "팬에 3개씩 팬닝한다."
+      ],
+
+      "tips": [
+        "이음매가 아래로 향하게 팬닝",
+        "성형 크기를 균일하게 맞춘다"
+      ],
+
+      "checklist": [
+        {
+          "id": "molding_done",
+          "text": "정형 완료"
+        },
+        {
+          "id": "panning_done",
+          "text": "팬닝 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "성형 불균일 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "이음매 방향 확인"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 7,
+      "title": "2차 발효",
+      "estimatedTimeSec": 2400,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step7.jpg",
+
+      "description": [
+        "35~38℃, 습도 85~90%에서 발효한다.",
+        "식빵 틀 높이까지 발효시킨다."
+      ],
+
+      "tips": [
+        "과발효 주의",
+        "팬 높이 상태 확인"
+      ],
+
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 2400
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 8,
+      "title": "굽기",
+      "estimatedTimeSec": 1800,
+
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step8.jpg",
+
+      "description": [
+        "윗불 180℃ / 아랫불 210℃에서 약 30분간 굽는다."
+      ],
+
+      "tips": [
+        "굽기 색상을 확인",
+        "팬 위치를 균일하게 유지"
+      ],
+
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1800
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    }
+  ],
+
+  "resultEvaluation": [
+    {
+      "id": "uniform_shape",
+      "text": "식빵 크기와 높이가 균일해야 한다."
+    },
+    {
+      "id": "good_volume",
+      "text": "충분한 볼륨이 형성되어야 한다."
+    },
+    {
+      "id": "even_crumb",
+      "text": "내부 결이 균일해야 한다."
+    },
+    {
+      "id": "surface_clean",
+      "text": "표면 손상 및 찢김이 없어야 한다."
+    }
+  ]
+}

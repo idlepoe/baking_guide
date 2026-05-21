@@ -23,4 +23,7 @@ const _$TimerKindEnumMap = {
   TimerKind.exam: 'exam',
   TimerKind.step: 'step',
   TimerKind.fermentation: 'fermentation',
+  TimerKind.rest: 'rest',
+  TimerKind.proofing: 'proofing',
+  TimerKind.baking: 'baking',
 };

@@ -1,0 +1,552 @@
+{
+  "id": "sweet_roll",
+  "name": "스위트롤",
+  "category": "bread",
+  "thumbnailUrl": "https://placehold.co/600x400.png?text=sweet_roll",
+
+  "summary": {
+    "examTimeSec": 12600,
+    "mixingMethod": "straight",
+
+    "oven": {
+      "top": 190,
+      "bottom": 150,
+      "unit": "celsius",
+      "timeSec": 1020
+    },
+
+    "fermentation": {
+      "first": {
+        "temperature": 30,
+        "humidity": "75~80%",
+        "timeSec": 1800
+      },
+      "second": {
+        "temperature": 35,
+        "timeSec": 1200
+      }
+    },
+
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "시험 시간: 3시간 30분",
+          "반죽법: 스트레이트법"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "반죽 온도: 27℃",
+          "클린업 단계에서 쇼트닝 투입",
+          "최종 단계까지 믹싱"
+        ]
+      },
+      {
+        "title": "발효",
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차 발효: 30℃, 30분",
+          "중간발효: 실온 10분",
+          "2차 발효: 35℃, 약 20분"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "30cm × 40cm 직사각형으로 밀기",
+          "팽팽하게 말아주기",
+          "이음매 꼼꼼히 봉합"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "윗불 190℃",
+          "아랫불 150℃",
+          "15~17분 굽기"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "반죽 느슨하게 말지 않기",
+          "이음매 벌어짐 주의",
+          "계피설탕 불균일 주의",
+          "성형 크기 균일 유지"
+        ]
+      }
+    ]
+  },
+
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 1000,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "물",
+      "amount": 460,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "이스트",
+      "amount": 50,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 10,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "소금",
+      "amount": 20,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 200,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 200,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "달걀",
+      "amount": 150,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "분유",
+      "amount": 30,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "충전용 설탕",
+      "amount": 150,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "계피가루",
+      "amount": 15,
+      "unit": "g",
+      "category": "spice"
+    }
+  ],
+
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "재료 계량",
+      "estimatedTimeSec": 600,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step1.jpg",
+
+      "description": [
+        "재료를 정확하게 계량한다.",
+        "충전용 계피설탕을 미리 혼합해 둔다."
+      ],
+
+      "tips": [
+        "계피가루와 설탕은 균일하게 혼합"
+      ],
+
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "filling_mix",
+          "text": "계피설탕 혼합 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 2,
+      "title": "반죽 믹싱",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step2.jpg",
+
+      "description": [
+        "쇼트닝을 제외한 재료를 믹싱한다.",
+        "클린업 단계에서 쇼트닝을 투입한다.",
+        "최종 단계까지 믹싱한다."
+      ],
+
+      "tips": [
+        "유지 조기 투입 주의",
+        "반죽 찢김 주의"
+      ],
+
+      "checklist": [
+        {
+          "id": "cleanup_check",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "shortening_added",
+          "text": "쇼트닝 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "유지 조기 투입 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "과믹싱 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 3,
+      "title": "1차 발효",
+      "estimatedTimeSec": 1800,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step3.jpg",
+
+      "description": [
+        "30℃, 습도 75~80%에서 약 30분간 발효한다."
+      ],
+
+      "tips": [
+        "발효 상태를 손가락 테스트로 확인"
+      ],
+
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 1800
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 4,
+      "title": "분할 및 둥글리기",
+      "estimatedTimeSec": 600,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step4.jpg",
+
+      "description": [
+        "반죽을 4등분으로 분할한다.",
+        "둥글리기를 한 뒤 중간발효를 진행한다."
+      ],
+
+      "tips": [
+        "반죽 크기를 균일하게 맞춘다"
+      ],
+
+      "checklist": [
+        {
+          "id": "divide_done",
+          "text": "4등분 분할 완료"
+        },
+        {
+          "id": "round_done",
+          "text": "둥글리기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분할 중량 오차 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "rest",
+          "label": "중간발효",
+          "durationSec": 600
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 5,
+      "title": "밀어펴기 및 충전",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step5.jpg",
+
+      "description": [
+        "덧가루를 충분히 사용하여 직사각형으로 민다.",
+        "윗부분 일부를 남기고 물을 바른다.",
+        "계피설탕을 균일하게 뿌린다."
+      ],
+
+      "tips": [
+        "반죽이 바닥에 붙지 않게 덧가루 사용",
+        "충전물은 균일하게 도포"
+      ],
+
+      "checklist": [
+        {
+          "id": "sheet_done",
+          "text": "반죽 밀어펴기 완료"
+        },
+        {
+          "id": "filling_done",
+          "text": "충전물 도포 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "충전물 불균일 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 6,
+      "title": "말기 및 재단",
+      "estimatedTimeSec": 600,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step6.jpg",
+
+      "description": [
+        "반죽을 팽팽하게 말아준다.",
+        "이음매를 꼼꼼히 봉합한다.",
+        "일정한 크기로 재단한다."
+      ],
+
+      "tips": [
+        "느슨하게 말리지 않도록 주의",
+        "이음매를 반드시 붙인다"
+      ],
+
+      "checklist": [
+        {
+          "id": "rolling_done",
+          "text": "말기 완료"
+        },
+        {
+          "id": "cutting_done",
+          "text": "재단 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매 벌어짐 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "재단 크기 불균일 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 7,
+      "title": "패닝 및 2차 발효",
+      "estimatedTimeSec": 1200,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step7.jpg",
+
+      "description": [
+        "팬에 간격을 두고 배치한다.",
+        "35℃에서 약 20분간 2차 발효한다."
+      ],
+
+      "tips": [
+        "발효 후 크기 증가 고려"
+      ],
+
+      "checklist": [
+        {
+          "id": "panning_done",
+          "text": "패닝 완료"
+        },
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1200
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 8,
+      "title": "굽기",
+      "estimatedTimeSec": 1020,
+
+      "imageUrl": "assets/images/recipes/sweet_roll/step8.jpg",
+
+      "description": [
+        "190℃ / 150℃ 오븐에서 15~17분간 굽는다."
+      ],
+
+      "tips": [
+        "노릇한 색 확인"
+      ],
+
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1020
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    }
+  ],
+
+  "resultEvaluation": [
+    {
+      "id": "uniform_size",
+      "text": "제품 크기가 균일해야 한다."
+    },
+    {
+      "id": "tight_roll",
+      "text": "말림 상태가 균일해야 한다."
+    },
+    {
+      "id": "good_color",
+      "text": "노릇한 색이 균일해야 한다."
+    },
+    {
+      "id": "no_open_seam",
+      "text": "이음매가 벌어지지 않아야 한다."
+    }
+  ]
+}

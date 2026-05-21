@@ -8,4 +8,10 @@ enum TimerKind {
   step,
   @JsonValue('fermentation')
   fermentation,
+  @JsonValue('rest')
+  rest,
+  @JsonValue('proofing')
+  proofing,
+  @JsonValue('baking')
+  baking,
 }

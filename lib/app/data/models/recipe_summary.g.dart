@@ -30,4 +30,5 @@ const _$MixingMethodEnumMap = {
   MixingMethod.straight: 'straight',
   MixingMethod.sponge: 'sponge',
   MixingMethod.modifiedStraight: 'modified_straight',
+  MixingMethod.emergencyStraight: 'emergency_straight',
 };

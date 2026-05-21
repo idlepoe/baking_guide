@@ -24,21 +24,22 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 64,
         title: Obx(() {
           final name = controller.recipe.value?.name ?? '';
           return Text(name.isEmpty ? '실기 진행' : '$name 실기 진행');
         }),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.article_outlined),
-            tooltip: '핵심 정보',
+          _AppBarLabeledIconAction(
+            icon: Icons.article_outlined,
+            label: '핵심 정보',
             onPressed: () =>
                 RecipeSummaryBottomSheet.show(context, controller),
           ),
-          IconButton(
-            icon: const Icon(Icons.egg_alt_outlined),
-            tooltip: '재료 목록',
+          _AppBarLabeledIconAction(
+            icon: Icons.egg_alt_outlined,
+            label: '재료 목록',
             onPressed: () => IngredientsBottomSheet.show(context, controller),
           ),
         ],
@@ -223,6 +224,53 @@ class _ProgressDetailScrollBodyState extends State<_ProgressDetailScrollBody> {
         bottom: 16 + MediaQuery.paddingOf(context).bottom,
       ),
       child: widget.child,
+    );
+  }
+}
+
+class _AppBarLabeledIconAction extends StatelessWidget {
+  const _AppBarLabeledIconAction({
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final color = theme.colorScheme.onSurface;
+
+    return Tooltip(
+      message: label,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(8),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 22, color: color),
+              const SizedBox(height: 2),
+              Text(
+                label,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w500,
+                  color: color,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -34,4 +34,9 @@ const _$IngredientCategoryEnumMap = {
   IngredientCategory.yeast: 'yeast',
   IngredientCategory.fat: 'fat',
   IngredientCategory.filling: 'filling',
+  IngredientCategory.improver: 'improver',
+  IngredientCategory.liquidOptional: 'liquid_optional',
+  IngredientCategory.powder: 'powder',
+  IngredientCategory.egg: 'egg',
+  IngredientCategory.spice: 'spice',
 };

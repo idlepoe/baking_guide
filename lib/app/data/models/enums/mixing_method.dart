@@ -8,4 +8,6 @@ enum MixingMethod {
   sponge,
   @JsonValue('modified_straight')
   modifiedStraight,
+  @JsonValue('emergency_straight')
+  emergencyStraight,
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/widgets.dart';
 
+import '../../data/models/enums/timer_kind.dart';
 import '../../data/models/practice_timer.dart';
 import '../../data/models/progress_session.dart';
 import '../../data/models/recipe_detail.dart';
@@ -168,10 +169,12 @@ class TimerAlarmHandler {
   static String fallbackLabel(PracticeTimer timer) => _fallbackLabel(timer);
 
   static String _fallbackLabel(PracticeTimer timer) {
-    return switch (timer.type.name) {
-      'fermentation' => '발효 타이머',
-      'exam' => '시험 타이머',
-      _ => '단계 타이머',
+    return switch (timer.type) {
+      TimerKind.fermentation || TimerKind.proofing => '발효 타이머',
+      TimerKind.exam => '시험 타이머',
+      TimerKind.baking => '굽기 타이머',
+      TimerKind.rest => '휴지 타이머',
+      TimerKind.step => '단계 타이머',
     };
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/storage/ingredient_batch_scale_preferences.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
@@ -12,7 +13,7 @@ abstract final class IngredientsBottomSheetColors {
   static const summaryBackground = Color(0xFFFFF8E1);
 }
 
-class IngredientsBottomSheet extends StatelessWidget {
+class IngredientsBottomSheet extends StatefulWidget {
   const IngredientsBottomSheet({
     super.key,
     required this.ingredients,
@@ -21,6 +22,9 @@ class IngredientsBottomSheet extends StatelessWidget {
 
   final List<RecipeIngredient> ingredients;
   final ProgressDetailController controller;
+
+  @override
+  State<IngredientsBottomSheet> createState() => _IngredientsBottomSheetState();
 
   static void show(
     BuildContext context,
@@ -52,6 +56,38 @@ class IngredientsBottomSheet extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
+  final _batchScalePreferences = IngredientBatchScalePreferences();
+
+  int _scaleIndex = IngredientBatchScale.exam.index;
+
+  List<RecipeIngredient> get ingredients => widget.ingredients;
+
+  ProgressDetailController get controller => widget.controller;
+
+  String get _recipeId => controller.recipeId;
+
+  IngredientBatchScale get _batchScale =>
+      IngredientBatchScale.fromSliderIndex(_scaleIndex);
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBatchScaleIndex();
+  }
+
+  Future<void> _loadBatchScaleIndex() async {
+    final index = await _batchScalePreferences.loadScaleIndex(_recipeId);
+    if (!mounted) return;
+    setState(() => _scaleIndex = index);
+  }
+
+  void _onBatchScaleIndexChanged(int index) {
+    setState(() => _scaleIndex = index);
+    _batchScalePreferences.saveScaleIndex(_recipeId, index);
   }
 
   @override
@@ -96,6 +132,13 @@ class IngredientsBottomSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: _SummaryBanner(count: ingredients.length),
             ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: _BatchScaleSlider(
+                scaleIndex: _scaleIndex,
+                onScaleIndexChanged: _onBatchScaleIndexChanged,
+              ),
+            ),
             const SizedBox(height: 12),
             Flexible(
               child: Padding(
@@ -105,30 +148,31 @@ class IngredientsBottomSheet extends StatelessWidget {
                     border: Border.all(color: Colors.grey.shade300),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Obx(() {
-                    // Obx 스코프 안에서 observable을 직접 읽어야 한다.
-                    final checkedIds =
-                        Set<String>.from(controller.checkedIngredientIds);
-                    return ListView.separated(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      itemCount: ingredients.length,
-                      separatorBuilder: (context, index) => Divider(
-                        height: 1,
-                        color: Colors.grey.shade200,
-                      ),
-                      itemBuilder: (context, index) {
-                        final ingredient = ingredients[index];
+                  child: ListView.separated(
+                    key: ValueKey(_scaleIndex),
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    itemCount: ingredients.length,
+                    separatorBuilder: (context, index) => Divider(
+                      height: 1,
+                      color: Colors.grey.shade200,
+                    ),
+                    itemBuilder: (context, index) {
+                      final ingredient = ingredients[index];
+                      return Obx(() {
+                        final checked = controller.checkedIngredientIds
+                            .contains(ingredient.name);
                         return _IngredientRow(
                           ingredient: ingredient,
-                          checked: checkedIds.contains(ingredient.name),
+                          batchScale: _batchScale,
+                          checked: checked,
                           onToggle: () => controller.toggleIngredient(
                             ingredient.name,
                           ),
                         );
-                      },
-                    );
-                  }),
+                      });
+                    },
+                  ),
                 ),
               ),
             ),
@@ -142,6 +186,56 @@ class IngredientsBottomSheet extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _BatchScaleSlider extends StatelessWidget {
+  const _BatchScaleSlider({
+    required this.scaleIndex,
+    required this.onScaleIndexChanged,
+  });
+
+  final int scaleIndex;
+  final ValueChanged<int> onScaleIndexChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final labels = IngredientBatchScale.values.map((s) => s.label).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Slider(
+          value: scaleIndex.toDouble(),
+          min: 0,
+          max: 2,
+          divisions: 2,
+          label: labels[scaleIndex],
+          onChanged: (value) => onScaleIndexChanged(value.round()),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Row(
+            children: [
+              for (var i = 0; i < labels.length; i++) ...[
+                if (i > 0) const Spacer(),
+                Text(
+                  labels[i],
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    fontWeight:
+                        i == scaleIndex ? FontWeight.bold : FontWeight.normal,
+                    color: i == scaleIndex
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -203,11 +297,13 @@ class _SummaryBanner extends StatelessWidget {
 class _IngredientRow extends StatelessWidget {
   const _IngredientRow({
     required this.ingredient,
+    required this.batchScale,
     required this.checked,
     required this.onToggle,
   });
 
   final RecipeIngredient ingredient;
+  final IngredientBatchScale batchScale;
   final bool checked;
   final VoidCallback onToggle;
 
@@ -238,13 +334,16 @@ class _IngredientRow extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              formatIngredientAmount(ingredient),
+              formatIngredientAmountForScale(
+                ingredient,
+                scale: batchScale,
+              ),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
-        ),
+        ),                                                                                                                                             
       ),
     );
   }

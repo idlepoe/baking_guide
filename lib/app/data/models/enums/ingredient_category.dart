@@ -16,4 +16,14 @@ enum IngredientCategory {
   fat,
   @JsonValue('filling')
   filling,
+  @JsonValue('improver')
+  improver,
+  @JsonValue('liquid_optional')
+  liquidOptional,
+  @JsonValue('powder')
+  powder,
+  @JsonValue('egg')
+  egg,
+  @JsonValue('spice')
+  spice,
 }

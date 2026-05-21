@@ -1,0 +1,548 @@
+{
+  "id": "milk_bread",
+  "name": "우유식빵",
+  "category": "bread",
+  "thumbnailUrl": "https://placehold.co/600x400.png?text=milk_bread",
+
+  "summary": {
+    "examTimeSec": 13200,
+    "mixingMethod": "straight",
+
+    "oven": {
+      "top": 170,
+      "bottom": 200,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 3600
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~38",
+        "humidity": "85%",
+        "timeSec": 3000
+      }
+    },
+
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "시험 시간: 3시간 40분",
+          "반죽법: 스트레이트법",
+          "분할 무게: 180g"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "반죽 온도 27℃",
+          "클린업 단계에서 유지 투입",
+          "최종 단계까지 믹싱"
+        ]
+      },
+      {
+        "title": "발효",
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차 발효: 50~60분",
+          "중간발효: 10~15분",
+          "2차 발효: 팬 높이의 80~90%"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "밀어펴기 → 3단 접기 → 말기",
+          "이음매를 단단히 봉합",
+          "팬당 3개 패닝"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "우유 사용으로 색이 빨리 남",
+          "일반 식빵보다 약 10℃ 낮게 굽기",
+          "윗불 170℃ / 아랫불 200℃"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "과색 주의",
+          "성형 크기 불균일 주의",
+          "이음매 벌어짐 주의",
+          "과발효 주의"
+        ]
+      }
+    ]
+  },
+
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 1200,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "우유",
+      "amount": 480,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "물",
+      "amount": 348,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "이스트",
+      "amount": 48,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 12,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "소금",
+      "amount": 24,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 60,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 48,
+      "unit": "g",
+      "category": "fat"
+    }
+  ],
+
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "재료 계량",
+      "estimatedTimeSec": 420,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step1.jpg",
+
+      "description": [
+        "모든 재료를 정확하게 계량한다.",
+        "재료를 7분 안에 진열 완료한다."
+      ],
+
+      "tips": [
+        "이스트와 소금은 직접 닿지 않게 배치"
+      ],
+
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료 진열 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        },
+        {
+          "severity": "low",
+          "text": "진열 상태 확인"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 2,
+      "title": "반죽 믹싱",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step2.jpg",
+
+      "description": [
+        "가루 재료와 설탕, 소금을 넣는다.",
+        "이스트가 직접 닿지 않게 배치한다.",
+        "물과 우유를 넣고 믹싱한다.",
+        "클린업 단계에서 유지를 투입한다.",
+        "최종 단계까지 믹싱한다."
+      ],
+
+      "tips": [
+        "반죽 온도 27℃ 확인",
+        "우유 사용으로 반죽 상태 변화 주의"
+      ],
+
+      "checklist": [
+        {
+          "id": "cleanup_stage",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "fat_added",
+          "text": "유지 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "유지 조기 투입 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "과믹싱 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 3,
+      "title": "1차 발효",
+      "estimatedTimeSec": 3600,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step3.jpg",
+
+      "description": [
+        "27℃, 습도 75~80%에서 반죽이 2.5~3배 될 때까지 발효한다."
+      ],
+
+      "tips": [
+        "손가락 테스트로 발효 상태 확인",
+        "우유 반죽은 과발효 주의"
+      ],
+
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3600
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 4,
+      "title": "분할 및 둥글리기",
+      "estimatedTimeSec": 600,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step4.jpg",
+
+      "description": [
+        "180g씩 분할한다.",
+        "매끄럽게 둥글리기한다."
+      ],
+
+      "tips": [
+        "분할 중량을 균일하게 맞춘다"
+      ],
+
+      "checklist": [
+        {
+          "id": "divide_done",
+          "text": "180g 분할 완료"
+        },
+        {
+          "id": "round_done",
+          "text": "둥글리기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분할 오차 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 5,
+      "title": "중간 발효",
+      "estimatedTimeSec": 900,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step5.jpg",
+
+      "description": [
+        "비닐을 덮고 10~15분간 휴지한다."
+      ],
+
+      "tips": [
+        "반죽 마름 방지"
+      ],
+
+      "checklist": [
+        {
+          "id": "bench_rest_done",
+          "text": "중간발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "low",
+          "text": "반죽 건조 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "rest",
+          "label": "중간발효",
+          "durationSec": 900
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 6,
+      "title": "성형 및 팬닝",
+      "estimatedTimeSec": 1200,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step6.jpg",
+
+      "description": [
+        "밀어펴기 후 3단 접기를 한다.",
+        "팽팽하게 말아준다.",
+        "이음매를 단단히 봉합한다.",
+        "팬당 3개씩 패닝한다."
+      ],
+
+      "tips": [
+        "이음매가 벌어지지 않도록 주의",
+        "성형 크기를 균일하게 맞춘다"
+      ],
+
+      "checklist": [
+        {
+          "id": "molding_done",
+          "text": "성형 완료"
+        },
+        {
+          "id": "panning_done",
+          "text": "패닝 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매 벌어짐 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "성형 불균일 주의"
+        }
+      ],
+
+      "timers": [],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 7,
+      "title": "2차 발효",
+      "estimatedTimeSec": 3000,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step7.jpg",
+
+      "description": [
+        "35~38℃, 습도 85%에서 팬 높이의 80~90%까지 발효한다."
+      ],
+
+      "tips": [
+        "팬 위로 약 1cm 정도 올라오면 적절"
+      ],
+
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 3000
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    },
+
+    {
+      "stepNo": 8,
+      "title": "굽기",
+      "estimatedTimeSec": 1800,
+
+      "imageUrl": "assets/images/recipes/milk_bread/step8.jpg",
+
+      "description": [
+        "우유 사용으로 일반 식빵보다 낮은 온도에서 굽는다.",
+        "170℃ / 200℃에서 약 30분간 굽는다."
+      ],
+
+      "tips": [
+        "색이 빨리 나므로 과색 주의"
+      ],
+
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1800
+        }
+      ],
+
+      "calculators": [],
+
+      "images": []
+    }
+  ],
+
+  "resultEvaluation": [
+    {
+      "id": "uniform_shape",
+      "text": "식빵 높이와 크기가 균일해야 한다."
+    },
+    {
+      "id": "good_volume",
+      "text": "충분한 볼륨이 형성되어야 한다."
+    },
+    {
+      "id": "even_crumb",
+      "text": "내부 결이 균일해야 한다."
+    },
+    {
+      "id": "good_color",
+      "text": "껍질 색상이 균일해야 한다."
+    },
+    {
+      "id": "no_open_seam",
+      "text": "이음매가 벌어지지 않아야 한다."
+    }
+  ]
+}
