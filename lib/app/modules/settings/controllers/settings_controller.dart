@@ -38,7 +38,7 @@ class SettingsController extends GetxController {
   final FontScaleService _fontScaleService;
 
   final isDarkMode = false.obs;
-  final keepScreenOn = false.obs;
+  final keepScreenOn = true.obs;
 
   RxBool get swipeStepNavigation =>
       _swipeStepNavigationService.swipeStepNavigationEnabled;

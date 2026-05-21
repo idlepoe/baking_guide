@@ -6,7 +6,7 @@ class ScreenWakePreferences {
 
   Future<bool> loadEnabled() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_enabledKey) ?? false;
+    return prefs.getBool(_enabledKey) ?? true;
   }
 
   Future<void> saveEnabled(bool value) async {

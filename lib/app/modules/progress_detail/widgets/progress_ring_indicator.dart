@@ -32,6 +32,7 @@ class ProgressRingIndicator extends StatelessWidget {
         child: CircularProgressIndicator(
           value: value.clamp(0.0, 1.0),
           strokeWidth: strokeWidth,
+          strokeCap: StrokeCap.round,
           color: color,
           backgroundColor: track,
         ),

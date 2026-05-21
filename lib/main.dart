@@ -74,7 +74,8 @@ class BakingGuideApp extends StatelessWidget {
 
     return Obx(
       () {
-        final _ = fontScaleService.fontScale.value;
+        final fontSizeFactor =
+            fontScaleService.fontScale.value.fontSizeFactor;
         return GetMaterialApp(
           title: 'Application',
           scaffoldMessengerKey: AppSnackbar.scaffoldMessengerKey,
@@ -84,6 +85,18 @@ class BakingGuideApp extends StatelessWidget {
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           debugShowCheckedModeBanner: false,
+          builder: (context, child) {
+            final mediaQuery = MediaQuery.maybeOf(context);
+            if (mediaQuery == null) {
+              return child ?? const SizedBox.shrink();
+            }
+            return MediaQuery(
+              data: mediaQuery.copyWith(
+                textScaler: TextScaler.linear(fontSizeFactor),
+              ),
+              child: child ?? const SizedBox.shrink(),
+            );
+          },
         );
       },
     );

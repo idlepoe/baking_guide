@@ -98,12 +98,15 @@ class SettingsView extends GetView<SettingsController> {
             ),
           ),
           Obx(
-            () => _SettingsNavigateTile(
-              icon: Icons.text_fields_outlined,
-              title: '글자 크기',
-              trailingText: controller.selectedFontSizeLabel,
-              onTap: () => controller.showFontSizePicker(context),
-            ),
+            () {
+              final label = controller.selectedFontSizeLabel;
+              return _SettingsNavigateTile(
+                icon: Icons.text_fields_outlined,
+                title: '글자 크기',
+                trailingText: label,
+                onTap: () => controller.showFontSizePicker(context),
+              );
+            },
           ),
           Obx(
             () => _SettingsSwitchTile(

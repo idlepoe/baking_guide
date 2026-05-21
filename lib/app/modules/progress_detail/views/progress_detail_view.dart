@@ -119,7 +119,7 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
               child: AppPrimaryButton(
                 label: '실기 시작',
-                onPressed: controller.startPractice,
+                onPressed: () => _handleStartPractice(context),
                 height: 48,
                 borderRadius: 8,
               ),
@@ -132,10 +132,19 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
           canGoNext: true,
           isLastStep: controller.isLastStep,
           onPrevious: controller.goToPreviousStep,
+          onExit: () => Get.back(),
+          onExitAndEndPractice: controller.abandonPractice,
           onNext: controller.goToNextStep,
         );
       }),
     );
+  }
+
+  Future<void> _handleStartPractice(BuildContext context) async {
+    await controller.startPractice();
+    await Future.delayed(const Duration(milliseconds: 500));
+    if (!context.mounted) return;
+    IngredientsBottomSheet.show(context, controller);
   }
 }
 

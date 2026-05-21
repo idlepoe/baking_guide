@@ -12,6 +12,7 @@ import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_step.dart';
 import '../../../data/repositories/progress_session_repository.dart';
 import '../../../data/repositories/recipe_repository.dart';
+import '../../../core/services/timer_schedule_service.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../routes/app_pages.dart';
 
@@ -247,6 +248,31 @@ class ProgressDetailController extends GetxController {
       completedSteps: completed,
     );
 
+    await _sessionRepository.upsert(updated);
+    session.value = null;
+    Get.back();
+  }
+
+  /// 진행 중 실기를 종료(abandoned)하고 이전 화면으로 돌아간다.
+  Future<void> abandonPractice() async {
+    final current = session.value;
+    if (current == null) {
+      Get.back();
+      return;
+    }
+
+    final scheduleService = Get.find<TimerScheduleService>();
+    final timers =
+        await scheduleService.activeTimersForSession(current.sessionId);
+    for (final timer in timers) {
+      await scheduleService.cancelTimer(timer.timerId);
+    }
+
+    final now = DateTime.now();
+    final updated = current.copyWith(
+      status: ProgressSessionStatus.abandoned,
+      updatedAt: now,
+    );
     await _sessionRepository.upsert(updated);
     session.value = null;
     Get.back();

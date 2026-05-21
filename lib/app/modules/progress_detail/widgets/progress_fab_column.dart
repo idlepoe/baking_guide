@@ -23,10 +23,18 @@ class ProgressFabColumn extends StatefulWidget {
 class _ProgressFabColumnState extends State<ProgressFabColumn> {
   Timer? _tickTimer;
   DateTime _now = DateTime.now();
+  late final Worker _sessionWorker;
+  late final Worker _stepIndexWorker;
 
   @override
   void initState() {
     super.initState();
+    _sessionWorker = ever(widget.controller.session, (_) {
+      _onSessionOrStepChanged();
+    });
+    _stepIndexWorker = ever(widget.controller.currentStepIndex, (_) {
+      _onSessionOrStepChanged();
+    });
     _syncTickTimer();
   }
 
@@ -38,8 +46,16 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
 
   @override
   void dispose() {
+    _sessionWorker.dispose();
+    _stepIndexWorker.dispose();
     _tickTimer?.cancel();
     super.dispose();
+  }
+
+  void _onSessionOrStepChanged() {
+    if (!mounted) return;
+    _syncTickTimer();
+    setState(() => _now = DateTime.now());
   }
 
   void _syncTickTimer() {
@@ -57,23 +73,25 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final showProgress = widget.controller.hasActiveSession;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        _TimerFabWithLabel(
-          label: '타이머',
-          color: scheme.primary,
-          innerColor: scheme.tertiary,
-          icon: Icons.timer_outlined,
-          showProgress: showProgress,
-          sessionProgress:
-              widget.controller.sessionProgressAt(_now),
-          stepProgress: widget.controller.stepProgressAt(_now),
-          onPressed: () =>
-              TimerBottomSheet.show(context, widget.controller),
-        ),
+        Obx(() {
+          final showProgress = widget.controller.hasActiveSession;
+          return _TimerFabWithLabel(
+            label: '타이머',
+            color: scheme.primary,
+            innerColor: scheme.tertiary,
+            icon: Icons.timer_outlined,
+            showProgress: showProgress,
+            sessionProgress:
+                widget.controller.sessionProgressAt(_now),
+            stepProgress: widget.controller.stepProgressAt(_now),
+            onPressed: () =>
+                TimerBottomSheet.show(context, widget.controller),
+          );
+        }),
         Obx(() {
           final calculator = widget.controller.currentCalculator;
           if (calculator == null) {

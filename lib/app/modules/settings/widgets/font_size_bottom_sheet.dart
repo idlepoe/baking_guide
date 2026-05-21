@@ -31,6 +31,7 @@ class FontSizeBottomSheet extends StatelessWidget {
 
     return Obx(() {
       final selected = fontScaleService.fontScale.value;
+      final fontSizeFactor = selected.fontSizeFactor;
       final themeData = themeController.themeMode.value == ThemeMode.dark
           ? themeController.darkTheme
           : themeController.lightTheme;
@@ -41,7 +42,11 @@ class FontSizeBottomSheet extends StatelessWidget {
           builder: (context) {
             final theme = Theme.of(context);
 
-            return Padding(
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(fontSizeFactor),
+              ),
+              child: Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -102,6 +107,7 @@ class FontSizeBottomSheet extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
             );
           },
         ),
