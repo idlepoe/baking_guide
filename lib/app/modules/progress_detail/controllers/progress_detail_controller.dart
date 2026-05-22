@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../core/services/tutorial_guide_log.dart';
+import '../../../core/services/tutorial_guide_service.dart';
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../data/models/progress_session.dart';
 import '../../../data/models/step_progress.dart';
@@ -19,6 +23,7 @@ import '../../../routes/app_pages.dart';
 class ProgressDetailController extends GetxController {
   ProgressDetailController({
     required this.recipeId,
+    this.runTutorialGuide = false,
     RecipeRepository? repository,
     ProgressSessionRepository? sessionRepository,
   })  : _repository = repository ?? RecipeRepository(),
@@ -26,6 +31,7 @@ class ProgressDetailController extends GetxController {
             sessionRepository ?? Get.find<ProgressSessionRepository>();
 
   final String recipeId;
+  final bool runTutorialGuide;
   final RecipeRepository _repository;
   final ProgressSessionRepository _sessionRepository;
   final _uuid = const Uuid();
@@ -40,6 +46,7 @@ class ProgressDetailController extends GetxController {
   final checkedIngredientIds = <String>{}.obs;
 
   late final PageController pageController;
+  Worker? _tutorialGuideWorker;
 
   bool get hasActiveSession =>
       session.value?.status == ProgressSessionStatus.inProgress;
@@ -112,7 +119,43 @@ class ProgressDetailController extends GetxController {
   }
 
   @override
+  void onReady() {
+    super.onReady();
+    _scheduleTutorialGuideIfNeeded();
+  }
+
+  void _scheduleTutorialGuideIfNeeded() {
+    if (!runTutorialGuide) return;
+    if (!Get.isRegistered<TutorialGuideService>()) {
+      TutorialGuideLog.w(
+        'ProgressDetail: runTutorialGuide=true 이지만 TutorialGuideService 없음',
+      );
+      return;
+    }
+
+    final service = Get.find<TutorialGuideService>();
+    if (!service.isActive) {
+      TutorialGuideLog.w(
+        'ProgressDetail: runTutorialGuide=true 이지만 isActive=false',
+      );
+      return;
+    }
+
+    void tryStart() {
+      if (isLoading.value || recipe.value == null || hasError.value) return;
+      _tutorialGuideWorker?.dispose();
+      _tutorialGuideWorker = null;
+      TutorialGuideLog.d('ProgressDetail: 레시피 로드 완료 → startDetailPhases');
+      unawaited(service.startDetailPhases());
+    }
+
+    tryStart();
+    _tutorialGuideWorker = ever<bool>(isLoading, (_) => tryStart());
+  }
+
+  @override
   void onClose() {
+    _tutorialGuideWorker?.dispose();
     pageController.dispose();
     super.onClose();
   }

@@ -6,6 +6,7 @@ import 'app/data/repositories/timer_repository.dart';
 import 'app/core/services/font_scale_service.dart';
 import 'app/core/services/progress_data_reset_service.dart';
 import 'app/core/services/timer_schedule_service.dart';
+import 'app/core/services/tutorial_guide_service.dart';
 import 'app/core/services/swipe_step_navigation_service.dart';
 import 'app/core/services/wakelock_service.dart';
 import 'app/core/storage/font_scale_preferences.dart';
@@ -42,6 +43,7 @@ Future<void> main() async {
   Get.put(TimerRepository(), permanent: true);
   Get.put<TimerScheduleService>(timerScheduleService, permanent: true);
   Get.put(ProgressDataResetService(), permanent: true);
+  Get.put(TutorialGuideService(), permanent: true);
   Get.put(themePreferences, permanent: true);
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);

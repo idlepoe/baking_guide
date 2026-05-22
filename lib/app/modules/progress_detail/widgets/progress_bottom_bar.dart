@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/widgets/app_primary_button.dart';
 
 enum _FirstStepExitAction {
@@ -49,6 +50,7 @@ class ProgressBottomBar extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: AppPrimaryButton(
+                key: isLastStep ? null : TutorialGuideKeys.nextStep,
                 label: isLastStep ? '완료' : '다음 단계',
                 onPressed: onNext,
                 height: 48,

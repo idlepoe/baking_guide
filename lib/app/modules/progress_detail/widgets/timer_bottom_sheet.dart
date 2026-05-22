@@ -11,6 +11,7 @@ import '../../../core/utils/duration_format.dart';
 import '../../../data/models/enums/timer_kind.dart';
 import '../../../data/models/practice_timer.dart';
 import '../../../data/models/step_timer.dart';
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../controllers/progress_detail_controller.dart';
 import 'progress_ring_indicator.dart';
 
@@ -59,6 +60,42 @@ class TimerBottomSheet extends StatefulWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (sheetContext) => TimerBottomSheet(controller: controller),
+    );
+  }
+
+  /// 시트를 연 뒤 [whileOpen]을 실행하고, 완료 후 시트를 닫는다.
+  static Future<void> runWhileOpen(
+    BuildContext context,
+    ProgressDetailController controller,
+    Future<void> Function() whileOpen,
+  ) async {
+    if (!controller.hasActiveSession) {
+      AppSnackbar.show(
+        context: context,
+        title: '안내',
+        message: '실기를 시작한 후 타이머를 사용할 수 있습니다.',
+      );
+      return;
+    }
+
+    if (!context.mounted) return;
+
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (sheetContext) {
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await whileOpen();
+          if (sheetContext.mounted) {
+            Navigator.of(sheetContext).pop();
+          }
+        });
+        return TimerBottomSheet(controller: controller);
+      },
     );
   }
 
@@ -263,12 +300,17 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      ...stepTimers.map((preset) {
+                      ...stepTimers.asMap().entries.map((entry) {
+                        final index = entry.key;
+                        final preset = entry.value;
                         final active = _activeForPreset(preset);
                         return _StepTimerRow(
                           preset: preset,
                           active: active,
                           now: _now,
+                          rowKey: index == 0
+                              ? TutorialGuideKeys.fermentationTimer
+                              : null,
                           onPlay: () => _onStartPreset(preset),
                           onStop: active != null &&
                                   active.endsAt.isAfter(_now)
@@ -463,12 +505,14 @@ class _StepTimerRow extends StatelessWidget {
     required this.active,
     required this.now,
     required this.onPlay,
+    this.rowKey,
     this.onStop,
   });
 
   final StepTimer preset;
   final PracticeTimer? active;
   final DateTime now;
+  final GlobalKey? rowKey;
   final VoidCallback onPlay;
   final VoidCallback? onStop;
 
@@ -479,53 +523,47 @@ class _StepTimerRow extends StatelessWidget {
     final isRunning = active != null && active!.endsAt.isAfter(now);
     final remaining = isRunning ? active!.endsAt.difference(now) : null;
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      decoration: BoxDecoration(
-        color: isRunning
-            ? TimerBottomSheetColors.activeRowBackground
-            : scheme.surface,
-        border: Border.all(
+    final timeText = isRunning && remaining != null
+        ? formatClockDuration(remaining)
+        : formatClockSeconds(preset.durationSec);
+
+    final tile = ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide(
           color: isRunning
               ? scheme.primary
               : theme.dividerColor.withValues(alpha: 0.3),
           width: isRunning ? 2 : 1,
         ),
-        borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
+      tileColor: isRunning
+          ? TimerBottomSheetColors.activeRowBackground
+          : scheme.surface,
+      title: Text(
+        preset.label,
+        style: theme.textTheme.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      subtitle: Text(
+        timeText,
+        style: isRunning
+            ? theme.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: scheme.primary,
+                letterSpacing: 1,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              )
+            : theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  preset.label,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  isRunning && remaining != null
-                      ? formatClockDuration(remaining)
-                      : formatClockSeconds(preset.durationSec),
-                  style: isRunning
-                      ? theme.textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: scheme.primary,
-                          letterSpacing: 1,
-                          fontFeatures: const [FontFeature.tabularFigures()],
-                        )
-                      : theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          fontFeatures: const [FontFeature.tabularFigures()],
-                        ),
-                ),
-              ],
-            ),
-          ),
           if (isRunning && onStop != null) ...[
             Material(
               color: scheme.surfaceContainerHighest,
@@ -563,6 +601,12 @@ class _StepTimerRow extends StatelessWidget {
           ),
         ],
       ),
+    );
+
+    return Container(
+      key: rowKey,
+      margin: const EdgeInsets.only(bottom: 8),
+      child: tile,
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/storage/ingredient_batch_scale_preferences.dart';
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
@@ -163,6 +164,9 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
                         final checked = controller.checkedIngredientIds
                             .contains(ingredient.name);
                         return _IngredientRow(
+                          key: index == 0
+                              ? TutorialGuideKeys.firstIngredientCheck
+                              : null,
                           ingredient: ingredient,
                           batchScale: _batchScale,
                           checked: checked,
@@ -178,6 +182,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
             ),
             AppBottomActionBar(
               child: AppPrimaryButton(
+                key: TutorialGuideKeys.ingredientsClose,
                 label: '닫기',
                 height: 56,
                 onPressed: () => Navigator.of(context).pop(),
@@ -208,6 +213,7 @@ class _BatchScaleSlider extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Slider(
+          key: TutorialGuideKeys.batchSlider,
           value: scaleIndex.toDouble(),
           min: 0,
           max: 2,
@@ -296,6 +302,7 @@ class _SummaryBanner extends StatelessWidget {
 
 class _IngredientRow extends StatelessWidget {
   const _IngredientRow({
+    super.key,
     required this.ingredient,
     required this.batchScale,
     required this.checked,

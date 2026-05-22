@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../core/utils/calculator_kind_format.dart';
 import '../../../data/models/enums/calculator_kind.dart';
@@ -80,6 +81,7 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
         Obx(() {
           final showProgress = widget.controller.hasActiveSession;
           return _TimerFabWithLabel(
+            key: TutorialGuideKeys.timerFab,
             label: '타이머',
             color: scheme.primary,
             innerColor: scheme.tertiary,
@@ -102,6 +104,9 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
             children: [
               const SizedBox(height: 12),
               _FabWithLabel(
+                key: calculator.type == CalculatorKind.doughTemp
+                    ? TutorialGuideKeys.doughTempFab
+                    : null,
                 label: calculatorFabLabel(calculator.type),
                 color: const Color(0xFF42A5F5),
                 icon: calculatorFabIcon(calculator.type),
@@ -134,6 +139,7 @@ class _ProgressFabColumnState extends State<ProgressFabColumn> {
 
 class _TimerFabWithLabel extends StatelessWidget {
   const _TimerFabWithLabel({
+    super.key,
     required this.label,
     required this.color,
     required this.innerColor,
@@ -205,6 +211,7 @@ class _TimerFabWithLabel extends StatelessWidget {
 
 class _FabWithLabel extends StatelessWidget {
   const _FabWithLabel({
+    super.key,
     required this.label,
     required this.color,
     required this.icon,

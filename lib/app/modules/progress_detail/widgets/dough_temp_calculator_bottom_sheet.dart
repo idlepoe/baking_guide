@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/dough_temp_calculator.dart';
 import '../../../data/models/calculator_config.dart';
 import '../controllers/progress_detail_controller.dart';
@@ -35,6 +36,35 @@ class DoughTempCalculatorBottomSheet extends StatefulWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (sheetContext) => DoughTempCalculatorBottomSheet(config: config),
+    );
+  }
+
+  /// 시트를 연 뒤 [whileOpen]을 실행하고, 완료 후 시트를 닫는다.
+  static Future<void> runWhileOpen(
+    BuildContext context,
+    ProgressDetailController controller,
+    Future<void> Function() whileOpen,
+  ) async {
+    final config = controller.currentDoughTempCalculator;
+    if (config == null) return;
+    if (!context.mounted) return;
+
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (sheetContext) {
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await whileOpen();
+          if (sheetContext.mounted) {
+            Navigator.of(sheetContext).pop();
+          }
+        });
+        return DoughTempCalculatorBottomSheet(config: config);
+      },
     );
   }
 
@@ -134,7 +164,10 @@ class _DoughTempCalculatorBottomSheetState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    _TargetCard(targetTemp: target),
+                    _TargetCard(
+                      key: TutorialGuideKeys.doughTempTarget,
+                      targetTemp: target,
+                    ),
                     const SizedBox(height: 16),
                     _SectionCard(
                       icon: Icons.thermostat_outlined,
@@ -240,7 +273,7 @@ class _DoughTempCalculatorBottomSheetState
 }
 
 class _TargetCard extends StatelessWidget {
-  const _TargetCard({required this.targetTemp});
+  const _TargetCard({super.key, required this.targetTemp});
 
   final int targetTemp;
 

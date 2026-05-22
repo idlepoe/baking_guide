@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/duration_format.dart';
 import '../../../core/widgets/recipe_thumbnail.dart';
 import '../../../data/models/recipe_list_item.dart';
@@ -52,6 +53,9 @@ class _RecipeCard extends GetView<RecipeController> {
           children: [
             Expanded(
               child: InkWell(
+                key: recipe.id == TutorialGuideKeys.demoRecipeId
+                    ? TutorialGuideKeys.recipeCard
+                    : null,
                 onTap: () =>
                     Get.toNamed(Routes.PROGRESS_DETAIL, arguments: recipe.id),
                 child: Padding(
@@ -120,6 +124,9 @@ class _RecipeCard extends GetView<RecipeController> {
             ),
             Obx(
               () => _RecipeBookmarkTrailing(
+                key: recipe.id == TutorialGuideKeys.demoRecipeId
+                    ? TutorialGuideKeys.recipeBookmark
+                    : null,
                 isBookmarked: controller.isBookmarked(recipe.id),
                 onPressed: () => controller.toggleBookmark(recipe.id),
               ),
@@ -133,6 +140,7 @@ class _RecipeCard extends GetView<RecipeController> {
 
 class _RecipeBookmarkTrailing extends StatelessWidget {
   const _RecipeBookmarkTrailing({
+    super.key,
     required this.isBookmarked,
     required this.onPressed,
   });

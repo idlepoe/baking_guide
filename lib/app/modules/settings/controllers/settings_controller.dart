@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/services/font_scale_service.dart';
+import '../../../core/services/tutorial_guide_service.dart';
+import '../../../core/services/tutorial_guide_log.dart';
 import '../../../core/services/progress_data_reset_service.dart';
 import '../../../core/services/swipe_step_navigation_service.dart';
 import '../../../core/services/timer_schedule_service.dart';
@@ -205,6 +209,18 @@ class SettingsController extends GetxController {
               '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
         )
         .join('&');
+  }
+
+  void showUserGuide() {
+    TutorialGuideLog.d(
+      'showUserGuide: tap route=${Get.currentRoute} '
+      'TutorialGuideService registered=${Get.isRegistered<TutorialGuideService>()}',
+    );
+    if (!Get.isRegistered<TutorialGuideService>()) {
+      TutorialGuideLog.e('showUserGuide: TutorialGuideService 미등록');
+      return;
+    }
+    unawaited(Get.find<TutorialGuideService>().startFromSettings());
   }
 
   Future<void> confirmAndResetAllProgressData(BuildContext context) async {

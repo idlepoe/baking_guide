@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/services/swipe_step_navigation_service.dart';
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../data/models/enums/progress_session_status.dart';
 import '../../../data/models/recipe_step.dart';
@@ -118,6 +119,7 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
               child: AppPrimaryButton(
+                key: TutorialGuideKeys.practiceStart,
                 label: '실기 시작',
                 onPressed: () => _handleStartPractice(context),
                 height: 48,

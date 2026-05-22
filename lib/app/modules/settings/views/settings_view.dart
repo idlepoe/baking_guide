@@ -119,9 +119,7 @@ class SettingsView extends GetView<SettingsController> {
           _SettingsNavigateTile(
             icon: Icons.help_outline,
             title: '도움말 / 사용 가이드',
-            onTap: () {
-              // TODO: 도움말 / 사용 가이드
-            },
+            onTap: controller.showUserGuide,
           ),
           _SettingsNavigateTile(
             icon: Icons.star_outline,
