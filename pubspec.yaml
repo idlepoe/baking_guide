@@ -21,6 +21,7 @@ dependencies:
   timezone: ^0.11.0
   permission_handler: ^11.4.0
   flutter_launcher_icons: ^0.14.4
+  firebase_core: ^3.15.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -42,7 +43,10 @@ flutter:
   assets:
     - assets/json/recipe_list.json
     - assets/json/recipes/
-    - assets/images/
     - assets/icons/
     - assets/images/calculator/
+    # 하위 폴더는 각각 등록해야 함 (assets/images/ 만으로는 recipes/ 미포함)
+    - assets/images/recipes/sweet_roll/
+    - assets/images/recipes/sweet_roll/keypoints/
+    - assets/images/recipes/chestnut_bread/
 

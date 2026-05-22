@@ -19,7 +19,7 @@
     "id": "sweet_roll",
     "name": "스위트롤",
     "category": "bread",
-    "thumbnailUrl": "https://placehold.co/600x400.png?text=sweet_roll",
+    "thumbnailUrl": "assets/images/recipes/sweet_roll/main.png",
     "difficulty": 3,
     "totalTimeSec": 12600
   }

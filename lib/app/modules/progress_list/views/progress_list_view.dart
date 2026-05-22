@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../../../core/utils/datetime_format.dart';
 import '../../../core/utils/duration_format.dart';
 import '../../../data/models/enums/progress_session_status.dart';
-import '../../../core/utils/network_image_url.dart';
+import '../../../core/widgets/recipe_thumbnail.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/progress_list_controller.dart';
 import '../models/progress_session_list_item.dart';
@@ -69,7 +69,7 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _Thumbnail(thumbnailUrl: item.listItem.thumbnailUrl),
+              RecipeThumbnail(imageUrl: item.listItem.thumbnailUrl),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -309,48 +309,3 @@ class _TimeCell extends StatelessWidget {
   }
 }
 
-class _Thumbnail extends StatelessWidget {
-  const _Thumbnail({required this.thumbnailUrl});
-
-  final String thumbnailUrl;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    if (thumbnailUrl.isEmpty) {
-      return Container(
-        width: 72,
-        height: 72,
-        decoration: BoxDecoration(
-          color: theme.colorScheme.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Icon(
-          Icons.bakery_dining,
-          size: 36,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
-      );
-    }
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: Image.network(
-        normalizeNetworkImageUrl(thumbnailUrl),
-        width: 72,
-        height: 72,
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) => Container(
-          width: 72,
-          height: 72,
-          color: theme.colorScheme.surfaceContainerHighest,
-          child: Icon(
-            Icons.bakery_dining,
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
-        ),
-      ),
-    );
-  }
-}
