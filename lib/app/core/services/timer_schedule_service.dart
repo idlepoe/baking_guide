@@ -9,6 +9,7 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:uuid/uuid.dart';
 
 import '../models/active_timer_entry.dart';
+import '../storage/timer_notification_preferences.dart';
 import '../../data/models/practice_timer.dart';
 import '../../data/models/progress_session.dart';
 import '../../data/models/step_timer.dart';
@@ -25,12 +26,18 @@ class TimerScheduleService extends GetxService {
   TimerScheduleService({
     TimerRepository? timerRepository,
     NotificationService? notificationService,
+    TimerNotificationPreferences? timerNotificationPreferences,
   })  : _timerRepository = timerRepository ?? TimerRepository(),
         _notificationService =
-            notificationService ?? NotificationService.instance;
+            notificationService ?? NotificationService.instance,
+        _timerNotificationPreferences = timerNotificationPreferences ??
+            (Get.isRegistered<TimerNotificationPreferences>()
+                ? Get.find<TimerNotificationPreferences>()
+                : TimerNotificationPreferences());
 
   final TimerRepository _timerRepository;
   final NotificationService _notificationService;
+  final TimerNotificationPreferences _timerNotificationPreferences;
   final _uuid = const Uuid();
 
   final _displayByTimerId = <String, TimerDisplayContext>{};
@@ -136,14 +143,78 @@ class TimerScheduleService extends GetxService {
     );
   }
 
+  /// 전역 타이머 알림 OFF: 진행 중 타이머의 예약·ongoing만 취소하고 데이터는 유지한다.
+  Future<void> applyGlobalNotificationsDisabled() async {
+    final all = await _timerRepository.loadAll();
+    final now = DateTime.now();
+    for (final timer in all) {
+      if (!timer.endsAt.isAfter(now)) continue;
+
+      final notificationId = NotificationService.notificationIdFor(timer.timerId);
+      await _notificationService.dismissTimerOngoing(timer.timerId);
+      if (Platform.isAndroid) {
+        await AndroidAlarmManager.cancel(notificationId);
+        await _timerRepository.removeAlarmMapping(notificationId);
+      }
+      await _notificationService.cancelScheduled(notificationId);
+
+      if (timer.notificationEnabled) {
+        await _timerRepository.upsert(
+          timer.copyWith(notificationEnabled: false),
+        );
+      }
+    }
+    TimerNotifyLog.d('applyGlobalNotificationsDisabled done');
+    await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
+  }
+
+  /// 전역 타이머 알림 ON: 만료 전 타이머에 알람·스케줄·ongoing을 복구한다.
+  Future<void> applyGlobalNotificationsEnabled() async {
+    await _notificationService.requestPermissions();
+    if (Platform.isAndroid) {
+      await ExactAlarmPermission.ensureGranted();
+    }
+
+    final all = await _timerRepository.loadAll();
+    final now = DateTime.now();
+    for (final timer in all) {
+      if (!timer.endsAt.isAfter(now)) continue;
+
+      final ctx = _displayByTimerId[timer.timerId] ??
+          await TimerAlarmHandler.resolveDisplayContext(timer);
+      final recipeName = ctx?.recipeName ?? '레시피';
+      final timerLabel = ctx?.label ?? TimerAlarmHandler.fallbackLabel(timer);
+
+      final updated = timer.copyWith(notificationEnabled: true);
+      await _timerRepository.upsert(updated);
+
+      await _schedulePlatform(
+        timer: updated,
+        recipeName: recipeName,
+        timerLabel: timerLabel,
+      );
+      await _showOngoingForTimer(
+        timer: updated,
+        recipeName: recipeName,
+        timerLabel: timerLabel,
+      );
+    }
+    TimerNotifyLog.d('applyGlobalNotificationsEnabled done');
+    await _ensureExpiryWatcherRunning();
+    await refreshActiveEntries();
+  }
+
   /// 타이머를 저장하고 플랫폼 알람/알림을 예약한다. 실패 시 롤백 후 `false`.
   Future<bool> startTimer({
     required ProgressSession session,
     required int stepNo,
     required StepTimer preset,
     required String recipeName,
-    bool notificationEnabled = true,
   }) async {
+    final notificationEnabled =
+        await _timerNotificationPreferences.loadNotificationsEnabled();
+
     if (notificationEnabled) {
       await _notificationService.requestPermissions();
       if (Platform.isAndroid) {
@@ -367,10 +438,14 @@ class TimerScheduleService extends GetxService {
 
   /// 앱 재시작·동기화 후 실행 중 타이머 알림을 복구한다.
   Future<void> refreshOngoingNotifications() async {
+    final globalEnabled =
+        await _timerNotificationPreferences.loadNotificationsEnabled();
     final all = await _timerRepository.loadAll();
     final now = DateTime.now();
     for (final timer in all) {
-      if (!timer.notificationEnabled || !timer.endsAt.isAfter(now)) {
+      if (!globalEnabled ||
+          !timer.notificationEnabled ||
+          !timer.endsAt.isAfter(now)) {
         await _notificationService.dismissTimerOngoing(timer.timerId);
         continue;
       }

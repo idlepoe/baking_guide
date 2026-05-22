@@ -25,6 +25,11 @@ class ProgressSessionRepository {
     await prefs.setString(_storageKey, encoded);
   }
 
+  Future<void> clearAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_storageKey);
+  }
+
   Future<void> upsert(ProgressSession session) async {
     final sessions = await loadAll();
     final index = sessions.indexWhere((s) => s.sessionId == session.sessionId);

@@ -26,6 +26,12 @@ class TimerRepository {
     await prefs.setString(_timersKey, encoded);
   }
 
+  Future<void> clearAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_timersKey);
+    await prefs.remove(_alarmMapKey);
+  }
+
   Future<void> upsert(PracticeTimer timer) async {
     final timers = await loadAll();
     final index = timers.indexWhere((t) => t.timerId == timer.timerId);

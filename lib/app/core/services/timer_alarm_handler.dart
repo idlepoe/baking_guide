@@ -9,6 +9,7 @@ import '../../data/models/recipe_detail.dart';
 import '../../data/repositories/progress_session_repository.dart';
 import '../../data/repositories/recipe_repository.dart';
 import '../../data/repositories/timer_repository.dart';
+import '../storage/timer_notification_preferences.dart';
 import 'notification_service.dart';
 import 'timer_notify_log.dart';
 
@@ -63,10 +64,13 @@ class TimerAlarmHandler {
     }
 
     final now = DateTime.now();
+    final globalNotifications =
+        await TimerNotificationPreferences().loadNotificationsEnabled();
     TimerNotifyLog.d(
       'completeTimer [$source] timerId=$timerId '
       'endsAt=${timer.endsAt.toIso8601String()} now=${now.toIso8601String()} '
       'notificationEnabled=${timer.notificationEnabled} '
+      'globalNotifications=$globalNotifications '
       'platform=${Platform.operatingSystem}',
     );
 
@@ -82,7 +86,9 @@ class TimerAlarmHandler {
     await NotificationService.instance.cancelScheduled(notificationId);
 
     // iOS는 zonedSchedule로 이미 알림이 예약·표시되므로, 동기화 시에는 제거만 한다.
-    if (timer.notificationEnabled && Platform.isAndroid) {
+    final shouldShowComplete =
+        timer.notificationEnabled && globalNotifications;
+    if (shouldShowComplete && Platform.isAndroid) {
       TimerNotifyLog.d(
         'completeTimer [$source] showTimerComplete '
         'notificationId=$notificationId recipe=$recipeName label=$label',
@@ -92,8 +98,12 @@ class TimerAlarmHandler {
         recipeName: recipeName,
         timerLabel: label,
       );
-    } else if (!timer.notificationEnabled) {
-      TimerNotifyLog.d('completeTimer [$source] skip show (notifications off)');
+    } else if (!shouldShowComplete) {
+      TimerNotifyLog.d(
+        'completeTimer [$source] skip show '
+        '(timerEnabled=${timer.notificationEnabled} '
+        'global=$globalNotifications)',
+      );
     } else {
       TimerNotifyLog.d(
         'completeTimer [$source] skip showTimerComplete on iOS '

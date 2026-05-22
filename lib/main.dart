@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'app/data/repositories/progress_session_repository.dart';
 import 'app/data/repositories/timer_repository.dart';
 import 'app/core/services/font_scale_service.dart';
+import 'app/core/services/progress_data_reset_service.dart';
 import 'app/core/services/timer_schedule_service.dart';
 import 'app/core/services/swipe_step_navigation_service.dart';
 import 'app/core/services/wakelock_service.dart';
@@ -11,6 +12,7 @@ import 'app/core/storage/font_scale_preferences.dart';
 import 'app/core/storage/screen_wake_preferences.dart';
 import 'app/core/storage/swipe_step_preferences.dart';
 import 'app/core/storage/theme_preferences.dart';
+import 'app/core/storage/timer_notification_preferences.dart';
 import 'app/core/theme/app_theme_controller.dart';
 import 'app/core/utils/app_snackbar.dart';
 import 'app/routes/app_pages.dart';
@@ -25,6 +27,7 @@ Future<void> main() async {
   final screenWakePreferences = ScreenWakePreferences();
   final swipeStepPreferences = SwipeStepPreferences();
   final fontScalePreferences = FontScalePreferences();
+  final timerNotificationPreferences = TimerNotificationPreferences();
   final wakelockService = WakelockService();
 
   final isDarkMode = await themePreferences.loadIsDarkMode();
@@ -36,9 +39,11 @@ Future<void> main() async {
   Get.put(ProgressSessionRepository(), permanent: true);
   Get.put(TimerRepository(), permanent: true);
   Get.put<TimerScheduleService>(timerScheduleService, permanent: true);
+  Get.put(ProgressDataResetService(), permanent: true);
   Get.put(themePreferences, permanent: true);
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);
+  Get.put(timerNotificationPreferences, permanent: true);
   Get.put(wakelockService, permanent: true);
   Get.put(
     SwipeStepNavigationService(initialEnabled: swipeStepEnabled),

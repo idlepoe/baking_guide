@@ -2,43 +2,66 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/services/font_scale_service.dart';
+import '../../../core/services/progress_data_reset_service.dart';
 import '../../../core/services/swipe_step_navigation_service.dart';
+import '../../../core/services/timer_schedule_service.dart';
 import '../../../core/services/wakelock_service.dart';
+import '../../../core/utils/app_snackbar.dart';
+import '../../progress_list/controllers/progress_list_controller.dart';
 import '../../../core/storage/screen_wake_preferences.dart';
 import '../../../core/storage/theme_preferences.dart';
+import '../../../core/storage/timer_notification_preferences.dart';
 import '../../../core/theme/app_seed_colors.dart';
 import '../../../core/theme/app_theme_controller.dart';
 import '../widgets/font_size_bottom_sheet.dart';
+import '../widgets/notification_sound_bottom_sheet.dart';
 import '../widgets/theme_color_bottom_sheet.dart';
 
 class SettingsController extends GetxController {
   SettingsController({
     ThemePreferences? themePreferences,
     ScreenWakePreferences? screenWakePreferences,
+    TimerNotificationPreferences? timerNotificationPreferences,
     WakelockService? wakelockService,
     AppThemeController? appThemeController,
     SwipeStepNavigationService? swipeStepNavigationService,
     FontScaleService? fontScaleService,
+    TimerScheduleService? timerScheduleService,
+    ProgressDataResetService? progressDataResetService,
   })  : _themePreferences = themePreferences ?? Get.find<ThemePreferences>(),
         _screenWakePreferences =
             screenWakePreferences ?? Get.find<ScreenWakePreferences>(),
+        _timerNotificationPreferences = timerNotificationPreferences ??
+            Get.find<TimerNotificationPreferences>(),
         _wakelockService = wakelockService ?? Get.find<WakelockService>(),
         _appThemeController =
             appThemeController ?? Get.find<AppThemeController>(),
         _swipeStepNavigationService = swipeStepNavigationService ??
             Get.find<SwipeStepNavigationService>(),
         _fontScaleService =
-            fontScaleService ?? Get.find<FontScaleService>();
+            fontScaleService ?? Get.find<FontScaleService>(),
+        _timerScheduleService =
+            timerScheduleService ?? Get.find<TimerScheduleService>(),
+        _progressDataResetService = progressDataResetService ??
+            (Get.isRegistered<ProgressDataResetService>()
+                ? Get.find<ProgressDataResetService>()
+                : ProgressDataResetService());
 
   final ThemePreferences _themePreferences;
   final ScreenWakePreferences _screenWakePreferences;
+  final TimerNotificationPreferences _timerNotificationPreferences;
   final WakelockService _wakelockService;
   final AppThemeController _appThemeController;
   final SwipeStepNavigationService _swipeStepNavigationService;
   final FontScaleService _fontScaleService;
+  final TimerScheduleService _timerScheduleService;
+  final ProgressDataResetService _progressDataResetService;
 
   final isDarkMode = false.obs;
   final keepScreenOn = true.obs;
+  final timerNotificationsEnabled = true.obs;
+  final vibrationEnabled = true.obs;
+  final notificationSound = TimerNotificationSound.defaultSound.obs;
 
   RxBool get swipeStepNavigation =>
       _swipeStepNavigationService.swipeStepNavigationEnabled;
@@ -49,6 +72,8 @@ class SettingsController extends GetxController {
   }
 
   String get selectedFontSizeLabel => _fontScaleService.fontScale.value.label;
+
+  String get notificationSoundLabel => notificationSound.value.label;
 
   @override
   void onInit() {
@@ -70,6 +95,13 @@ class SettingsController extends GetxController {
     final storedWake = await _screenWakePreferences.loadEnabled();
     keepScreenOn.value = storedWake;
     await _wakelockService.setEnabled(storedWake);
+
+    timerNotificationsEnabled.value =
+        await _timerNotificationPreferences.loadNotificationsEnabled();
+    vibrationEnabled.value =
+        await _timerNotificationPreferences.loadVibrationEnabled();
+    notificationSound.value =
+        await _timerNotificationPreferences.loadSoundOption();
   }
 
   Future<void> setDarkMode(bool enabled) async {
@@ -90,11 +122,74 @@ class SettingsController extends GetxController {
     await _swipeStepNavigationService.setEnabled(enabled);
   }
 
+  Future<void> setTimerNotificationsEnabled(bool enabled) async {
+    timerNotificationsEnabled.value = enabled;
+    await _timerNotificationPreferences.saveNotificationsEnabled(enabled);
+    if (enabled) {
+      await _timerScheduleService.applyGlobalNotificationsEnabled();
+    } else {
+      await _timerScheduleService.applyGlobalNotificationsDisabled();
+    }
+  }
+
+  Future<void> setVibrationEnabled(bool enabled) async {
+    vibrationEnabled.value = enabled;
+    await _timerNotificationPreferences.saveVibrationEnabled(enabled);
+  }
+
+  Future<void> setNotificationSound(TimerNotificationSound sound) async {
+    notificationSound.value = sound;
+    await _timerNotificationPreferences.saveSoundOption(sound);
+  }
+
   void showThemeColorPicker(BuildContext context) {
     ThemeColorBottomSheet.show(context);
   }
 
   void showFontSizePicker(BuildContext context) {
     FontSizeBottomSheet.show(context);
+  }
+
+  void showNotificationSoundPicker(BuildContext context) {
+    NotificationSoundBottomSheet.show(context);
+  }
+
+  Future<void> confirmAndResetAllProgressData(BuildContext context) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('진행 데이터 초기화'),
+        content: const Text(
+          '저장된 실기 진행·타이머·재료 배율 데이터가 모두 삭제됩니다.\n'
+          '이 작업은 되돌릴 수 없습니다. 계속할까요?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: const Text('취소'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: const Text('초기화'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    await _progressDataResetService.resetAllProgressData();
+
+    if (Get.isRegistered<ProgressListController>()) {
+      await Get.find<ProgressListController>().loadSessions();
+    }
+
+    if (!context.mounted) return;
+
+    AppSnackbar.show(
+      context: context,
+      title: '초기화 완료',
+      message: '모든 진행 데이터가 삭제되었습니다.',
+    );
   }
 }

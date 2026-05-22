@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+import '../storage/timer_notification_preferences.dart';
 import '../utils/duration_format.dart';
 import 'timer_notify_log.dart';
 
@@ -79,15 +80,27 @@ class NotificationService {
     }
   }
 
-  NotificationDetails _details() {
-    return const NotificationDetails(
+  Future<NotificationDetails> _completeDetails() async {
+    final prefs = TimerNotificationPreferences();
+    final vibrationEnabled = await prefs.loadVibrationEnabled();
+    final soundOption = await prefs.loadSoundOption();
+    final playSound = soundOption != TimerNotificationSound.silent;
+
+    return NotificationDetails(
       android: AndroidNotificationDetails(
         _channelId,
         _channelName,
         importance: Importance.high,
         priority: Priority.high,
+        enableVibration: vibrationEnabled,
+        playSound: playSound,
       ),
-      iOS: DarwinNotificationDetails(),
+      iOS: DarwinNotificationDetails(
+        presentSound: playSound,
+      ),
+      macOS: DarwinNotificationDetails(
+        presentSound: playSound,
+      ),
     );
   }
 
@@ -163,7 +176,7 @@ class NotificationService {
         id: notificationId,
         title: '타이머',
         body: '$recipeName · $timerLabel 완료',
-        notificationDetails: _details(),
+        notificationDetails: await _completeDetails(),
       );
       TimerNotifyLog.d('showTimerComplete success id=$notificationId');
     } catch (e, st) {
@@ -211,7 +224,7 @@ class NotificationService {
         title: '타이머',
         body: '$recipeName · $timerLabel 완료',
         scheduledDate: scheduled,
-        notificationDetails: _details(),
+        notificationDetails: await _completeDetails(),
         androidScheduleMode: androidScheduleMode,
         payload: payload,
       );

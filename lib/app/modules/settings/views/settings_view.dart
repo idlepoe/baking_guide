@@ -32,60 +32,43 @@ class SettingsView extends GetView<SettingsController> {
               onTap: () => controller.showThemeColorPicker(context),
             ),
           ),
-          _SettingsNavigateTile(
-            icon: Icons.language_outlined,
-            title: '언어',
-            trailingText: '한국어',
-            onTap: () {
-              // TODO: 언어 설정
-            },
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.straighten_outlined,
-            title: '단위 설정',
-            trailingText: 'g, °C',
-            onTap: () {
-              // TODO: 단위 설정
-            },
-          ),
           const _SettingsSectionHeader(title: '실기 진행 설정'),
-          _SettingsNavigateTile(
-            icon: Icons.timer_outlined,
-            title: '타이머 기본 시간 설정',
-            onTap: () {
-              // TODO: 타이머 기본 시간 설정
-            },
+          Obx(
+            () => _SettingsSwitchTile(
+              icon: Icons.notifications_outlined,
+              title: '타이머 알림',
+              value: controller.timerNotificationsEnabled.value,
+              onChanged: controller.setTimerNotificationsEnabled,
+            ),
           ),
-          _SettingsSwitchTile(
-            icon: Icons.notifications_outlined,
-            title: '타이머 알림',
-            value: true,
-            onChanged: (_) {
-              // TODO: 타이머 알림
-            },
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.volume_up_outlined,
-            title: '알림 소리',
-            trailingText: '기본',
-            onTap: () {
-              // TODO: 알림 소리 설정
-            },
-          ),
-          _SettingsSwitchTile(
-            icon: Icons.vibration_outlined,
-            title: '진동 알림',
-            value: true,
-            onChanged: (_) {
-              // TODO: 진동 알림
-            },
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.pause_circle_outline,
-            title: '발효 단계 자동 일시정지',
-            trailingText: '화면 이탈 시',
-            onTap: () {
-              // TODO: 발효 단계 자동 일시정지
+          Obx(
+            () {
+              final notificationsOn =
+                  controller.timerNotificationsEnabled.value;
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _SettingsNavigateTile(
+                    icon: Icons.volume_up_outlined,
+                    title: '알림 소리',
+                    trailingText: controller.notificationSoundLabel,
+                    enabled: notificationsOn,
+                    onTap: notificationsOn
+                        ? () =>
+                            controller.showNotificationSoundPicker(context)
+                        : null,
+                  ),
+                  _SettingsSwitchTile(
+                    icon: Icons.vibration_outlined,
+                    title: '진동 알림',
+                    value: controller.vibrationEnabled.value,
+                    enabled: notificationsOn,
+                    onChanged: notificationsOn
+                        ? controller.setVibrationEnabled
+                        : null,
+                  ),
+                ],
+              );
             },
           ),
           const _SettingsSectionHeader(title: '화면/사용 설정'),
@@ -116,35 +99,11 @@ class SettingsView extends GetView<SettingsController> {
               onChanged: controller.setSwipeStepNavigation,
             ),
           ),
-          _SettingsNavigateTile(
-            icon: Icons.view_module_outlined,
-            title: '단계 목록 스타일',
-            trailingText: '카드형',
-            onTap: () {
-              // TODO: 단계 목록 스타일
-            },
-          ),
           const _SettingsSectionHeader(title: '데이터/백업'),
-          _SettingsNavigateTile(
-            icon: Icons.cloud_upload_outlined,
-            title: '진행 데이터 백업',
-            onTap: () {
-              // TODO: 진행 데이터 백업
-            },
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.cloud_download_outlined,
-            title: '백업 데이터 복원',
-            onTap: () {
-              // TODO: 백업 데이터 복원
-            },
-          ),
           _SettingsNavigateTile(
             icon: Icons.delete_outline,
             title: '모든 진행 데이터 초기화',
-            onTap: () {
-              // TODO: 모든 진행 데이터 초기화
-            },
+            onTap: () => controller.confirmAndResetAllProgressData(context),
           ),
           const _SettingsSectionHeader(title: '기타'),
           _SettingsNavigateTile(
@@ -207,15 +166,23 @@ class _SettingsTileBase extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.trailing,
+    this.enabled = true,
   });
 
   final IconData icon;
   final String title;
   final Widget trailing;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final disabledColor = theme.colorScheme.onSurface.withValues(alpha: 0.38);
+    final iconColor =
+        enabled ? theme.colorScheme.primary : disabledColor;
+    final titleStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: enabled ? null : disabledColor,
+    );
 
     return Material(
       color: theme.colorScheme.surface,
@@ -226,9 +193,9 @@ class _SettingsTileBase extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(icon, color: theme.colorScheme.primary, size: 24),
+              Icon(icon, color: iconColor, size: 24),
               const SizedBox(width: 16),
-              Expanded(child: Text(title, style: theme.textTheme.bodyLarge)),
+              Expanded(child: Text(title, style: titleStyle)),
               trailing,
             ],
           ),
@@ -244,26 +211,39 @@ class _SettingsSwitchTile extends StatelessWidget {
     required this.title,
     required this.value,
     required this.onChanged,
+    this.enabled = true,
   });
 
   final IconData icon;
   final String title;
   final bool value;
-  final ValueChanged<bool> onChanged;
+  final ValueChanged<bool>? onChanged;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    final disabledColor = theme.colorScheme.onSurface.withValues(alpha: 0.38);
 
     return Material(
       color: theme.colorScheme.surface,
       child: SizedBox(
         height: _SettingsTileDimensions.height,
         child: SwitchListTile(
-          secondary: Icon(icon, color: theme.colorScheme.primary, size: 24),
-          title: Text(title, style: theme.textTheme.bodyLarge),
+          secondary: Icon(
+            icon,
+            color: enabled ? theme.colorScheme.primary : disabledColor,
+            size: 24,
+          ),
+          title: Text(
+            title,
+            style: theme.textTheme.bodyLarge?.copyWith(
+              color: enabled ? null : disabledColor,
+            ),
+          ),
           value: value,
-          onChanged: onChanged,
+          onChanged: enabled ? onChanged : null,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
@@ -277,23 +257,30 @@ class _SettingsNavigateTile extends StatelessWidget {
     required this.icon,
     required this.title,
     this.trailingText,
-    required this.onTap,
+    this.onTap,
+    this.enabled = true,
   });
 
   final IconData icon;
   final String title;
   final String? trailingText;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final disabledColor = theme.colorScheme.onSurface.withValues(alpha: 0.38);
+    final trailingColor = enabled
+        ? theme.colorScheme.onSurfaceVariant
+        : disabledColor;
 
     return InkWell(
-      onTap: onTap,
+      onTap: enabled ? onTap : null,
       child: _SettingsTileBase(
         icon: icon,
         title: title,
+        enabled: enabled,
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -301,13 +288,13 @@ class _SettingsNavigateTile extends StatelessWidget {
               Text(
                 trailingText!,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
+                  color: trailingColor,
                 ),
               ),
             if (trailingText != null) const SizedBox(width: 4),
             Icon(
               Icons.chevron_right,
-              color: theme.colorScheme.onSurfaceVariant,
+              color: trailingColor,
             ),
           ],
         ),
