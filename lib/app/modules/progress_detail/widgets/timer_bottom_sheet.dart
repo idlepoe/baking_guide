@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/theme/app_theme.dart';
 import '../../../core/services/exact_alarm_permission.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../core/services/timer_schedule_service.dart';
@@ -16,7 +17,10 @@ import '../controllers/progress_detail_controller.dart';
 import 'progress_ring_indicator.dart';
 
 abstract final class TimerBottomSheetColors {
-  static const activeRowBackground = Color(0xFFFFF8E1);
+  static Color activeRowBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.tertiaryContainer.withValues(alpha: 0.65)
+          : const Color(0xFFFFF8E1);
 }
 
 abstract final class _CustomTimerConfig {
@@ -55,7 +59,9 @@ class TimerBottomSheet extends StatefulWidget {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: AppTheme.modalBottomSheetBackground(
+        Theme.of(context).colorScheme,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -83,7 +89,9 @@ class TimerBottomSheet extends StatefulWidget {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: AppTheme.modalBottomSheetBackground(
+        Theme.of(context).colorScheme,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -249,6 +257,15 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const SizedBox(height: 8),
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.35),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
               child: Row(
@@ -539,7 +556,7 @@ class _StepTimerRow extends StatelessWidget {
         ),
       ),
       tileColor: isRunning
-          ? TimerBottomSheetColors.activeRowBackground
+          ? TimerBottomSheetColors.activeRowBackground(scheme)
           : scheme.surface,
       title: Text(
         preset.label,

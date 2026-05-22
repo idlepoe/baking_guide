@@ -25,6 +25,9 @@
 
 from __future__ import annotations
 
+# 제빵 기능사 공통 핵심 정보(keyPoints) 이미지 — 레시피별이 아님
+KEYPOINTS_IMAGE_BASE = "assets/images/keypoints"
+
 import argparse
 import json
 import logging
@@ -160,7 +163,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_exam",
-            f"{base}/keypoints/exam.png",
+            f"{KEYPOINTS_IMAGE_BASE}/exam.png",
             _keypoint_prompt(
                 "weighing bread ingredients for sweet roll dough — flour, sugar, yeast, "
                 "eggs, butter in bowls on stainless tray, 제빵 시험 재료 계량 장면"
@@ -169,7 +172,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_mixer",
-            f"{base}/keypoints/mixer.png",
+            f"{KEYPOINTS_IMAGE_BASE}/mixer.png",
             _keypoint_prompt(
                 "spiral dough mixer kneading bread dough, straight dough method, "
                 "제빵기능사 반죽(믹싱) 교재 사진"
@@ -178,7 +181,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_fermentation",
-            f"{base}/keypoints/fermentation.png",
+            f"{KEYPOINTS_IMAGE_BASE}/fermentation.png",
             _keypoint_prompt(
                 "bulk bread dough first fermentation in proofer, finger poke test, "
                 "제빵 1차 발효 교재 사진"
@@ -187,7 +190,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_shaping",
-            f"{base}/keypoints/shaping.png",
+            f"{KEYPOINTS_IMAGE_BASE}/shaping.png",
             _keypoint_prompt(
                 "shaping sweet rolls — cinnamon dough log, palm-leaf and triple-leaf cuts "
                 "on bakery bench, 제빵 성형 교재 사진"
@@ -196,7 +199,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_oven",
-            f"{base}/keypoints/oven.png",
+            f"{KEYPOINTS_IMAGE_BASE}/oven.png",
             _keypoint_prompt(
                 "deck oven baking tray of cinnamon sweet rolls, golden bread color, "
                 "제빵 굽기(오븐) 교재 사진"
@@ -205,7 +208,7 @@ def _sweet_roll_jobs(recipe_id: str) -> list[ImageJob]:
         ),
         ImageJob(
             "keypoint_warning",
-            f"{base}/keypoints/warning.png",
+            f"{KEYPOINTS_IMAGE_BASE}/warning.png",
             _keypoint_prompt(
                 "bread baking quality issues only — torn seam on cinnamon roll, uneven "
                 "cinnamon stripes, over-proofed misshapen rolls on sheet, no warning text signs, "
@@ -516,7 +519,7 @@ def _patch_recipe_json(
         title = group.get("title", "")
         slug = KEYPOINT_SLUGS.get(title)
         if slug and f"keypoint_{slug}" in succeeded_job_ids:
-            group["imageUrl"] = f"{base}/keypoints/{slug}.png"
+            group["imageUrl"] = f"{KEYPOINTS_IMAGE_BASE}/{slug}.png"
 
     for step in data.get("steps", []):
         step_no = step.get("stepNo")

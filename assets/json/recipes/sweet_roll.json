@@ -32,7 +32,7 @@
           "반죽법: 스트레이트법",
           "야자잎형 12개 + 트리플리프 9개"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/exam.png"
+        "imageUrl": "assets/images/keypoints/exam.png"
       },
       {
         "title": "반죽",
@@ -41,7 +41,7 @@
           "최종 단계까지 믹싱",
           "반죽 온도 27℃"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/mixer.png"
+        "imageUrl": "assets/images/keypoints/mixer.png"
       },
       {
         "title": "발효",
@@ -49,7 +49,7 @@
           "1차: 27℃, 75~80%, 40~50분",
           "2차: 35~40℃, 85~90%, 25~30분"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/fermentation.png"
+        "imageUrl": "assets/images/keypoints/fermentation.png"
       },
       {
         "title": "성형",
@@ -58,7 +58,7 @@
           "원통 말기·이음매 봉합(약 50cm)",
           "야자잎 4cm·트리플리프 5cm 재단·패닝"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/shaping.png"
+        "imageUrl": "assets/images/keypoints/shaping.png"
       },
       {
         "title": "굽기",
@@ -67,7 +67,7 @@
           "굽기 10~15분",
           "동일 형태끼리 팬닝·발효"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/oven.png"
+        "imageUrl": "assets/images/keypoints/oven.png"
       },
       {
         "title": "주요 감점 포인트",
@@ -77,7 +77,7 @@
           "이음매 터짐·층 분리",
           "굽기 시 과도한 팽창 주의"
         ],
-        "imageUrl": "assets/images/recipes/sweet_roll/keypoints/warning.png"
+        "imageUrl": "assets/images/keypoints/warning.png"
       }
     ]
   },

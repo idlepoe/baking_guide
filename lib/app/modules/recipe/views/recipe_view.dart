@@ -153,10 +153,15 @@ class _RecipeBookmarkTrailing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final bookmarkBackground = theme.brightness == Brightness.dark
+        ? scheme.surfaceContainerHigh
+        : scheme.surface;
+
     return SizedBox(
       width: _trailingWidth,
       child: Material(
-        color: theme.colorScheme.surface,
+        color: bookmarkBackground,
         child: InkWell(
           onTap: onPressed,
           child: Row(

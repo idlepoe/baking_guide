@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/theme/app_theme.dart';
 import '../../../core/storage/ingredient_batch_scale_preferences.dart';
 import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/app_snackbar.dart';
@@ -11,7 +12,20 @@ import '../../../data/models/recipe_ingredient.dart';
 import '../controllers/progress_detail_controller.dart';
 
 abstract final class IngredientsBottomSheetColors {
-  static const summaryBackground = Color(0xFFFFF8E1);
+  static Color summaryBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.tertiaryContainer
+          : const Color(0xFFFFF8E1);
+
+  static Color summaryIconBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.tertiary
+          : Colors.amber.shade100;
+
+  static Color summaryIconForeground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.onTertiary
+          : Colors.amber.shade800;
 }
 
 class IngredientsBottomSheet extends StatefulWidget {
@@ -47,7 +61,9 @@ class IngredientsBottomSheet extends StatefulWidget {
       showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.modalBottomSheetBackground(
+          Theme.of(context).colorScheme,
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
@@ -94,6 +110,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     final maxHeight = MediaQuery.sizeOf(context).height * 0.88;
 
     return SafeArea(
@@ -107,7 +124,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.35),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -146,7 +163,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade300),
+                    border: Border.all(color: scheme.outlineVariant),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: ListView.separated(
@@ -156,7 +173,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
                     itemCount: ingredients.length,
                     separatorBuilder: (context, index) => Divider(
                       height: 1,
-                      color: Colors.grey.shade200,
+                      color: scheme.outlineVariant.withValues(alpha: 0.6),
                     ),
                     itemBuilder: (context, index) {
                       final ingredient = ingredients[index];
@@ -254,23 +271,25 @@ class _SummaryBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: IngredientsBottomSheetColors.summaryBackground,
+        color: IngredientsBottomSheetColors.summaryBackground(scheme),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
           CircleAvatar(
             radius: 28,
-            backgroundColor: Colors.amber.shade100,
+            backgroundColor:
+                IngredientsBottomSheetColors.summaryIconBackground(scheme),
             child: Icon(
               Icons.restaurant,
               size: 32,
-              color: Colors.amber.shade800,
+              color: IngredientsBottomSheetColors.summaryIconForeground(scheme),
             ),
           ),
           const SizedBox(width: 12),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/app_theme.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../../core/utils/duration_format.dart';
 import '../../../core/utils/network_image_url.dart';
@@ -11,8 +12,27 @@ import '../../../data/models/recipe_summary.dart';
 import '../controllers/progress_detail_controller.dart';
 
 abstract final class RecipeSummaryBottomSheetColors {
-  static const cardBackground = Color(0xFFF5F5F5);
-  static const warningBackground = Color(0xFFFFEBEE);
+  static Color sectionBackground(ColorScheme scheme, {required bool isWarning}) {
+    if (isWarning) {
+      return scheme.brightness == Brightness.dark
+          ? scheme.errorContainer
+          : const Color(0xFFFFEBEE);
+    }
+    return scheme.brightness == Brightness.dark
+        ? scheme.surfaceContainerHigh
+        : const Color(0xFFF5F5F5);
+  }
+
+  static Color? warningForeground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark ? scheme.onErrorContainer : Colors.red.shade900;
+
+  static Color warningIcon(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark ? scheme.error : Colors.red.shade700;
+
+  static Color iconPlaceholderBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.surfaceContainerHighest
+          : Colors.white;
 }
 
 class RecipeSummaryBottomSheet extends StatelessWidget {
@@ -48,7 +68,9 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
       showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.modalBottomSheetBackground(
+          Theme.of(context).colorScheme,
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
@@ -74,6 +96,7 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     // 내용 높이에 맞추고, 화면을 넘을 때만 상한까지 스크롤한다.
     final maxSheetHeight = MediaQuery.sizeOf(context).height * 0.92;
 
@@ -109,7 +132,7 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.35),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -190,14 +213,19 @@ class _SummarySectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
 
     if (lines.isEmpty && title.isEmpty && trailing == null) {
       return const SizedBox.shrink();
     }
 
-    final bgColor = isWarning
-        ? RecipeSummaryBottomSheetColors.warningBackground
-        : RecipeSummaryBottomSheetColors.cardBackground;
+    final bgColor = RecipeSummaryBottomSheetColors.sectionBackground(
+      scheme,
+      isWarning: isWarning,
+    );
+    final warningTextColor = isWarning
+        ? RecipeSummaryBottomSheetColors.warningForeground(scheme)
+        : null;
 
     return Container(
       width: double.infinity,
@@ -205,6 +233,13 @@ class _SummarySectionCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(12),
+        border: scheme.brightness == Brightness.dark
+            ? Border.all(
+                color: isWarning
+                    ? scheme.error.withValues(alpha: 0.4)
+                    : scheme.outlineVariant.withValues(alpha: 0.45),
+              )
+            : null,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,7 +261,7 @@ class _SummarySectionCard extends StatelessWidget {
                       title,
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: isWarning ? Colors.red.shade900 : null,
+                        color: warningTextColor,
                       ),
                     ),
                   ),
@@ -237,7 +272,7 @@ class _SummarySectionCard extends StatelessWidget {
                       line,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         height: 1.4,
-                        color: isWarning ? Colors.red.shade900 : null,
+                        color: warningTextColor,
                       ),
                     ),
                   ),
@@ -268,10 +303,13 @@ class _KeyPointImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconColor = isWarning ? Colors.red.shade700 : null;
+    final scheme = Theme.of(context).colorScheme;
+    final iconColor = isWarning
+        ? RecipeSummaryBottomSheetColors.warningIcon(scheme)
+        : scheme.onSurfaceVariant;
 
     if (imageUrl.isEmpty) {
-      return _iconBox(fallbackIcon, iconColor);
+      return _iconBox(context, fallbackIcon, iconColor);
     }
 
     if (imageUrl.startsWith('assets/')) {
@@ -283,7 +321,7 @@ class _KeyPointImage extends StatelessWidget {
           height: 48,
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) =>
-              _iconBox(fallbackIcon, iconColor),
+              _iconBox(context, fallbackIcon, iconColor),
         ),
       );
     }
@@ -296,17 +334,19 @@ class _KeyPointImage extends StatelessWidget {
         height: 48,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) =>
-            _iconBox(fallbackIcon, iconColor),
+            _iconBox(context, fallbackIcon, iconColor),
       ),
     );
   }
 
-  Widget _iconBox(IconData icon, Color? color) {
+  Widget _iconBox(BuildContext context, IconData icon, Color color) {
+    final scheme = Theme.of(context).colorScheme;
+
     return Container(
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: RecipeSummaryBottomSheetColors.iconPlaceholderBackground(scheme),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Icon(icon, size: 28, color: color),
@@ -321,12 +361,19 @@ class _DifficultyStars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final starColor = theme.brightness == Brightness.dark
+        ? theme.colorScheme.primary
+        : Colors.amber.shade700;
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           '난이도',
-          style: Theme.of(context).textTheme.bodySmall,
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(width: 4),
         ...List.generate(
@@ -334,7 +381,7 @@ class _DifficultyStars extends StatelessWidget {
           (i) => Icon(
             i < difficulty ? Icons.star : Icons.star_border,
             size: 18,
-            color: Colors.amber.shade700,
+            color: starColor,
           ),
         ),
       ],

@@ -14,11 +14,11 @@ class AppSeedColor {
 }
 
 abstract final class AppSeedColors {
-  static const defaultSeed = Color(0xFFFFC107);
+  static const defaultSeed = Color(0xFF205FA8);
 
   static const presets = <AppSeedColor>[
-    AppSeedColor(id: 'amber', label: '앰버', value: Color(0xFFFFC107)),
     AppSeedColor(id: 'blue', label: '블루', value: Color(0xFF205FA8)),
+    AppSeedColor(id: 'amber', label: '앰버', value: Color(0xFFFFC107)),
     AppSeedColor(id: 'indigo', label: '인디고', value: Color(0xFF353D94)),
     AppSeedColor(id: 'purple', label: '퍼플', value: Color(0xFF6750A4)),
     AppSeedColor(id: 'green', label: '그린', value: Color(0xFF366A1D)),

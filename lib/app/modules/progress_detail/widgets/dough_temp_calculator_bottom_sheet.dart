@@ -1,16 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/app_theme.dart';
 import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/dough_temp_calculator.dart';
 import '../../../data/models/calculator_config.dart';
 import '../controllers/progress_detail_controller.dart';
 
-abstract final class _SheetColors {
-  static const targetBackground = Color(0xFFFFF3E0);
-  static const targetAccent = Color(0xFFE65100);
-  static const resultBackground = Color(0xFFE3F2FD);
-  static const resultAccent = Color(0xFF1565C0);
-  static const tipBackground = Color(0xFFE8F4FD);
+abstract final class _DoughTempSheetColors {
+  static Color targetBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.tertiaryContainer
+          : const Color(0xFFFFF3E0);
+
+  static Color targetAccent(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.onTertiaryContainer
+          : const Color(0xFFE65100);
+
+  static Color resultBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.primaryContainer
+          : const Color(0xFFE3F2FD);
+
+  static Color resultAccent(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.onPrimaryContainer
+          : const Color(0xFF1565C0);
+
+  static Color tipBackground(ColorScheme scheme) =>
+      scheme.brightness == Brightness.dark
+          ? scheme.surfaceContainerHigh
+          : const Color(0xFFE8F4FD);
 }
 
 class DoughTempCalculatorBottomSheet extends StatefulWidget {
@@ -31,7 +51,9 @@ class DoughTempCalculatorBottomSheet extends StatefulWidget {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.modalBottomSheetBackground(
+        Theme.of(context).colorScheme,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -52,7 +74,9 @@ class DoughTempCalculatorBottomSheet extends StatefulWidget {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.modalBottomSheetBackground(
+        Theme.of(context).colorScheme,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -116,6 +140,7 @@ class _DoughTempCalculatorBottomSheetState
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     final maxHeight = MediaQuery.sizeOf(context).height * 0.92;
     final target = _targetTemp.round();
 
@@ -130,7 +155,7 @@ class _DoughTempCalculatorBottomSheetState
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.35),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -280,18 +305,20 @@ class _TargetCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final accent = _DoughTempSheetColors.targetAccent(scheme);
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: _SheetColors.targetBackground,
+        color: _DoughTempSheetColors.targetBackground(scheme),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _SheetColors.targetAccent.withValues(alpha: 0.3)),
+        border: Border.all(color: accent.withValues(alpha: 0.35)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.track_changes, color: _SheetColors.targetAccent, size: 28),
+          Icon(Icons.track_changes, color: accent, size: 28),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -301,7 +328,7 @@ class _TargetCard extends StatelessWidget {
                   '목표 반죽온도',
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: _SheetColors.targetAccent,
+                    color: accent,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -309,7 +336,7 @@ class _TargetCard extends StatelessWidget {
                   '$targetTemp°C',
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: _SheetColors.targetAccent,
+                    color: accent,
                   ),
                 ),
                 const SizedBox(height: 6),
@@ -336,23 +363,25 @@ class _ResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final accent = _DoughTempSheetColors.resultAccent(scheme);
 
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: _SheetColors.resultBackground,
+        color: _DoughTempSheetColors.resultBackground(scheme),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _SheetColors.resultAccent.withValues(alpha: 0.3)),
+        border: Border.all(color: accent.withValues(alpha: 0.35)),
       ),
       child: Column(
         children: [
-          Icon(Icons.water_drop_outlined, color: _SheetColors.resultAccent, size: 32),
+          Icon(Icons.water_drop_outlined, color: accent, size: 32),
           const SizedBox(height: 8),
           Text(
             '추천 물온도',
             style: theme.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w600,
-              color: _SheetColors.resultAccent,
+              color: accent,
             ),
           ),
           const SizedBox(height: 4),
@@ -360,7 +389,7 @@ class _ResultCard extends StatelessWidget {
             '$waterTemp°C',
             style: theme.textTheme.displaySmall?.copyWith(
               fontWeight: FontWeight.bold,
-              color: _SheetColors.resultAccent,
+              color: accent,
             ),
           ),
           const SizedBox(height: 8),
@@ -385,11 +414,12 @@ class _TipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
 
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: _SheetColors.tipBackground,
+        color: _DoughTempSheetColors.tipBackground(scheme),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -441,11 +471,12 @@ class _SectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: scheme.outlineVariant),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -463,7 +494,11 @@ class _SectionCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(Icons.help_outline, size: 20, color: Colors.grey.shade500),
+              Icon(
+                Icons.help_outline,
+                size: 20,
+                color: scheme.onSurfaceVariant,
+              ),
             ],
           ),
           const SizedBox(height: 6),
@@ -533,11 +568,12 @@ class _ClothingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor =
-        selected ? _SheetColors.targetAccent : Colors.grey.shade300;
+    final scheme = theme.colorScheme;
+    final accent = _DoughTempSheetColors.targetAccent(scheme);
+    final borderColor = selected ? accent : scheme.outlineVariant;
 
     return Material(
-      color: Colors.white,
+      color: scheme.surfaceContainerLow,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         onTap: onTap,
@@ -596,11 +632,12 @@ class _FrictionOptionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final borderColor =
-        selected ? _SheetColors.targetAccent : Colors.grey.shade300;
+    final scheme = theme.colorScheme;
+    final accent = _DoughTempSheetColors.targetAccent(scheme);
+    final borderColor = selected ? accent : scheme.outlineVariant;
 
     return Material(
-      color: Colors.white,
+      color: scheme.surfaceContainerLow,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         onTap: onTap,
@@ -661,13 +698,14 @@ class _ManualTempStepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     final atMin = value <= DoughTempClothingPreset.minManualTemp;
     final atMax = value >= DoughTempClothingPreset.maxManualTemp;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: scheme.outlineVariant),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
