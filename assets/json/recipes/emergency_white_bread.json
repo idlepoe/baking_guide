@@ -28,7 +28,7 @@
       "second": {
         "temperature": "35~40",
         "humidity": "85~90%",
-        "timeSec": 1800
+        "timeSec": 2100
       }
     },
 
@@ -58,7 +58,7 @@
         "items": [
           "1차: 30℃, 75~80%, 15~30분",
           "중간: 실온 10~15분",
-          "2차: 35~40℃, 85~90%, 30분 전후"
+          "2차: 35~40℃, 85~90%, 30~40분 (팬 위 1cm)"
         ]
       },
       {
@@ -146,404 +146,328 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "재료 계량",
+      "title": "01. 재료 계량",
       "estimatedTimeSec": 480,
-
       "imageUrl": "assets/images/recipes/emergency_white_bread/step1.jpg",
-
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (8분).",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
         "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
-
       "tips": [
         "비상법은 작업 속도가 중요",
         "계량 완료 후 작업대 정리·정돈",
         "물 온도를 계절에 따라 조절"
       ],
-
       "checklist": [
-        {
-          "id": "weigh_complete",
-          "text": "재료 계량 완료"
-        },
-        {
-          "id": "ingredients_arranged",
-          "text": "재료별 진열 완료"
-        },
-        {
-          "id": "supervisor_check",
-          "text": "감독 위원 계량 확인"
-        }
+        { "id": "weigh_complete", "text": "재료 계량 완료" },
+        { "id": "ingredients_arranged", "text": "재료별 진열 완료" },
+        { "id": "supervisor_check", "text": "감독 위원 계량 확인" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "8분 내 계량·진열 미완료 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "계량 오차 주의"
-        }
+        { "severity": "high", "text": "8분 내 계량·진열 미완료 주의" },
+        { "severity": "medium", "text": "계량 오차 주의" }
       ],
-
       "timers": [],
-
       "calculators": [],
-
       "images": []
     },
-
     {
       "stepNo": 2,
-      "title": "반죽 믹싱",
-      "estimatedTimeSec": 720,
-
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/emergency_white_bread/step2.jpg",
-
       "description": [
         "비상스트레이트법으로 반죽한다.",
-        "쇼트닝을 제외한 모든 재료를 넣고 믹싱한다.",
-        "클린업 단계에서 쇼트닝을 투입한다.",
-        "최종 단계보다 20~25% 더 믹싱한다.",
-        "반죽 온도를 30℃로 맞춘다."
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱한다."
       ],
-
       "tips": [
-        "글루텐막·반죽 찢김 상태 확인",
-        "쇼트닝은 클린업 단계에만 투입"
+        "쇼트닝은 아직 투입하지 않는다",
+        "이스트·소금이 직접 닿지 않게 한다"
       ],
-
       "checklist": [
-        {
-          "id": "mix_without_shortening",
-          "text": "쇼트닝 제외 믹싱 완료"
-        },
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "shortening_added",
-          "text": "쇼트닝 투입 완료"
-        },
-        {
-          "id": "overmix_20_25",
-          "text": "최종단계 20~25% 추가 믹싱"
-        },
-        {
-          "id": "dough_temp_30",
-          "text": "반죽 온도 30℃ 확인"
-        }
+        { "id": "mix_without_shortening", "text": "쇼트닝 제외 믹싱 완료" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "쇼트닝 조기 투입 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "과믹싱 주의"
-        }
+        { "severity": "high", "text": "쇼트닝 조기 투입 주의" }
       ],
-
       "timers": [],
-
-      "calculators": [
-        {
-          "type": "dough_temp",
-          "params": {
-            "target": 30
-          }
-        }
-      ],
-
+      "calculators": [],
       "images": []
     },
-
     {
       "stepNo": 3,
-      "title": "1차 발효",
-      "estimatedTimeSec": 1350,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step3.jpg",
-
+      "title": "03. 클린업·최종 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step2.jpg",
       "description": [
-        "반죽 온도 30℃를 확인한 뒤 발효한다.",
-        "온도 30℃, 습도 75~80%에서 15~30분간 1차 발효한다.",
-        "반죽 상태를 확인하며 진행한다."
+        "클린업 단계에서 쇼트닝을 넣는다.",
+        "최종 단계에서 보통 식빵보다 20~25% 정도 더 믹싱한다.",
+        "반죽온도를 30℃로 맞춘다."
       ],
-
       "tips": [
-        "비상스트레이트법은 일반 빵보다 1차 발효 시간을 짧게",
-        "이스트가 많아 과발효 주의",
-        "발효 상태를 반드시 확인"
+        "글루텐막 상태를 늘려 확인할 때 찢김 주의",
+        "쇼트닝은 클린업 단계에만 투입"
       ],
-
       "checklist": [
-        {
-          "id": "first_fermentation_done",
-          "text": "1차 발효 완료"
-        }
+        { "id": "cleanup_stage", "text": "클린업 단계 확인" },
+        { "id": "shortening_added", "text": "쇼트닝 투입 완료" },
+        { "id": "overmix_20_25", "text": "최종단계 20~25% 추가 믹싱" },
+        { "id": "dough_temp_30", "text": "반죽 온도 30℃ 확인" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
+        { "severity": "medium", "text": "과믹싱·반죽 찢김 주의" }
       ],
-
-      "timers": [
-        {
-          "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 1800
-        }
+      "timers": [],
+      "calculators": [
+        { "type": "dough_temp", "params": { "target": 30 } }
       ],
-
-      "calculators": [],
-
       "images": []
     },
-
     {
       "stepNo": 4,
-      "title": "분할 및 둥글리기",
-      "estimatedTimeSec": 600,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step4.jpg",
-
+      "title": "04. 1차 발효",
+      "estimatedTimeSec": 1350,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step3.jpg",
       "description": [
-        "170g으로 12개를 한두 번 가감하며 분할한다.",
-        "제시된 팬 용량을 감안한다 (170g×3 = 1개 식빵, 총 4팬).",
-        "매끄럽게 둥글리기한다."
+        "반죽온도 30℃를 확인한 뒤 발효한다.",
+        "온도 30℃, 습도 75~80%에서 15~30분 동안 1차 발효를 한다."
       ],
-
       "tips": [
-        "분할 중량 170g을 균일하게 맞춘다",
-        "12개 분할·둥글리기를 빠르게 진행"
+        "비상스트레이트법이므로 일반 빵보다 1차 발효를 적게 한다",
+        "이스트가 많아 과발효 주의",
+        "손가락 테스트로 발효 상태 확인"
       ],
-
       "checklist": [
-        {
-          "id": "divide_12_done",
-          "text": "170g×12개 분할 완료"
-        },
-        {
-          "id": "round_12_done",
-          "text": "12개 둥글리기 완료"
-        }
+        { "id": "first_fermentation_done", "text": "1차 발효 완료" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "분할 오차 주의"
-        }
+        { "severity": "medium", "text": "발효 부족 주의" },
+        { "severity": "high", "text": "과발효 주의" }
       ],
-
-      "timers": [],
-
+      "timers": [
+        { "type": "fermentation", "label": "1차 발효", "durationSec": 1800 }
+      ],
       "calculators": [],
-
       "images": []
     },
-
     {
       "stepNo": 5,
-      "title": "중간 발효",
-      "estimatedTimeSec": 900,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step5.jpg",
-
+      "title": "05. 분할",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step4.jpg",
       "description": [
-        "둥글리기 후 실온에서 10~15분간 중간 발효한다."
+        "170g으로 12개를 한두 번 가감해 분할한다.",
+        "제시된 팬 용량을 감안한다 (170g×3 = 1개 식빵, 총 4팬)."
       ],
-
+      "tips": [
+        "분할 중량 170g을 균일하게 맞춘다",
+        "반죽 전량을 사용한다"
+      ],
+      "checklist": [
+        { "id": "divide_12_done", "text": "170g×12개 분할 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "분할 오차 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 둥글리기",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step4.jpg",
+      "description": [
+        "매끄럽게 둥글리기를 한다."
+      ],
+      "tips": [
+        "12개를 빠르고 균일하게 둥글린다"
+      ],
+      "checklist": [
+        { "id": "round_12_done", "text": "12개 둥글리기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 중간 발효",
+      "estimatedTimeSec": 750,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step5.jpg",
+      "description": [
+        "실온에서 10~15분 동안 중간 발효를 한다."
+      ],
       "tips": [
         "반죽이 마르지 않도록 덮어 둔다"
       ],
-
       "checklist": [
-        {
-          "id": "bench_rest_done",
-          "text": "중간발효 완료"
-        }
+        { "id": "bench_rest_done", "text": "중간발효 완료" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "low",
-          "text": "반죽 건조 주의"
-        }
+        { "severity": "low", "text": "반죽 건조 주의" }
       ],
-
       "timers": [
-        {
-          "type": "rest",
-          "label": "중간발효",
-          "durationSec": 900
-        }
+        { "type": "rest", "label": "중간발효", "durationSec": 900 }
       ],
-
       "calculators": [],
-
       "images": []
     },
-
-    {
-      "stepNo": 6,
-      "title": "성형 및 팬닝",
-      "estimatedTimeSec": 1200,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
-
-      "description": [
-        "반죽 전량을 사용하여 성형한다.",
-        "밀대로 반죽을 밀어 펴 가스를 뺀다.",
-        "3겹 접기를 한다.",
-        "끝부분부터 반죽을 말아준다.",
-        "이음매가 터지지 않도록 잘 봉합한다.",
-        "이음매가 바닥을 향하게 3개씩 패닝한다.",
-        "아랫부분에 공간이 남지 않도록 윗부분을 살짝 눌러준다."
-      ],
-
-      "tips": [
-        "12덩이 성형·4팬 패닝의 크기를 균일하게",
-        "이음매는 반드시 아래 방향"
-      ],
-
-      "checklist": [
-        {
-          "id": "degas_roll_done",
-          "text": "밀어펴기(가스 제거) 완료"
-        },
-        {
-          "id": "fold_roll_seal_done",
-          "text": "3겹 접기·말기·봉합 완료"
-        },
-        {
-          "id": "panning_4_loaves",
-          "text": "4팬 패닝 완료 (팬당 3개)"
-        }
-      ],
-
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "이음매 터짐·벌어짐 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "성형·패닝·밀착 불균일 주의"
-        }
-      ],
-
-      "timers": [],
-
-      "calculators": [],
-
-      "images": []
-    },
-
-    {
-      "stepNo": 7,
-      "title": "2차 발효",
-      "estimatedTimeSec": 1800,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step7.jpg",
-
-      "description": [
-        "온도 35~40℃, 습도 85~90%에서 30분 전후 2차 발효한다.",
-        "반죽이 식빵 틀 높이 정도까지 오르면 완료한다."
-      ],
-
-      "tips": [
-        "이스트가 많이 들어가 과발효되지 않도록 주의",
-        "4팬 발효 상태를 균일하게 확인"
-      ],
-
-      "checklist": [
-        {
-          "id": "second_fermentation_done",
-          "text": "2차 발효 완료"
-        }
-      ],
-
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
-
-      "timers": [
-        {
-          "type": "proofing",
-          "label": "2차 발효",
-          "durationSec": 1800
-        }
-      ],
-
-      "calculators": [],
-
-      "images": []
-    },
-
     {
       "stepNo": 8,
-      "title": "굽기",
-      "estimatedTimeSec": 1800,
-
-      "imageUrl": "assets/images/recipes/emergency_white_bread/step8.jpg",
-
+      "title": "08. 밀어펴기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
       "description": [
-        "윗불 180℃, 아랫불 190℃에서 30분 전후 굽는다.",
+        "밀대로 반죽을 밀어 펴 가스를 뺀다."
+      ],
+      "tips": [
+        "덧가루를 적절히 사용한다"
+      ],
+      "checklist": [
+        { "id": "degas_done", "text": "가스 제거(밀어펴기) 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 3겹 접기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
+      "description": [
+        "3겹 접기를 한다."
+      ],
+      "tips": [
+        "12덩이 모두 동일하게 접는다"
+      ],
+      "checklist": [
+        { "id": "fold_done", "text": "3겹 접기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 말기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
+      "description": [
+        "끝부분부터 반죽을 말아준다."
+      ],
+      "tips": [
+        "팽팽하게 말아준다",
+        "느슨하게 말지 않도록 주의"
+      ],
+      "checklist": [
+        { "id": "roll_done", "text": "말기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 이음매 봉합",
+      "estimatedTimeSec": 120,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
+      "description": [
+        "이음매 부분이 터지지 않도록 잘 봉합한다."
+      ],
+      "tips": [
+        "이음매를 단단히 봉합한다"
+      ],
+      "checklist": [
+        { "id": "seal_done", "text": "이음매 봉합 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "이음매 터짐·벌어짐 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 패닝",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step6.jpg",
+      "description": [
+        "이음매가 바닥으로 향하도록 3개씩 팬닝한다.",
+        "아랫부분에 공간이 남지 않도록 윗부분을 살짝 눌러준다."
+      ],
+      "tips": [
+        "4팬(12덩이) 패닝 간격·밀착을 균일하게",
+        "이음매는 반드시 아래 방향"
+      ],
+      "checklist": [
+        { "id": "panning_4_loaves", "text": "4팬 패닝 완료 (팬당 3개)" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "패닝·아랫부분 밀착 불균일 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 2차 발효",
+      "estimatedTimeSec": 2100,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step7.jpg",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 30~40분 전후로 2차 발효를 한다.",
+        "반죽이 팬 위로 약 1cm 정도 올라온 상태가 되면 완료한다."
+      ],
+      "tips": [
+        "이스트가 많이 들어가기 때문에 과발효되지 않도록 주의",
+        "4팬 발효 상태를 균일하게 확인"
+      ],
+      "checklist": [
+        { "id": "second_fermentation_done", "text": "2차 발효 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "과발효 주의" }
+      ],
+      "timers": [
+        { "type": "proofing", "label": "2차 발효", "durationSec": 2400 }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/emergency_white_bread/step8.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 190℃에서 30분 전후로 굽는다.",
         "식빵 4개를 균일하게 굽는다."
       ],
-
       "tips": [
-        "오븐·발효 정도에 따라 색 차이가 날 수 있으므로 조절",
+        "오븐이나 발효 정도에 따라 색 차이가 있을 수 있으므로 상황에 따라 조절",
         "균일한 황금 갈색을 확인"
       ],
-
       "checklist": [
-        {
-          "id": "baking_done",
-          "text": "굽기 완료"
-        }
+        { "id": "baking_done", "text": "굽기 완료" }
       ],
-
       "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
+        { "severity": "medium", "text": "과색 주의" },
+        { "severity": "medium", "text": "미숙성 주의" }
       ],
-
       "timers": [
-        {
-          "type": "baking",
-          "label": "굽기",
-          "durationSec": 1800
-        }
+        { "type": "baking", "label": "굽기", "durationSec": 1800 }
       ],
-
       "calculators": [],
-
       "images": []
     }
   ],
