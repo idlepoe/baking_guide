@@ -12,6 +12,7 @@ import 'app/core/storage/font_scale_preferences.dart';
 import 'app/core/storage/screen_wake_preferences.dart';
 import 'app/core/storage/swipe_step_preferences.dart';
 import 'app/core/storage/theme_preferences.dart';
+import 'app/core/storage/recipe_bookmark_preferences.dart';
 import 'app/core/storage/timer_notification_preferences.dart';
 import 'app/core/theme/app_theme_controller.dart';
 import 'app/core/utils/app_snackbar.dart';
@@ -28,6 +29,7 @@ Future<void> main() async {
   final swipeStepPreferences = SwipeStepPreferences();
   final fontScalePreferences = FontScalePreferences();
   final timerNotificationPreferences = TimerNotificationPreferences();
+  final recipeBookmarkPreferences = RecipeBookmarkPreferences();
   final wakelockService = WakelockService();
 
   final isDarkMode = await themePreferences.loadIsDarkMode();
@@ -44,6 +46,7 @@ Future<void> main() async {
   Get.put(screenWakePreferences, permanent: true);
   Get.put(swipeStepPreferences, permanent: true);
   Get.put(timerNotificationPreferences, permanent: true);
+  Get.put(recipeBookmarkPreferences, permanent: true);
   Get.put(wakelockService, permanent: true);
   Get.put(
     SwipeStepNavigationService(initialEnabled: swipeStepEnabled),
@@ -82,7 +85,7 @@ class BakingGuideApp extends StatelessWidget {
         final fontSizeFactor =
             fontScaleService.fontScale.value.fontSizeFactor;
         return GetMaterialApp(
-          title: 'Application',
+          title: '빵실기',
           scaffoldMessengerKey: AppSnackbar.scaffoldMessengerKey,
           theme: themeController.lightTheme,
           darkTheme: themeController.darkTheme,

@@ -85,13 +85,21 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Text(
-                            item.listItem.name,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                item.listItem.name,
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              _CurrentStageChip(label: item.stageName),
+                            ],
                           ),
                         ),
                         Text(
@@ -111,7 +119,6 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
                       isInProgress: item.session.status ==
                           ProgressSessionStatus.inProgress,
                       stepProgress: item.stepProgress,
-                      stageName: item.stageName,
                     ),
                   ],
                 ),
@@ -124,15 +131,41 @@ class _ProgressSessionCard extends GetView<ProgressListController> {
   }
 }
 
+class _CurrentStageChip extends StatelessWidget {
+  const _CurrentStageChip({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Chip(
+      label: Text(
+        label,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      labelStyle: theme.textTheme.labelSmall?.copyWith(
+        fontWeight: FontWeight.w600,
+        color: theme.colorScheme.onPrimaryContainer,
+      ),
+      backgroundColor: theme.colorScheme.primaryContainer,
+      side: BorderSide.none,
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      visualDensity: VisualDensity.compact,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+  }
+}
+
 abstract final class _SessionTimeProgressBarStyles {
   static const iconAsset = 'assets/icons/icon.png';
-  static const iconSize = 40.0;
-  static const markerWidth = 76.0;
+  static const iconSize = 25.0;
   static const barHeight = 8.0;
-  static const labelAreaHeight = 30.0;
   static const timeLabelsTopGap = 4.0;
 
-  static double get trackHeight => iconSize + labelAreaHeight;
+  static double get trackHeight => iconSize;
   static double get barTop => (iconSize - barHeight) / 2;
   static double get timeLabelsTop => barTop + barHeight + timeLabelsTopGap;
 }
@@ -143,7 +176,6 @@ class _SessionTimeProgressBar extends StatefulWidget {
     required this.estimatedEndAt,
     required this.isInProgress,
     required this.stepProgress,
-    required this.stageName,
     this.completedAt,
   });
 
@@ -152,7 +184,6 @@ class _SessionTimeProgressBar extends StatefulWidget {
   final DateTime? completedAt;
   final bool isInProgress;
   final double stepProgress;
-  final String stageName;
 
   @override
   State<_SessionTimeProgressBar> createState() => _SessionTimeProgressBarState();
@@ -216,15 +247,13 @@ class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final barWidth = constraints.maxWidth;
-              final iconCenterX = markerProgress * barWidth;
-              final markerLeft = (iconCenterX -
-                      _SessionTimeProgressBarStyles.markerWidth / 2)
-                  .clamp(
-                0.0,
-                barWidth - _SessionTimeProgressBarStyles.markerWidth,
-              );
               const iconSize = _SessionTimeProgressBarStyles.iconSize;
               const barHeight = _SessionTimeProgressBarStyles.barHeight;
+              final iconCenterX = markerProgress * barWidth;
+              final markerLeft = (iconCenterX - iconSize / 2).clamp(
+                0.0,
+                barWidth - iconSize,
+              );
 
               return SizedBox(
                 height: _SessionTimeProgressBarStyles.trackHeight,
@@ -282,28 +311,11 @@ class _SessionTimeProgressBarState extends State<_SessionTimeProgressBar> {
                     Positioned(
                       left: markerLeft,
                       top: 0,
-                      width: _SessionTimeProgressBarStyles.markerWidth,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Image.asset(
-                            _SessionTimeProgressBarStyles.iconAsset,
-                            width: iconSize,
-                            height: iconSize,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            widget.stageName,
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              fontWeight: FontWeight.w600,
-                              height: 1.2,
-                            ),
-                          ),
-                        ],
+                      child: Image.asset(
+                        _SessionTimeProgressBarStyles.iconAsset,
+                        width: iconSize,
+                        height: iconSize,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ],

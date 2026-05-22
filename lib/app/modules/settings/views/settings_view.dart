@@ -109,9 +109,12 @@ class SettingsView extends GetView<SettingsController> {
           _SettingsNavigateTile(
             icon: Icons.info_outline,
             title: '앱 정보',
-            onTap: () {
-              // TODO: 앱 정보
-            },
+            onTap: () => controller.showAppInfo(context),
+          ),
+          _SettingsNavigateTile(
+            icon: Icons.description_outlined,
+            title: '라이선스',
+            onTap: () => controller.showLicenses(context),
           ),
           _SettingsNavigateTile(
             icon: Icons.help_outline,
@@ -130,9 +133,7 @@ class SettingsView extends GetView<SettingsController> {
           _SettingsNavigateTile(
             icon: Icons.mail_outline,
             title: '문의하기',
-            onTap: () {
-              // TODO: 문의하기
-            },
+            onTap: () => controller.openContactEmail(context),
           ),
         ],
     );

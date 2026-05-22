@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/services/font_scale_service.dart';
 import '../../../core/services/progress_data_reset_service.dart';
@@ -13,11 +14,13 @@ import '../../../core/storage/theme_preferences.dart';
 import '../../../core/storage/timer_notification_preferences.dart';
 import '../../../core/theme/app_seed_colors.dart';
 import '../../../core/theme/app_theme_controller.dart';
+import '../widgets/app_info_dialog.dart';
 import '../widgets/font_size_bottom_sheet.dart';
 import '../widgets/notification_sound_bottom_sheet.dart';
 import '../widgets/theme_color_bottom_sheet.dart';
 
 class SettingsController extends GetxController {
+  static const contactEmail = 'idlepoe@gmail.com';
   SettingsController({
     ThemePreferences? themePreferences,
     ScreenWakePreferences? screenWakePreferences,
@@ -152,6 +155,56 @@ class SettingsController extends GetxController {
 
   void showNotificationSoundPicker(BuildContext context) {
     NotificationSoundBottomSheet.show(context);
+  }
+
+  void showAppInfo(BuildContext context) {
+    AppInfoDialog.show(context);
+  }
+
+  void showLicenses(BuildContext context) {
+    showLicensePage(
+      context: context,
+      applicationName: '빵실기',
+      applicationIcon: Image.asset(
+        AppInfoDialog.iconAsset,
+        width: 72,
+        height: 72,
+        fit: BoxFit.contain,
+      ),
+    );
+  }
+
+  Future<void> openContactEmail(BuildContext context) async {
+    final uri = Uri(
+      scheme: 'mailto',
+      path: contactEmail,
+      query: _encodeQuery({
+        'subject': '빵실기 문의',
+      }),
+    );
+
+    final launched = await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    );
+
+    if (launched || !context.mounted) return;
+
+    AppSnackbar.show(
+      context: context,
+      title: '문의하기',
+      message: '메일 앱을 열 수 없습니다. $contactEmail 로 직접 보내 주세요.',
+    );
+  }
+
+  String? _encodeQuery(Map<String, String> params) {
+    if (params.isEmpty) return null;
+    return params.entries
+        .map(
+          (e) =>
+              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
+        )
+        .join('&');
   }
 
   Future<void> confirmAndResetAllProgressData(BuildContext context) async {
