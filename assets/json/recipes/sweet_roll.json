@@ -197,7 +197,14 @@
         }
       ],
       "timers": [],
-      "calculators": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
       "images": [],
       "imageUrl": "assets/images/recipes/sweet_roll/step01.png"
     },
@@ -306,14 +313,7 @@
           "durationSec": 3000
         }
       ],
-      "calculators": [
-        {
-          "type": "dough_temp",
-          "params": {
-            "target": 27
-          }
-        }
-      ],
+      "calculators": [],
       "images": [],
       "imageUrl": "assets/images/recipes/sweet_roll/step04.png"
     },

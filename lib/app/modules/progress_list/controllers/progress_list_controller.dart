@@ -54,6 +54,7 @@ class ProgressListController extends GetxController {
           estimatedEndAt: session.startedAt.add(
             Duration(seconds: listItem.totalTimeSec),
           ),
+          totalStepCount: detail?.steps.length ?? 0,
         ),
       );
     }
