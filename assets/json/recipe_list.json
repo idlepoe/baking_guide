@@ -9,7 +9,7 @@
   },
   {
     "id": "emergency_white_bread",
-    "name": "식빵(비상법)",
+    "name": "식빵(비상스트레이트법)",
     "category": "bread",
     "thumbnailUrl": "https://placehold.co/600x400.png?text=emergency_white_bread",
     "difficulty": 2,

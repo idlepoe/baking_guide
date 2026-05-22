@@ -9,21 +9,22 @@
     "mixingMethod": "straight",
 
     "oven": {
-      "top": 190,
-      "bottom": 150,
+      "top": 200,
+      "bottom": 160,
       "unit": "celsius",
-      "timeSec": 1020
+      "timeSec": 900
     },
 
     "fermentation": {
       "first": {
-        "temperature": 30,
+        "temperature": 27,
         "humidity": "75~80%",
-        "timeSec": 1800
+        "timeSec": 2700
       },
       "second": {
-        "temperature": 35,
-        "timeSec": 1200
+        "temperature": "35~40",
+        "humidity": "85~90%",
+        "timeSec": 1650
       }
     },
 
@@ -33,53 +34,54 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "시험 시간: 3시간 30분",
-          "반죽법: 스트레이트법"
+          "재료 계량: 9분 (충전재 제외)",
+          "반죽법: 스트레이트법",
+          "야자잎형 12개 + 트리플리프 9개"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "반죽 온도: 27℃",
-          "클린업 단계에서 쇼트닝 투입",
-          "최종 단계까지 믹싱"
+          "쇼트닝 제외 믹싱 → 클린업에 쇼트닝",
+          "최종 단계까지 믹싱",
+          "반죽 온도 27℃"
         ]
       },
       {
         "title": "발효",
         "imageUrl": "assets/images/keypoints/fermentation.png",
         "items": [
-          "1차 발효: 30℃, 30분",
-          "중간발효: 실온 10분",
-          "2차 발효: 35℃, 약 20분"
+          "1차: 27℃, 75~80%, 40~50분",
+          "2차: 35~40℃, 85~90%, 25~30분"
         ]
       },
       {
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "30cm × 40cm 직사각형으로 밀기",
-          "팽팽하게 말아주기",
-          "이음매 꼼꼼히 봉합"
+          "45×35cm, 두께 0.5cm 밀기",
+          "녹인 버터·계피설탕 도포 후 원통 말기",
+          "야자잎 4cm·트리플리프 5cm 재단"
         ]
       },
       {
         "title": "굽기",
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
-          "윗불 190℃",
-          "아랫불 150℃",
-          "15~17분 굽기"
+          "윗불 200℃ / 아랫불 160℃",
+          "굽기 10~15분",
+          "동일 형태끼리 팬닝·발효"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "반죽 느슨하게 말지 않기",
-          "이음매 벌어짐 주의",
-          "계피설탕 불균일 주의",
-          "성형 크기 균일 유지"
+          "야자잎 12·트리플리프 9 미달 시 실격",
+          "계피설탕 줄무늬·두께 불균일",
+          "이음매 터짐·층 분리",
+          "굽기 시 과도한 팽창 주의"
         ]
       }
     ]
@@ -88,67 +90,67 @@
   "ingredients": [
     {
       "name": "강력분",
-      "amount": 1000,
+      "amount": 900,
       "unit": "g",
       "category": "flour"
     },
     {
       "name": "물",
-      "amount": 460,
+      "amount": 414,
       "unit": "g",
       "category": "liquid"
     },
     {
       "name": "이스트",
-      "amount": 50,
+      "amount": 45,
       "unit": "g",
       "category": "yeast"
     },
     {
       "name": "제빵개량제",
-      "amount": 10,
+      "amount": 9,
       "unit": "g",
       "category": "improver"
     },
     {
       "name": "소금",
-      "amount": 20,
+      "amount": 18,
       "unit": "g",
       "category": "salt"
     },
     {
       "name": "설탕",
-      "amount": 200,
+      "amount": 180,
       "unit": "g",
       "category": "sweetener"
     },
     {
       "name": "쇼트닝",
-      "amount": 200,
+      "amount": 180,
       "unit": "g",
       "category": "fat"
     },
     {
-      "name": "달걀",
-      "amount": 150,
-      "unit": "g",
-      "category": "egg"
-    },
-    {
-      "name": "분유",
-      "amount": 30,
+      "name": "탈지분유",
+      "amount": 27,
       "unit": "g",
       "category": "powder"
     },
     {
+      "name": "달걀",
+      "amount": 135,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
       "name": "충전용 설탕",
-      "amount": 150,
+      "amount": 135,
       "unit": "g",
       "category": "filling"
     },
     {
       "name": "계피가루",
-      "amount": 15,
+      "amount": 13.5,
       "unit": "g",
       "category": "spice"
     }
@@ -158,23 +160,37 @@
     {
       "stepNo": 1,
       "title": "재료 계량",
-      "estimatedTimeSec": 600,
+      "estimatedTimeSec": 540,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step1.jpg",
 
       "description": [
-        "재료를 정확하게 계량한다.",
-        "충전용 계피설탕을 미리 혼합해 둔다."
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
+        "충전용 설탕·계피가루는 계량 시간에서 제외한다.",
+        "본인이 직접 준비한 계피설탕을 사용한다.",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "달걀은 감독 위원이 지정하는 개수로 계량한다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
 
       "tips": [
-        "계피가루와 설탕은 균일하게 혼합"
+        "반죽 재료(강력분 900g 기준)를 먼저 계량",
+        "계량 완료 후 작업대 정리·정돈",
+        "계피가루와 충전용 설탕은 균일하게 혼합"
       ],
 
       "checklist": [
         {
           "id": "weigh_complete",
-          "text": "재료 계량 완료"
+          "text": "반죽 재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
         },
         {
           "id": "filling_mix",
@@ -183,6 +199,10 @@
       ],
 
       "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        },
         {
           "severity": "medium",
           "text": "계량 오차 주의"
@@ -204,17 +224,23 @@
       "imageUrl": "assets/images/recipes/sweet_roll/step2.jpg",
 
       "description": [
-        "쇼트닝을 제외한 재료를 믹싱한다.",
-        "클린업 단계에서 쇼트닝을 투입한다.",
-        "최종 단계까지 믹싱한다."
+        "반죽은 스트레이트법으로 제조한다.",
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱한다.",
+        "클린업 단계에서 쇼트닝을 넣는다.",
+        "최종 단계까지 믹싱한다.",
+        "반죽 온도를 27℃로 맞춘다."
       ],
 
       "tips": [
-        "유지 조기 투입 주의",
-        "반죽 찢김 주의"
+        "쇼트닝은 클린업 단계에만 투입",
+        "늘려 확인할 때 반죽 찢김 주의"
       ],
 
       "checklist": [
+        {
+          "id": "mix_without_shortening",
+          "text": "쇼트닝 제외 믹싱 완료"
+        },
         {
           "id": "cleanup_check",
           "text": "클린업 단계 확인"
@@ -226,13 +252,17 @@
         {
           "id": "final_stage",
           "text": "최종 단계 도달"
+        },
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
         }
       ],
 
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "유지 조기 투입 주의"
+          "text": "쇼트닝 조기 투입 주의"
         },
         {
           "severity": "medium",
@@ -257,16 +287,18 @@
     {
       "stepNo": 3,
       "title": "1차 발효",
-      "estimatedTimeSec": 1800,
+      "estimatedTimeSec": 2700,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step3.jpg",
 
       "description": [
-        "30℃, 습도 75~80%에서 약 30분간 발효한다."
+        "반죽 온도 27℃를 확인한 뒤 발효한다.",
+        "온도 27℃, 습도 75~80%에서 40~50분간 1차 발효한다."
       ],
 
       "tips": [
-        "발효 상태를 손가락 테스트로 확인"
+        "손가락 테스트로 발효 상태 확인",
+        "과발효 주의"
       ],
 
       "checklist": [
@@ -291,7 +323,7 @@
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 1800
+          "durationSec": 3000
         }
       ],
 
@@ -302,45 +334,40 @@
 
     {
       "stepNo": 4,
-      "title": "분할 및 둥글리기",
+      "title": "분할 및 밀어펴기",
       "estimatedTimeSec": 600,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step4.jpg",
 
       "description": [
-        "반죽을 4등분으로 분할한다.",
-        "둥글리기를 한 뒤 중간발효를 진행한다."
+        "반죽을 두 개로 나눈다.",
+        "가로 45cm, 세로 35cm, 두께 0.5cm로 밀어 편다."
       ],
 
       "tips": [
-        "반죽 크기를 균일하게 맞춘다"
+        "두 덩이의 크기·두께를 균일하게 맞춘다",
+        "반죽이 바닥에 붙지 않게 덧가루를 적절히 사용"
       ],
 
       "checklist": [
         {
-          "id": "divide_done",
-          "text": "4등분 분할 완료"
+          "id": "divide_two_done",
+          "text": "반죽 2등분 완료"
         },
         {
-          "id": "round_done",
-          "text": "둥글리기 완료"
+          "id": "sheet_done",
+          "text": "45×35×0.5cm 밀기 완료"
         }
       ],
 
       "deductionPoints": [
         {
           "severity": "medium",
-          "text": "분할 중량 오차 주의"
+          "text": "밀기 크기·두께 불균일 주의"
         }
       ],
 
-      "timers": [
-        {
-          "type": "rest",
-          "label": "중간발효",
-          "durationSec": 600
-        }
-      ],
+      "timers": [],
 
       "calculators": [],
 
@@ -349,30 +376,36 @@
 
     {
       "stepNo": 5,
-      "title": "밀어펴기 및 충전",
+      "title": "버터·충전 및 말기",
       "estimatedTimeSec": 900,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step5.jpg",
 
       "description": [
-        "덧가루를 충분히 사용하여 직사각형으로 민다.",
-        "윗부분 일부를 남기고 물을 바른다.",
-        "계피설탕을 균일하게 뿌린다."
+        "가장자리 1cm만 남기고 녹인 버터를 두껍지 않게 바른다.",
+        "충전용 설탕과 계피가루를 섞어 골고루 뿌린다.",
+        "원통형으로 단단하게 말아준다.",
+        "남은 1cm 가장자리에 녹인 버터나 물을 바르고 이음매를 단단히 봉합한다.",
+        "반으로 나누어 말았을 때 전체 길이가 약 50cm가 되도록 한다."
       ],
 
       "tips": [
-        "반죽이 바닥에 붙지 않게 덧가루 사용",
-        "충전물은 균일하게 도포"
+        "계피설탕이 적으면 줄무늬가 흐리고, 많으면 쉽게 벌어짐",
+        "팽팽하게 말고 이음매가 터지지 않게 봉합"
       ],
 
       "checklist": [
         {
-          "id": "sheet_done",
-          "text": "반죽 밀어펴기 완료"
+          "id": "butter_done",
+          "text": "버터 도포 완료"
         },
         {
           "id": "filling_done",
-          "text": "충전물 도포 완료"
+          "text": "계피설탕 도포 완료"
+        },
+        {
+          "id": "rolling_done",
+          "text": "원통 말기·봉합 완료"
         }
       ],
 
@@ -392,41 +425,47 @@
 
     {
       "stepNo": 6,
-      "title": "말기 및 재단",
-      "estimatedTimeSec": 600,
+      "title": "재단 및 성형",
+      "estimatedTimeSec": 900,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step6.jpg",
 
       "description": [
-        "반죽을 팽팽하게 말아준다.",
-        "이음매를 꼼꼼히 봉합한다.",
-        "일정한 크기로 재단한다."
+        "야자잎형: 약 4cm 길이로 자르고 가운데 2/3 깊이까지 칼집을 낸다 (12개).",
+        "트리플리프형: 약 5cm 길이로 자르고 2/3 깊이로 두 번 칼집을 낸다 (9개).",
+        "야자잎형 12개·트리플리프형 9개로 성형하여 팬에 간격을 두고 올린다.",
+        "동일 형태끼리 같은 팬에 패닝한다.",
+        "성형 후 남은 반죽은 감독 위원 지시에 따라 별도 제출한다."
       ],
 
       "tips": [
-        "느슨하게 말리지 않도록 주의",
-        "이음매를 반드시 붙인다"
+        "말기 두께에 따라 재단 길이를 조절",
+        "굽기 때 팽창량을 고려해 패닝 간격 확보"
       ],
 
       "checklist": [
         {
-          "id": "rolling_done",
-          "text": "말기 완료"
+          "id": "palm_leaf_12",
+          "text": "야자잎형 12개 완료"
         },
         {
-          "id": "cutting_done",
-          "text": "재단 완료"
+          "id": "triple_leaf_9",
+          "text": "트리플리프형 9개 완료"
+        },
+        {
+          "id": "panning_done",
+          "text": "형태별 패닝 완료"
         }
       ],
 
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "이음매 벌어짐 주의"
+          "text": "야자잎 12·트리플리프 9 미달 시 실격"
         },
         {
           "severity": "medium",
-          "text": "재단 크기 불균일 주의"
+          "text": "재단·성형 크기 불균일 주의"
         }
       ],
 
@@ -439,25 +478,22 @@
 
     {
       "stepNo": 7,
-      "title": "패닝 및 2차 발효",
-      "estimatedTimeSec": 1200,
+      "title": "2차 발효",
+      "estimatedTimeSec": 1650,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step7.jpg",
 
       "description": [
-        "팬에 간격을 두고 배치한다.",
-        "35℃에서 약 20분간 2차 발효한다."
+        "온도 35~40℃, 습도 85~90%에서 25~30분간 2차 발효한다.",
+        "동일 형태는 같은 조건으로 함께 발효한다."
       ],
 
       "tips": [
-        "발효 후 크기 증가 고려"
+        "굽기 시 크게 부풀 수 있으므로 패닝 간격 유지",
+        "오븐·발효 정도에 따라 시간을 조절"
       ],
 
       "checklist": [
-        {
-          "id": "panning_done",
-          "text": "패닝 완료"
-        },
         {
           "id": "second_fermentation_done",
           "text": "2차 발효 완료"
@@ -466,7 +502,7 @@
 
       "deductionPoints": [
         {
-          "severity": "medium",
+          "severity": "high",
           "text": "과발효 주의"
         }
       ],
@@ -475,7 +511,7 @@
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1200
+          "durationSec": 1800
         }
       ],
 
@@ -487,16 +523,18 @@
     {
       "stepNo": 8,
       "title": "굽기",
-      "estimatedTimeSec": 1020,
+      "estimatedTimeSec": 900,
 
       "imageUrl": "assets/images/recipes/sweet_roll/step8.jpg",
 
       "description": [
-        "190℃ / 150℃ 오븐에서 15~17분간 굽는다."
+        "윗불 200℃, 아랫불 160℃에서 10~15분간 굽는다.",
+        "야자잎형 12개·트리플리프형 9개를 완성한다."
       ],
 
       "tips": [
-        "노릇한 색 확인"
+        "오븐·발효 정도에 따라 색 차이가 날 수 있으므로 온도·시간 조절",
+        "노릇한 색이 균일한지 확인"
       ],
 
       "checklist": [
@@ -521,7 +559,7 @@
         {
           "type": "baking",
           "label": "굽기",
-          "durationSec": 1020
+          "durationSec": 900
         }
       ],
 
@@ -533,20 +571,20 @@
 
   "resultEvaluation": [
     {
-      "id": "uniform_size",
-      "text": "제품 크기가 균일해야 한다."
+      "id": "required_quantity",
+      "text": "야자잎형 12개·트리플리프형 9개를 제작해야 하며, 미달 시 실격이다."
     },
     {
-      "id": "tight_roll",
-      "text": "말림 상태가 균일해야 한다."
+      "id": "uniform_stripes",
+      "text": "두께·크기·계피설탕 줄무늬가 균일해야 한다."
     },
     {
-      "id": "good_color",
-      "text": "노릇한 색이 균일해야 한다."
+      "id": "no_layer_separation",
+      "text": "층이 과도하게 벌어지거나 분리되지 않아야 한다."
     },
     {
-      "id": "no_open_seam",
-      "text": "이음매가 벌어지지 않아야 한다."
+      "id": "good_color_volume",
+      "text": "패닝·굽기 시 과도한 팽창 없이 노릇한 색이 균일해야 한다."
     }
   ]
 }
