@@ -1,0 +1,393 @@
+{
+  "id": "whole_wheat_bread",
+  "name": "통밀빵",
+  "category": "hard",
+  "thumbnailUrl": "assets/images/recipes/whole_wheat_bread/main.jpg",
+  "summary": {
+    "examTimeSec": 12600,
+    "mixingMethod": "straight",
+    "oven": {
+      "top": 190,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1200
+    },
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 3300
+      },
+      "second": {
+        "temperature": "35~40",
+        "humidity": "85~90%",
+        "timeSec": 2100
+      }
+    },
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "3시간 30분",
+          "200g×8",
+          "오트밀 토핑"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "25℃",
+          "발전 단계"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "22~23cm",
+          "물+오트밀"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "190/160℃",
+          "20분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "오트밀 불균일",
+          "길이 불균일"
+        ]
+      }
+    ]
+  },
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 800,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "통밀가루",
+      "amount": 200,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "이스트",
+      "amount": 25,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 10,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "물",
+      "amount": 640,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "소금",
+      "amount": 15,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 30,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "버터",
+      "amount": 70,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 20,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "몰트액",
+      "amount": 15,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "오트밀",
+      "amount": 200,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step1.jpg",
+      "description": [
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (10분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
+        "오트밀(200g)은 계량 시간에서 제외."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "10분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step1.jpg",
+      "description": [
+        "스트레이트법. 버터 제외 믹싱."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 클린업·발전 믹싱",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step1.jpg",
+      "description": [
+        "클린업에 버터.",
+        "발전 단계까지 믹싱."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step1.jpg",
+      "description": [
+        "25℃."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 25
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 1차 발효",
+      "estimatedTimeSec": 3300,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "50~60분."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3600
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 분할·둥글리기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "200g×8."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 200
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 성형",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "22~23cm 밀대형."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 오트밀 토핑",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "물 바르기 → 오트밀."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "oat_topping",
+          "text": "오트밀 토핑"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 2차 발효",
+      "estimatedTimeSec": 2100,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "30~40분 2차 발효."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 2400
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 굽기",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
+      "description": [
+        "190/160℃, 20분."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1200
+        }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "oat_even",
+      "text": "오트밀이 고르게 묻어야 한다."
+    },
+    {
+      "id": "length_22",
+      "text": "22~23cm 길이가 균일해야 한다."
+    },
+    {
+      "id": "whole_wheat_crumb",
+      "text": "통밀 조직이 균일해야 한다."
+    }
+  ]
+}

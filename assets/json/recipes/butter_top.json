@@ -1,0 +1,549 @@
+{
+  "id": "butter_top",
+  "name": "버터톱 식빵",
+  "category": "bread",
+  "thumbnailUrl": "assets/images/recipes/butter_top/main.jpg",
+  "summary": {
+    "examTimeSec": 12600,
+    "mixingMethod": "straight",
+    "oven": {
+      "top": 180,
+      "bottom": 190,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 2700
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~40",
+        "humidity": "85~90%",
+        "timeSec": 1800
+      }
+    },
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "시험 시간: 3시간 30분",
+          "재료 계량: 9분",
+          "스트레이트법",
+          "460g×5개, 칼집+버터"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "버터 제외 믹싱 → 클린업에 버터",
+          "최종 단계까지",
+          "반죽 온도 27℃"
+        ]
+      },
+      {
+        "title": "발효",
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차: 27℃, 40~50분",
+          "중간: 실온 10~20분",
+          "2차: 35~40℃, 30분 (팬 위 2cm 아래)"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "3겹 접기 → 말기 → 봉합",
+          "윗면 칼집 후 버터(바르기용)"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/190℃",
+          "30분 전후"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "5개 부피·색 불균일",
+          "칼집·버터 누락",
+          "과발효·과색"
+        ]
+      }
+    ]
+  },
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 1200,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "물",
+      "amount": 480,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "이스트",
+      "amount": 48,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 12,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "소금",
+      "amount": 21.6,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 72,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "버터",
+      "amount": 240,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 36,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 240,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "버터(바르기용)",
+      "amount": 60,
+      "unit": "g",
+      "category": "fat"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
+      "imageUrl": "assets/images/recipes/butter_top/step1.jpg",
+      "description": [
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/butter_top/step1.jpg",
+      "description": [
+        "반죽은 스트레이트법으로 제조한다.",
+        "버터을(를) 제외한 모든 재료를 넣고 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "mix_without_fat",
+          "text": "버터 제외 믹싱 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "버터 조기 투입 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 클린업·최종 믹싱",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/butter_top/step1.jpg",
+      "description": [
+        "클린업 단계에서 버터을(를) 넣는다.",
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "cleanup_stage",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "fat_added",
+          "text": "버터 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱·반죽 찢김 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/butter_top/step1.jpg",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/butter_top/step1.jpg",
+      "description": [
+        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3000
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 분할·둥글리기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_top/step2.jpg",
+      "description": [
+        "460g으로 5개 모두 분할한 후 둥글리기 한다.",
+        "반죽 전량을 사용한다 (460g×1 = 1개 식빵, 총 5개)."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "divide_5",
+          "text": "460g×5개 분할·둥글리기 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 460
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/butter_top/step2.jpg",
+      "description": [
+        "실온에서 10~20분 동안 중간 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "중간 발효",
+          "durationSec": 1200
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 밀어펴기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_top/step2.jpg",
+      "description": [
+        "밀대로 반죽을 밀어 펴 가스를 뺀다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 3겹 접기",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/butter_top/step2.jpg",
+      "description": [
+        "3겹 접기를 5개 모두 진행한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 말기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_top/step2.jpg",
+      "description": [
+        "끝부분부터 반죽을 말아준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 이음매 봉합",
+      "estimatedTimeSec": 120,
+      "imageUrl": "assets/images/recipes/butter_top/step3.jpg",
+      "description": [
+        "이음매 부분이 터지지 않도록 잘 봉합한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매 터짐·벌어짐 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 패닝",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_top/step3.jpg",
+      "description": [
+        "이음매가 바닥으로 향하게 1개씩 팬닝한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 칼집·버터",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_top/step3.jpg",
+      "description": [
+        "윗면을 칼로 길게 칼집을 내고 버터(바르기용 60g)를 짜 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "score_butter",
+          "text": "칼집·버터 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "칼집·버터 누락 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 2차 발효",
+      "estimatedTimeSec": 2100,
+      "imageUrl": "assets/images/recipes/butter_top/step3.jpg",
+      "description": [
+        "35~40℃, 85~90%에서 30분 전후 2차 발효.",
+        "반죽이 팬 위로 약 2cm 아래까지 올라오면 완료."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 2400
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/butter_top/evaluation.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 190℃에서 30분 전후로 굽는다.",
+        "식빵 5개를 균일하게 굽는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1800
+        }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "uniform_five",
+      "text": "5개 식빵이 균일한 부피·색이어야 한다."
+    },
+    {
+      "id": "score_butter",
+      "text": "윗면 칼집에 버터가 고르게 들어가야 한다."
+    },
+    {
+      "id": "no_burst",
+      "text": "옆면·이음매 터짐이 없어야 한다."
+    }
+  ]
+}

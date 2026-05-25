@@ -1,5 +1,141 @@
 [
   {
+    "id": "pullman_bread",
+    "name": "풀만식빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/pullman_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 13200
+  },
+  {
+    "id": "chestnut_bread",
+    "name": "밤식빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/chestnut_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 13200
+  },
+  {
+    "id": "corn_bread",
+    "name": "옥수수식빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/corn_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 13200
+  },
+  {
+    "id": "butter_top",
+    "name": "버터톱 식빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/butter_top/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "butter_roll",
+    "name": "버터롤",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/butter_roll/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "red_bean_bread",
+    "name": "단팥빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/red_bean_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 10800
+  },
+  {
+    "id": "pastry_twist",
+    "name": "단과자 트위스트",
+    "category": "pastry",
+    "thumbnailUrl": "assets/images/recipes/pastry_twist/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "soboro_bread",
+    "name": "소보로빵",
+    "category": "pastry",
+    "thumbnailUrl": "assets/images/recipes/soboro_bread/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "cream_bread",
+    "name": "크림빵",
+    "category": "pastry",
+    "thumbnailUrl": "assets/images/recipes/cream_bread/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "mocha_bread",
+    "name": "모카빵",
+    "category": "hard",
+    "thumbnailUrl": "assets/images/recipes/mocha_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "grissini",
+    "name": "그리시니",
+    "category": "hard",
+    "thumbnailUrl": "assets/images/recipes/grissini/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 9000
+  },
+  {
+    "id": "whole_wheat_bread",
+    "name": "통밀빵",
+    "category": "hard",
+    "thumbnailUrl": "assets/images/recipes/whole_wheat_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "rye_bread",
+    "name": "호밀빵",
+    "category": "hard",
+    "thumbnailUrl": "assets/images/recipes/rye_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "sausage_bread",
+    "name": "소시지빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/sausage_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "bagel",
+    "name": "베이글",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/bagel/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 12600
+  },
+  {
+    "id": "bread_donut",
+    "name": "빵도넛",
+    "category": "specialty",
+    "thumbnailUrl": "assets/images/recipes/bread_donut/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 10800
+  },
+  {
+    "id": "rice_bread",
+    "name": "쌀식빵",
+    "category": "bread",
+    "thumbnailUrl": "assets/images/recipes/rice_bread/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 13200
+  },
+  {
     "id": "milk_bread",
     "name": "우유식빵",
     "category": "bread",
@@ -20,7 +156,7 @@
     "name": "스위트롤",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/sweet_roll/main.png",
-    "difficulty": 3,
+    "difficulty": 2,
     "totalTimeSec": 12600
   }
 ]

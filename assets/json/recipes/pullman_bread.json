@@ -1,0 +1,518 @@
+{
+  "id": "pullman_bread",
+  "name": "풀만식빵",
+  "category": "bread",
+  "thumbnailUrl": "assets/images/recipes/pullman_bread/main.jpg",
+
+  "summary": {
+    "examTimeSec": 13200,
+    "mixingMethod": "straight",
+
+    "oven": {
+      "top": 190,
+      "bottom": 190,
+      "unit": "celsius",
+      "timeSec": 2100
+    },
+
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 2700
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~40",
+        "humidity": "85~95%",
+        "timeSec": 1800
+      }
+    },
+
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "시험 시간: 3시간 40분",
+          "재료 계량: 9분 (재료별 진열)",
+          "반죽법: 스트레이트법",
+          "분할: 250g×10개 (250g×2 = 1개 식빵, 총 5팬)"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "쇼트닝 제외 믹싱 → 클린업에 쇼트닝",
+          "최종 단계까지 믹싱",
+          "반죽 온도 27℃",
+          "총 반죽량 많음 → 믹싱 시간·온도 주의"
+        ]
+      },
+      {
+        "title": "발효",
+        "imageUrl": "assets/images/keypoints/fermentation.png",
+        "items": [
+          "1차: 27℃, 75~80%, 40~50분",
+          "중간: 실온 10~20분",
+          "2차: 35~40℃, 85~95%, 30분 전후 (팬 높이 → 뚜껑)"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "밀대로 밀어펴기(가스 제거)",
+          "3겹 접기",
+          "끝부터 말기 → 이음매 봉합",
+          "이음매 아래로 2개씩 패닝"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "윗불 190℃ / 아랫불 190℃",
+          "굽기 30~40분",
+          "꺼내기 전 1개 틀 열어 옆면 색 확인"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "모서리 기포·둥근 모서리",
+          "윗면 함몰·부피 부족",
+          "색 불균일·과발효"
+        ]
+      }
+    ]
+  },
+
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 1400,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "물",
+      "amount": 812,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "이스트",
+      "amount": 56,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 14,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "소금",
+      "amount": 28,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 84,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 56,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "달걀",
+      "amount": 70,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "분유",
+      "amount": 42,
+      "unit": "g",
+      "category": "powder"
+    }
+  ],
+
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
+      "imageUrl": "assets/images/recipes/pullman_bread/step1.jpg",
+      "description": [
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "달걀은 감독 위원이 지정한 개수만큼 계량한다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조·정리 시간에 재계량한다."
+      ],
+      "tips": [
+        "이스트와 소금은 직접 닿지 않게 배치",
+        "계량 완료 후 작업대 정리·정돈"
+      ],
+      "checklist": [
+        { "id": "weigh_complete", "text": "재료 계량 완료" },
+        { "id": "ingredients_arranged", "text": "재료별 진열 완료" },
+        { "id": "supervisor_check", "text": "감독 위원 계량 확인" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "9분 내 계량·진열 미완료 주의" },
+        { "severity": "medium", "text": "계량 오차 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/pullman_bread/step2.jpg",
+      "description": [
+        "반죽은 스트레이트법으로 제조한다.",
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 쇼트닝을 넣는다."
+      ],
+      "tips": [
+        "쇼트닝은 클린업 단계까지 투입하지 않는다",
+        "계절에 따라 물·달걀 온도를 조절"
+      ],
+      "checklist": [
+        { "id": "mix_without_shortening", "text": "쇼트닝 제외 믹싱 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "쇼트닝 조기 투입 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 최종 믹싱",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/pullman_bread/step3.jpg",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [
+        "총 반죽량이 많아 믹싱 시간이 길어질 수 있으니 반죽 온도에 주의",
+        "글루텐막(윈도우페인) 상태를 확인"
+      ],
+      "checklist": [
+        { "id": "final_stage", "text": "최종 단계 도달" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "과믹싱·반죽 찢김 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/pullman_bread/step4.jpg",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [
+        "계절에 따라 물·달걀로 반죽온도를 조절"
+      ],
+      "checklist": [
+        { "id": "dough_temp_27", "text": "반죽 온도 27℃ 확인" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        { "type": "dough_temp", "params": { "target": 27 } }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/pullman_bread/step5.jpg",
+      "description": [
+        "매끄럽게 둥글리기를 한 후 온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [
+        "손가락으로 반죽을 눌렀을 때 자국이 서서히 올라오면 1차 발효 완료",
+        "과발효 주의"
+      ],
+      "checklist": [
+        { "id": "bulk_round_done", "text": "벌크 둥글리기 완료" },
+        { "id": "first_fermentation_done", "text": "1차 발효 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "발효 부족 주의" },
+        { "severity": "high", "text": "과발효 주의" }
+      ],
+      "timers": [
+        { "type": "fermentation", "label": "1차 발효", "durationSec": 3000 }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 분할",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/pullman_bread/step6.jpg",
+      "description": [
+        "250g씩 10개로 분할한다.",
+        "반죽 전량을 사용한다 (250g×2 = 1개 식빵, 총 5팬)."
+      ],
+      "tips": [
+        "분할 중량 250g을 균일하게 맞춘다",
+        "제공된 팬의 용량을 고려하여 최종 판단"
+      ],
+      "checklist": [
+        { "id": "divide_10_done", "text": "250g×10개 분할 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "분할 오차 주의" }
+      ],
+      "timers": [],
+      "calculators": [
+        { "type": "division_weight", "params": { "target": 250 } }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/pullman_bread/step7.jpg",
+      "description": [
+        "매끄럽게 둥글리기를 한다."
+      ],
+      "tips": [
+        "10개 모두 균일하게 둥글리기"
+      ],
+      "checklist": [
+        { "id": "round_10_done", "text": "10개 둥글리기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/pullman_bread/step8.jpg",
+      "description": [
+        "실온에서 10~20분 동안 중간 발효를 한다."
+      ],
+      "tips": [
+        "반죽이 마르지 않도록 덮어 둔다"
+      ],
+      "checklist": [
+        { "id": "bench_rest_done", "text": "중간발효 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "low", "text": "반죽 건조 주의" }
+      ],
+      "timers": [
+        { "type": "rest", "label": "중간발효", "durationSec": 1200 }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 밀어펴기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/pullman_bread/step9.jpg",
+      "description": [
+        "밀대를 이용하여 반죽을 밀어 펴 가스를 뺀다."
+      ],
+      "tips": [
+        "덧가루를 최소화한다"
+      ],
+      "checklist": [
+        { "id": "degas_done", "text": "가스 제거(밀어펴기) 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 3겹 접기",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/pullman_bread/step10.jpg",
+      "description": [
+        "3겹 접기를 한다."
+      ],
+      "tips": [
+        "10개 모두 동일하게 접는다"
+      ],
+      "checklist": [
+        { "id": "fold_10_done", "text": "10개 3겹 접기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 말기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/pullman_bread/step11.jpg",
+      "description": [
+        "끝부분부터 반죽을 말아준다."
+      ],
+      "tips": [
+        "팽팽하게 말아준다"
+      ],
+      "checklist": [
+        { "id": "roll_done", "text": "말기 완료" }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 이음매 봉합",
+      "estimatedTimeSec": 120,
+      "imageUrl": "assets/images/recipes/pullman_bread/step12.jpg",
+      "description": [
+        "이음매 부분이 터지지 않도록 잘 봉합한다."
+      ],
+      "tips": [
+        "이음매를 단단히 봉합한다"
+      ],
+      "checklist": [
+        { "id": "seal_done", "text": "이음매 봉합 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "이음매 터짐·벌어짐 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 패닝",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/pullman_bread/step13.jpg",
+      "description": [
+        "이음매가 바닥으로 향하게 2개씩 팬닝한 후 아랫부분에 공간이 남지 않도록 윗부분을 살짝 눌러준다."
+      ],
+      "tips": [
+        "5팬(10덩이) 패닝·밀착을 균일하게",
+        "이음매는 반드시 아래 방향"
+      ],
+      "checklist": [
+        { "id": "panning_done", "text": "5팬 패닝 완료 (팬당 2개)" }
+      ],
+      "deductionPoints": [
+        { "severity": "medium", "text": "패닝·아랫부분 밀착 불균일 주의" }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 2차 발효",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/pullman_bread/step14.jpg",
+      "description": [
+        "온도 35~40℃, 습도 85~95%에서 30분 전후로 2차 발효를 한다.",
+        "반죽이 팬 높이 정도까지 올라왔을 때 뚜껑을 덮는다."
+      ],
+      "tips": [
+        "5팬 발효 상태를 균일하게 확인",
+        "과발효 시 살짝 눌러준 후 뚜껑을 덮는다"
+      ],
+      "checklist": [
+        { "id": "second_fermentation_done", "text": "2차 발효 완료" },
+        { "id": "lid_on", "text": "뚜껑 덮기 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "과발효 주의" }
+      ],
+      "timers": [
+        { "type": "proofing", "label": "2차 발효", "durationSec": 1800 }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 굽기",
+      "estimatedTimeSec": 2100,
+      "imageUrl": "assets/images/recipes/pullman_bread/step15.jpg",
+      "description": [
+        "윗불 190℃, 아랫불 190℃에서 30~40분 정도 굽는다.",
+        "식빵 5개를 균일하게 굽는다."
+      ],
+      "tips": [
+        "오븐에서 꺼내기 전에 1개만 틀을 살짝 열어 옆면의 색을 확인",
+        "과색·미숙성이 없도록 굽기 상태를 확인"
+      ],
+      "checklist": [
+        { "id": "baking_done", "text": "굽기 완료" }
+      ],
+      "deductionPoints": [
+        { "severity": "high", "text": "과색 주의" },
+        { "severity": "medium", "text": "미숙성 주의" }
+      ],
+      "timers": [
+        { "type": "baking", "label": "굽기", "durationSec": 2100 }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+
+  "resultEvaluation": [
+    {
+      "id": "sharp_corners",
+      "text": "각 식빵의 네 모서리가 직각으로 뾰족해야 한다."
+    },
+    {
+      "id": "uniform_color",
+      "text": "전체적으로 균일한 황금색이어야 한다."
+    },
+    {
+      "id": "no_corner_bubbles",
+      "text": "겉 모서리에 기포가 없어야 한다."
+    },
+    {
+      "id": "no_rounded_top",
+      "text": "윗면 과소발효로 인한 둥근 모서리가 없어야 한다."
+    },
+    {
+      "id": "no_sunken_top",
+      "text": "윗면 함몰·부피 부족이 없어야 한다."
+    }
+  ]
+}

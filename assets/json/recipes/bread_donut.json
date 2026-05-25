@@ -1,0 +1,425 @@
+{
+  "id": "bread_donut",
+  "name": "빵도넛",
+  "category": "specialty",
+  "thumbnailUrl": "assets/images/recipes/bread_donut/main.jpg",
+  "summary": {
+    "examTimeSec": 10800,
+    "mixingMethod": "straight",
+    "oven": {
+      "top": 180,
+      "bottom": 185,
+      "unit": "celsius",
+      "timeSec": 900
+    },
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 2700
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~40",
+        "humidity": "85~90%",
+        "timeSec": 1650
+      }
+    },
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "3시간",
+          "46g×44",
+          "8자 22+트위스트 22"
+        ]
+      },
+      {
+        "title": "튀기기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180~185℃",
+          "오븐 아님",
+          "설탕 코팅"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "개수·형태 미달",
+          "과튀김"
+        ]
+      }
+    ]
+  },
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 880,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "박력분",
+      "amount": 220,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "설탕",
+      "amount": 110,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 132,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "소금",
+      "amount": 16.5,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 33,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "이스트",
+      "amount": 55,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 11,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 2.2,
+      "unit": "g",
+      "category": "spice"
+    },
+    {
+      "name": "달걀",
+      "amount": 165,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "물",
+      "amount": 506,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "넛메그",
+      "amount": 2.2,
+      "unit": "g",
+      "category": "spice"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 720,
+      "imageUrl": "assets/images/recipes/bread_donut/step1.jpg",
+      "description": [
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (12분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "12분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/bread_donut/step1.jpg",
+      "description": [
+        "반죽은 스트레이트법으로 제조한다.",
+        "쇼트닝을(를) 제외한 모든 재료를 넣고 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "mix_without_fat",
+          "text": "쇼트닝 제외 믹싱 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "쇼트닝 조기 투입 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 클린업·최종 믹싱",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/bread_donut/step1.jpg",
+      "description": [
+        "클린업 단계에서 쇼트닝을(를) 넣는다.",
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "cleanup_stage",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "fat_added",
+          "text": "쇼트닝 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱·반죽 찢김 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3000
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 분할·둥글리기",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "46g×44."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 46
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 성형",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "8자형 22개, 트위스트형 22개 성형."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "figure8_22",
+          "text": "8자 22"
+        },
+        {
+          "id": "twist_22",
+          "text": "트위스트 22"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 2차 발효",
+      "estimatedTimeSec": 1650,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "25~30분 2차 발효."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1950
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 튀기기",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
+      "description": [
+        "기름온도 180~185℃에서 튀긴 후 설탕을 묻힌다.",
+        "오븐이 아닌 튀김으로 완성한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "fry_done",
+          "text": "튀기기 완료"
+        },
+        {
+          "id": "sugar_coat",
+          "text": "설탕 코팅"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "기름온도·과튀김 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "튀기기",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "count_44",
+      "text": "44개(8자 22+트위스트 22)."
+    },
+    {
+      "id": "golden_fry",
+      "text": "균일한 황금색."
+    },
+    {
+      "id": "sugar_even",
+      "text": "설탕 코팅 균일."
+    }
+  ]
+}

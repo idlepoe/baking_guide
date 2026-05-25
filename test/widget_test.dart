@@ -1,18 +1,41 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 
-import 'package:baking_guide/app/routes/app_pages.dart';
+import 'package:baking_guide/app/data/models/recipe_list_item.dart';
+import 'package:baking_guide/app/modules/recipe/controllers/recipe_controller.dart';
+import 'package:baking_guide/app/modules/recipe/views/recipe_view.dart';
 
 void main() {
-  testWidgets('Home shows recipe list from assets', (WidgetTester tester) async {
+  testWidgets('Recipe tab shows items from recipe_list.json', (
+    WidgetTester tester,
+  ) async {
     Get.testMode = true;
-    await tester.pumpWidget(
-      GetMaterialApp(
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
+    final controller = RecipeController();
+    Get.put(controller);
+    controller.isLoading.value = false;
+    controller.recipes.assignAll([
+      const RecipeListItem(
+        id: 'chestnut_bread',
+        name: '밤식빵',
+        category: 'bread',
+        thumbnailUrl: 'assets/images/recipes/chestnut_bread/main.jpg',
+        difficulty: 2,
+        totalTimeSec: 13200,
       ),
+      const RecipeListItem(
+        id: 'soboro_bread',
+        name: '소보로빵',
+        category: 'pastry',
+        thumbnailUrl: 'assets/images/recipes/soboro_bread/main.jpg',
+        difficulty: 3,
+        totalTimeSec: 10800,
+      ),
+    ]);
+
+    await tester.pumpWidget(
+      const GetMaterialApp(home: RecipeView()),
     );
-    await tester.pumpAndSettle();
+    await tester.pump();
 
     expect(find.text('밤식빵'), findsOneWidget);
     expect(find.text('소보로빵'), findsOneWidget);

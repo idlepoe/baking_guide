@@ -50,6 +50,5 @@ flutter:
     - assets/images/calculator/
     # 하위 폴더는 각각 등록해야 함 (assets/images/ 만으로는 recipes/ 미포함)
     - assets/images/keypoints/
-    - assets/images/recipes/sweet_roll/
-    - assets/images/recipes/chestnut_bread/
+    - assets/images/recipes/
 

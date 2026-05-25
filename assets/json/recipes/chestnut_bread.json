@@ -1,0 +1,528 @@
+{
+  "id": "chestnut_bread",
+  "name": "밤식빵",
+  "category": "bread",
+  "thumbnailUrl": "assets/images/recipes/chestnut_bread/main.jpg",
+  "summary": {
+    "examTimeSec": 13200,
+    "mixingMethod": "straight",
+    "oven": {
+      "top": 180,
+      "bottom": 190,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+    "fermentation": {
+      "first": {
+        "temperature": 27,
+        "humidity": "75~80%",
+        "timeSec": 2700
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
+      },
+      "second": {
+        "temperature": "35~40",
+        "humidity": "85~90%",
+        "timeSec": 1800
+      }
+    },
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "3시간 40분",
+          "450g+밤80g×5"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "스트레이트",
+          "27℃"
+        ]
+      },
+      {
+        "title": "토핑",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "토핑+아몬드"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/190℃"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "밤 분포·토핑"
+        ]
+      }
+    ]
+  },
+  "ingredients": [
+    {
+      "name": "강력분",
+      "amount": 960,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "중력분",
+      "amount": 240,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "물",
+      "amount": 624,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "이스트",
+      "amount": 54,
+      "unit": "g",
+      "category": "yeast"
+    },
+    {
+      "name": "제빵개량제",
+      "amount": 12,
+      "unit": "g",
+      "category": "improver"
+    },
+    {
+      "name": "소금",
+      "amount": 24,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "설탕",
+      "amount": 144,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "버터",
+      "amount": 96,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 36,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 120,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "통조림밤",
+      "amount": 400,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "중력분(토핑)",
+      "amount": 100,
+      "unit": "g",
+      "category": "flour"
+    },
+    {
+      "name": "마가린(토핑)",
+      "amount": 100,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "설탕(토핑)",
+      "amount": 60,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "베이킹파우더(토핑)",
+      "amount": 2,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "달걀(토핑)",
+      "amount": 60,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "아몬드슬라이스",
+      "amount": 50,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step1.jpg",
+      "description": [
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (10분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
+        "토핑·충전재는 계량 시간 제외."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "10분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 초기 믹싱",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step1.jpg",
+      "description": [
+        "반죽은 스트레이트법으로 제조한다.",
+        "버터을(를) 제외한 모든 재료를 넣고 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "mix_without_fat",
+          "text": "버터 제외 믹싱 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "버터 조기 투입 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 클린업·최종 믹싱",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step1.jpg",
+      "description": [
+        "클린업 단계에서 버터을(를) 넣는다.",
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "cleanup_stage",
+          "text": "클린업 단계 확인"
+        },
+        {
+          "id": "fat_added",
+          "text": "버터 투입 완료"
+        },
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱·반죽 찢김 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step1.jpg",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step1.jpg",
+      "description": [
+        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3000
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 분할",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step2.jpg",
+      "description": [
+        "450g×5."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 450
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step2.jpg",
+      "description": [
+        "둥글리기."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step2.jpg",
+      "description": [
+        "10~20분."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "중간 발효",
+          "durationSec": 1200
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 밀어펴기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step3.jpg",
+      "description": [
+        "가스 제거."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 충전",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step3.jpg",
+      "description": [
+        "통조림밤 80g 충전."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 말기·봉합",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step4.jpg",
+      "description": [
+        "원통 말기·봉합."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 2차 발효",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step4.jpg",
+      "description": [
+        "팬닝, 팬 위 2cm."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1800
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 토핑",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/chestnut_bread/step4.jpg",
+      "description": [
+        "토핑 제조·바르기, 아몬드 슬라이스."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/chestnut_bread/evaluation.jpg",
+      "description": [
+        "180/190℃, 30분."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1800
+        }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "topping_cover",
+      "text": "토핑이 반죽을 덮어야 함"
+    },
+    {
+      "id": "chestnut_even",
+      "text": "밤 고르게 분포"
+    },
+    {
+      "id": "uniform_five",
+      "text": "5개 균일"
+    }
+  ]
+}
