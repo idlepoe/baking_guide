@@ -87,7 +87,7 @@ class BakingGuideApp extends StatelessWidget {
         final fontSizeFactor =
             fontScaleService.fontScale.value.fontSizeFactor;
         return GetMaterialApp(
-          title: '빵실기',
+          title: '빵실기 - 제빵기능사',
           scaffoldMessengerKey: AppSnackbar.scaffoldMessengerKey,
           theme: themeController.lightTheme,
           darkTheme: themeController.darkTheme,

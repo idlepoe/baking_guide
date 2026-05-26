@@ -16,6 +16,7 @@ class NotificationService {
   static const _channelName = '실기 타이머';
   static const _ongoingChannelId = 'practice_timers_running';
   static const _ongoingChannelName = '실기 타이머 (진행)';
+  static const _androidNotificationIcon = '@drawable/ic_notification';
 
   final FlutterLocalNotificationsPlugin _plugin =
       FlutterLocalNotificationsPlugin();
@@ -25,7 +26,8 @@ class NotificationService {
   Future<void> init() async {
     if (_initialized) return;
 
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const androidSettings =
+        AndroidInitializationSettings(_androidNotificationIcon);
     const darwinSettings = DarwinInitializationSettings(
       requestAlertPermission: false,
       requestBadgePermission: false,
@@ -92,6 +94,10 @@ class NotificationService {
         _channelName,
         importance: Importance.high,
         priority: Priority.high,
+        icon: _androidNotificationIcon,
+        largeIcon: const DrawableResourceAndroidBitmap(
+          _androidNotificationIcon,
+        ),
         enableVibration: vibrationEnabled,
         playSound: playSound,
       ),
@@ -127,6 +133,10 @@ class NotificationService {
           channelDescription: '실기 타이머 진행 중 표시',
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
+          icon: _androidNotificationIcon,
+          largeIcon: const DrawableResourceAndroidBitmap(
+            _androidNotificationIcon,
+          ),
           ongoing: true,
           autoCancel: false,
           playSound: false,

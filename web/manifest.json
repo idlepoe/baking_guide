@@ -1,6 +1,6 @@
 {
-    "name": "빵실기",
-    "short_name": "빵실기",
+    "name": "빵실기 - 제빵기능사",
+    "short_name": "빵실기 - 제빵기능사",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

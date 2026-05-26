@@ -163,7 +163,7 @@ class SettingsController extends GetxController {
   void showLicenses(BuildContext context) {
     showLicensePage(
       context: context,
-      applicationName: '빵실기',
+      applicationName: '빵실기 - 제빵기능사',
       applicationIcon: Image.asset(
         AppInfoDialog.iconAsset,
         width: 72,
@@ -177,7 +177,7 @@ class SettingsController extends GetxController {
     final uri = Uri(
       scheme: 'mailto',
       path: contactEmail,
-      query: _encodeQuery({'subject': '빵실기 문의'}),
+      query: _encodeQuery({'subject': '빵실기 - 제빵기능사 문의'}),
     );
 
     final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
