@@ -30,7 +30,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 40분",
-          "180g×12",
+          "180g*12",
           "4팬"
         ]
       },
@@ -290,7 +290,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/corn_bread/step2.jpg",
       "description": [
-        "180g×12."
+        "180g*12."
       ],
       "tips": [],
       "checklist": [],
@@ -357,7 +357,7 @@
       "estimatedTimeSec": 360,
       "imageUrl": "assets/images/recipes/corn_bread/step3.jpg",
       "description": [
-        "3개씩 4팬 (180g×3=1식빵)."
+        "3개씩 4팬 (180g*3=1식빵)."
       ],
       "tips": [],
       "checklist": [

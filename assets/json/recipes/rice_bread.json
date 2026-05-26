@@ -34,8 +34,8 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 40분",
-          "198g×12",
-          "3개/팬×4"
+          "198g*12",
+          "3개/팬*4"
         ]
       },
       {
@@ -262,7 +262,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
       "description": [
-        "198g×12."
+        "198g*12."
       ],
       "tips": [],
       "checklist": [],
@@ -350,7 +350,7 @@
       "estimatedTimeSec": 360,
       "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
       "description": [
-        "3개씩 4팬 패닝 (198g×3=1식빵)."
+        "3개씩 4팬 패닝 (198g*3=1식빵)."
       ],
       "tips": [],
       "checklist": [

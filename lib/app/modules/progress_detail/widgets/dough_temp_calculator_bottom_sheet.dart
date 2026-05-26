@@ -282,7 +282,7 @@ class _DoughTempCalculatorBottomSheetState
       builder: (ctx) => AlertDialog(
         title: const Text('반죽온도 계산기'),
         content: const Text(
-          '추천 물온도 = (목표 반죽온도 − 마찰열) × 3 − 기본온도 × 2\n\n'
+          '추천 물온도 = (목표 반죽온도 − 마찰열) * 3 − 기본온도 * 2\n\n'
           '기본온도는 실온·분온을 같다고 보고 설정합니다. '
           '계산값은 참고용이며, 반죽 후 실제 반죽온도를 확인하세요.',
         ),

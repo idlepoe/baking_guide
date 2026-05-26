@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "250g+100g 비스킷×6"
+          "250g+100g 비스킷*6"
         ]
       },
       {
@@ -370,17 +370,17 @@
       "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
       "description": [
-        "반죽 250g×6, 비스킷 100g×6으로 분할."
+        "반죽 250g*6, 비스킷 100g*6으로 분할."
       ],
       "tips": [],
       "checklist": [
         {
           "id": "divide_dough",
-          "text": "250g×6 분할"
+          "text": "250g*6 분할"
         },
         {
           "id": "divide_biscuit",
-          "text": "100g×6 분할"
+          "text": "100g*6 분할"
         }
       ],
       "deductionPoints": [],

@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "80g×16",
+          "80g*16",
           "2팬"
         ]
       },
@@ -235,7 +235,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/bagel/step2.jpg",
       "description": [
-        "80g×16."
+        "80g*16."
       ],
       "tips": [],
       "checklist": [],

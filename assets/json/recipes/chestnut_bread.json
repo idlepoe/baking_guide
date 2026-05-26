@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 40분",
-          "450g+밤80g×5"
+          "450g+밤80g*5"
         ]
       },
       {
@@ -342,7 +342,7 @@
       "estimatedTimeSec": 360,
       "imageUrl": "assets/images/recipes/chestnut_bread/step2.jpg",
       "description": [
-        "450g×5."
+        "450g*5."
       ],
       "tips": [],
       "checklist": [],

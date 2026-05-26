@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간",
-          "46g×44",
+          "46g*44",
           "8자 22+트위스트 22"
         ]
       },
@@ -300,7 +300,7 @@
       "estimatedTimeSec": 900,
       "imageUrl": "assets/images/recipes/bread_donut/step2.jpg",
       "description": [
-        "46g×44."
+        "46g*44."
       ],
       "tips": [],
       "checklist": [],

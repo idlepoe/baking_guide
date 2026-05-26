@@ -30,7 +30,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "200g×8",
+          "200g*8",
           "오트밀 토핑"
         ]
       },
@@ -258,7 +258,7 @@
       "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/whole_wheat_bread/step2.jpg",
       "description": [
-        "200g×8."
+        "200g*8."
       ],
       "tips": [],
       "checklist": [],

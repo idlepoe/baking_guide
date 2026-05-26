@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "50g×24개",
+          "50g*24개",
           "번데기형"
         ]
       },
@@ -304,7 +304,7 @@
       "checklist": [
         {
           "id": "divide_24",
-          "text": "50g×24개 분할·둥글리기"
+          "text": "50g*24개 분할·둥글리기"
         }
       ],
       "deductionPoints": [],
@@ -431,7 +431,7 @@
   "resultEvaluation": [
     {
       "id": "count_24",
-      "text": "50g×24개가 모두 제출되어야 한다."
+      "text": "50g*24개가 모두 제출되어야 한다."
     },
     {
       "id": "chrysalis_shape",

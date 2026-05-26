@@ -1,4 +1,4 @@
-/// 반죽온도(DDT) 계산: 추천 물온도 = (목표 − 마찰열) × 3 − 기본온도 × 2
+/// 반죽온도(DDT) 계산: 추천 물온도 = (목표 − 마찰열) * 3 − 기본온도 * 2
 int recommendedWaterTempC({
   required num targetDoughTemp,
   required int baseTemp,

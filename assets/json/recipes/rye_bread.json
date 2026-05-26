@@ -30,7 +30,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "330g×6",
+          "330g*6",
           "2단계 굽기"
         ]
       },
@@ -251,7 +251,7 @@
       "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
       "description": [
-        "330g×6."
+        "330g*6."
       ],
       "tips": [],
       "checklist": [],

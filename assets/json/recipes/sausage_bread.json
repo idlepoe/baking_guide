@@ -34,7 +34,7 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "70g×12",
+          "70g*12",
           "낙엽 6+꽃잎 6"
         ]
       },
@@ -317,7 +317,7 @@
       "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
       "description": [
-        "70g×12."
+        "70g*12."
       ],
       "tips": [],
       "checklist": [],
