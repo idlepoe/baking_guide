@@ -9,42 +9,36 @@ import '../controllers/progress_detail_controller.dart';
 abstract final class _DoughTempSheetColors {
   static Color targetBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.tertiaryContainer
-          : const Color(0xFFFFF3E0);
+      ? scheme.tertiaryContainer
+      : const Color(0xFFFFF3E0);
 
   static Color targetAccent(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.onTertiaryContainer
-          : const Color(0xFFE65100);
+      ? scheme.onTertiaryContainer
+      : const Color(0xFFE65100);
 
   static Color resultBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.primaryContainer
-          : const Color(0xFFE3F2FD);
+      ? scheme.primaryContainer
+      : const Color(0xFFE3F2FD);
 
   static Color resultAccent(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.onPrimaryContainer
-          : const Color(0xFF1565C0);
+      ? scheme.onPrimaryContainer
+      : const Color(0xFF1565C0);
 
   static Color tipBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.surfaceContainerHigh
-          : const Color(0xFFE8F4FD);
+      ? scheme.surfaceContainerHigh
+      : const Color(0xFFE8F4FD);
 }
 
 class DoughTempCalculatorBottomSheet extends StatefulWidget {
-  const DoughTempCalculatorBottomSheet({
-    super.key,
-    required this.config,
-  });
+  const DoughTempCalculatorBottomSheet({super.key, required this.config});
 
   final CalculatorConfig config;
 
-  static void show(
-    BuildContext context,
-    ProgressDetailController controller,
-  ) {
+  static void show(BuildContext context, ProgressDetailController controller) {
     final config = controller.currentDoughTempCalculator;
     if (config == null) return;
 
@@ -110,10 +104,10 @@ class _DoughTempCalculatorBottomSheetState
   int get _frictionHeat => DoughTempFrictionPreset.heatC[_frictionIndex];
 
   int get _recommendedWater => recommendedWaterTempC(
-        targetDoughTemp: _targetTemp,
-        baseTemp: _baseTemp,
-        frictionHeat: _frictionHeat,
-      );
+    targetDoughTemp: _targetTemp,
+    baseTemp: _baseTemp,
+    frictionHeat: _frictionHeat,
+  );
 
   @override
   void initState() {
@@ -197,8 +191,7 @@ class _DoughTempCalculatorBottomSheetState
                     _SectionCard(
                       icon: Icons.thermostat_outlined,
                       title: '기본 온도 설정',
-                      subtitle:
-                          '실온과 분온이 같다고 가정합니다. 옷차림으로 대략적인 실온을 선택하세요.',
+                      subtitle: '실온과 분온이 같다고 가정합니다. 옷차림으로 대략적인 실온을 선택하세요.',
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -425,7 +418,11 @@ class _TipCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.lightbulb_outline, color: theme.colorScheme.primary, size: 22),
+          Icon(
+            Icons.lightbulb_outline,
+            color: theme.colorScheme.primary,
+            size: 22,
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -486,19 +483,12 @@ class _SectionCard extends StatelessWidget {
             children: [
               Icon(icon, size: 22, color: theme.colorScheme.primary),
               const SizedBox(width: 8),
-              Expanded(
-                child: Text(
+              Text(
                   title,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-              ),
-              Icon(
-                Icons.help_outline,
-                size: 20,
-                color: scheme.onSurfaceVariant,
-              ),
+                )
             ],
           ),
           const SizedBox(height: 6),
@@ -517,10 +507,7 @@ class _SectionCard extends StatelessWidget {
 }
 
 class _ClothingGrid extends StatelessWidget {
-  const _ClothingGrid({
-    required this.selectedIndex,
-    required this.onSelect,
-  });
+  const _ClothingGrid({required this.selectedIndex, required this.onSelect});
 
   final int selectedIndex;
   final ValueChanged<int> onSelect;

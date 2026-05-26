@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/network_image_url.dart';
 
 class StepImage extends StatelessWidget {
-  const StepImage({
-    super.key,
-    required this.imageSource,
-  });
+  const StepImage({super.key, required this.imageSource});
 
   final String? imageSource;
 
@@ -74,7 +71,7 @@ class StepImage extends StatelessWidget {
           child: CircularProgressIndicator(
             value: loadingProgress.expectedTotalBytes != null
                 ? loadingProgress.cumulativeBytesLoaded /
-                    loadingProgress.expectedTotalBytes!
+                      loadingProgress.expectedTotalBytes!
                 : null,
           ),
         );

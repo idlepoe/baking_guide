@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StepDescription extends StatelessWidget {
-  const StepDescription({
-    super.key,
-    required this.descriptions,
-  });
+  const StepDescription({super.key, required this.descriptions});
 
   final List<String> descriptions;
 
@@ -31,9 +28,7 @@ class StepDescription extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 4),
               child: Text(
                 text,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  height: 1.5,
-                ),
+                style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
               ),
             ),
           ),

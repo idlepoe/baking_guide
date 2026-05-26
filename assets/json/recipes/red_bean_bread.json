@@ -169,7 +169,14 @@
         }
       ],
       "timers": [],
-      "calculators": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 30
+          }
+        }
+      ],
       "images": []
     },
     {
@@ -221,14 +228,7 @@
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
-      "calculators": [
-        {
-          "type": "dough_temp",
-          "params": {
-            "target": 30
-          }
-        }
-      ],
+      "calculators": [],
       "images": []
     },
     {

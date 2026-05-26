@@ -60,6 +60,7 @@ class _AppInfoDialogBody extends StatelessWidget {
                     '닫기',
                     style: theme.textTheme.labelLarge?.copyWith(
                       fontWeight: FontWeight.w600,
+                      color: Colors.white,
                     ),
                   ),
                 ),

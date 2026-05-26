@@ -26,9 +26,9 @@ class ProgressDetailController extends GetxController {
     this.runTutorialGuide = false,
     RecipeRepository? repository,
     ProgressSessionRepository? sessionRepository,
-  })  : _repository = repository ?? RecipeRepository(),
-        _sessionRepository =
-            sessionRepository ?? Get.find<ProgressSessionRepository>();
+  }) : _repository = repository ?? RecipeRepository(),
+       _sessionRepository =
+           sessionRepository ?? Get.find<ProgressSessionRepository>();
 
   final String recipeId;
   final bool runTutorialGuide;
@@ -45,7 +45,8 @@ class ProgressDetailController extends GetxController {
   final checkedItemIds = <String>{}.obs;
   final checkedIngredientIds = <String>{}.obs;
 
-  late final PageController pageController;
+  late final ScrollController scrollController;
+  final stepSectionKeys = <GlobalKey>[];
   Worker? _tutorialGuideWorker;
 
   bool get hasActiveSession =>
@@ -89,8 +90,10 @@ class ProgressDetailController extends GetxController {
     if (step == null || step.estimatedTimeSec <= 0) return 0;
     final started = stepStartedAt(step.stepNo);
     if (started == null) return 0;
-    return (now.difference(started).inSeconds / step.estimatedTimeSec)
-        .clamp(0.0, 1.0);
+    return (now.difference(started).inSeconds / step.estimatedTimeSec).clamp(
+      0.0,
+      1.0,
+    );
   }
 
   Duration sessionElapsedAt(DateTime now) {
@@ -110,7 +113,7 @@ class ProgressDetailController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    pageController = PageController(initialPage: 0);
+    scrollController = ScrollController();
     if (recipeId.isEmpty) {
       _handleLoadFailure('레시피 정보가 없습니다.');
       return;
@@ -156,7 +159,7 @@ class ProgressDetailController extends GetxController {
   @override
   void onClose() {
     _tutorialGuideWorker?.dispose();
-    pageController.dispose();
+    scrollController.dispose();
     super.onClose();
   }
 
@@ -219,17 +222,22 @@ class ProgressDetailController extends GetxController {
 
     recipeListItem.value = await _repository.findRecipeListItem(recipeId);
     recipe.value = detail;
+    stepSectionKeys
+      ..clear()
+      ..addAll(
+        List<GlobalKey>.generate(detail.steps.length, (_) => GlobalKey()),
+      );
 
-    final existing = await _sessionRepository.findInProgressByRecipeId(recipeId);
+    final existing = await _sessionRepository.findInProgressByRecipeId(
+      recipeId,
+    );
     if (existing != null) {
       session.value = existing;
       final index = _indexForStepNo(existing.currentStepNo);
       if (index != null && index >= 0) {
         currentStepIndex.value = index;
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (pageController.hasClients) {
-            pageController.jumpToPage(index);
-          }
+          unawaited(goToStep(index, animate: false));
         });
       }
     }
@@ -305,8 +313,9 @@ class ProgressDetailController extends GetxController {
     }
 
     final scheduleService = Get.find<TimerScheduleService>();
-    final timers =
-        await scheduleService.activeTimersForSession(current.sessionId);
+    final timers = await scheduleService.activeTimersForSession(
+      current.sessionId,
+    );
     for (final timer in timers) {
       await scheduleService.cancelTimer(timer.timerId);
     }
@@ -358,12 +367,40 @@ class ProgressDetailController extends GetxController {
     session.value = updated;
   }
 
-  void onPageChanged(int index) {
-    if (currentStepIndex.value == index) return;
-    currentStepIndex.value = index;
+  Future<void> syncCurrentStepFromScroll() async {
+    if (!scrollController.hasClients) return;
+
+    final targetIndex = _indexFromSectionKeys();
+    if (targetIndex == null || targetIndex == currentStepIndex.value) return;
+
+    currentStepIndex.value = targetIndex;
     if (hasActiveSession) {
-      _persistSession();
+      await _persistSession();
     }
+  }
+
+  int? _indexFromSectionKeys() {
+    if (stepSectionKeys.isEmpty) return null;
+
+    final currentContext = Get.context;
+    if (currentContext == null) return null;
+    final threshold =
+        MediaQuery.of(currentContext).padding.top + kToolbarHeight + 150;
+
+    var targetIndex = 0;
+    for (var i = 0; i < stepSectionKeys.length; i++) {
+      final context = stepSectionKeys[i].currentContext;
+      if (context == null) continue;
+      final box = context.findRenderObject() as RenderBox?;
+      if (box == null || !box.hasSize) continue;
+      final dy = box.localToGlobal(Offset.zero).dy;
+      if (dy <= threshold) {
+        targetIndex = i;
+      } else {
+        break;
+      }
+    }
+    return targetIndex;
   }
 
   Future<void> goToPreviousStep() async {
@@ -386,13 +423,14 @@ class ProgressDetailController extends GetxController {
       completed.add(fromStep.stepNo);
     }
 
-    await goToStep(
-      currentStepIndex.value + 1,
-      completedSteps: completed,
-    );
+    await goToStep(currentStepIndex.value + 1, completedSteps: completed);
   }
 
-  Future<void> goToStep(int index, {List<int>? completedSteps}) async {
+  Future<void> goToStep(
+    int index, {
+    List<int>? completedSteps,
+    bool animate = true,
+  }) async {
     final detail = recipe.value;
     if (detail == null) return;
     if (index < 0 || index >= detail.steps.length) return;
@@ -401,12 +439,19 @@ class ProgressDetailController extends GetxController {
     if (stepChanged) {
       currentStepIndex.value = index;
     }
-    if (pageController.hasClients) {
-      final page = pageController.page?.round();
-      if (page != index) {
-        pageController.jumpToPage(index);
-      }
+
+    final targetContext = index < stepSectionKeys.length
+        ? stepSectionKeys[index].currentContext
+        : null;
+    if (targetContext != null) {
+      await Scrollable.ensureVisible(
+        targetContext,
+        duration: animate ? const Duration(milliseconds: 300) : Duration.zero,
+        curve: Curves.easeOutCubic,
+        alignment: 0,
+      );
     }
+
     if (hasActiveSession && (stepChanged || completedSteps != null)) {
       await _persistSession(
         completedSteps: completedSteps,

@@ -1,7 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/services/swipe_step_navigation_service.dart';
 import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../data/models/enums/progress_session_status.dart';
@@ -11,16 +12,57 @@ import '../controllers/progress_detail_controller.dart';
 import '../widgets/deduction_points_card.dart';
 import '../widgets/ingredients_bottom_sheet.dart';
 import '../widgets/recipe_summary_bottom_sheet.dart';
-import '../widgets/progress_bottom_bar.dart';
 import '../widgets/progress_fab_column.dart';
 import '../widgets/step_checklist.dart';
 import '../widgets/step_description.dart';
 import '../widgets/step_header.dart';
 import '../widgets/step_image.dart';
 import '../widgets/step_progress_bar.dart';
+import '../widgets/timer_bottom_sheet.dart';
+import '../../../core/widgets/session_time_progress_bar.dart';
+import '../../../core/utils/calculator_kind_format.dart';
+import '../../../data/models/enums/calculator_kind.dart';
+import '../widgets/dough_temp_calculator_bottom_sheet.dart';
 
-class ProgressDetailView extends GetView<ProgressDetailController> {
+const _kStepSectionSpacing = 24.0;
+
+class ProgressDetailView extends StatefulWidget {
   const ProgressDetailView({super.key});
+
+  @override
+  State<ProgressDetailView> createState() => _ProgressDetailViewState();
+}
+
+class _ProgressDetailViewState extends State<ProgressDetailView> {
+  late final ProgressDetailController controller;
+  bool _isAtBottom = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.find<ProgressDetailController>();
+    controller.scrollController.addListener(_handleScroll);
+  }
+
+  void _handleScroll() {
+    _syncBottomReachedState();
+    unawaited(controller.syncCurrentStepFromScroll());
+  }
+
+  void _syncBottomReachedState() {
+    if (!controller.scrollController.hasClients) return;
+    final position = controller.scrollController.position;
+    final reachedBottom = position.pixels >= (position.maxScrollExtent - 8);
+    if (reachedBottom != _isAtBottom) {
+      setState(() => _isAtBottom = reachedBottom);
+    }
+  }
+
+  @override
+  void dispose() {
+    controller.scrollController.removeListener(_handleScroll);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +78,7 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
           _AppBarLabeledIconAction(
             icon: Icons.article_outlined,
             label: '핵심 정보',
-            onPressed: () =>
-                RecipeSummaryBottomSheet.show(context, controller),
+            onPressed: () => RecipeSummaryBottomSheet.show(context, controller),
           ),
           Obx(
             () => _AppBarLabeledIconAction(
@@ -64,19 +105,15 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
               if (controller.isLoading.value) {
                 return const Center(child: CircularProgressIndicator());
               }
-              if (controller.hasError.value || controller.recipe.value == null) {
+              if (controller.hasError.value ||
+                  controller.recipe.value == null) {
                 return const Center(child: Text('레시피를 불러올 수 없습니다.'));
               }
 
               final detail = controller.recipe.value!;
-              final step = controller.currentStep;
-              if (step == null) {
+              if (detail.steps.isEmpty) {
                 return const Center(child: Text('단계 정보가 없습니다.'));
               }
-
-              final swipeService = Get.find<SwipeStepNavigationService>();
-              final swipeEnabled =
-                  swipeService.swipeStepNavigationEnabled.value;
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,23 +123,67 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
                     currentIndex: controller.currentStepIndex.value,
                     onStepTap: controller.goToStep,
                   ),
-                  StepHeader(step: step),
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 56,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Obx(() {
+                      final session = controller.session.value;
+                      final listItem = controller.recipeListItem.value;
+                      if (session == null || listItem == null) {
+                        return const SizedBox.shrink();
+                      }
+                      final stepCount = detail.steps.length;
+                      if (stepCount <= 0) return const SizedBox.shrink();
+
+                      final isInProgress =
+                          session.status == ProgressSessionStatus.inProgress;
+
+                      final stepProgress =
+                          session.status == ProgressSessionStatus.completed
+                          ? 1.0
+                          : (session.currentStepNo / stepCount).clamp(0.0, 1.0);
+
+                      final estimatedEndAt = session.startedAt.add(
+                        Duration(seconds: listItem.totalTimeSec),
+                      );
+
+                      return SessionTimeProgressBar(
+                        startedAt: session.startedAt,
+                        estimatedEndAt: estimatedEndAt,
+                        completedAt: session.completedAt,
+                        isInProgress: isInProgress,
+                        stepProgress: stepProgress,
+                      );
+                    }),
+                  ),
                   Expanded(
-                    child: PageView.builder(
-                      controller: controller.pageController,
-                      physics: swipeEnabled
-                          ? const ClampingScrollPhysics()
-                          : const NeverScrollableScrollPhysics(),
-                      onPageChanged: controller.onPageChanged,
-                      itemCount: detail.steps.length,
-                      itemBuilder: (context, index) {
-                        final pageStep = detail.steps[index];
-                        return _StepPageContent(
-                          stepIndex: index,
-                          step: pageStep,
-                          controller: controller,
-                        );
-                      },
+                    child: SingleChildScrollView(
+                      controller: controller.scrollController,
+                      padding: EdgeInsets.only(
+                        bottom: 16 + MediaQuery.paddingOf(context).bottom + 64,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          for (var i = 0; i < detail.steps.length; i++)
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: i < detail.steps.length - 1
+                                    ? _kStepSectionSpacing
+                                    : 0,
+                              ),
+                              child: KeyedSubtree(
+                                key: controller.stepSectionKeys[i],
+                                child: _StepPageContent(
+                                  stepIndex: i,
+                                  step: detail.steps[i],
+                                  controller: controller,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -129,14 +210,21 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
           );
         }
 
-        return ProgressBottomBar(
-          canGoPrevious: controller.canGoPrevious,
-          canGoNext: true,
-          isLastStep: controller.isLastStep,
-          onPrevious: controller.goToPreviousStep,
-          onExit: () => Get.back(),
-          onExitAndEndPractice: controller.abandonPractice,
-          onNext: controller.goToNextStep,
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+            child: AppPrimaryButton(
+              label: _isAtBottom ? '실기 완료' : '실기 종료',
+              backgroundColor: _isAtBottom ? null : Colors.red,
+              foregroundColor: Colors.white,
+              onPressed: _isAtBottom
+                  ? controller.completePractice
+                  : controller.abandonPractice,
+              height: 48,
+              borderRadius: 8,
+            ),
+          ),
         );
       }),
     );
@@ -144,9 +232,6 @@ class ProgressDetailView extends GetView<ProgressDetailController> {
 
   Future<void> _handleStartPractice(BuildContext context) async {
     await controller.startPractice();
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (!context.mounted) return;
-    IngredientsBottomSheet.show(context, controller);
   }
 }
 
@@ -165,91 +250,72 @@ class _StepPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       final checkedCount = controller.checkedCountForStep(step);
-      return _ProgressDetailScrollBody(
-        stepIndex: stepIndex,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            StepImage(
-              key: ValueKey(step.imageUrl),
-              imageSource: controller.stepImageUrl(step),
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          StepHeader(step: step),
+          StepImage(
+            key: ValueKey(step.imageUrl),
+            imageSource: controller.stepImageUrl(step),
+          ),
+          StepDescription(descriptions: step.description),
+          if (step.timers.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: AppPrimaryButton(
+                label: '타이머',
+                height: 48,
+                borderRadius: 8,
+                onPressed: () => TimerBottomSheet.show(
+                  context,
+                  controller,
+                  onlyStepNo: step.stepNo,
+                ),
+              ),
             ),
-            StepDescription(descriptions: step.description),
-            StepChecklist(
-              items: step.checklist,
-              checkedCount: checkedCount,
-              isChecked: controller.isChecked,
-              onToggle: controller.toggleChecklist,
+          if (step.calculators.isNotEmpty &&
+              step.calculators.first.type == CalculatorKind.doughTemp)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: AppPrimaryButton(
+                key: TutorialGuideKeys.doughTempFab,
+                label: calculatorFabLabel(CalculatorKind.doughTemp),
+                backgroundColor: const Color(0xFF42A5F5),
+                foregroundColor: Colors.white,
+                height: 48,
+                borderRadius: 8,
+                onPressed: () {
+                  unawaited(() async {
+                    await controller.goToStep(stepIndex);
+                    if (!context.mounted) return;
+                    DoughTempCalculatorBottomSheet.show(context, controller);
+                  }());
+                },
+              ),
             ),
-            DeductionPointsCard(points: step.deductionPoints),
+          if (step.stepNo == 1)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: AppPrimaryButton(
+                label: '재료 목록',
+                height: 48,
+                borderRadius: 8,
+                onPressed: () =>
+                    IngredientsBottomSheet.show(context, controller),
+              ),
+            ),
+          StepChecklist(
+            items: step.checklist,
+            checkedCount: checkedCount,
+            isChecked: controller.isChecked,
+            onToggle: controller.toggleChecklist,
+          ),
+          DeductionPointsCard(points: step.deductionPoints),
+          if (stepIndex == (controller.recipe.value?.steps.length ?? 1) - 1)
             const SizedBox(height: 80),
-          ],
-        ),
+        ],
       );
     });
-  }
-}
-
-class _ProgressDetailScrollBody extends StatefulWidget {
-  const _ProgressDetailScrollBody({
-    required this.stepIndex,
-    required this.child,
-  });
-
-  final int stepIndex;
-  final Widget child;
-
-  @override
-  State<_ProgressDetailScrollBody> createState() =>
-      _ProgressDetailScrollBodyState();
-}
-
-class _ProgressDetailScrollBodyState extends State<_ProgressDetailScrollBody> {
-  final _scrollController = ScrollController();
-  late final ProgressDetailController _controller;
-  Worker? _stepIndexWorker;
-  int _lastStepIndex = -1;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = Get.find<ProgressDetailController>();
-    _lastStepIndex = _controller.currentStepIndex.value;
-    _stepIndexWorker = ever<int>(_controller.currentStepIndex, (index) {
-      if (index != widget.stepIndex) {
-        _lastStepIndex = index;
-        return;
-      }
-      if (_lastStepIndex != index) {
-        _lastStepIndex = index;
-        _scrollToTop();
-      }
-    });
-  }
-
-  void _scrollToTop() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!_scrollController.hasClients) return;
-      _scrollController.jumpTo(0);
-    });
-  }
-
-  @override
-  void dispose() {
-    _stepIndexWorker?.dispose();
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: _scrollController,
-      padding: EdgeInsets.only(
-        bottom: 16 + MediaQuery.paddingOf(context).bottom,
-      ),
-      child: widget.child,
-    );
   }
 }
 
@@ -286,11 +352,7 @@ class _AppBarLabeledIconAction extends StatelessWidget {
                 isLabelVisible: showCompletedBadge,
                 backgroundColor: Colors.green,
                 padding: const EdgeInsets.all(2),
-                label: const Icon(
-                  Icons.check,
-                  size: 10,
-                  color: Colors.white,
-                ),
+                label: const Icon(Icons.check, size: 10, color: Colors.white),
                 child: Icon(icon, size: 22, color: color),
               ),
               const SizedBox(height: 2),

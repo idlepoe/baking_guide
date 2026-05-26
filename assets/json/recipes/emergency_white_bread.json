@@ -170,7 +170,7 @@
         { "severity": "medium", "text": "계량 오차 주의" }
       ],
       "timers": [],
-      "calculators": [],
+      "calculators": [{ "type": "dough_temp", "params": { "target": 30 } }],
       "images": []
     },
     {
@@ -220,9 +220,7 @@
         { "severity": "medium", "text": "과믹싱·반죽 찢김 주의" }
       ],
       "timers": [],
-      "calculators": [
-        { "type": "dough_temp", "params": { "target": 30 } }
-      ],
+      "calculators": [],
       "images": []
     },
     {

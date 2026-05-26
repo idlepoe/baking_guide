@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../data/models/deduction_point.dart';
 
 class DeductionPointsCard extends StatelessWidget {
-  const DeductionPointsCard({
-    super.key,
-    required this.points,
-  });
+  const DeductionPointsCard({super.key, required this.points});
 
   final List<DeductionPoint> points;
 

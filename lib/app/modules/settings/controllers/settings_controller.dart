@@ -8,11 +8,11 @@ import '../../../core/services/font_scale_service.dart';
 import '../../../core/services/tutorial_guide_service.dart';
 import '../../../core/services/tutorial_guide_log.dart';
 import '../../../core/services/progress_data_reset_service.dart';
-import '../../../core/services/swipe_step_navigation_service.dart';
 import '../../../core/services/timer_schedule_service.dart';
 import '../../../core/services/wakelock_service.dart';
 import '../../../core/utils/app_snackbar.dart';
 import '../../progress_list/controllers/progress_list_controller.dart';
+import '../../../core/storage/first_launch_preferences.dart';
 import '../../../core/storage/screen_wake_preferences.dart';
 import '../../../core/storage/theme_preferences.dart';
 import '../../../core/storage/timer_notification_preferences.dart';
@@ -28,38 +28,39 @@ class SettingsController extends GetxController {
   SettingsController({
     ThemePreferences? themePreferences,
     ScreenWakePreferences? screenWakePreferences,
+    FirstLaunchPreferences? firstLaunchPreferences,
     TimerNotificationPreferences? timerNotificationPreferences,
     WakelockService? wakelockService,
     AppThemeController? appThemeController,
-    SwipeStepNavigationService? swipeStepNavigationService,
     FontScaleService? fontScaleService,
     TimerScheduleService? timerScheduleService,
     ProgressDataResetService? progressDataResetService,
-  })  : _themePreferences = themePreferences ?? Get.find<ThemePreferences>(),
-        _screenWakePreferences =
-            screenWakePreferences ?? Get.find<ScreenWakePreferences>(),
-        _timerNotificationPreferences = timerNotificationPreferences ??
-            Get.find<TimerNotificationPreferences>(),
-        _wakelockService = wakelockService ?? Get.find<WakelockService>(),
-        _appThemeController =
-            appThemeController ?? Get.find<AppThemeController>(),
-        _swipeStepNavigationService = swipeStepNavigationService ??
-            Get.find<SwipeStepNavigationService>(),
-        _fontScaleService =
-            fontScaleService ?? Get.find<FontScaleService>(),
-        _timerScheduleService =
-            timerScheduleService ?? Get.find<TimerScheduleService>(),
-        _progressDataResetService = progressDataResetService ??
-            (Get.isRegistered<ProgressDataResetService>()
-                ? Get.find<ProgressDataResetService>()
-                : ProgressDataResetService());
+  }) : _themePreferences = themePreferences ?? Get.find<ThemePreferences>(),
+       _screenWakePreferences =
+           screenWakePreferences ?? Get.find<ScreenWakePreferences>(),
+       _firstLaunchPreferences =
+           firstLaunchPreferences ?? FirstLaunchPreferences(),
+       _timerNotificationPreferences =
+           timerNotificationPreferences ??
+           Get.find<TimerNotificationPreferences>(),
+       _wakelockService = wakelockService ?? Get.find<WakelockService>(),
+       _appThemeController =
+           appThemeController ?? Get.find<AppThemeController>(),
+       _fontScaleService = fontScaleService ?? Get.find<FontScaleService>(),
+       _timerScheduleService =
+           timerScheduleService ?? Get.find<TimerScheduleService>(),
+       _progressDataResetService =
+           progressDataResetService ??
+           (Get.isRegistered<ProgressDataResetService>()
+               ? Get.find<ProgressDataResetService>()
+               : ProgressDataResetService());
 
   final ThemePreferences _themePreferences;
   final ScreenWakePreferences _screenWakePreferences;
+  final FirstLaunchPreferences _firstLaunchPreferences;
   final TimerNotificationPreferences _timerNotificationPreferences;
   final WakelockService _wakelockService;
   final AppThemeController _appThemeController;
-  final SwipeStepNavigationService _swipeStepNavigationService;
   final FontScaleService _fontScaleService;
   final TimerScheduleService _timerScheduleService;
   final ProgressDataResetService _progressDataResetService;
@@ -69,9 +70,7 @@ class SettingsController extends GetxController {
   final timerNotificationsEnabled = true.obs;
   final vibrationEnabled = true.obs;
   final notificationSound = TimerNotificationSound.defaultSound.obs;
-
-  RxBool get swipeStepNavigation =>
-      _swipeStepNavigationService.swipeStepNavigationEnabled;
+  final isFirstLaunch = true.obs;
 
   String get selectedSeedLabel {
     final seed = _appThemeController.seedColor.value;
@@ -85,8 +84,7 @@ class SettingsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    isDarkMode.value =
-        _appThemeController.themeMode.value == ThemeMode.dark;
+    isDarkMode.value = _appThemeController.themeMode.value == ThemeMode.dark;
     _syncFromStorage();
   }
 
@@ -103,12 +101,13 @@ class SettingsController extends GetxController {
     keepScreenOn.value = storedWake;
     await _wakelockService.setEnabled(storedWake);
 
-    timerNotificationsEnabled.value =
-        await _timerNotificationPreferences.loadNotificationsEnabled();
-    vibrationEnabled.value =
-        await _timerNotificationPreferences.loadVibrationEnabled();
-    notificationSound.value =
-        await _timerNotificationPreferences.loadSoundOption();
+    timerNotificationsEnabled.value = await _timerNotificationPreferences
+        .loadNotificationsEnabled();
+    vibrationEnabled.value = await _timerNotificationPreferences
+        .loadVibrationEnabled();
+    notificationSound.value = await _timerNotificationPreferences
+        .loadSoundOption();
+    isFirstLaunch.value = await _firstLaunchPreferences.loadIsFirstLaunch();
   }
 
   Future<void> setDarkMode(bool enabled) async {
@@ -123,10 +122,6 @@ class SettingsController extends GetxController {
     keepScreenOn.value = enabled;
     await _wakelockService.setEnabled(enabled);
     await _screenWakePreferences.saveEnabled(enabled);
-  }
-
-  Future<void> setSwipeStepNavigation(bool enabled) async {
-    await _swipeStepNavigationService.setEnabled(enabled);
   }
 
   Future<void> setTimerNotificationsEnabled(bool enabled) async {
@@ -182,15 +177,10 @@ class SettingsController extends GetxController {
     final uri = Uri(
       scheme: 'mailto',
       path: contactEmail,
-      query: _encodeQuery({
-        'subject': '빵실기 문의',
-      }),
+      query: _encodeQuery({'subject': '빵실기 문의'}),
     );
 
-    final launched = await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    );
+    final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
 
     if (launched || !context.mounted) return;
 
@@ -212,15 +202,27 @@ class SettingsController extends GetxController {
   }
 
   void showUserGuide() {
+    unawaited(_showUserGuideInternal());
+  }
+
+  Future<void> _showUserGuideInternal() async {
     TutorialGuideLog.d(
       'showUserGuide: tap route=${Get.currentRoute} '
-      'TutorialGuideService registered=${Get.isRegistered<TutorialGuideService>()}',
+      'TutorialGuideService registered=${Get.isRegistered<TutorialGuideService>()} '
+      'isFirstLaunch=${isFirstLaunch.value}',
     );
-    if (!Get.isRegistered<TutorialGuideService>()) {
-      TutorialGuideLog.e('showUserGuide: TutorialGuideService 미등록');
-      return;
+
+    if (isFirstLaunch.value) {
+      isFirstLaunch.value = false;
+      await _firstLaunchPreferences.saveIsFirstLaunch(false);
     }
-    unawaited(Get.find<TutorialGuideService>().startFromSettings());
+
+    if (!Get.isRegistered<TutorialGuideService>()) {
+      TutorialGuideLog.w('showUserGuide: TutorialGuideService 미등록 → 등록');
+      Get.put(TutorialGuideService(), permanent: true);
+    }
+
+    await Get.find<TutorialGuideService>().startFromSettings();
   }
 
   Future<void> confirmAndResetAllProgressData(BuildContext context) async {

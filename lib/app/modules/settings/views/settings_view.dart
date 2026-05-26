@@ -15,125 +15,104 @@ class SettingsView extends GetView<SettingsController> {
     return ListView(
       padding: const EdgeInsets.only(bottom: 24),
       children: [
-          const _SettingsSectionHeader(title: '일반 설정'),
-          Obx(
-            () => _SettingsSwitchTile(
-              icon: Icons.dark_mode_outlined,
-              title: '다크 모드',
-              value: controller.isDarkMode.value,
-              onChanged: controller.setDarkMode,
-            ),
+        const _SettingsSectionHeader(title: '일반 설정'),
+        Obx(
+          () => _SettingsSwitchTile(
+            icon: Icons.dark_mode_outlined,
+            title: '다크 모드',
+            value: controller.isDarkMode.value,
+            onChanged: controller.setDarkMode,
           ),
-          Obx(
-            () => _SettingsNavigateTile(
-              icon: Icons.wb_sunny_outlined,
-              title: '앱 테마 색상',
-              trailingText: controller.selectedSeedLabel,
-              onTap: () => controller.showThemeColorPicker(context),
-            ),
+        ),
+        Obx(
+          () => _SettingsNavigateTile(
+            icon: Icons.wb_sunny_outlined,
+            title: '앱 테마 색상',
+            trailingText: controller.selectedSeedLabel,
+            onTap: () => controller.showThemeColorPicker(context),
           ),
-          const _SettingsSectionHeader(title: '실기 진행 설정'),
-          Obx(
-            () => _SettingsSwitchTile(
-              icon: Icons.notifications_outlined,
-              title: '타이머 알림',
-              value: controller.timerNotificationsEnabled.value,
-              onChanged: controller.setTimerNotificationsEnabled,
-            ),
+        ),
+        const _SettingsSectionHeader(title: '실기 진행 설정'),
+        Obx(
+          () => _SettingsSwitchTile(
+            icon: Icons.notifications_outlined,
+            title: '타이머 알림',
+            value: controller.timerNotificationsEnabled.value,
+            onChanged: controller.setTimerNotificationsEnabled,
           ),
-          Obx(
-            () {
-              final notificationsOn =
-                  controller.timerNotificationsEnabled.value;
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _SettingsNavigateTile(
-                    icon: Icons.volume_up_outlined,
-                    title: '알림 소리',
-                    trailingText: controller.notificationSoundLabel,
-                    enabled: notificationsOn,
-                    onTap: notificationsOn
-                        ? () =>
-                            controller.showNotificationSoundPicker(context)
-                        : null,
-                  ),
-                  _SettingsSwitchTile(
-                    icon: Icons.vibration_outlined,
-                    title: '진동 알림',
-                    value: controller.vibrationEnabled.value,
-                    enabled: notificationsOn,
-                    onChanged: notificationsOn
-                        ? controller.setVibrationEnabled
-                        : null,
-                  ),
-                ],
-              );
-            },
+        ),
+        Obx(() {
+          final notificationsOn = controller.timerNotificationsEnabled.value;
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _SettingsNavigateTile(
+                icon: Icons.volume_up_outlined,
+                title: '알림 소리',
+                trailingText: controller.notificationSoundLabel,
+                enabled: notificationsOn,
+                onTap: notificationsOn
+                    ? () => controller.showNotificationSoundPicker(context)
+                    : null,
+              ),
+              _SettingsSwitchTile(
+                icon: Icons.vibration_outlined,
+                title: '진동 알림',
+                value: controller.vibrationEnabled.value,
+                enabled: notificationsOn,
+                onChanged: notificationsOn
+                    ? controller.setVibrationEnabled
+                    : null,
+              ),
+            ],
+          );
+        }),
+        const _SettingsSectionHeader(title: '화면/사용 설정'),
+        Obx(
+          () => _SettingsSwitchTile(
+            icon: Icons.smartphone_outlined,
+            title: '화면 자동 꺼짐 방지',
+            value: controller.keepScreenOn.value,
+            onChanged: controller.setKeepScreenOn,
           ),
-          const _SettingsSectionHeader(title: '화면/사용 설정'),
-          Obx(
-            () => _SettingsSwitchTile(
-              icon: Icons.smartphone_outlined,
-              title: '화면 자동 꺼짐 방지',
-              value: controller.keepScreenOn.value,
-              onChanged: controller.setKeepScreenOn,
-            ),
-          ),
-          Obx(
-            () {
-              final label = controller.selectedFontSizeLabel;
-              return _SettingsNavigateTile(
-                icon: Icons.text_fields_outlined,
-                title: '글자 크기',
-                trailingText: label,
-                onTap: () => controller.showFontSizePicker(context),
-              );
-            },
-          ),
-          Obx(
-            () => _SettingsSwitchTile(
-              icon: Icons.swipe_outlined,
-              title: '좌우 스와이프로 단계 이동',
-              value: controller.swipeStepNavigation.value,
-              onChanged: controller.setSwipeStepNavigation,
-            ),
-          ),
-          const _SettingsSectionHeader(title: '데이터/백업'),
-          _SettingsNavigateTile(
-            icon: Icons.delete_outline,
-            title: '모든 진행 데이터 초기화',
-            onTap: () => controller.confirmAndResetAllProgressData(context),
-          ),
-          const _SettingsSectionHeader(title: '기타'),
-          _SettingsNavigateTile(
-            icon: Icons.info_outline,
-            title: '앱 정보',
-            onTap: () => controller.showAppInfo(context),
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.description_outlined,
-            title: '라이선스',
-            onTap: () => controller.showLicenses(context),
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.help_outline,
-            title: '도움말 / 사용 가이드',
-            onTap: controller.showUserGuide,
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.star_outline,
-            title: '평가하기',
-            onTap: () {
-              // TODO: 평가하기
-            },
-          ),
-          _SettingsNavigateTile(
-            icon: Icons.mail_outline,
-            title: '문의하기',
-            onTap: () => controller.openContactEmail(context),
-          ),
-        ],
+        ),
+        Obx(() {
+          final label = controller.selectedFontSizeLabel;
+          return _SettingsNavigateTile(
+            icon: Icons.text_fields_outlined,
+            title: '글자 크기',
+            trailingText: label,
+            onTap: () => controller.showFontSizePicker(context),
+          );
+        }),
+        const _SettingsSectionHeader(title: '데이터/백업'),
+        _SettingsNavigateTile(
+          icon: Icons.delete_outline,
+          title: '모든 진행 데이터 초기화',
+          onTap: () => controller.confirmAndResetAllProgressData(context),
+        ),
+        const _SettingsSectionHeader(title: '기타'),
+        _SettingsNavigateTile(
+          icon: Icons.info_outline,
+          title: '앱 정보',
+          onTap: () => controller.showAppInfo(context),
+        ),
+        _SettingsNavigateTile(
+          icon: Icons.description_outlined,
+          title: '라이선스',
+          onTap: () => controller.showLicenses(context),
+        ),
+        _SettingsNavigateTile(
+          icon: Icons.help_outline,
+          title: '도움말 / 사용 가이드',
+          onTap: controller.showUserGuide,
+        ),
+        _SettingsNavigateTile(
+          icon: Icons.mail_outline,
+          title: '문의하기',
+          onTap: () => controller.openContactEmail(context),
+        ),
+      ],
     );
   }
 }
@@ -177,8 +156,7 @@ class _SettingsTileBase extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final disabledColor = theme.colorScheme.onSurface.withValues(alpha: 0.38);
-    final iconColor =
-        enabled ? theme.colorScheme.primary : disabledColor;
+    final iconColor = enabled ? theme.colorScheme.primary : disabledColor;
     final titleStyle = theme.textTheme.bodyLarge?.copyWith(
       color: enabled ? null : disabledColor,
     );
@@ -291,10 +269,7 @@ class _SettingsNavigateTile extends StatelessWidget {
                 ),
               ),
             if (trailingText != null) const SizedBox(width: 4),
-            Icon(
-              Icons.chevron_right,
-              color: trailingColor,
-            ),
+            Icon(Icons.chevron_right, color: trailingColor),
           ],
         ),
       ),

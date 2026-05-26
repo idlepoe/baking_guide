@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/duration_format.dart';
 import '../../../data/models/recipe_step.dart';
+
 class StepHeader extends StatelessWidget {
-  const StepHeader({
-    super.key,
-    required this.step,
-  });
+  const StepHeader({super.key, required this.step});
 
   final RecipeStep step;
 

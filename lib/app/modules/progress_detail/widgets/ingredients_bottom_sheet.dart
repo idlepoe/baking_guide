@@ -14,18 +14,18 @@ import '../controllers/progress_detail_controller.dart';
 abstract final class IngredientsBottomSheetColors {
   static Color summaryBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.tertiaryContainer
-          : const Color(0xFFFFF8E1);
+      ? scheme.tertiaryContainer
+      : const Color(0xFFFFF8E1);
 
   static Color summaryIconBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.tertiary
-          : Colors.amber.shade100;
+      ? scheme.tertiary
+      : Colors.amber.shade100;
 
   static Color summaryIconForeground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.onTertiary
-          : Colors.amber.shade800;
+      ? scheme.onTertiary
+      : Colors.amber.shade800;
 }
 
 class IngredientsBottomSheet extends StatefulWidget {
@@ -41,10 +41,7 @@ class IngredientsBottomSheet extends StatefulWidget {
   @override
   State<IngredientsBottomSheet> createState() => _IngredientsBottomSheetState();
 
-  static void show(
-    BuildContext context,
-    ProgressDetailController controller,
-  ) {
+  static void show(BuildContext context, ProgressDetailController controller) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!context.mounted) return;
 
@@ -187,9 +184,8 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
                           ingredient: ingredient,
                           batchScale: _batchScale,
                           checked: checked,
-                          onToggle: () => controller.toggleIngredient(
-                            ingredient.name,
-                          ),
+                          onToggle: () =>
+                              controller.toggleIngredient(ingredient.name),
                         );
                       });
                     },
@@ -247,8 +243,9 @@ class _BatchScaleSlider extends StatelessWidget {
                 Text(
                   labels[i],
                   style: theme.textTheme.labelSmall?.copyWith(
-                    fontWeight:
-                        i == scaleIndex ? FontWeight.bold : FontWeight.normal,
+                    fontWeight: i == scaleIndex
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                     color: i == scaleIndex
                         ? theme.colorScheme.primary
                         : theme.colorScheme.onSurfaceVariant,
@@ -284,8 +281,9 @@ class _SummaryBanner extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 28,
-            backgroundColor:
-                IngredientsBottomSheetColors.summaryIconBackground(scheme),
+            backgroundColor: IngredientsBottomSheetColors.summaryIconBackground(
+              scheme,
+            ),
             child: Icon(
               Icons.restaurant,
               size: 32,
@@ -353,23 +351,17 @@ class _IngredientRow extends StatelessWidget {
             ),
             const SizedBox(width: 12),
             Expanded(
-              child: Text(
-                ingredient.name,
-                style: theme.textTheme.bodyLarge,
-              ),
+              child: Text(ingredient.name, style: theme.textTheme.bodyLarge),
             ),
             const SizedBox(width: 8),
             Text(
-              formatIngredientAmountForScale(
-                ingredient,
-                scale: batchScale,
-              ),
+              formatIngredientAmountForScale(ingredient, scale: batchScale),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
-        ),                                                                                                                                             
+        ),
       ),
     );
   }

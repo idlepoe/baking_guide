@@ -19,8 +19,8 @@ import 'progress_ring_indicator.dart';
 abstract final class TimerBottomSheetColors {
   static Color activeRowBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.tertiaryContainer.withValues(alpha: 0.65)
-          : const Color(0xFFFFF8E1);
+      ? scheme.tertiaryContainer.withValues(alpha: 0.65)
+      : const Color(0xFFFFF8E1);
 }
 
 abstract final class _CustomTimerConfig {
@@ -32,19 +32,24 @@ abstract final class _CustomTimerConfig {
   static const divisions =
       (maxMinutes - minMinutes) ~/ stepMinutes; // 5~60, 5분 간격
 
-  static int clampMinutes(int minutes) =>
-      minutes.clamp(minMinutes, maxMinutes);
+  static int clampMinutes(int minutes) => minutes.clamp(minMinutes, maxMinutes);
 }
 
 class TimerBottomSheet extends StatefulWidget {
-  const TimerBottomSheet({super.key, required this.controller});
+  const TimerBottomSheet({
+    super.key,
+    required this.controller,
+    this.onlyStepNo,
+  });
 
   final ProgressDetailController controller;
+  final int? onlyStepNo;
 
   static Future<void> show(
     BuildContext context,
-    ProgressDetailController controller,
-  ) async {
+    ProgressDetailController controller, {
+    int? onlyStepNo,
+  }) async {
     if (!controller.hasActiveSession) {
       AppSnackbar.show(
         context: context,
@@ -65,7 +70,8 @@ class TimerBottomSheet extends StatefulWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      builder: (sheetContext) => TimerBottomSheet(controller: controller),
+      builder: (sheetContext) =>
+          TimerBottomSheet(controller: controller, onlyStepNo: onlyStepNo),
     );
   }
 
@@ -141,15 +147,17 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
   Future<void> _refreshActiveTimers() async {
     final session = widget.controller.session.value;
     if (session == null) return;
-    final timers =
-        await _scheduleService.activeTimersForSession(session.sessionId);
+    final timers = await _scheduleService.activeTimersForSession(
+      session.sessionId,
+    );
     if (mounted) {
       for (final timer in timers) {
         final ctx = _scheduleService.displayContextFor(timer.timerId);
         if (ctx?.label == _CustomTimerConfig.label &&
             timer.endsAt.isAfter(DateTime.now())) {
-          _customMinutes =
-              _CustomTimerConfig.clampMinutes(timer.durationSec ~/ 60);
+          _customMinutes = _CustomTimerConfig.clampMinutes(
+            timer.durationSec ~/ 60,
+          );
           break;
         }
       }
@@ -159,7 +167,10 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
 
   PracticeTimer? _activeForPreset(StepTimer preset) {
     for (final timer in _activeTimers) {
-      if (timer.type == preset.type && timer.durationSec == preset.durationSec) {
+      final ctx = _scheduleService.displayContextFor(timer.timerId);
+      if (timer.type == preset.type &&
+          timer.durationSec == preset.durationSec &&
+          ctx?.label == preset.label) {
         return timer;
       }
     }
@@ -175,10 +186,10 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
   }
 
   StepTimer _customPreset() => StepTimer(
-        type: TimerKind.step,
-        label: _CustomTimerConfig.label,
-        durationSec: _customMinutes * 60,
-      );
+    type: TimerKind.step,
+    label: _CustomTimerConfig.label,
+    durationSec: _customMinutes * 60,
+  );
 
   Future<void> _onStartCustom() => _onStartPreset(_customPreset());
 
@@ -187,7 +198,7 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
     if (active != null) await _onStopPreset(active);
   }
 
-  Future<void> _onStartPreset(StepTimer preset) async {
+  Future<void> _onStartPreset(StepTimer preset, {int? stepNoOverride}) async {
     final session = widget.controller.session.value;
     final step = widget.controller.currentStep;
     final recipeName = widget.controller.recipe.value?.name ?? '';
@@ -195,7 +206,7 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
 
     final ok = await _scheduleService.startTimer(
       session: session,
-      stepNo: step.stepNo,
+      stepNo: stepNoOverride ?? step.stepNo,
       preset: preset,
       recipeName: recipeName,
     );
@@ -248,7 +259,21 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
     final stepTotalSec = step.estimatedTimeSec;
     final stepProgress = widget.controller.stepProgressAt(_now);
 
-    final stepTimers = step.timers;
+    final recipe = widget.controller.recipe.value;
+    final allStepTimers =
+        <({int stepNo, StepTimer preset, String displayLabel})>[];
+    for (final s in (recipe?.steps ?? const [])) {
+      if (widget.onlyStepNo != null && s.stepNo != widget.onlyStepNo) {
+        continue;
+      }
+      for (final t in s.timers) {
+        allStepTimers.add((
+          stepNo: s.stepNo,
+          preset: t.copyWith(label: '${s.stepNo}단계 ${t.label}'),
+          displayLabel: t.label,
+        ));
+      }
+    }
     final customActive = _activeCustomTimer();
 
     return SafeArea(
@@ -308,7 +333,7 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
                       progress: stepProgress,
                       progressColor: scheme.tertiary,
                     ),
-                    if (stepTimers.isNotEmpty) ...[
+                    if (allStepTimers.isNotEmpty) ...[
                       const SizedBox(height: 20),
                       Text(
                         '공정 타이머',
@@ -317,20 +342,24 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      ...stepTimers.asMap().entries.map((entry) {
+                      ...allStepTimers.asMap().entries.map((entry) {
                         final index = entry.key;
-                        final preset = entry.value;
+                        final item = entry.value;
+                        final preset = item.preset;
                         final active = _activeForPreset(preset);
                         return _StepTimerRow(
                           preset: preset,
+                          displayLabel: item.displayLabel,
                           active: active,
                           now: _now,
                           rowKey: index == 0
                               ? TutorialGuideKeys.fermentationTimer
                               : null,
-                          onPlay: () => _onStartPreset(preset),
-                          onStop: active != null &&
-                                  active.endsAt.isAfter(_now)
+                          onPlay: () => _onStartPreset(
+                            preset,
+                            stepNoOverride: item.stepNo,
+                          ),
+                          onStop: active != null && active.endsAt.isAfter(_now)
                               ? () => _onStopPreset(active)
                               : null,
                         );
@@ -348,7 +377,8 @@ class _TimerBottomSheetState extends State<TimerBottomSheet> {
                         );
                       },
                       onStart: _onStartCustom,
-                      onStop: customActive != null &&
+                      onStop:
+                          customActive != null &&
                               customActive.endsAt.isAfter(_now)
                           ? _onStopCustom
                           : null,
@@ -506,10 +536,7 @@ class _ProgressCard extends StatelessWidget {
               ],
             ),
           ),
-          ProgressRingWithLabel(
-            progress: progress,
-            color: progressColor,
-          ),
+          ProgressRingWithLabel(progress: progress, color: progressColor),
         ],
       ),
     );
@@ -522,11 +549,13 @@ class _StepTimerRow extends StatelessWidget {
     required this.active,
     required this.now,
     required this.onPlay,
+    this.displayLabel,
     this.rowKey,
     this.onStop,
   });
 
   final StepTimer preset;
+  final String? displayLabel;
   final PracticeTimer? active;
   final DateTime now;
   final GlobalKey? rowKey;
@@ -559,7 +588,7 @@ class _StepTimerRow extends StatelessWidget {
           ? TimerBottomSheetColors.activeRowBackground(scheme)
           : scheme.surface,
       title: Text(
-        preset.label,
+        displayLabel ?? preset.label,
         style: theme.textTheme.bodyMedium?.copyWith(
           fontWeight: FontWeight.w500,
         ),

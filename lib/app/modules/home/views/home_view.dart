@@ -10,7 +10,7 @@ import '../widgets/active_timers_bar.dart';
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
 
-  static const _appBarTitles = ['레시피', '진행', '설정'];
+  static const _appBarTitles = ['레시피', '진행 중인 레시피', '설정'];
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class HomeView extends GetView<HomeController> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.timer),
-              label: '진행',
+              label: '진행 중인 레시피',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),

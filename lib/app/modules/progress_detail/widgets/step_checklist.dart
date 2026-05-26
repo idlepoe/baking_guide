@@ -95,22 +95,22 @@ class _ChecklistTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
                 children: [
-                Icon(
-                  checked ? Icons.check_box : Icons.check_box_outline_blank,
-                  color: checked ? Colors.white : theme.colorScheme.onSurface,
-                  size: 22,
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    item.text,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: checked
-                          ? Colors.white
-                          : theme.colorScheme.onSurface,
+                  Icon(
+                    checked ? Icons.check_box : Icons.check_box_outline_blank,
+                    color: checked ? Colors.white : theme.colorScheme.onSurface,
+                    size: 22,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      item.text,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: checked
+                            ? Colors.white
+                            : theme.colorScheme.onSurface,
+                      ),
                     ),
                   ),
-                ),
                 ],
               ),
             ),

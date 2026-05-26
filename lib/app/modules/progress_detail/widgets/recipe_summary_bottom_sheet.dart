@@ -12,7 +12,10 @@ import '../../../data/models/recipe_summary.dart';
 import '../controllers/progress_detail_controller.dart';
 
 abstract final class RecipeSummaryBottomSheetColors {
-  static Color sectionBackground(ColorScheme scheme, {required bool isWarning}) {
+  static Color sectionBackground(
+    ColorScheme scheme, {
+    required bool isWarning,
+  }) {
     if (isWarning) {
       return scheme.brightness == Brightness.dark
           ? scheme.errorContainer
@@ -24,15 +27,17 @@ abstract final class RecipeSummaryBottomSheetColors {
   }
 
   static Color? warningForeground(ColorScheme scheme) =>
-      scheme.brightness == Brightness.dark ? scheme.onErrorContainer : Colors.red.shade900;
+      scheme.brightness == Brightness.dark
+      ? scheme.onErrorContainer
+      : Colors.red.shade900;
 
   static Color warningIcon(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark ? scheme.error : Colors.red.shade700;
 
   static Color iconPlaceholderBackground(ColorScheme scheme) =>
       scheme.brightness == Brightness.dark
-          ? scheme.surfaceContainerHighest
-          : Colors.white;
+      ? scheme.surfaceContainerHighest
+      : Colors.white;
 }
 
 class RecipeSummaryBottomSheet extends StatelessWidget {
@@ -47,10 +52,7 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
   final RecipeSummary summary;
   final RecipeListItem listItem;
 
-  static void show(
-    BuildContext context,
-    ProgressDetailController controller,
-  ) {
+  static void show(BuildContext context, ProgressDetailController controller) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!context.mounted) return;
 
@@ -90,8 +92,7 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
     return group.items;
   }
 
-  bool _isWarningKeyPoint(KeyPointGroup group) =>
-      group.title == '주요 감점 포인트';
+  bool _isWarningKeyPoint(KeyPointGroup group) => group.title == '주요 감점 포인트';
 
   @override
   Widget build(BuildContext context) {
@@ -161,10 +162,7 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ...cards,
-                    const SizedBox(height: 16),
-                  ],
+                  children: [...cards, const SizedBox(height: 16)],
                 ),
               ),
             ),
@@ -277,10 +275,7 @@ class _SummarySectionCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (trailing != null) ...[
-                  const SizedBox(height: 4),
-                  trailing!,
-                ],
+                if (trailing != null) ...[const SizedBox(height: 4), trailing!],
               ],
             ),
           ),

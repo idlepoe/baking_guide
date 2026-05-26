@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/widgets/app_primary_button.dart';
 
-enum _FirstStepExitAction {
-  cancel,
-  leave,
-  endAndLeave,
-}
+enum _FirstStepExitAction { cancel, leave, endAndLeave }
 
 class ProgressBottomBar extends StatelessWidget {
   const ProgressBottomBar({
@@ -89,8 +85,9 @@ class ProgressBottomBar extends StatelessWidget {
             child: const Text('이전 화면으로'),
           ),
           FilledButton(
-            onPressed: () => Navigator.of(dialogContext)
-                .pop(_FirstStepExitAction.endAndLeave),
+            onPressed: () => Navigator.of(
+              dialogContext,
+            ).pop(_FirstStepExitAction.endAndLeave),
             child: const Text('실기 종료하고 나가기'),
           ),
         ],
