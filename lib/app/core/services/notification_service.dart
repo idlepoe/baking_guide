@@ -16,7 +16,9 @@ class NotificationService {
   static const _channelName = '실기 타이머';
   static const _ongoingChannelId = 'practice_timers_running';
   static const _ongoingChannelName = '실기 타이머 (진행)';
+  /// 초기화용: `@drawable/...` 형식. 알림 상세의 [icon]은 이름만(`ic_notification`).
   static const _androidNotificationIcon = '@drawable/ic_notification';
+  static const _androidNotificationIconName = 'ic_notification';
 
   final FlutterLocalNotificationsPlugin _plugin =
       FlutterLocalNotificationsPlugin();
@@ -94,7 +96,7 @@ class NotificationService {
         _channelName,
         importance: Importance.high,
         priority: Priority.high,
-        icon: _androidNotificationIcon,
+        icon: _androidNotificationIconName,
         largeIcon: const DrawableResourceAndroidBitmap(
           _androidNotificationIcon,
         ),
@@ -133,7 +135,7 @@ class NotificationService {
           channelDescription: '실기 타이머 진행 중 표시',
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
-          icon: _androidNotificationIcon,
+          icon: _androidNotificationIconName,
           largeIcon: const DrawableResourceAndroidBitmap(
             _androidNotificationIcon,
           ),

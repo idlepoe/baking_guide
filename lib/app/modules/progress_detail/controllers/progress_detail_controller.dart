@@ -480,6 +480,14 @@ class ProgressDetailController extends GetxController {
     checkedIngredientIds.refresh();
   }
 
+  int get uncheckedIngredientCount {
+    final ingredients = recipe.value?.ingredients ?? [];
+    if (ingredients.isEmpty) return 0;
+    return ingredients
+        .where((i) => !checkedIngredientIds.contains(i.name))
+        .length;
+  }
+
   bool get allIngredientsChecked {
     final ingredients = recipe.value?.ingredients ?? [];
     if (ingredients.isEmpty) return false;

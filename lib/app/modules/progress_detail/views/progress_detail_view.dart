@@ -84,6 +84,7 @@ class _ProgressDetailViewState extends State<ProgressDetailView> {
             () => _AppBarLabeledIconAction(
               icon: Icons.egg_alt_outlined,
               label: '재료 목록',
+              pendingCount: controller.uncheckedIngredientCount,
               showCompletedBadge: controller.allIngredientsChecked,
               onPressed: () => IngredientsBottomSheet.show(context, controller),
             ),
@@ -324,13 +325,45 @@ class _AppBarLabeledIconAction extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.onPressed,
+    this.pendingCount = 0,
     this.showCompletedBadge = false,
   });
 
   final IconData icon;
   final String label;
   final VoidCallback onPressed;
+  final int pendingCount;
   final bool showCompletedBadge;
+
+  Widget _badgedIcon(IconData icon, Color color) {
+    final iconWidget = Icon(icon, size: 22, color: color);
+    if (showCompletedBadge) {
+      return Badge(
+        isLabelVisible: true,
+        backgroundColor: Colors.green,
+        padding: const EdgeInsets.all(2),
+        label: const Icon(Icons.check, size: 10, color: Colors.white),
+        child: iconWidget,
+      );
+    }
+    if (pendingCount > 0) {
+      final label = pendingCount > 99 ? '99+' : '$pendingCount';
+      return Badge(
+        isLabelVisible: true,
+        backgroundColor: Colors.red,
+        label: Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        child: iconWidget,
+      );
+    }
+    return iconWidget;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -348,13 +381,7 @@ class _AppBarLabeledIconAction extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Badge(
-                isLabelVisible: showCompletedBadge,
-                backgroundColor: Colors.green,
-                padding: const EdgeInsets.all(2),
-                label: const Icon(Icons.check, size: 10, color: Colors.white),
-                child: Icon(icon, size: 22, color: color),
-              ),
+              _badgedIcon(icon, color),
               const SizedBox(height: 2),
               Text(
                 label,
