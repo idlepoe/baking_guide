@@ -2,7 +2,7 @@
   "id": "milk_bread",
   "name": "우유식빵",
   "category": "bread",
-  "thumbnailUrl": "https://placehold.co/600x400.png?text=milk_bread",
+  "thumbnailUrl": "assets/images/recipes/milk_bread/main.jpg",
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",
