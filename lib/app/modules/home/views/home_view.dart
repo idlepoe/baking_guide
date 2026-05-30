@@ -21,7 +21,6 @@ class HomeView extends GetView<HomeController> {
         title: Obx(
           () => Text(_appBarTitles[controller.currentIndex.value]),
         ),
-        centerTitle: true,
         actions: [
           Obx(
             () => controller.currentIndex.value == 0

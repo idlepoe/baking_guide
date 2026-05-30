@@ -57,19 +57,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 500,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "마가린",
@@ -87,22 +80,19 @@
       "name": "설탕",
       "amount": 176,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "소금",
       "amount": 6,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "물엿",
       "amount": 26,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "달걀",
@@ -120,20 +110,17 @@
       "name": "바닐라향",
       "amount": 2,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     }
   ],
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 1500,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
       "imageUrl": "assets/images/recipes/shortbread_cookie/step1.jpg",
       "description": [
-        "계량",
-        "크림화",
-        "냉장휴지 20~30분"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -144,19 +131,219 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 성형·굽기",
-      "estimatedTimeSec": 1200,
+      "title": "02. 유지 유연화",
+      "estimatedTimeSec": 514,
       "imageUrl": "assets/images/recipes/shortbread_cookie/step2.jpg",
       "description": [
-        "밀기 0.7~0.8cm",
-        "컷팅",
-        "노른자·무늬",
-        "200/160℃ 12~15분"
+        "스텐볼에 마가린과 쇼트닝을 넣고 부드럽게 풀어준다."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 당류 크림화",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step3.jpg",
+      "description": [
+        "설탕, 물엿, 소금을 넣고 크림화한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀 투입",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step4.jpg",
+      "description": [
+        "달걀과 달걀 노른자를 조금씩 넣으면서 부드럽게 크림화한다."
+      ],
+      "tips": [
+        "크림화를 너무 많이 하면 반죽이 질어진다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 가루재료 혼합",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step5.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 바닐라향)를 넣고 섞는다."
+      ],
+      "tips": [
+        "가루재료를 섞을 때 많이 치대면 글루텐이 형성되어 쿠키가 단단해진다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 반죽 뭉치기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step6.jpg",
+      "description": [
+        "반죽을 한 덩어리로 만든다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 반죽 치대기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step7.jpg",
+      "description": [
+        "반죽을 비닐에 넣고 치댄다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 냉장 휴지",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step8.jpg",
+      "description": [
+        "비닐에 감싸 20~30분 동안 냉장 휴지한다 (손가락으로 눌러 자국이 남아 있는 정도)."
+      ],
+      "tips": [
+        "시험시간이 부족할 수 있으므로 휴지시간이 너무 길어지지 않도록 주의한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 반죽 밀기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step9.jpg",
+      "description": [
+        "휴지시킨 반죽을 밀대를 이용하여 0.7~0.8cm의 일정한 두께로 밀어 편다."
+      ],
+      "tips": [
+        "덧가루를 많이 사용하면 완제품에서 밀가루 맛이 나고 줄무늬가 생긴다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 쿠키틀 밀가루",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step10.jpg",
+      "description": [
+        "반죽이 잘 떨어지게 하기 위해 쿠키틀에 밀가루(계량 외)를 묻힌다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 쿠키 찍기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step11.jpg",
+      "description": [
+        "쿠키틀로 찍어서 팬닝한다."
+      ],
+      "tips": [
+        "파지를 최소화할 수 있도록 사이사이에 찍는다.",
+        "최대한 2팬에 팬닝하여 굽는 시간을 줄이는 것이 좋다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 노른자 칠하기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step12.jpg",
+      "description": [
+        "윗면에 붓으로 노른자(계량 외)를 두 번 바른다."
+      ],
+      "tips": [
+        "전체에 한 번 바른 후 다시 한 번 덧바른다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 무늬 만들기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step13.jpg",
+      "description": [
+        "노른자를 바른 후 마르기 전에 바로 무늬를 만든다."
+      ],
+      "tips": [
+        "무늬의 모양은 감독 위원의 지시를 따른다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 오븐에 굽기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step14.jpg",
+      "description": [
+        "윗불 200℃, 아랫불 160℃에서 황금 갈색이 될 때까지 12분~15분 동안 굽는다."
+      ],
+      "tips": [
+        "제출하기 전에 마른 행주로 윗면을 살짝 문지르면 광택이 난다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 810
+        }
+      ],
       "calculators": [],
       "images": []
     }

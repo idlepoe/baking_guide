@@ -58,33 +58,24 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 400,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "베이킹파우더",
       "amount": 8,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "설탕",
       "amount": 400,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "달걀",
@@ -96,15 +87,13 @@
       "name": "레몬껍질",
       "amount": 4,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     },
     {
       "name": "소금",
       "amount": 2,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "버터",
@@ -116,14 +105,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 1200,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 420,
       "imageUrl": "assets/images/recipes/madeleine/step1.jpg",
       "description": [
-        "계량",
-        "레몬껍질",
-        "중탕 버터",
-        "가루+달걀+버터"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -134,13 +120,11 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 휴지·성형",
-      "estimatedTimeSec": 1200,
+      "title": "02. 레몬껍질 다지기",
+      "estimatedTimeSec": 471,
       "imageUrl": "assets/images/recipes/madeleine/step2.jpg",
       "description": [
-        "휴지 15~20분",
-        "팬 유지",
-        "80% 짜기"
+        "칼(또는 강판)로 레몬껍질을 다져 놓는다."
       ],
       "tips": [],
       "checklist": [],
@@ -151,12 +135,186 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 굽기",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/madeleine/step2.jpg",
+      "title": "03. 버터 중탕 용해",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step3.jpg",
       "description": [
-        "180/150℃ 15분",
-        "분리"
+        "중탕으로 버터를 용해한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀 풀기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step4.jpg",
+      "description": [
+        "달걀을 거품이 생기지 않게 풀어준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 가루·달걀 혼합",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step5.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 베이킹파우더)에 설탕, 소금, 풀어준 달걀을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 천천히 섞기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step6.jpg",
+      "description": [
+        "기포가 생기지 않도록 천천히 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 레몬껍질 넣기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step7.jpg",
+      "description": [
+        "다진 레몬껍질을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 용해버터 넣기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step8.jpg",
+      "description": [
+        "용해한 버터를 넣고 기포가 생기지 않도록 2~3번에 나누어 천천히 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 반죽 휴지",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step9.jpg",
+      "description": [
+        "반죽을 비닐로 덮어 실온에서 15~20분 동안 휴지시킨다."
+      ],
+      "tips": [
+        "휴지시간에 팬을 준비한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 팬에 버터 바르기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step10.jpg",
+      "description": [
+        "마드레느팬에 버터(계량 외)를 손(또는 붓)으로 바른다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 짤주머니에 담기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step11.jpg",
+      "description": [
+        "짤주머니에 반죽을 넣는다(위쪽으로 반죽이 묻지 않도록 한다)."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 반죽 팬닝",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step12.jpg",
+      "description": [
+        "짤주머니를 이용하여 반죽을 80% 정도 팬닝한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 오븐에 굽기",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step13.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 150℃에서 15분 전후로 굽는다."
+      ],
+      "tips": [
+        "제품의 윗면이 터질 수 있으므로 너무 높은 온도에서 굽지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 팬에서 분리",
+      "estimatedTimeSec": 471,
+      "imageUrl": "assets/images/recipes/madeleine/step14.jpg",
+      "description": [
+        "위에서 아래로 밀면서 팬에서 분리한다."
       ],
       "tips": [],
       "checklist": [],

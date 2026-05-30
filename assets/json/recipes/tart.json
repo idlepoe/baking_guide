@@ -58,19 +58,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 400,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "달걀",
@@ -82,8 +75,7 @@
       "name": "설탕",
       "amount": 104,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "버터",
@@ -95,8 +87,7 @@
       "name": "소금",
       "amount": 2,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "아몬드 분말",
@@ -150,12 +141,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 900,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/tart/step1.jpg",
       "description": [
-        "크림법",
-        "냉장휴지"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -166,12 +156,11 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 충전",
-      "estimatedTimeSec": 600,
+      "title": "02. 버터·설탕 혼합",
+      "estimatedTimeSec": 560,
       "imageUrl": "assets/images/recipes/tart/step2.jpg",
       "description": [
-        "아몬드크림",
-        "브랜디"
+        "버터를 풀어준 후 설탕과 소금을 넣고 섞는다."
       ],
       "tips": [],
       "checklist": [],
@@ -182,15 +171,211 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 성형·굽기",
-      "estimatedTimeSec": 2400,
-      "imageUrl": "assets/images/recipes/tart/step2.jpg",
+      "title": "03. 달걀 크림화",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step3.jpg",
       "description": [
-        "3mm 밀기",
-        "짜기·토핑",
-        "굽기·광택"
+        "달걀을 나누어 넣으면서 크림화한다."
       ],
       "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 박력분 혼합",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step4.jpg",
+      "description": [
+        "체질한 박력분을 넣고 11자로 섞는다."
+      ],
+      "tips": [
+        "박력분을 혼합할 때 오버믹싱이 되지 않도록 주의한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 반죽 휴지",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step5.jpg",
+      "description": [
+        "가루가 안 보이면 반죽을 비닐에 넣어 치대고 얇은 네모 모양으로 만든 후 냉장 휴지한다."
+      ],
+      "tips": [
+        "냉장 휴지를 시켜야 수축을 방지할 수 있다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 충전물 크림화",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step6.jpg",
+      "description": [
+        "버터를 풀어준 후 설탕을 나누어 넣으면서 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 충전물 달걀",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step7.jpg",
+      "description": [
+        "달걀을 나누어 넣으면서 크림화한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 아몬드 분말",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step8.jpg",
+      "description": [
+        "체질한 아몬드 분말을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 브랜디 넣기",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step9.jpg",
+      "description": [
+        "브랜디를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 반죽 밀기",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step10.jpg",
+      "description": [
+        "휴지시킨 반죽을 분할하여 살짝 치댄 후 밀대를 이용하여 0.3cm로 밀어 편다(8개 제조)."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 타르트팬 팬닝",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step11.jpg",
+      "description": [
+        "타르트팬에 맞춰 팬닝한 후 가장자리를 정리하고 포크를 이용하여 바닥에 구멍을 낸다."
+      ],
+      "tips": [
+        "바닥에 구멍을 내는 것은 반죽과 팬 사이에 공기가 들어가지 않도록 하기 위함이다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 충전물·아몬드",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step12.jpg",
+      "description": [
+        "짤주머니에 원형깍지를 끼우고 충전물(아몬드 크림)을 균등하게 짠 후 윗면에 아몬드슬라이스를 뿌린다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 오븐에 굽기",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step13.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 200℃에서 10분 전후로 구운 후 아랫불을 220℃로 올려 20분 정도 더 굽는다."
+      ],
+      "tips": [
+        "아랫불이 높아야 색이 고르게 난다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1800
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 광택제 만들기",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step14.jpg",
+      "description": [
+        "에프리코트혼당과 물을 끓여 광택제를 만든다."
+      ],
+      "tips": [
+        "탈 수 있으므로 너무 센 불에서 끓이지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 광택제 바르기",
+      "estimatedTimeSec": 560,
+      "imageUrl": "assets/images/recipes/tart/step15.jpg",
+      "description": [
+        "팬에서 제품을 분리한 후 윗면에 광택제를 바른다."
+      ],
+      "tips": [
+        "광택제는 뜨거울 때 발라야 한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],

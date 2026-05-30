@@ -58,26 +58,18 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 500,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "설탕",
       "amount": 600,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "달걀",
@@ -89,15 +81,13 @@
       "name": "소금",
       "amount": 5,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "바닐라향",
       "amount": 2.5,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     },
     {
       "name": "버터",
@@ -109,13 +99,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 거품",
-      "estimatedTimeSec": 600,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 360,
       "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step1.jpg",
       "description": [
-        "계량",
-        "달걀+설탕 중탕",
-        "고속→중속 안정화"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -126,13 +114,29 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 혼합",
-      "estimatedTimeSec": 480,
+      "title": "02. 달걀 중탕",
+      "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step2.jpg",
       "description": [
-        "버터 60℃",
-        "가루 접기",
-        "버터 혼합"
+        "달걀을 풀어준 후 설탕과 소금을 넣고 중탕한다(43~50℃ 정도)."
+      ],
+      "tips": [
+        "중탕 온도는 실내 온도에 따라 가감하고 너무 높으면 달걀이 익거나 가루가 뭉칠 수 있으므로 주의한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 거품·믹싱",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step3.jpg",
+      "description": [
+        "중탕한 달걀을 믹싱볼에 넣어 아이보리색이 날 때까지 고속으로 거품을 올린 후",
+        "중속으로 기포를 안정화시킨다(믹싱을 완료한다)."
       ],
       "tips": [],
       "checklist": [],
@@ -142,19 +146,139 @@
       "images": []
     },
     {
-      "stepNo": 3,
-      "title": "03. 굽기",
-      "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step2.jpg",
+      "stepNo": 4,
+      "title": "04. 버터 중탕 용해",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step4.jpg",
       "description": [
-        "50~60% 팬닝",
-        "펀칭",
-        "180/160℃ 25~30분"
+        "버터를 중탕으로 용해한다(60℃ 전후)."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 가루재료 넣기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step5.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 바닐라향)를 믹싱볼에 넣는다."
+      ],
+      "tips": [
+        "체질한 가루재료를 넣을 때 가루가 반죽 윗면에 떠 있으면 반죽 상태가 좋은 것이다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 가루 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step6.jpg",
+      "description": [
+        "손가락을 벌려 믹싱볼 아래에서 위로 털어내듯이 섞어준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 희생 반죽 만들기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step7.jpg",
+      "description": [
+        "용해버터에 반죽 일부를 넣고 섞는다."
+      ],
+      "tips": [
+        "용해버터(60℃ 전후)를 넣을 때 빠르게 섞어 비중이 높아지는 것을 방지한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 버터 반죽 완성",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step8.jpg",
+      "description": [
+        "용해버터를 섞은 반죽을 나머지 반죽에 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 반죽 팬닝",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step9.jpg",
+      "description": [
+        "종이를 깔아둔 원형팬에 비중(0.5±0.05)을 확인한 반죽을 50~60% 정도 팬닝한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "specific_gravity",
+          "params": {}
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 윗면 정리·펀칭",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step10.jpg",
+      "description": [
+        "고무주걱으로 윗면을 평평하게 한 후 작업대에 내려쳐 충격을 준다."
+      ],
+      "tips": [
+        "오븐에 넣기 전 작업대에서 펀칭을 주어서 일정한 기포를 형성한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 오븐에 굽기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step11.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 160℃에서 25~30분 동안 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1650
+        }
+      ],
       "calculators": [],
       "images": []
     }

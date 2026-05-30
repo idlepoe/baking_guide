@@ -56,26 +56,18 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 500,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "설탕",
       "amount": 300,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "버터",
@@ -93,29 +85,25 @@
       "name": "소금",
       "amount": 5,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "베이킹소다",
       "amount": 2,
       "unit": "g",
-      "category": "improver",
-      "weighGroupId": "dry_powder"
+      "category": "improver"
     },
     {
       "name": "베이킹파우더",
       "amount": 8,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "코코아파우더",
       "amount": 60,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "물",
@@ -127,8 +115,7 @@
       "name": "탈지분유",
       "amount": 30,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "초코칩",
@@ -140,14 +127,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 1200,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 660,
       "imageUrl": "assets/images/recipes/choco_muffin/step1.jpg",
       "description": [
-        "계량",
-        "크림화",
-        "초코칩",
-        "가루+물 접기"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -158,12 +142,160 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 굽기",
-      "estimatedTimeSec": 1800,
+      "title": "02. 버터 크림화",
+      "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/choco_muffin/step2.jpg",
       "description": [
-        "70% 팬닝",
-        "180/160℃ 25~30분"
+        "버터를 넣고 고속으로 풀어준 후 설탕, 소금을 나누어 넣으면서 크림화한다."
+      ],
+      "tips": [
+        "크림화시킬 때 설탕과 소금 입자가 충분히 섞이도록 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱볼 정리",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step3.jpg",
+      "description": [
+        "믹싱볼 옆면과 바닥면에 붙어 있는 반죙을 긁어 잘 섞이도록 한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀 크림화",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step4.jpg",
+      "description": [
+        "달걀을 조금씩 나누어 넣으면서 부드러운 크림을 만든다(믹싱을 완료한다)."
+      ],
+      "tips": [
+        "달걀을 조금씩 나누어 넣어 유지와 달걀이 분리되는 것을 방지한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 초코칩 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step5.jpg",
+      "description": [
+        "초코칩을 넣고 섞는다(반죽 전체에 초코칩이 잘 섞이도록 한다)."
+      ],
+      "tips": [
+        "나무주걱을 이용하여 섞어도 된다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 가루·물 혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step6.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 베이킹소다, 베이킹파우더, 코코아파우더, 탈지분유)와 물을 넣고 믹싱볼 아래에서 위로 털어내듯이 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 머핀팬 속지",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step7.jpg",
+      "description": [
+        "머핀팬에 속지를 넣어 준비한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 짤주머니에 담기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step8.jpg",
+      "description": [
+        "짤주머니에 반죽을 넣는다."
+      ],
+      "tips": [
+        "짤주머니에 넣은 반죽이 위쪽으로 새어 나오지 않도록 주의한다(손에 묻으면 감점 요소가 된다)."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 머핀팬 팬닝",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step9.jpg",
+      "description": [
+        "머핀팬에 70% 정도 팬닝한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 오븐에 굽기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step10.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 160℃에서 25~30분 동안 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1650
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 머핀 분리",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/choco_muffin/step11.jpg",
+      "description": [
+        "팬에서 머핀을 분리한다."
       ],
       "tips": [],
       "checklist": [],

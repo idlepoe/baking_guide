@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from confectionery_specs import CONFECTIONERY_SPECS  # noqa: E402
+from confectionery_step_data import STEPS  # noqa: E402
 
 OUT = ROOT / "assets" / "json" / "recipes"
 
@@ -41,20 +42,24 @@ def kp(title: str, items: list[str]) -> dict:
     }
 
 
-def step_image(rid: str, step_no: int, total: int) -> str:
+def step_image(rid: str, step_no: int) -> str:
     folder = ROOT / "assets" / "images" / "recipes" / rid
-    if step_no == total and (folder / "evaluation.jpg").exists():
-        return "evaluation.jpg"
-    if step_no <= max(1, total // 2) and (folder / "step1.jpg").exists():
-        return "step1.jpg"
-    if (folder / "step2.jpg").exists():
-        return "step2.jpg"
+    per_step = folder / f"step{step_no}.jpg"
+    if per_step.exists():
+        return f"step{step_no}.jpg"
     if (folder / "step1.jpg").exists():
         return "step1.jpg"
     return "main.jpg"
 
 
-def build_step(rid: str, step_no: int, total: int, raw: dict) -> dict:
+def build_step(
+    rid: str,
+    step_no: int,
+    total: int,
+    raw: dict,
+    *,
+    default_time_sec: int,
+) -> dict:
     title = raw["title"]
     if not title.startswith(f"{step_no:02d}."):
         title = f"{step_no:02d}. {title.split('. ', 1)[-1] if '. ' in title else title}"
@@ -62,8 +67,8 @@ def build_step(rid: str, step_no: int, total: int, raw: dict) -> dict:
     return {
         "stepNo": step_no,
         "title": title,
-        "estimatedTimeSec": raw.get("estimatedTimeSec", 300),
-        "imageUrl": f"assets/images/recipes/{rid}/{step_image(rid, step_no, total)}",
+        "estimatedTimeSec": raw.get("estimatedTimeSec", default_time_sec),
+        "imageUrl": f"assets/images/recipes/{rid}/{step_image(rid, step_no)}",
         "description": raw["description"],
         "tips": raw.get("tips", []),
         "checklist": raw.get("checklist", []),
@@ -88,10 +93,11 @@ def build_recipe(spec: dict) -> dict:
     name = DISPLAY_NAME_OVERRIDES.get(rid, spec["name"])
     mixing = MIXING_METHOD_MAP.get(spec["mixingMethod"], spec["mixingMethod"])
 
-    raw_steps = spec["steps"]
+    raw_steps = STEPS.get(rid) or spec["steps"]
     total = len(raw_steps)
+    default_time = max(180, spec["examTimeSec"] // total)
     steps = [
-        build_step(rid, i + 1, total, raw)
+        build_step(rid, i + 1, total, raw, default_time_sec=default_time)
         for i, raw in enumerate(raw_steps)
     ]
 

@@ -57,19 +57,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "중력분",
       "amount": 80,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "버터",
@@ -81,15 +74,13 @@
       "name": "설탕 A",
       "amount": 80,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "설탕 B",
       "amount": 80,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "달걀",
@@ -125,14 +116,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 1200,
+      "title": "01. 계량·달걀 분리",
+      "estimatedTimeSec": 540,
       "imageUrl": "assets/images/recipes/cheesecake/step1.jpg",
       "description": [
-        "계량·분리",
-        "팬 코팅",
-        "크림치즈+노른자",
-        "머랭 70%"
+        "재료를 시간 내에 정확하게 계량하고 달걀을 노른자와 흰자로 분리한다."
       ],
       "tips": [],
       "checklist": [],
@@ -143,14 +131,206 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 굽기",
-      "estimatedTimeSec": 3600,
+      "title": "02. 팬 준비",
+      "estimatedTimeSec": 642,
       "imageUrl": "assets/images/recipes/cheesecake/step2.jpg",
       "description": [
-        "머랭 접기",
-        "80% 팬닝",
-        "중탕 50분",
-        "배열"
+        "팬에 버터(계량 외)를 바른 후 설탕(계량 외)을 묻혀 놓는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 크림치즈·버터",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step3.jpg",
+      "description": [
+        "크림치즈를 풀어준 후 버터를 넣고 유연하게 한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 설탕 투입",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step4.jpg",
+      "description": [
+        "설탕(A)을 넣고 풀어준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 노른자 크림화",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step5.jpg",
+      "description": [
+        "노른자를 넣고 크림화한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 액체·가루 혼합",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step6.jpg",
+      "description": [
+        "우유, 럼주, 레몬주스, 체질한 중력분을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 머랭용 설탕",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step7.jpg",
+      "description": [
+        "흰자에 설탕(B)을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 머랭 완성",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step8.jpg",
+      "description": [
+        "중간피크(70%)의 머랭을 완성한다."
+      ],
+      "tips": [
+        "건조피크까지 머랭을 올릴 경우 윗면이 터지거나 구운 후 제품이 주저앉을 수 있다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 머랭 1/2 섞기",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step9.jpg",
+      "description": [
+        "완성된 노른자 반죽에 머랭 1/2을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 나머지 머랭 섞기",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step10.jpg",
+      "description": [
+        "나머지 머랭을 넣고 가볍게 섞어 마무리한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 반죽 팬닝",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step11.jpg",
+      "description": [
+        "비중(0.7±0.05)을 확인한 반죽을 짤주머니나 비커에 넣은 후 버터와 설탕을 바른 팬에 80% 정도 팬닝한다."
+      ],
+      "tips": [
+        "다른 제품에 비해 비중을 크게 설정한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "specific_gravity",
+          "params": {}
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 수조법 굽기",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step12.jpg",
+      "description": [
+        "평철판의 1/3 정도 물을 넣은 후 반죽이 담긴 팬을 넣고 윗불 150℃, 아랫불 150℃에서 50분 전후로 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 3000
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 제품 빼기",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step13.jpg",
+      "description": [
+        "팬을 뒤집어 제품을 뺀다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 담아내기",
+      "estimatedTimeSec": 642,
+      "imageUrl": "assets/images/recipes/cheesecake/step14.jpg",
+      "description": [
+        "일정한 간격으로 담아낸다."
       ],
       "tips": [],
       "checklist": [],

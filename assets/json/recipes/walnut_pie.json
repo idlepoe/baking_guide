@@ -59,19 +59,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "중력분",
       "amount": 400,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "달걀 노른자",
@@ -83,15 +76,13 @@
       "name": "소금",
       "amount": 6,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "설탕",
       "amount": 12,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "생크림",
@@ -127,15 +118,13 @@
       "name": "물엿",
       "amount": 250,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "계핏가루",
       "amount": 2.5,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     },
     {
       "name": "물(충전)",
@@ -153,14 +142,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 껍질",
-      "estimatedTimeSec": 1200,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 420,
       "imageUrl": "assets/images/recipes/walnut_pie/step1.jpg",
       "description": [
-        "계량",
-        "찬물 용해",
-        "버터 다지기",
-        "냉장휴지"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -171,13 +157,28 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 충전",
-      "estimatedTimeSec": 900,
+      "title": "02. 설탕·소금 용해",
+      "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/walnut_pie/step2.jpg",
       "description": [
-        "호두 구움",
-        "시럽 중탕",
-        "달걀·체거름"
+        "찬물에 설탕과 소금을 용해시킨다."
+      ],
+      "tips": [
+        "가루재료와 같이 혼합해도 된다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 액체 재료 혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step3.jpg",
+      "description": [
+        "생크림과 노른자를 풀어서 물에 섞는다."
       ],
       "tips": [],
       "checklist": [],
@@ -187,20 +188,194 @@
       "images": []
     },
     {
-      "stepNo": 3,
-      "title": "03. 성형·굽기",
-      "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/walnut_pie/step2.jpg",
+      "stepNo": 4,
+      "title": "04. 가루·버터 다지기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step4.jpg",
       "description": [
-        "팬닝",
-        "물결",
-        "충전",
-        "굽기"
+        "작업대에서 체질한 중력분 위에 버터를 올리고 스크래퍼를 이용하여 콩알만 한 크기로 다진다."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 반죽 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step5.jpg",
+      "description": [
+        "반죽 가운데를 우물처럼 만든 후 혼합한 재료를 넣고 스크래퍼로 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 반죽 냉장 휴지",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step6.jpg",
+      "description": [
+        "반죽을 한 덩어리로 만든 후 비닐에 감싸 30분 정도 냉장 휴지한다."
+      ],
+      "tips": [
+        "반죽을 많이 치대지 않는다(글루텐이 형성되는 것을 방지한다)."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 호두 전처리",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step7.jpg",
+      "description": [
+        "예열된 오븐에 호두를 살짝 구워 전처리한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 충전물 중탕",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step8.jpg",
+      "description": [
+        "스텐볼에 물, 설탕, 계핏가루, 물엿을 넣은 후 설탕이 완전히 녹을 때까지 중탕한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 달걀 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step9.jpg",
+      "description": [
+        "기포가 생기지 않도록 달걀을 풀어준 후 섞는다."
+      ],
+      "tips": [
+        "설탕 시럽이 뜨거우면 달걀이 익을 수 있으므로 온도에 주의한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 충전물 기포 제거",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step10.jpg",
+      "description": [
+        "완성된 충전물을 체를 이용하여 거른 후 스텐볼의 크기에 맞게 자른 위생지를 덮어 기포를 제거한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 팬 준비",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step11.jpg",
+      "description": [
+        "팬에 버터(계량 외)를 바른 후 밀가루(계량 외)를 묻혀 놓는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 반죽 성형",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step12.jpg",
+      "description": [
+        "휴지시킨 반죽을 밀어 편 후 팬에 올리고 옆 가장자리 반죽을 스크래퍼를 이용하여 잘라낸다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 가장자리 정형",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step13.jpg",
+      "description": [
+        "손가락을 이용하여 물결 모양으로 정형한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 호두·충전물 채우기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step14.jpg",
+      "description": [
+        "전처리한 호두를 팬에 나누어 넣은 후 충전물을 고르게 넣는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 오븐에 굽기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/walnut_pie/step15.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 200℃에서 30~40분 동안 굽는다."
+      ],
+      "tips": [
+        "파이류는 덜 익으면 제품이 주저앉거나 부서질 수 있기 때문에 아랫불을 높게 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 2100
+        }
+      ],
       "calculators": [],
       "images": []
     }

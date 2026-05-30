@@ -57,19 +57,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "중력분",
       "amount": 300,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "달걀",
@@ -81,15 +74,13 @@
       "name": "설탕",
       "amount": 390,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "소금",
       "amount": 6,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "버터",
@@ -107,15 +98,13 @@
       "name": "코코아파우더",
       "amount": 30,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "바닐라향",
       "amount": 6,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     },
     {
       "name": "호두",
@@ -127,14 +116,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 1200,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
       "imageUrl": "assets/images/recipes/brownie/step1.jpg",
       "description": [
-        "계량",
-        "호두 구움",
-        "초코중탕",
-        "달걀+가루+호두1/2"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -145,18 +131,146 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 굽기",
-      "estimatedTimeSec": 2700,
+      "title": "02. 호두 전처리",
+      "estimatedTimeSec": 660,
       "imageUrl": "assets/images/recipes/brownie/step2.jpg",
       "description": [
-        "2팬 팬닝",
-        "호두 토핑",
-        "170/150℃ 40~50분"
+        "예열된 오븐에 호두를 살짝 구워 전처리한다."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 초콜릿·버터 녹이기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step3.jpg",
+      "description": [
+        "다크초콜릿(커버춰)과 버터를 중탕(50℃)으로 녹인다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀·설탕 섞기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step4.jpg",
+      "description": [
+        "달걀을 풀어준 후 설탕과 소금을 넣고 거품기로 골고루 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 초콜릿에 달걀물",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step5.jpg",
+      "description": [
+        "중탕으로 용해한 다크초콜릿과 버터에 달걀물을 넣고 섞는다."
+      ],
+      "tips": [
+        "달걀물의 온도가 너무 낮지 않도록 조절한 후 넣는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 가루재료 혼합",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step6.jpg",
+      "description": [
+        "체질한 가루재료(중력분, 코코아파우더, 바닐라향)를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 호두분태 넣기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step7.jpg",
+      "description": [
+        "미리 구워 놓은 호두분태 1/2을 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 팬닝하기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step8.jpg",
+      "description": [
+        "종이를 깔아둔 원형팬 2개에 팬닝하고 윗면을 평평하게 만든다."
+      ],
+      "tips": [
+        "반죽온도가 높거나 과도하게 섞이면 아랫면이 들리는 현상이 나타날 수 있다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 호두 토핑",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step9.jpg",
+      "description": [
+        "남은 호두분태 1/2을 윗면에 골고루 뿌려준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 오븐에 굽기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/brownie/step10.jpg",
+      "description": [
+        "윗불 170℃, 아랫불 150℃(이중팬일 경우 170℃)에서 40~50분 동안 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 2700
+        }
+      ],
       "calculators": [],
       "images": []
     }

@@ -59,19 +59,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "중력분",
       "amount": 200,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "물",
@@ -89,8 +82,7 @@
       "name": "소금",
       "amount": 2,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "달걀",
@@ -108,14 +100,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽",
-      "estimatedTimeSec": 900,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/choux/step1.jpg",
       "description": [
-        "계량",
-        "끓여 호화",
-        "달걀 단계",
-        "3cm 짜기"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -126,13 +115,205 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 굽기·충전",
-      "estimatedTimeSec": 2700,
+      "title": "02. 물·버터 끓이기",
+      "estimatedTimeSec": 514,
       "imageUrl": "assets/images/recipes/choux/step2.jpg",
       "description": [
-        "스프레이",
-        "180/200→160℃",
-        "크림 충전"
+        "스텐볼에 물과 버터, 소금을 넣고 끓인다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 중력분 넣기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step3.jpg",
+      "description": [
+        "불을 끄고 체질한 중력분을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 호화시키기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step4.jpg",
+      "description": [
+        "한 덩어리가 되면 다시 불을 켜서 호화시킨다."
+      ],
+      "tips": [
+        "호화시킬 때 타지 않게 바닥을 긁으며 빨리 섞어준다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 달걀 넣기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step5.jpg",
+      "description": [
+        "불에서 내린 후 달걀을 조금씩 나누어 넣으면서 섞는다."
+      ],
+      "tips": [
+        "호화 정도에 따라 달걀의 양을 조절한다(호화가 많이 되면 달걀이 많이 들어가고, 호화가 덜 되면 달걀이 적게 들어간다)."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 반죽 완성",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step6.jpg",
+      "description": [
+        "반죽이 매끈해지고 광택이 나면서 끈기가 생기게 만든다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 짤주머니 준비",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step7.jpg",
+      "description": [
+        "짤주머니에 1cm의 원형깍지를 끼우고 반죽을 넣는다."
+      ],
+      "tips": [
+        "반죽을 많이 넣으면 위로 새어 나와 작업하기 불편하다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 반죽 짜기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step8.jpg",
+      "description": [
+        "3cm 정도의 원형 모양으로 간격을 일정하게 짠다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 물 뿌리기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step9.jpg",
+      "description": [
+        "스프레이를 이용하여 물을 충분히 뿌려준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 오븐에 굽기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step10.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 200℃에서 굽다가 약 10분 뒤 팽창된 상태를 확인한 후 아랫불을 160℃로 낮추어 30분 정도 더 굽는다."
+      ],
+      "tips": [
+        "갈라진 부분도 색이 날 때까지 충분히 구워야 제품이 주저앉지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 2400
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 크림 담기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step11.jpg",
+      "description": [
+        "비닐 짤주머니에 충전용 크림을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 아랫면 구멍",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step12.jpg",
+      "description": [
+        "냉각된 슈의 아랫면에 나무젓가락으로 구멍을 낸다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 크림 충전",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step13.jpg",
+      "description": [
+        "비닐 짤주머니를 이용하여 충전용 크림을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 크림 채우기",
+      "estimatedTimeSec": 514,
+      "imageUrl": "assets/images/recipes/choux/step14.jpg",
+      "description": [
+        "제공된 크림을 골고루 채운다."
       ],
       "tips": [],
       "checklist": [],

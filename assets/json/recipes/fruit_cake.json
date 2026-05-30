@@ -60,26 +60,18 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 500,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "설탕",
       "amount": 450,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "마가린",
@@ -103,15 +95,13 @@
       "name": "베이킹파우더",
       "amount": 5,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "소금",
       "amount": 8,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "건포도",
@@ -147,21 +137,21 @@
       "name": "바닐라향",
       "amount": 2,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     }
   ],
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 계량·분리",
+      "title": "01. 재료 계량·달걀 분리",
       "estimatedTimeSec": 780,
       "imageUrl": "assets/images/recipes/fruit_cake/step1.jpg",
       "description": [
-        "13분 계량",
-        "노른자·흰자 분리"
+        "재료를 시간 내에 정확하게 계량하고 달걀을 노른자와 흰자로 분리한다"
       ],
-      "tips": [],
+      "tips": [
+        "노른자를 넣는 스텐볼이 클 것"
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -170,15 +160,15 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 체리·과일 전처리",
+      "title": "02. 체리 손질",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/fruit_cake/step1.jpg",
+      "imageUrl": "assets/images/recipes/fruit_cake/step2.jpg",
       "description": [
-        "체리 건포도 크기",
-        "럼주 전처리",
-        "호두 오븐 구움"
+        "체리를 건포도 크기로 자른 후 물기를 제거한다."
       ],
-      "tips": [],
+      "tips": [
+        "물기를 제거할 때는 키친타월이나 마른 행주를 사용한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -187,13 +177,11 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 크림·머랭",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/fruit_cake/step1.jpg",
+      "title": "03. 과일 럼주 전처리",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step3.jpg",
       "description": [
-        "마가린+설탕50%+소금",
-        "노른자 3~4회",
-        "머랭 중간피크"
+        "건포도, 오렌지필, 체리를 럼주로 전처리한다."
       ],
       "tips": [],
       "checklist": [],
@@ -204,12 +192,11 @@
     },
     {
       "stepNo": 4,
-      "title": "04. 과일·가루",
+      "title": "04. 호두 오븐 전처리",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/fruit_cake/step2.jpg",
+      "imageUrl": "assets/images/recipes/fruit_cake/step4.jpg",
       "description": [
-        "과일+호두 밀가루 코팅",
-        "머랭 1/3→가루→우유→머랭2/3"
+        "예열된 오븐에 호두를 살짝 구워 전처리한다."
       ],
       "tips": [],
       "checklist": [],
@@ -220,12 +207,11 @@
     },
     {
       "stepNo": 5,
-      "title": "05. 팬닝",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/fruit_cake/step2.jpg",
+      "title": "05. 마가린 크림화",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step5.jpg",
       "description": [
-        "파운드틀 60~70%",
-        "가운데 평평·양끝 각지게"
+        "마가린을 풀어준 후 설탕(50%), 소금을 넣고 휘핑한다."
       ],
       "tips": [],
       "checklist": [],
@@ -236,11 +222,156 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 굽기",
-      "estimatedTimeSec": 2100,
-      "imageUrl": "assets/images/recipes/fruit_cake/step2.jpg",
+      "title": "06. 노른자 크림화",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step6.jpg",
       "description": [
-        "180/160℃ 30~40분"
+        "노른자를 3~4번에 나누어 넣으면서 크림화한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 머랭 만들기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step7.jpg",
+      "description": [
+        "흰자를 젖은 피크(60%)까지 휘핑한 후 나머지 설탕을 2~3번에 나누어 넣으면서 중간피크(80~90%) 상태의 머랭을 만든다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 과일·호두 혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step8.jpg",
+      "description": [
+        "전처리한 과일을 체에 받쳐 럼주를 제거하고 호두와 함께 밀가루를 골고루 묻혀 반죽에 섞는다."
+      ],
+      "tips": [
+        "밀가루로 다시 전처리하는 것은 과일이 바닥으로 가라앉는 것을 방지하기 위함이다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 머랭 1/3 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step9.jpg",
+      "description": [
+        "머랭 1/3을 넣고 가볍게 섞는다."
+      ],
+      "tips": [
+        "머랭을 처음 섞을 때 양이 너무 적으면 수분량이 부족해 밀가루가 덩어리질 수 있다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 가루재료 혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step10.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 베이킹파우더, 바닐라향)를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 우유 넣고 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step11.jpg",
+      "description": [
+        "우유를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 나머지 머랭 섞기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step12.jpg",
+      "description": [
+        "나머지 머랭 2/3를 넣고 섞는다."
+      ],
+      "tips": [
+        "여러 번 섞으면 비중이 무거워져 제품이 작아지므로 가볍게 섞는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 반죽 팬닝",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step13.jpg",
+      "description": [
+        "종이를 깔아둔 파운드틀에 60~70% 팬닝한다."
+      ],
+      "tips": [
+        "감독 위원의 지시에 따라 3~4개로 팬닝한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 윗면 정리",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step14.jpg",
+      "description": [
+        "가운데를 평평하게 정리한다."
+      ],
+      "tips": [
+        "팬닝 시 양 끝이 각지게 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 오븐에 굽기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/fruit_cake/step15.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 160℃(이중팬일 경우 180℃)에서 30~40분 동안 굽는다."
       ],
       "tips": [],
       "checklist": [],

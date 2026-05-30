@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../core/storage/owned_ingredient_preferences.dart';
 import '../../../core/storage/recipe_bookmark_preferences.dart';
 import '../../../core/storage/recipe_exam_type_filter_preferences.dart';
+import '../../../core/tutorial/tutorial_guide_keys.dart';
 import '../../../core/utils/ingredient_category_format.dart';
 import '../../../data/models/catalog_ingredient.dart';
 import '../../../data/models/enums/exam_type.dart';
@@ -215,6 +216,33 @@ class RecipeController extends GetxController {
     examTypeFilter.value = savedFilter;
     _applyFilterAndSort();
     isLoading.value = false;
+  }
+
+  /// 코치마크 튜토리얼: 데모 레시피(스위트롤)가 목록에 보이도록 준비.
+  Future<void> prepareForTutorialGuide() async {
+    if (isLoading.value) {
+      await loadRecipes();
+    }
+    if (examTypeFilter.value != ExamType.baking) {
+      await setExamTypeFilter(ExamType.baking);
+    } else {
+      _applyFilterAndSort();
+    }
+    _pinDemoRecipeToTop();
+  }
+
+  /// 튜토리얼 종료 후 즐겨찾기·재료 정렬 복원.
+  void restoreDefaultSort() {
+    _applyFilterAndSort();
+  }
+
+  void _pinDemoRecipeToTop() {
+    final demoId = TutorialGuideKeys.demoRecipeId;
+    final demo = recipes.firstWhereOrNull((r) => r.id == demoId);
+    if (demo == null) return;
+    if (recipes.isNotEmpty && recipes.first.id == demoId) return;
+    final rest = recipes.where((r) => r.id != demoId).toList();
+    recipes.assignAll([demo, ...rest]);
   }
 
   void _applyFilterAndSort() {

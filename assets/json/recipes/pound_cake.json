@@ -57,26 +57,18 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 800,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "설탕",
       "amount": 640,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "버터",
@@ -88,36 +80,31 @@
       "name": "유화제",
       "amount": 16,
       "unit": "g",
-      "category": "improver",
-      "weighGroupId": "dry_powder"
+      "category": "improver"
     },
     {
       "name": "소금",
       "amount": 8,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "탈지분유",
       "amount": 16,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "바닐라향",
       "amount": 4,
       "unit": "g",
-      "category": "spice",
-      "weighGroupId": "dry_powder"
+      "category": "spice"
     },
     {
       "name": "베이킹파우더",
       "amount": 16,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "달걀",
@@ -129,13 +116,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 반죽·팬닝",
-      "estimatedTimeSec": 1500,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
       "imageUrl": "assets/images/recipes/pound_cake/step1.jpg",
       "description": [
-        "크림화",
-        "가루 접기",
-        "70% U자"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -146,18 +131,178 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 굽기",
-      "estimatedTimeSec": 2700,
+      "title": "02. 버터 풀기",
+      "estimatedTimeSec": 818,
       "imageUrl": "assets/images/recipes/pound_cake/step2.jpg",
       "description": [
-        "1차 15분",
-        "절개",
-        "2차 20~30분"
+        "믹싱기에 버터를 넣고 고속으로 풀어준다."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 설탕 크림화",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step3.jpg",
+      "description": [
+        "설탕, 소금, 유화제를 2번에 나누어 넣으면서 크림화한다."
+      ],
+      "tips": [
+        "크림화 중 오버믹싱이 되면 비중이 가벼워져 윗면에 기포가 생기고 터짐이 나빠진다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀 크림화",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step4.jpg",
+      "description": [
+        "달걀을 조금씩 넣으면서 부드러운 크림을 만든다 (믹싱을 완료한다)."
+      ],
+      "tips": [
+        "달걀의 양이 많기 때문에 조금씩 나누어 넣어 분리현상을 방지한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 가루재료 혼합",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step5.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 탈지분유, 베이킹파우더, 바닐라향)를 넣고 손가락을 벌려 믹싱볼 아래에서 위로 털어내듯이 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 반죽 팬닝",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step6.jpg",
+      "description": [
+        "종이를 깔아둔 파운드틀에 비중(0.8±0.05)을 확인한 반죽을 짤주머니(또는 고무주걱)를 이용하여 틀의 70% 정도 팬닝한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "specific_gravity",
+          "params": {}
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 윗면 U자 정리",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step7.jpg",
+      "description": [
+        "가운데를 U자형으로 정리한다."
+      ],
+      "tips": [
+        "팬닝 시 양 끝이 각지게 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 1차 굽기",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step8.jpg",
+      "description": [
+        "윗불 200℃, 아랫불 180℃에서 15분 정도 윗면에 색이 나고 겉껍질이 살짝 익을 정도로 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "1차 굽기",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 윗면 자르기",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step9.jpg",
+      "description": [
+        "오븐에서 꺼내어 고무주걱(또는 칼)에 식용유를 바른 후 양 끝 1cm씩 남기고 가운데를 일자로 자른다."
+      ],
+      "tips": [
+        "윗면을 자를 때 좌우대칭이 되도록 가운데를 일자로 자른다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 뚜껑 덮기",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step10.jpg",
+      "description": [
+        "뚜껑을 덮을 경우에는 가운데 식빵 틀 2개를 놓고 철판으로 뚜껑을 덮는다(감독위원의 지시에 따라 덮지 않을 수도 있다)."
+      ],
+      "tips": [
+        "뚜껑을 덮지 않은 경우 윗면의 색이 더 진하게 나고 껍질이 두껍다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 2차 굽기",
+      "estimatedTimeSec": 818,
+      "imageUrl": "assets/images/recipes/pound_cake/step11.jpg",
+      "description": [
+        "윗불 180℃, 아랫불 160℃에서 20~30분 동안 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "2차 굽기",
+          "durationSec": 1800
+        }
+      ],
       "calculators": [],
       "images": []
     }

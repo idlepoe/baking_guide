@@ -7,6 +7,7 @@ import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import '../../data/models/enums/progress_session_status.dart';
 import '../../data/repositories/progress_session_repository.dart';
 import '../../modules/home/controllers/home_controller.dart';
+import '../../modules/recipe/controllers/recipe_controller.dart';
 import '../../modules/progress_detail/controllers/progress_detail_controller.dart';
 import '../../modules/progress_detail/widgets/dough_temp_calculator_bottom_sheet.dart';
 import '../../modules/progress_detail/widgets/ingredients_bottom_sheet.dart';
@@ -71,12 +72,43 @@ class TutorialGuideService extends GetxService {
       TutorialGuideLog.w('_goHomeRecipeTab: HomeController 미등록');
     }
 
-    await Future.delayed(const Duration(milliseconds: 300));
+    await _prepareRecipeListForTutorial();
     _logContext('after tab switch');
     await _waitForKey(
       TutorialGuideKeys.recipeCard,
       label: 'recipeCard',
       required: true,
+    );
+    await _waitForKey(
+      TutorialGuideKeys.recipeBookmark,
+      label: 'recipeBookmark',
+      required: false,
+    );
+  }
+
+  Future<void> _prepareRecipeListForTutorial() async {
+    for (var i = 0; i < 50; i++) {
+      if (Get.isRegistered<RecipeController>()) break;
+      await Future.delayed(const Duration(milliseconds: 100));
+      if (!isActive) return;
+    }
+    if (!Get.isRegistered<RecipeController>()) {
+      TutorialGuideLog.w('_prepareRecipeListForTutorial: RecipeController 미등록');
+      return;
+    }
+
+    final recipeController = Get.find<RecipeController>();
+    for (var i = 0; i < 50; i++) {
+      if (!recipeController.isLoading.value) break;
+      await Future.delayed(const Duration(milliseconds: 100));
+      if (!isActive) return;
+    }
+
+    await recipeController.prepareForTutorialGuide();
+    await _waitForUiFrames(3);
+    TutorialGuideLog.d(
+      '_prepareRecipeListForTutorial: recipes=${recipeController.recipes.length} '
+      'first=${recipeController.recipes.firstOrNull?.id}',
     );
   }
 
@@ -267,15 +299,19 @@ class TutorialGuideService extends GetxService {
     TutorialGuideLog.keyState('nextStep', TutorialGuideKeys.nextStep);
   }
 
-  Future<void> _scrollTargetIntoView(GlobalKey key) async {
+  Future<void> _scrollTargetIntoView(
+    GlobalKey key, {
+    double alignment = 0.35,
+    Duration duration = const Duration(milliseconds: 300),
+  }) async {
     final ctx = key.currentContext;
     if (ctx == null) return;
     try {
       await Scrollable.ensureVisible(
         ctx,
-        duration: const Duration(milliseconds: 250),
+        duration: duration,
         curve: Curves.easeInOut,
-        alignment: 0.35,
+        alignment: alignment,
       );
     } catch (error, stackTrace) {
       TutorialGuideLog.w(
@@ -284,6 +320,12 @@ class TutorialGuideService extends GetxService {
         stackTrace: stackTrace,
       );
     }
+  }
+
+  Future<void> _scrollTargetToCenter(GlobalKey key) async {
+    await _scrollTargetIntoView(key, alignment: 0.5);
+    await Future.delayed(const Duration(milliseconds: 200));
+    await _waitForUiFrames(2);
   }
 
   Future<void> _waitForUiFrames(int count) async {
@@ -470,6 +512,10 @@ class TutorialGuideService extends GetxService {
     );
     if (!isActive) return;
 
+    TutorialGuideLog.d('_runPhaseDoughTemp: 반죽온도 버튼 중앙 스크롤');
+    await _scrollTargetToCenter(TutorialGuideKeys.doughTempFab);
+    if (!isActive) return;
+
     await _showCoachMark(
       phase: 'dough_temp_fab',
       targets: [
@@ -498,6 +544,7 @@ class TutorialGuideService extends GetxService {
 
   Future<void> _runPhaseDoughTempSheet() async {
     TutorialGuideLog.d('_runPhaseDoughTempSheet: 시작');
+    await Future.delayed(const Duration(milliseconds: 400));
     await _waitForKey(
       TutorialGuideKeys.doughTempTarget,
       label: 'doughTempTarget',
@@ -505,8 +552,8 @@ class TutorialGuideService extends GetxService {
     );
     if (!isActive) return;
 
-    await Future.delayed(const Duration(milliseconds: 350));
-    await _waitForUiFrames(2);
+    TutorialGuideLog.d('_runPhaseDoughTempSheet: 목표 온도 카드 중앙 스크롤');
+    await _scrollTargetToCenter(TutorialGuideKeys.doughTempTarget);
     if (!isActive) return;
 
     await _showCoachMark(
@@ -859,6 +906,9 @@ class TutorialGuideService extends GetxService {
     TutorialGuideLog.d('_finishTutorial: popDetail=$popDetail');
     _popModalIfOpen();
     await _cleanupDemoSession(popDetail: popDetail);
+    if (Get.isRegistered<RecipeController>()) {
+      Get.find<RecipeController>().restoreDefaultSort();
+    }
     isActive = false;
     _detailPhasesStarted = false;
   }

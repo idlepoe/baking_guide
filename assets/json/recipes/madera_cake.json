@@ -57,19 +57,12 @@
       }
     ]
   },
-  "weighGroups": [
-    {
-      "id": "dry_powder",
-      "label": "가루류·합침 가능"
-    }
-  ],
   "ingredients": [
     {
       "name": "박력분",
       "amount": 400,
       "unit": "g",
-      "category": "flour",
-      "weighGroupId": "dry_powder"
+      "category": "flour"
     },
     {
       "name": "버터",
@@ -81,15 +74,13 @@
       "name": "설탕",
       "amount": 320,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "소금",
       "amount": 4,
       "unit": "g",
-      "category": "salt",
-      "weighGroupId": "dry_powder"
+      "category": "salt"
     },
     {
       "name": "달걀",
@@ -101,8 +92,7 @@
       "name": "베이킹파우더",
       "amount": 10,
       "unit": "g",
-      "category": "powder",
-      "weighGroupId": "dry_powder"
+      "category": "powder"
     },
     {
       "name": "건포도",
@@ -126,8 +116,7 @@
       "name": "분당",
       "amount": 80,
       "unit": "g",
-      "category": "sweetener",
-      "weighGroupId": "dry_powder"
+      "category": "sweetener"
     },
     {
       "name": "적포도주 시럽",
@@ -139,13 +128,11 @@
   "steps": [
     {
       "stepNo": 1,
-      "title": "01. 크림화",
-      "estimatedTimeSec": 900,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 540,
       "imageUrl": "assets/images/recipes/madera_cake/step1.jpg",
       "description": [
-        "계량",
-        "건포도 전처리",
-        "버터·설탕·달걀 크림"
+        "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
       "checklist": [],
@@ -156,14 +143,15 @@
     },
     {
       "stepNo": 2,
-      "title": "02. 충전물",
+      "title": "02. 건포도 전처리",
       "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/madera_cake/step1.jpg",
+      "imageUrl": "assets/images/recipes/madera_cake/step2.jpg",
       "description": [
-        "건포도·호두 밀가루",
-        "가루·적포도주"
+        "건포도를 적포도주로 전처리한 후 체에 거른다."
       ],
-      "tips": [],
+      "tips": [
+        "전처리를 너무 오래하면 건포도가 무거워져서 완성 시 바닥에 가라앉는다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -172,12 +160,11 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 팬닝·굽기",
-      "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/madera_cake/step2.jpg",
+      "title": "03. 버터 풀기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step3.jpg",
       "description": [
-        "머핀 70%",
-        "180/160℃ 25~30분"
+        "버터를 고속으로 풀어준다."
       ],
       "tips": [],
       "checklist": [],
@@ -188,14 +175,196 @@
     },
     {
       "stepNo": 4,
-      "title": "04. 퐁당",
-      "estimatedTimeSec": 300,
-      "imageUrl": "assets/images/recipes/madera_cake/step2.jpg",
+      "title": "04. 설탕·소금 크림화",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step4.jpg",
       "description": [
-        "분당80+시럽20",
-        "윗면 발라 180℃ 2~3분"
+        "설탕, 소금을 넣어 크림화한다."
+      ],
+      "tips": [
+        "달걀을 넣기 전에 크림화를 충분히 해야 분리를 방지할 수 있다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 반죽 정리",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step5.jpg",
+      "description": [
+        "믹싱볼 옆면과 바닥면에 붙어 있는 반죙을 긁어 잘 섞이도록 한다."
       ],
       "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 달걀 크림화",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step6.jpg",
+      "description": [
+        "달걀을 조금씩 나누어 넣으면서 부드러운 크림을 만든다(믹싱을 완료한다)."
+      ],
+      "tips": [
+        "달걀을 조금씩 나누어 넣어 유지와 달걀이 분리되는 것을 방지한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 충전물 가루 코팅",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step7.jpg",
+      "description": [
+        "전처리한 건포도와 호두에 소량의 밀가루를 골고루 묻힌다."
+      ],
+      "tips": [
+        "밀가루로 전처리하는 것은 충전물이 바닥으로 가라앉는 것을 방지하기 위함이다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 충전물 섞기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step8.jpg",
+      "description": [
+        "전처리한 건포도와 호두를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 가루재료 혼합",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step9.jpg",
+      "description": [
+        "체질한 가루재료(박력분, 베이킹파우더)를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 적포도주 넣기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step10.jpg",
+      "description": [
+        "건포도를 전처리하고 체에 걸러놓은 적포도주를 넣고 섞는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 머핀팬 속지",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step11.jpg",
+      "description": [
+        "머핀팬에 속지를 넣어 준비한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 팬닝·굽기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step12.jpg",
+      "description": [
+        "짤주머니를 이용하여 머핀팬의 70% 정도 팬닝한 후 윗불 180℃, 아랫불 160℃에서 25~30분 동안 굽는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 1650
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 퐁당 제조",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step13.jpg",
+      "description": [
+        "분당 80g과 적포도주 시럽 20g을 섞어 퐁당을 만든다."
+      ],
+      "tips": [
+        "적포도주 퐁당은 미리 제조하면 굳을 수 있으므로 머핀이 90% 정도 구워졌을 때 제조한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 퐁당 바르기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step14.jpg",
+      "description": [
+        "색이 나고 다 익은 상태에서 윗면에 퐁당을 골고루 바른다."
+      ],
+      "tips": [
+        "제품이 익지 않은 상태에서 퐁당을 바르면 껍질이 벗겨지거나 제품이 주저앉는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 윗면 건조",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step15.jpg",
+      "description": [
+        "오븐에 넣고 180℃로 2~3분 동안 윗면을 건조시킨 후 꺼낸다."
+      ],
+      "tips": [
+        "머핀을 잘랐을 때 견과류가 바닥에 가라앉지 않고, 머핀의 윗면이 터지지 않아야 한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
