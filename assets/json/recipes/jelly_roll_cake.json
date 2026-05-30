@@ -1,0 +1,179 @@
+{
+  "id": "jelly_roll_cake",
+  "name": "젤리롤케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/jelly_roll_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 5400,
+    "mixingMethod": "sponge",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1350
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 30분",
+          "공립법",
+          "반죽온 23℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "중탕 43~50℃",
+          "아이보리 거품"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "캐러멜 3cm 무늬",
+          "젖은 면포 말기"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 20~25분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "내부 빈틈",
+          "무늬 불균",
+          "과밀 말기"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 520,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 680,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 8,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물엿",
+      "amount": 32,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 2,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "우유",
+      "amount": 80,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 4,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "잼",
+      "amount": 200,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽·무늬",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/jelly_roll_cake/step1.jpg",
+      "description": [
+        "계량",
+        "중탕 거품",
+        "가루·우유",
+        "캐러멜 무늬"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기·말기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/jelly_roll_cake/step2.jpg",
+      "description": [
+        "굽기",
+        "뒤집기",
+        "잼·말기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "holes",
+      "text": "내부 빈틈 없음"
+    },
+    {
+      "id": "pattern",
+      "text": "캐러멜 대칭·균열 없음"
+    },
+    {
+      "id": "volume",
+      "text": "부피·뭉침 없음"
+    }
+  ]
+}

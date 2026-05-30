@@ -68,18 +68,26 @@
       }
     ]
   },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 770,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "호밀가루",
       "amount": 330,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "이스트",
@@ -91,7 +99,8 @@
       "name": "제빵개량제",
       "amount": 11,
       "unit": "g",
-      "category": "improver"
+      "category": "improver",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "물",
@@ -103,13 +112,15 @@
       "name": "소금",
       "amount": 22,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "황설탕",
       "amount": 33,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "쇼트닝",
@@ -121,7 +132,8 @@
       "name": "탈지분유",
       "amount": 22,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "몰트액",

@@ -14,6 +14,8 @@ import 'app/core/storage/screen_wake_preferences.dart';
 import 'app/core/storage/swipe_step_preferences.dart';
 import 'app/core/storage/theme_preferences.dart';
 import 'app/core/storage/recipe_bookmark_preferences.dart';
+import 'app/core/storage/owned_ingredient_preferences.dart';
+import 'app/core/storage/recipe_exam_type_filter_preferences.dart';
 import 'app/core/storage/timer_notification_preferences.dart';
 import 'app/core/theme/app_theme_controller.dart';
 import 'app/core/utils/app_snackbar.dart';
@@ -31,6 +33,8 @@ Future<void> main() async {
   final fontScalePreferences = FontScalePreferences();
   final timerNotificationPreferences = TimerNotificationPreferences();
   final recipeBookmarkPreferences = RecipeBookmarkPreferences();
+  final recipeExamTypeFilterPreferences = RecipeExamTypeFilterPreferences();
+  final ownedIngredientPreferences = OwnedIngredientPreferences();
   final wakelockService = WakelockService();
 
   final isDarkMode = await themePreferences.loadIsDarkMode();
@@ -49,6 +53,8 @@ Future<void> main() async {
   Get.put(swipeStepPreferences, permanent: true);
   Get.put(timerNotificationPreferences, permanent: true);
   Get.put(recipeBookmarkPreferences, permanent: true);
+  Get.put(recipeExamTypeFilterPreferences, permanent: true);
+  Get.put(ownedIngredientPreferences, permanent: true);
   Get.put(wakelockService, permanent: true);
   Get.put(
     SwipeStepNavigationService(initialEnabled: swipeStepEnabled),

@@ -1,0 +1,183 @@
+{
+  "id": "madeleine",
+  "name": "마드레느",
+  "category": "specialty",
+  "thumbnailUrl": "assets/images/recipes/madeleine/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "one_stage",
+    "oven": {
+      "top": 180,
+      "bottom": 150,
+      "unit": "celsius",
+      "timeSec": 900
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "1단계법(변형)",
+          "수작업"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "용해버터 2~3회",
+          "기포 최소",
+          "반죽온 24℃"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "실온 휴지 15~20분",
+          "팬 80%",
+          "유지 바르기"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/150℃ 약 15분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "날개 과다",
+          "윗면 과평탄"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 8,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 400,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 400,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "레몬껍질",
+      "amount": 4,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 2,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 400,
+      "unit": "g",
+      "category": "fat"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/madeleine/step1.jpg",
+      "description": [
+        "계량",
+        "레몬껍질",
+        "중탕 버터",
+        "가루+달걀+버터"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 휴지·성형",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/madeleine/step2.jpg",
+      "description": [
+        "휴지 15~20분",
+        "팬 유지",
+        "80% 짜기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 굽기",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/madeleine/step2.jpg",
+      "description": [
+        "180/150℃ 15분",
+        "분리"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "color",
+      "text": "황금갈색"
+    },
+    {
+      "id": "shape",
+      "text": "가운데 솟음·날개 적절"
+    },
+    {
+      "id": "crumb",
+      "text": "기공 과다 없음"
+    }
+  ]
+}

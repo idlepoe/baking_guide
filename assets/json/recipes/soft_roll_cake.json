@@ -1,0 +1,192 @@
+{
+  "id": "soft_roll_cake",
+  "name": "소프트롤케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/soft_roll_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "separated_egg",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1200
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "별립법",
+          "반죽온 22℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "식용유 희석 혼합",
+          "비중 0.5±0.05"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "캐러멜 3cm 간격 무늬",
+          "잼 말기"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 약 20분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "무늬 불균형",
+          "내부 기공",
+          "과밀 말기"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 250,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 A",
+      "amount": 176,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물엿",
+      "amount": 26,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 2,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물",
+      "amount": 50,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 2,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 B",
+      "amount": 150,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 700,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 2,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "식용유",
+      "amount": 126,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "잼",
+      "amount": 200,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/soft_roll_cake/step1.jpg",
+      "description": [
+        "계량·분리",
+        "노른자+물엿",
+        "머랭",
+        "유+가루"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 무늬·굽기·말기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/soft_roll_cake/step2.jpg",
+      "description": [
+        "팬닝·캐러멜무늬",
+        "굽기",
+        "젖은 면포·잼·말기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "holes",
+      "text": "내부 기공 없음"
+    },
+    {
+      "id": "pattern",
+      "text": "캐러멜 무늬 대칭"
+    },
+    {
+      "id": "roll",
+      "text": "부피·갈라짐 없이 말기"
+    }
+  ]
+}

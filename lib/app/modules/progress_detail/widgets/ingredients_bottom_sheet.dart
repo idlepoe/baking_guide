@@ -8,6 +8,8 @@ import '../../../core/utils/app_snackbar.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
 import '../../../core/utils/ingredient_format.dart';
+import '../../../core/utils/ingredient_weigh_group_style.dart';
+import '../../../data/models/ingredient_weigh_group.dart';
 import '../../../data/models/recipe_ingredient.dart';
 import '../controllers/progress_detail_controller.dart';
 
@@ -32,10 +34,12 @@ class IngredientsBottomSheet extends StatefulWidget {
   const IngredientsBottomSheet({
     super.key,
     required this.ingredients,
+    required this.weighGroups,
     required this.controller,
   });
 
   final List<RecipeIngredient> ingredients;
+  final List<IngredientWeighGroup> weighGroups;
   final ProgressDetailController controller;
 
   @override
@@ -45,7 +49,9 @@ class IngredientsBottomSheet extends StatefulWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!context.mounted) return;
 
-      final ingredients = controller.recipe.value?.ingredients ?? [];
+      final recipe = controller.recipe.value;
+      final ingredients = recipe?.ingredients ?? [];
+      final weighGroups = recipe?.weighGroups ?? [];
       if (ingredients.isEmpty) {
         AppSnackbar.show(
           context: context,
@@ -66,6 +72,7 @@ class IngredientsBottomSheet extends StatefulWidget {
         ),
         builder: (sheetContext) => IngredientsBottomSheet(
           ingredients: ingredients,
+          weighGroups: weighGroups,
           controller: controller,
         ),
       );
@@ -108,6 +115,11 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final weighGroupStyle = IngredientWeighGroupStyle(
+      ingredients: ingredients,
+      weighGroups: widget.weighGroups,
+      scheme: scheme,
+    );
     final maxHeight = MediaQuery.sizeOf(context).height * 0.88;
 
     return SafeArea(
@@ -147,6 +159,13 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: _SummaryBanner(count: ingredients.length),
             ),
+            if (weighGroupStyle.hasLegend) ...[
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: _WeighGroupLegend(style: weighGroupStyle),
+              ),
+            ],
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
               child: _BatchScaleSlider(
@@ -183,6 +202,7 @@ class _IngredientsBottomSheetState extends State<IngredientsBottomSheet> {
                               : null,
                           ingredient: ingredient,
                           batchScale: _batchScale,
+                          groupBarColor: weighGroupStyle.barColorFor(ingredient),
                           checked: checked,
                           onToggle: () =>
                               controller.toggleIngredient(ingredient.name),
@@ -260,6 +280,55 @@ class _BatchScaleSlider extends StatelessWidget {
   }
 }
 
+class _WeighGroupLegend extends StatelessWidget {
+  const _WeighGroupLegend({required this.style});
+
+  final IngredientWeighGroupStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '같은 색 = 같이 계량 가능',
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 12,
+          runSpacing: 8,
+          children: [
+            for (final entry in style.legendEntries)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: entry.value,
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    style.labelFor(entry.key),
+                    style: theme.textTheme.labelMedium,
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class _SummaryBanner extends StatelessWidget {
   const _SummaryBanner({required this.count});
 
@@ -322,12 +391,14 @@ class _IngredientRow extends StatelessWidget {
     super.key,
     required this.ingredient,
     required this.batchScale,
+    this.groupBarColor,
     required this.checked,
     required this.onToggle,
   });
 
   final RecipeIngredient ingredient;
   final IngredientBatchScale batchScale;
+  final Color? groupBarColor;
   final bool checked;
   final VoidCallback onToggle;
 
@@ -342,6 +413,17 @@ class _IngredientRow extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (groupBarColor != null) ...[
+              Container(
+                width: 4,
+                height: 28,
+                decoration: BoxDecoration(
+                  color: groupBarColor,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(width: 8),
+            ],
             Icon(
               checked ? Icons.check_box : Icons.check_box_outline_blank,
               color: checked

@@ -1,0 +1,183 @@
+{
+  "id": "choco_roll_cake",
+  "name": "초코롤케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/choco_roll_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "sponge",
+    "oven": {
+      "top": 190,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 750
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "공립법",
+          "반죽온 24℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "비중 0.5±0.05",
+          "오버베이킹 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "구운 윗면에 가나슈",
+          "원형 말기"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "190/160℃ 10~15분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "코코아 뭉침",
+          "내부 구멍",
+          "갈라짐"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 168,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 480,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "설탕",
+      "amount": 216,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "코코아파우더",
+      "amount": 36,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹소다",
+      "amount": 2,
+      "unit": "g",
+      "category": "improver",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물",
+      "amount": 12,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "우유",
+      "amount": 30,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "다크커버춰",
+      "amount": 200,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "생크림",
+      "amount": 200,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "럼주",
+      "amount": 20,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 시트",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/choco_roll_cake/step1.jpg",
+      "description": [
+        "계량",
+        "중탕 거품",
+        "가루·굽기",
+        "면포 덮기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 가나슈·말기",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/choco_roll_cake/step2.jpg",
+      "description": [
+        "가나슈 40~45℃",
+        "잼 대신 윗면 발라 말기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "surface",
+      "text": "코코아 뭉침 없음"
+    },
+    {
+      "id": "crumb",
+      "text": "내부 구멍 없음"
+    },
+    {
+      "id": "roll",
+      "text": "두께 균일·갈라짐 없음"
+    }
+  ]
+}

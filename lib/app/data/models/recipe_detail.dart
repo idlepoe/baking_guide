@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'evaluation_criterion.dart';
+import 'ingredient_weigh_group.dart';
 import 'recipe_ingredient.dart';
 import 'recipe_step.dart';
 import 'recipe_summary.dart';
@@ -17,6 +18,7 @@ abstract class RecipeDetail with _$RecipeDetail {
     @Default('') String thumbnailUrl,
     required RecipeSummary summary,
     @Default([]) List<RecipeIngredient> ingredients,
+    @Default([]) List<IngredientWeighGroup> weighGroups,
     @Default([]) List<RecipeStep> steps,
     @Default([]) List<EvaluationCriterion> resultEvaluation,
   }) = _RecipeDetail;

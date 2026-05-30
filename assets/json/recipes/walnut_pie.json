@@ -1,0 +1,222 @@
+{
+  "id": "walnut_pie",
+  "name": "호두파이",
+  "category": "specialty",
+  "thumbnailUrl": "assets/images/recipes/walnut_pie/main.jpg",
+  "summary": {
+    "examTimeSec": 9000,
+    "mixingMethod": "blending",
+    "oven": {
+      "top": 180,
+      "bottom": 200,
+      "unit": "celsius",
+      "timeSec": 2100
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간 30분",
+          "블렌딩법",
+          "7개 제조"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "콩알 버터",
+          "냉장휴지 30분",
+          "과치대 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "물결 가장자리",
+          "충전 층 선명"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/200℃ 30~40분",
+          "아랫불 높게"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "주저앉음",
+          "윗 터짐",
+          "겹 없음"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "중력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀 노른자",
+      "amount": 40,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 6,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 12,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "생크림",
+      "amount": 48,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "버터",
+      "amount": 160,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "물",
+      "amount": 100,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "호두",
+      "amount": 250,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "설탕(충전)",
+      "amount": 250,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "물엿",
+      "amount": 250,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "계핏가루",
+      "amount": 2.5,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물(충전)",
+      "amount": 100,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "달걀",
+      "amount": 600,
+      "unit": "g",
+      "category": "egg"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 껍질",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/walnut_pie/step1.jpg",
+      "description": [
+        "계량",
+        "찬물 용해",
+        "버터 다지기",
+        "냉장휴지"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 충전",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/walnut_pie/step2.jpg",
+      "description": [
+        "호두 구움",
+        "시럽 중탕",
+        "달걀·체거름"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 성형·굽기",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/walnut_pie/step2.jpg",
+      "description": [
+        "팬닝",
+        "물결",
+        "충전",
+        "굽기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "structure",
+      "text": "밑·옆 색·함몰 없음"
+    },
+    {
+      "id": "uniformity",
+      "text": "7개 두께·모양 동일"
+    },
+    {
+      "id": "layers",
+      "text": "껍질 겹·바닥 적정 두께"
+    }
+  ]
+}

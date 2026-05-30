@@ -1,0 +1,174 @@
+{
+  "id": "black_rice_roll_cake",
+  "name": "흑미롤케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/black_rice_roll_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "sponge",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1050
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "공립법",
+          "반죽온 25℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "달걀 중탕 43℃",
+          "우유 50℃",
+          "비중 0.5±0.05"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "생크림 말기",
+          "좌우 대칭"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 15~20분",
+          "펀칭"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "흑미 뭉침",
+          "갈라짐",
+          "크림 찌그러짐"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력쌀가루",
+      "amount": 240,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "흑미쌀가루",
+      "amount": 60,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 300,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 465,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 2,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 2,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "우유",
+      "amount": 180,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "생크림",
+      "amount": 150,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 시트",
+      "estimatedTimeSec": 1500,
+      "imageUrl": "assets/images/recipes/black_rice_roll_cake/step1.jpg",
+      "description": [
+        "계량",
+        "중탕 거품",
+        "가루·우유",
+        "팬닝·굽기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 말기",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/black_rice_roll_cake/step2.jpg",
+      "description": [
+        "냉각·생크림",
+        "뒤집기",
+        "말기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "symmetry",
+      "text": "좌우 대칭·크림 약하게 휘핑"
+    },
+    {
+      "id": "fill",
+      "text": "크림 균일·롤 풀림 없음"
+    },
+    {
+      "id": "surface",
+      "text": "윗면 뭉침·갈라짐 없음"
+    }
+  ]
+}

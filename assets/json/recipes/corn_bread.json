@@ -59,18 +59,26 @@
       }
     ]
   },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 960,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "옥수수분말",
       "amount": 240,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "물",
@@ -88,19 +96,22 @@
       "name": "제빵개량제",
       "amount": 12,
       "unit": "g",
-      "category": "improver"
+      "category": "improver",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "소금",
       "amount": 24,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "설탕",
       "amount": 96,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "쇼트닝",
@@ -112,7 +123,8 @@
       "name": "탈지분유",
       "amount": 36,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "달걀",

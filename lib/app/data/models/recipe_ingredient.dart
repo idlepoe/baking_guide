@@ -12,6 +12,7 @@ abstract class RecipeIngredient with _$RecipeIngredient {
     required num amount,
     required String unit,
     required IngredientCategory category,
+    String? weighGroupId,
     @Default(true) bool required,
     num? maxAmount,
   }) = _RecipeIngredient;

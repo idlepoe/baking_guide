@@ -1,0 +1,177 @@
+{
+  "id": "cheesecake",
+  "name": "치즈케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/cheesecake/main.jpg",
+  "summary": {
+    "examTimeSec": 9000,
+    "mixingMethod": "separated_egg",
+    "oven": {
+      "top": 150,
+      "bottom": 150,
+      "unit": "celsius",
+      "timeSec": 3000
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간 30분",
+          "별립법+크림치즈",
+          "반죽온 20℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "머랭 70%",
+          "건조피크 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "팬 버터·설탕",
+          "80% 팬닝"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "150/150℃ 50분 중탕"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "윗면 갈라짐",
+          "함몰",
+          "거친 기공"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "중력분",
+      "amount": 80,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 80,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "설탕 A",
+      "amount": 80,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 B",
+      "amount": 80,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 240,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "크림치즈",
+      "amount": 400,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "우유",
+      "amount": 130,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "럼주",
+      "amount": 10,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "레몬주스",
+      "amount": 20,
+      "unit": "g",
+      "category": "liquid"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/cheesecake/step1.jpg",
+      "description": [
+        "계량·분리",
+        "팬 코팅",
+        "크림치즈+노른자",
+        "머랭 70%"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기",
+      "estimatedTimeSec": 3600,
+      "imageUrl": "assets/images/recipes/cheesecake/step2.jpg",
+      "description": [
+        "머랭 접기",
+        "80% 팬닝",
+        "중탕 50분",
+        "배열"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "top",
+      "text": "윗면 약간 솟음·갈라짐 없음"
+    },
+    {
+      "id": "crumb",
+      "text": "매끈·촉촉"
+    },
+    {
+      "id": "volume",
+      "text": "부피 균일·함몰 없음"
+    }
+  ]
+}

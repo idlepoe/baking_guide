@@ -1,0 +1,173 @@
+{
+  "id": "chiffon_cake",
+  "name": "시퐁케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/chiffon_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 6000,
+    "mixingMethod": "chiffon",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 40분",
+          "시폰법",
+          "반죽온 23℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "노른자 거품 최소",
+          "머랭 80%"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "팬 60%",
+          "즉시 뒤집기"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 30분",
+          "물 뿌려 냉각"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "함몰",
+          "옆면 눌림",
+          "부피 불균"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 A",
+      "amount": 260,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 B",
+      "amount": 260,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 600,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 6,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 10,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "식용유",
+      "amount": 160,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "물",
+      "amount": 120,
+      "unit": "g",
+      "category": "liquid"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/chiffon_cake/step1.jpg",
+      "description": [
+        "계량·분리",
+        "팬 스프레이",
+        "노른자+유+물",
+        "머랭 접기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기·완성",
+      "estimatedTimeSec": 2400,
+      "imageUrl": "assets/images/recipes/chiffon_cake/step2.jpg",
+      "description": [
+        "60% 팬닝",
+        "굽기",
+        "뒤집기·냉각·탈형"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "surface",
+      "text": "끈적·함몰 없음"
+    },
+    {
+      "id": "shape",
+      "text": "기공·옆면 손상 없음"
+    },
+    {
+      "id": "volume",
+      "text": "4개 부피 균일·연한 황색"
+    }
+  ]
+}

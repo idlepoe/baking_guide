@@ -6,31 +6,35 @@ part of 'recipe_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_RecipeDetail _$RecipeDetailFromJson(Map<String, dynamic> json) =>
-    _RecipeDetail(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      category: json['category'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String? ?? '',
-      summary: RecipeSummary.fromJson(json['summary'] as Map<String, dynamic>),
-      ingredients:
-          (json['ingredients'] as List<dynamic>?)
-              ?.map((e) => RecipeIngredient.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      steps:
-          (json['steps'] as List<dynamic>?)
-              ?.map((e) => RecipeStep.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      resultEvaluation:
-          (json['resultEvaluation'] as List<dynamic>?)
-              ?.map(
-                (e) => EvaluationCriterion.fromJson(e as Map<String, dynamic>),
-              )
-              .toList() ??
-          const [],
-    );
+_RecipeDetail _$RecipeDetailFromJson(
+  Map<String, dynamic> json,
+) => _RecipeDetail(
+  id: json['id'] as String,
+  name: json['name'] as String,
+  category: json['category'] as String,
+  thumbnailUrl: json['thumbnailUrl'] as String? ?? '',
+  summary: RecipeSummary.fromJson(json['summary'] as Map<String, dynamic>),
+  ingredients:
+      (json['ingredients'] as List<dynamic>?)
+          ?.map((e) => RecipeIngredient.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  weighGroups:
+      (json['weighGroups'] as List<dynamic>?)
+          ?.map((e) => IngredientWeighGroup.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  steps:
+      (json['steps'] as List<dynamic>?)
+          ?.map((e) => RecipeStep.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  resultEvaluation:
+      (json['resultEvaluation'] as List<dynamic>?)
+          ?.map((e) => EvaluationCriterion.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+);
 
 Map<String, dynamic> _$RecipeDetailToJson(_RecipeDetail instance) =>
     <String, dynamic>{
@@ -40,6 +44,7 @@ Map<String, dynamic> _$RecipeDetailToJson(_RecipeDetail instance) =>
       'thumbnailUrl': instance.thumbnailUrl,
       'summary': instance.summary,
       'ingredients': instance.ingredients,
+      'weighGroups': instance.weighGroups,
       'steps': instance.steps,
       'resultEvaluation': instance.resultEvaluation,
     };

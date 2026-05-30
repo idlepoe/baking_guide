@@ -1,0 +1,190 @@
+{
+  "id": "choco_muffin",
+  "name": "초코머핀",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/choco_muffin/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1650
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "크림법",
+          "11재료 11분"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "크림화 후 초코칩",
+          "접기 혼합"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "머핀 70%",
+          "반죽 전량"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 25~30분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "짤주머니 새어나옴",
+          "부피 불균"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 500,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 300,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 300,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "달걀",
+      "amount": 300,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 5,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹소다",
+      "amount": 2,
+      "unit": "g",
+      "category": "improver",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 8,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "코코아파우더",
+      "amount": 60,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물",
+      "amount": 175,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 30,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "초코칩",
+      "amount": 180,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/choco_muffin/step1.jpg",
+      "description": [
+        "계량",
+        "크림화",
+        "초코칩",
+        "가루+물 접기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/choco_muffin/step2.jpg",
+      "description": [
+        "70% 팬닝",
+        "180/160℃ 25~30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "volume",
+      "text": "부피·크기 균일"
+    },
+    {
+      "id": "top",
+      "text": "윗면 둥글게"
+    },
+    {
+      "id": "chips",
+      "text": "초코칩 고르게·부드러움"
+    }
+  ]
+}

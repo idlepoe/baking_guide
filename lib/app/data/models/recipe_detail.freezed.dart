@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecipeDetail {
 
- String get id; String get name; String get category; String get thumbnailUrl; RecipeSummary get summary; List<RecipeIngredient> get ingredients; List<RecipeStep> get steps; List<EvaluationCriterion> get resultEvaluation;
+ String get id; String get name; String get category; String get thumbnailUrl; RecipeSummary get summary; List<RecipeIngredient> get ingredients; List<IngredientWeighGroup> get weighGroups; List<RecipeStep> get steps; List<EvaluationCriterion> get resultEvaluation;
 /// Create a copy of RecipeDetail
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $RecipeDetailCopyWith<RecipeDetail> get copyWith => _$RecipeDetailCopyWithImpl<R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeDetail&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other.ingredients, ingredients)&&const DeepCollectionEquality().equals(other.steps, steps)&&const DeepCollectionEquality().equals(other.resultEvaluation, resultEvaluation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeDetail&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other.ingredients, ingredients)&&const DeepCollectionEquality().equals(other.weighGroups, weighGroups)&&const DeepCollectionEquality().equals(other.steps, steps)&&const DeepCollectionEquality().equals(other.resultEvaluation, resultEvaluation));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,summary,const DeepCollectionEquality().hash(ingredients),const DeepCollectionEquality().hash(steps),const DeepCollectionEquality().hash(resultEvaluation));
+int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,summary,const DeepCollectionEquality().hash(ingredients),const DeepCollectionEquality().hash(weighGroups),const DeepCollectionEquality().hash(steps),const DeepCollectionEquality().hash(resultEvaluation));
 
 @override
 String toString() {
-  return 'RecipeDetail(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, summary: $summary, ingredients: $ingredients, steps: $steps, resultEvaluation: $resultEvaluation)';
+  return 'RecipeDetail(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, summary: $summary, ingredients: $ingredients, weighGroups: $weighGroups, steps: $steps, resultEvaluation: $resultEvaluation)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $RecipeDetailCopyWith<$Res>  {
   factory $RecipeDetailCopyWith(RecipeDetail value, $Res Function(RecipeDetail) _then) = _$RecipeDetailCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String category, String thumbnailUrl, RecipeSummary summary, List<RecipeIngredient> ingredients, List<RecipeStep> steps, List<EvaluationCriterion> resultEvaluation
+ String id, String name, String category, String thumbnailUrl, RecipeSummary summary, List<RecipeIngredient> ingredients, List<IngredientWeighGroup> weighGroups, List<RecipeStep> steps, List<EvaluationCriterion> resultEvaluation
 });
 
 
@@ -65,7 +65,7 @@ class _$RecipeDetailCopyWithImpl<$Res>
 
 /// Create a copy of RecipeDetail
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? summary = null,Object? ingredients = null,Object? steps = null,Object? resultEvaluation = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? summary = null,Object? ingredients = null,Object? weighGroups = null,Object? steps = null,Object? resultEvaluation = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -73,7 +73,8 @@ as String,category: null == category ? _self.category : category // ignore: cast
 as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,summary: null == summary ? _self.summary : summary // ignore: cast_nullable_to_non_nullable
 as RecipeSummary,ingredients: null == ingredients ? _self.ingredients : ingredients // ignore: cast_nullable_to_non_nullable
-as List<RecipeIngredient>,steps: null == steps ? _self.steps : steps // ignore: cast_nullable_to_non_nullable
+as List<RecipeIngredient>,weighGroups: null == weighGroups ? _self.weighGroups : weighGroups // ignore: cast_nullable_to_non_nullable
+as List<IngredientWeighGroup>,steps: null == steps ? _self.steps : steps // ignore: cast_nullable_to_non_nullable
 as List<RecipeStep>,resultEvaluation: null == resultEvaluation ? _self.resultEvaluation : resultEvaluation // ignore: cast_nullable_to_non_nullable
 as List<EvaluationCriterion>,
   ));
@@ -169,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<IngredientWeighGroup> weighGroups,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecipeDetail() when $default != null:
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.steps,_that.resultEvaluation);case _:
+return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.weighGroups,_that.steps,_that.resultEvaluation);case _:
   return orElse();
 
 }
@@ -190,10 +191,10 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summ
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<IngredientWeighGroup> weighGroups,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)  $default,) {final _that = this;
 switch (_that) {
 case _RecipeDetail():
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.steps,_that.resultEvaluation);case _:
+return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.weighGroups,_that.steps,_that.resultEvaluation);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +211,10 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summ
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String category,  String thumbnailUrl,  RecipeSummary summary,  List<RecipeIngredient> ingredients,  List<IngredientWeighGroup> weighGroups,  List<RecipeStep> steps,  List<EvaluationCriterion> resultEvaluation)?  $default,) {final _that = this;
 switch (_that) {
 case _RecipeDetail() when $default != null:
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.steps,_that.resultEvaluation);case _:
+return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summary,_that.ingredients,_that.weighGroups,_that.steps,_that.resultEvaluation);case _:
   return null;
 
 }
@@ -225,7 +226,7 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.summ
 @JsonSerializable()
 
 class _RecipeDetail implements RecipeDetail {
-  const _RecipeDetail({required this.id, required this.name, required this.category, this.thumbnailUrl = '', required this.summary, final  List<RecipeIngredient> ingredients = const [], final  List<RecipeStep> steps = const [], final  List<EvaluationCriterion> resultEvaluation = const []}): _ingredients = ingredients,_steps = steps,_resultEvaluation = resultEvaluation;
+  const _RecipeDetail({required this.id, required this.name, required this.category, this.thumbnailUrl = '', required this.summary, final  List<RecipeIngredient> ingredients = const [], final  List<IngredientWeighGroup> weighGroups = const [], final  List<RecipeStep> steps = const [], final  List<EvaluationCriterion> resultEvaluation = const []}): _ingredients = ingredients,_weighGroups = weighGroups,_steps = steps,_resultEvaluation = resultEvaluation;
   factory _RecipeDetail.fromJson(Map<String, dynamic> json) => _$RecipeDetailFromJson(json);
 
 @override final  String id;
@@ -238,6 +239,13 @@ class _RecipeDetail implements RecipeDetail {
   if (_ingredients is EqualUnmodifiableListView) return _ingredients;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_ingredients);
+}
+
+ final  List<IngredientWeighGroup> _weighGroups;
+@override@JsonKey() List<IngredientWeighGroup> get weighGroups {
+  if (_weighGroups is EqualUnmodifiableListView) return _weighGroups;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_weighGroups);
 }
 
  final  List<RecipeStep> _steps;
@@ -268,16 +276,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeDetail&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other._ingredients, _ingredients)&&const DeepCollectionEquality().equals(other._steps, _steps)&&const DeepCollectionEquality().equals(other._resultEvaluation, _resultEvaluation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeDetail&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other._ingredients, _ingredients)&&const DeepCollectionEquality().equals(other._weighGroups, _weighGroups)&&const DeepCollectionEquality().equals(other._steps, _steps)&&const DeepCollectionEquality().equals(other._resultEvaluation, _resultEvaluation));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,summary,const DeepCollectionEquality().hash(_ingredients),const DeepCollectionEquality().hash(_steps),const DeepCollectionEquality().hash(_resultEvaluation));
+int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,summary,const DeepCollectionEquality().hash(_ingredients),const DeepCollectionEquality().hash(_weighGroups),const DeepCollectionEquality().hash(_steps),const DeepCollectionEquality().hash(_resultEvaluation));
 
 @override
 String toString() {
-  return 'RecipeDetail(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, summary: $summary, ingredients: $ingredients, steps: $steps, resultEvaluation: $resultEvaluation)';
+  return 'RecipeDetail(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, summary: $summary, ingredients: $ingredients, weighGroups: $weighGroups, steps: $steps, resultEvaluation: $resultEvaluation)';
 }
 
 
@@ -288,7 +296,7 @@ abstract mixin class _$RecipeDetailCopyWith<$Res> implements $RecipeDetailCopyWi
   factory _$RecipeDetailCopyWith(_RecipeDetail value, $Res Function(_RecipeDetail) _then) = __$RecipeDetailCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String category, String thumbnailUrl, RecipeSummary summary, List<RecipeIngredient> ingredients, List<RecipeStep> steps, List<EvaluationCriterion> resultEvaluation
+ String id, String name, String category, String thumbnailUrl, RecipeSummary summary, List<RecipeIngredient> ingredients, List<IngredientWeighGroup> weighGroups, List<RecipeStep> steps, List<EvaluationCriterion> resultEvaluation
 });
 
 
@@ -305,7 +313,7 @@ class __$RecipeDetailCopyWithImpl<$Res>
 
 /// Create a copy of RecipeDetail
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? summary = null,Object? ingredients = null,Object? steps = null,Object? resultEvaluation = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? summary = null,Object? ingredients = null,Object? weighGroups = null,Object? steps = null,Object? resultEvaluation = null,}) {
   return _then(_RecipeDetail(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -313,7 +321,8 @@ as String,category: null == category ? _self.category : category // ignore: cast
 as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,summary: null == summary ? _self.summary : summary // ignore: cast_nullable_to_non_nullable
 as RecipeSummary,ingredients: null == ingredients ? _self._ingredients : ingredients // ignore: cast_nullable_to_non_nullable
-as List<RecipeIngredient>,steps: null == steps ? _self._steps : steps // ignore: cast_nullable_to_non_nullable
+as List<RecipeIngredient>,weighGroups: null == weighGroups ? _self._weighGroups : weighGroups // ignore: cast_nullable_to_non_nullable
+as List<IngredientWeighGroup>,steps: null == steps ? _self._steps : steps // ignore: cast_nullable_to_non_nullable
 as List<RecipeStep>,resultEvaluation: null == resultEvaluation ? _self._resultEvaluation : resultEvaluation // ignore: cast_nullable_to_non_nullable
 as List<EvaluationCriterion>,
   ));

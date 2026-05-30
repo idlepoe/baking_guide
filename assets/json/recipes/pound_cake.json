@@ -1,0 +1,179 @@
+{
+  "id": "pound_cake",
+  "name": "파운드 케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/pound_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 9000,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 200,
+      "bottom": 180,
+      "unit": "celsius",
+      "timeSec": 900
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간 30분",
+          "크림법",
+          "반죽온 23℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "비중 0.8±0.05",
+          "U자 팬닝 70%"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "윗면 일자 절개",
+          "뚜껑(지시)"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "200/180℃ 15분→180/160℃ 20~30분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "기공 과다",
+          "4개 불균",
+          "속살 벌어짐 부족"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 800,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 640,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 640,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "유화제",
+      "amount": 16,
+      "unit": "g",
+      "category": "improver",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 8,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "탈지분유",
+      "amount": 16,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 4,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 16,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 640,
+      "unit": "g",
+      "category": "egg"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽·팬닝",
+      "estimatedTimeSec": 1500,
+      "imageUrl": "assets/images/recipes/pound_cake/step1.jpg",
+      "description": [
+        "크림화",
+        "가루 접기",
+        "70% U자"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/pound_cake/step2.jpg",
+      "description": [
+        "1차 15분",
+        "절개",
+        "2차 20~30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "crumb",
+      "text": "내부 기공 없이 매끈"
+    },
+    {
+      "id": "appearance",
+      "text": "4개 대칭·진한 황금"
+    },
+    {
+      "id": "split",
+      "text": "가운데 속살 잘 벌어짐"
+    }
+  ]
+}

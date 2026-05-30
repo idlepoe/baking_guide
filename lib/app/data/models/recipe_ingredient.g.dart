@@ -12,6 +12,7 @@ _RecipeIngredient _$RecipeIngredientFromJson(Map<String, dynamic> json) =>
       amount: json['amount'] as num,
       unit: json['unit'] as String,
       category: $enumDecode(_$IngredientCategoryEnumMap, json['category']),
+      weighGroupId: json['weighGroupId'] as String?,
       required: json['required'] as bool? ?? true,
       maxAmount: json['maxAmount'] as num?,
     );
@@ -22,6 +23,7 @@ Map<String, dynamic> _$RecipeIngredientToJson(_RecipeIngredient instance) =>
       'amount': instance.amount,
       'unit': instance.unit,
       'category': _$IngredientCategoryEnumMap[instance.category]!,
+      'weighGroupId': instance.weighGroupId,
       'required': instance.required,
       'maxAmount': instance.maxAmount,
     };

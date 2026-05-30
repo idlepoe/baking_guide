@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../progress_list/views/progress_list_view.dart';
 import '../../recipe/views/recipe_view.dart';
+import '../../recipe/widgets/recipe_app_bar_actions.dart';
 import '../../settings/views/settings_view.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/active_timers_bar.dart';
@@ -16,10 +17,18 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 64,
         title: Obx(
           () => Text(_appBarTitles[controller.currentIndex.value]),
         ),
         centerTitle: true,
+        actions: [
+          Obx(
+            () => controller.currentIndex.value == 0
+                ? RecipeAppBarActions.buildAction(context)
+                : const SizedBox.shrink(),
+          ),
+        ],
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
           child: Divider(height: 1),

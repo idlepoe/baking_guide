@@ -1,0 +1,187 @@
+{
+  "id": "butter_sponge_cake_separated",
+  "name": "버터스펀지케이크(별립법)",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/butter_sponge_cake_separated/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "separated_egg",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "별립법",
+          "반죽온 23℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "머랭 중간피크",
+          "용해버터 과혼합 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "50~60% 팬닝",
+          "펀칭"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 30분 전후"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "4개 부피 불균",
+          "함몰·갈라짐"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 600,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 A",
+      "amount": 360,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕 B",
+      "amount": 360,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 900,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 9,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 6,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 3,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "용해버터",
+      "amount": 150,
+      "unit": "g",
+      "category": "fat"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 머랭",
+      "estimatedTimeSec": 720,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_separated/step1.jpg",
+      "description": [
+        "계량·분리",
+        "노른자+설탕A",
+        "머랭"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_separated/step2.jpg",
+      "description": [
+        "머랭 1/3→가루→버터",
+        "머랭 2/3"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_separated/step2.jpg",
+      "description": [
+        "비중 확인",
+        "펀칭",
+        "180/160℃ 30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "volume",
+      "text": "4개 부피 균일"
+    },
+    {
+      "id": "surface",
+      "text": "솟음·갈라짐·검은점 없음"
+    },
+    {
+      "id": "crumb",
+      "text": "함몰 없음·버터 균일"
+    }
+  ]
+}

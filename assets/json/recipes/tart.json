@@ -1,0 +1,215 @@
+{
+  "id": "tart",
+  "name": "타르트",
+  "category": "pastry",
+  "thumbnailUrl": "assets/images/recipes/tart/main.jpg",
+  "summary": {
+    "examTimeSec": 8400,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 180,
+      "bottom": 200,
+      "unit": "celsius",
+      "timeSec": 1800
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간 20분",
+          "크림법",
+          "반죽온 20℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "냉장휴지 20~30분",
+          "두께 3mm"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "Ø10~12cm 60~70%",
+          "아몬드슬라이스"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/200→220℃",
+          "뜨거울 때 광택제"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "수축",
+          "맨홀",
+          "겉·바닥 두께 불균"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 100,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "설탕",
+      "amount": 104,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 160,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "소금",
+      "amount": 2,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "아몬드 분말",
+      "amount": 250,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "설탕(충전)",
+      "amount": 226,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "버터(충전)",
+      "amount": 250,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "달걀(충전)",
+      "amount": 162,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "브랜디",
+      "amount": 30,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "에프리코트혼당",
+      "amount": 150,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "물",
+      "amount": 60,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "아몬드슬라이스",
+      "amount": 100,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/tart/step1.jpg",
+      "description": [
+        "크림법",
+        "냉장휴지"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 충전",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/tart/step2.jpg",
+      "description": [
+        "아몬드크림",
+        "브랜디"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 성형·굽기",
+      "estimatedTimeSec": 2400,
+      "imageUrl": "assets/images/recipes/tart/step2.jpg",
+      "description": [
+        "3mm 밀기",
+        "짜기·토핑",
+        "굽기·광택"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "crust",
+      "text": "겉·바닥 두께 일정"
+    },
+    {
+      "id": "color",
+      "text": "윗면 진한 황금·밑 연갈색"
+    },
+    {
+      "id": "filling",
+      "text": "아몬드 고르게·맨홀 없음"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecipeIngredient {
 
- String get name; num get amount; String get unit; IngredientCategory get category; bool get required; num? get maxAmount;
+ String get name; num get amount; String get unit; IngredientCategory get category; String? get weighGroupId; bool get required; num? get maxAmount;
 /// Create a copy of RecipeIngredient
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $RecipeIngredientCopyWith<RecipeIngredient> get copyWith => _$RecipeIngredientCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeIngredient&&(identical(other.name, name) || other.name == name)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.category, category) || other.category == category)&&(identical(other.required, required) || other.required == required)&&(identical(other.maxAmount, maxAmount) || other.maxAmount == maxAmount));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeIngredient&&(identical(other.name, name) || other.name == name)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.category, category) || other.category == category)&&(identical(other.weighGroupId, weighGroupId) || other.weighGroupId == weighGroupId)&&(identical(other.required, required) || other.required == required)&&(identical(other.maxAmount, maxAmount) || other.maxAmount == maxAmount));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,amount,unit,category,required,maxAmount);
+int get hashCode => Object.hash(runtimeType,name,amount,unit,category,weighGroupId,required,maxAmount);
 
 @override
 String toString() {
-  return 'RecipeIngredient(name: $name, amount: $amount, unit: $unit, category: $category, required: $required, maxAmount: $maxAmount)';
+  return 'RecipeIngredient(name: $name, amount: $amount, unit: $unit, category: $category, weighGroupId: $weighGroupId, required: $required, maxAmount: $maxAmount)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $RecipeIngredientCopyWith<$Res>  {
   factory $RecipeIngredientCopyWith(RecipeIngredient value, $Res Function(RecipeIngredient) _then) = _$RecipeIngredientCopyWithImpl;
 @useResult
 $Res call({
- String name, num amount, String unit, IngredientCategory category, bool required, num? maxAmount
+ String name, num amount, String unit, IngredientCategory category, String? weighGroupId, bool required, num? maxAmount
 });
 
 
@@ -65,13 +65,14 @@ class _$RecipeIngredientCopyWithImpl<$Res>
 
 /// Create a copy of RecipeIngredient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? amount = null,Object? unit = null,Object? category = null,Object? required = null,Object? maxAmount = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? amount = null,Object? unit = null,Object? category = null,Object? weighGroupId = freezed,Object? required = null,Object? maxAmount = freezed,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as num,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as IngredientCategory,required: null == required ? _self.required : required // ignore: cast_nullable_to_non_nullable
+as IngredientCategory,weighGroupId: freezed == weighGroupId ? _self.weighGroupId : weighGroupId // ignore: cast_nullable_to_non_nullable
+as String?,required: null == required ? _self.required : required // ignore: cast_nullable_to_non_nullable
 as bool,maxAmount: freezed == maxAmount ? _self.maxAmount : maxAmount // ignore: cast_nullable_to_non_nullable
 as num?,
   ));
@@ -158,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  num amount,  String unit,  IngredientCategory category,  bool required,  num? maxAmount)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  num amount,  String unit,  IngredientCategory category,  String? weighGroupId,  bool required,  num? maxAmount)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecipeIngredient() when $default != null:
-return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required,_that.maxAmount);case _:
+return $default(_that.name,_that.amount,_that.unit,_that.category,_that.weighGroupId,_that.required,_that.maxAmount);case _:
   return orElse();
 
 }
@@ -179,10 +180,10 @@ return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  num amount,  String unit,  IngredientCategory category,  bool required,  num? maxAmount)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  num amount,  String unit,  IngredientCategory category,  String? weighGroupId,  bool required,  num? maxAmount)  $default,) {final _that = this;
 switch (_that) {
 case _RecipeIngredient():
-return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required,_that.maxAmount);case _:
+return $default(_that.name,_that.amount,_that.unit,_that.category,_that.weighGroupId,_that.required,_that.maxAmount);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +200,10 @@ return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  num amount,  String unit,  IngredientCategory category,  bool required,  num? maxAmount)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  num amount,  String unit,  IngredientCategory category,  String? weighGroupId,  bool required,  num? maxAmount)?  $default,) {final _that = this;
 switch (_that) {
 case _RecipeIngredient() when $default != null:
-return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required,_that.maxAmount);case _:
+return $default(_that.name,_that.amount,_that.unit,_that.category,_that.weighGroupId,_that.required,_that.maxAmount);case _:
   return null;
 
 }
@@ -214,13 +215,14 @@ return $default(_that.name,_that.amount,_that.unit,_that.category,_that.required
 @JsonSerializable()
 
 class _RecipeIngredient implements RecipeIngredient {
-  const _RecipeIngredient({required this.name, required this.amount, required this.unit, required this.category, this.required = true, this.maxAmount});
+  const _RecipeIngredient({required this.name, required this.amount, required this.unit, required this.category, this.weighGroupId, this.required = true, this.maxAmount});
   factory _RecipeIngredient.fromJson(Map<String, dynamic> json) => _$RecipeIngredientFromJson(json);
 
 @override final  String name;
 @override final  num amount;
 @override final  String unit;
 @override final  IngredientCategory category;
+@override final  String? weighGroupId;
 @override@JsonKey() final  bool required;
 @override final  num? maxAmount;
 
@@ -237,16 +239,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeIngredient&&(identical(other.name, name) || other.name == name)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.category, category) || other.category == category)&&(identical(other.required, required) || other.required == required)&&(identical(other.maxAmount, maxAmount) || other.maxAmount == maxAmount));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeIngredient&&(identical(other.name, name) || other.name == name)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.category, category) || other.category == category)&&(identical(other.weighGroupId, weighGroupId) || other.weighGroupId == weighGroupId)&&(identical(other.required, required) || other.required == required)&&(identical(other.maxAmount, maxAmount) || other.maxAmount == maxAmount));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,amount,unit,category,required,maxAmount);
+int get hashCode => Object.hash(runtimeType,name,amount,unit,category,weighGroupId,required,maxAmount);
 
 @override
 String toString() {
-  return 'RecipeIngredient(name: $name, amount: $amount, unit: $unit, category: $category, required: $required, maxAmount: $maxAmount)';
+  return 'RecipeIngredient(name: $name, amount: $amount, unit: $unit, category: $category, weighGroupId: $weighGroupId, required: $required, maxAmount: $maxAmount)';
 }
 
 
@@ -257,7 +259,7 @@ abstract mixin class _$RecipeIngredientCopyWith<$Res> implements $RecipeIngredie
   factory _$RecipeIngredientCopyWith(_RecipeIngredient value, $Res Function(_RecipeIngredient) _then) = __$RecipeIngredientCopyWithImpl;
 @override @useResult
 $Res call({
- String name, num amount, String unit, IngredientCategory category, bool required, num? maxAmount
+ String name, num amount, String unit, IngredientCategory category, String? weighGroupId, bool required, num? maxAmount
 });
 
 
@@ -274,13 +276,14 @@ class __$RecipeIngredientCopyWithImpl<$Res>
 
 /// Create a copy of RecipeIngredient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? amount = null,Object? unit = null,Object? category = null,Object? required = null,Object? maxAmount = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? amount = null,Object? unit = null,Object? category = null,Object? weighGroupId = freezed,Object? required = null,Object? maxAmount = freezed,}) {
   return _then(_RecipeIngredient(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as num,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as IngredientCategory,required: null == required ? _self.required : required // ignore: cast_nullable_to_non_nullable
+as IngredientCategory,weighGroupId: freezed == weighGroupId ? _self.weighGroupId : weighGroupId // ignore: cast_nullable_to_non_nullable
+as String?,required: null == required ? _self.required : required // ignore: cast_nullable_to_non_nullable
 as bool,maxAmount: freezed == maxAmount ? _self.maxAmount : maxAmount // ignore: cast_nullable_to_non_nullable
 as num?,
   ));

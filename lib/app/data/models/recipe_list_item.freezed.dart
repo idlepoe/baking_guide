@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecipeListItem {
 
- String get id; String get name; String get category; String get thumbnailUrl; int get difficulty; int get totalTimeSec;
+ String get id; String get name; String get category; ExamType get examType; String get thumbnailUrl; int get difficulty; int get totalTimeSec;
 /// Create a copy of RecipeListItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $RecipeListItemCopyWith<RecipeListItem> get copyWith => _$RecipeListItemCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.totalTimeSec, totalTimeSec) || other.totalTimeSec == totalTimeSec));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.examType, examType) || other.examType == examType)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.totalTimeSec, totalTimeSec) || other.totalTimeSec == totalTimeSec));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,difficulty,totalTimeSec);
+int get hashCode => Object.hash(runtimeType,id,name,category,examType,thumbnailUrl,difficulty,totalTimeSec);
 
 @override
 String toString() {
-  return 'RecipeListItem(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, difficulty: $difficulty, totalTimeSec: $totalTimeSec)';
+  return 'RecipeListItem(id: $id, name: $name, category: $category, examType: $examType, thumbnailUrl: $thumbnailUrl, difficulty: $difficulty, totalTimeSec: $totalTimeSec)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $RecipeListItemCopyWith<$Res>  {
   factory $RecipeListItemCopyWith(RecipeListItem value, $Res Function(RecipeListItem) _then) = _$RecipeListItemCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String category, String thumbnailUrl, int difficulty, int totalTimeSec
+ String id, String name, String category, ExamType examType, String thumbnailUrl, int difficulty, int totalTimeSec
 });
 
 
@@ -65,12 +65,13 @@ class _$RecipeListItemCopyWithImpl<$Res>
 
 /// Create a copy of RecipeListItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? difficulty = null,Object? totalTimeSec = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? category = null,Object? examType = null,Object? thumbnailUrl = null,Object? difficulty = null,Object? totalTimeSec = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+as String,examType: null == examType ? _self.examType : examType // ignore: cast_nullable_to_non_nullable
+as ExamType,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as int,totalTimeSec: null == totalTimeSec ? _self.totalTimeSec : totalTimeSec // ignore: cast_nullable_to_non_nullable
 as int,
@@ -158,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  int difficulty,  int totalTimeSec)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String category,  ExamType examType,  String thumbnailUrl,  int difficulty,  int totalTimeSec)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecipeListItem() when $default != null:
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
+return $default(_that.id,_that.name,_that.category,_that.examType,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
   return orElse();
 
 }
@@ -179,10 +180,10 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.diff
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String category,  String thumbnailUrl,  int difficulty,  int totalTimeSec)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String category,  ExamType examType,  String thumbnailUrl,  int difficulty,  int totalTimeSec)  $default,) {final _that = this;
 switch (_that) {
 case _RecipeListItem():
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
+return $default(_that.id,_that.name,_that.category,_that.examType,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +200,10 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.diff
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String category,  String thumbnailUrl,  int difficulty,  int totalTimeSec)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String category,  ExamType examType,  String thumbnailUrl,  int difficulty,  int totalTimeSec)?  $default,) {final _that = this;
 switch (_that) {
 case _RecipeListItem() when $default != null:
-return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
+return $default(_that.id,_that.name,_that.category,_that.examType,_that.thumbnailUrl,_that.difficulty,_that.totalTimeSec);case _:
   return null;
 
 }
@@ -214,12 +215,13 @@ return $default(_that.id,_that.name,_that.category,_that.thumbnailUrl,_that.diff
 @JsonSerializable()
 
 class _RecipeListItem implements RecipeListItem {
-  const _RecipeListItem({required this.id, required this.name, required this.category, this.thumbnailUrl = '', required this.difficulty, required this.totalTimeSec});
+  const _RecipeListItem({required this.id, required this.name, required this.category, this.examType = ExamType.baking, this.thumbnailUrl = '', required this.difficulty, required this.totalTimeSec});
   factory _RecipeListItem.fromJson(Map<String, dynamic> json) => _$RecipeListItemFromJson(json);
 
 @override final  String id;
 @override final  String name;
 @override final  String category;
+@override@JsonKey() final  ExamType examType;
 @override@JsonKey() final  String thumbnailUrl;
 @override final  int difficulty;
 @override final  int totalTimeSec;
@@ -237,16 +239,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.totalTimeSec, totalTimeSec) || other.totalTimeSec == totalTimeSec));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.category, category) || other.category == category)&&(identical(other.examType, examType) || other.examType == examType)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.totalTimeSec, totalTimeSec) || other.totalTimeSec == totalTimeSec));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,category,thumbnailUrl,difficulty,totalTimeSec);
+int get hashCode => Object.hash(runtimeType,id,name,category,examType,thumbnailUrl,difficulty,totalTimeSec);
 
 @override
 String toString() {
-  return 'RecipeListItem(id: $id, name: $name, category: $category, thumbnailUrl: $thumbnailUrl, difficulty: $difficulty, totalTimeSec: $totalTimeSec)';
+  return 'RecipeListItem(id: $id, name: $name, category: $category, examType: $examType, thumbnailUrl: $thumbnailUrl, difficulty: $difficulty, totalTimeSec: $totalTimeSec)';
 }
 
 
@@ -257,7 +259,7 @@ abstract mixin class _$RecipeListItemCopyWith<$Res> implements $RecipeListItemCo
   factory _$RecipeListItemCopyWith(_RecipeListItem value, $Res Function(_RecipeListItem) _then) = __$RecipeListItemCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String category, String thumbnailUrl, int difficulty, int totalTimeSec
+ String id, String name, String category, ExamType examType, String thumbnailUrl, int difficulty, int totalTimeSec
 });
 
 
@@ -274,12 +276,13 @@ class __$RecipeListItemCopyWithImpl<$Res>
 
 /// Create a copy of RecipeListItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? category = null,Object? thumbnailUrl = null,Object? difficulty = null,Object? totalTimeSec = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? category = null,Object? examType = null,Object? thumbnailUrl = null,Object? difficulty = null,Object? totalTimeSec = null,}) {
   return _then(_RecipeListItem(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as String,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+as String,examType: null == examType ? _self.examType : examType // ignore: cast_nullable_to_non_nullable
+as ExamType,thumbnailUrl: null == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
 as String,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as int,totalTimeSec: null == totalTimeSec ? _self.totalTimeSec : totalTimeSec // ignore: cast_nullable_to_non_nullable
 as int,

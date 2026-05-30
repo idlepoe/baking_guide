@@ -1,0 +1,159 @@
+{
+  "id": "choux",
+  "name": "슈",
+  "category": "pastry",
+  "thumbnailUrl": "assets/images/recipes/choux/main.jpg",
+  "summary": {
+    "examTimeSec": 7200,
+    "mixingMethod": "choux",
+    "oven": {
+      "top": 180,
+      "bottom": 200,
+      "unit": "celsius",
+      "timeSec": 2400
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간",
+          "전분 호화 반죽",
+          "지름 3cm"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "호화 충분",
+          "달걀 양 조절",
+          "수작업"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "물 스프레이",
+          "반죽 전량"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/200→160℃ 총 40분",
+          "갈라진 부분 색"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "바닥 퍼짐",
+          "일찍 꺼내 함몰",
+          "속 미건조"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "중력분",
+      "amount": 200,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물",
+      "amount": 250,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "버터",
+      "amount": 200,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "소금",
+      "amount": 2,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 400,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "커스터드 크림",
+      "amount": 1000,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/choux/step1.jpg",
+      "description": [
+        "계량",
+        "끓여 호화",
+        "달걀 단계",
+        "3cm 짜기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기·충전",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/choux/step2.jpg",
+      "description": [
+        "스프레이",
+        "180/200→160℃",
+        "크림 충전"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "shape",
+      "text": "모양·크기 균일·바삭"
+    },
+    {
+      "id": "batter",
+      "text": "바닥 퍼짐·함몰 없음"
+    },
+    {
+      "id": "interior",
+      "text": "속 공갈·건조"
+    }
+  ]
+}

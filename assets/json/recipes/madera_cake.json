@@ -1,0 +1,220 @@
+{
+  "id": "madera_cake",
+  "name": "마데라케이크",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/madera_cake/main.jpg",
+  "summary": {
+    "examTimeSec": 7200,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1650
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간",
+          "크림법",
+          "계량 9분"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "반죽온 24℃",
+          "건포도 적포도주 전처리"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "머핀팬 70%",
+          "퐁당 1회"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 25~30분",
+          "180℃ 2~3분 건조"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "건포도·호두 침적",
+          "윗면 터짐"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 340,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "설탕",
+      "amount": 320,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 4,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 340,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "베이킹파우더",
+      "amount": 10,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "건포도",
+      "amount": 100,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "호두",
+      "amount": 40,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "적포도주",
+      "amount": 120,
+      "unit": "g",
+      "category": "liquid"
+    },
+    {
+      "name": "분당",
+      "amount": 80,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "적포도주 시럽",
+      "amount": 20,
+      "unit": "g",
+      "category": "liquid"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 크림화",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/madera_cake/step1.jpg",
+      "description": [
+        "계량",
+        "건포도 전처리",
+        "버터·설탕·달걀 크림"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 충전물",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/madera_cake/step1.jpg",
+      "description": [
+        "건포도·호두 밀가루",
+        "가루·적포도주"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 팬닝·굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/madera_cake/step2.jpg",
+      "description": [
+        "머핀 70%",
+        "180/160℃ 25~30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 퐁당",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/madera_cake/step2.jpg",
+      "description": [
+        "분당80+시럽20",
+        "윗면 발라 180℃ 2~3분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "shape",
+      "text": "크기 균일·윗면 둥글게"
+    },
+    {
+      "id": "filling",
+      "text": "건포도·호두 고르게"
+    },
+    {
+      "id": "texture",
+      "text": "견과 침적·윗면 터짐 없음"
+    }
+  ]
+}

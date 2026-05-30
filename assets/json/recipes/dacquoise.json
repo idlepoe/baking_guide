@@ -1,0 +1,204 @@
+{
+  "id": "dacquoise",
+  "name": "다쿠와즈",
+  "category": "cookie",
+  "thumbnailUrl": "assets/images/recipes/dacquoise/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "meringue",
+    "oven": {
+      "top": 190,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1050
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "거품형 쿠키·머랭법"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "머랭 중간피크",
+          "가루 2회 체질",
+          "과혼합 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "다쿠와즈팬",
+          "분당 2회",
+          "반죽 전량"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "190/160℃ 15~20분",
+          "표피 갈라짐"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "두께·크기 불균일",
+          "반죽 질음·옆 퍼짐"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "달걀 흰자",
+      "amount": 326,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "설탕",
+      "amount": 100,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "아몬드 분말",
+      "amount": 200,
+      "unit": "g",
+      "category": "powder"
+    },
+    {
+      "name": "분당",
+      "amount": 166,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "박력분",
+      "amount": 50,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터크림(샌드용)",
+      "amount": 226,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 계량",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/dacquoise/step1.jpg",
+      "description": [
+        "5분 계량",
+        "흰자 분리"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 머랭·혼합",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/dacquoise/step1.jpg",
+      "description": [
+        "가루 2회 체질",
+        "머랭→가루 가볍게"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 짜기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/dacquoise/step2.jpg",
+      "description": [
+        "짤주머니",
+        "실리콘+다쿠와즈팬"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 마무리·굽기",
+      "estimatedTimeSec": 1050,
+      "imageUrl": "assets/images/recipes/dacquoise/step2.jpg",
+      "description": [
+        "스크래퍼 평탄",
+        "분당 2회",
+        "190/160℃ 15~20분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 샌드",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/dacquoise/step2.jpg",
+      "description": [
+        "식힌 후 크림 2개 붙임"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "uniformity",
+      "text": "두께·크기 균일"
+    },
+    {
+      "id": "surface",
+      "text": "윗면 갈라짐·옆면 익음"
+    },
+    {
+      "id": "batter",
+      "text": "반죽 질지 않음"
+    }
+  ]
+}

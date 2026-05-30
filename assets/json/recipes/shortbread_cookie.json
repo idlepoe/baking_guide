@@ -1,0 +1,178 @@
+{
+  "id": "shortbread_cookie",
+  "name": "쇼트브레드 쿠키",
+  "category": "cookie",
+  "thumbnailUrl": "assets/images/recipes/shortbread_cookie/main.jpg",
+  "summary": {
+    "examTimeSec": 7200,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 200,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 810
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간",
+          "크림법 수작업",
+          "두께 0.7~0.8cm"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "냉장 휴지 20~30분",
+          "과크림화 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "지름 5~6cm",
+          "2팬",
+          "노른자 2회·포크무늬"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "200/160℃ 12~15분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "두께·모양 불균",
+          "무늬 불선명"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 500,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "마가린",
+      "amount": 166,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "쇼트닝",
+      "amount": 166,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "설탕",
+      "amount": 176,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 6,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "물엿",
+      "amount": 26,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 50,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "달걀 노른자",
+      "amount": 50,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 2,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1500,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step1.jpg",
+      "description": [
+        "계량",
+        "크림화",
+        "냉장휴지 20~30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 성형·굽기",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/shortbread_cookie/step2.jpg",
+      "description": [
+        "밀기 0.7~0.8cm",
+        "컷팅",
+        "노른자·무늬",
+        "200/160℃ 12~15분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "uniformity",
+      "text": "두께·모양 균일"
+    },
+    {
+      "id": "color",
+      "text": "윗면 황금·밑면 과진 않음"
+    },
+    {
+      "id": "pattern",
+      "text": "포크무늬 선명"
+    }
+  ]
+}

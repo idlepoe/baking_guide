@@ -1,0 +1,176 @@
+{
+  "id": "butter_sponge_cake_gongrip",
+  "name": "버터스펀지케이크(공립법)",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/butter_sponge_cake_gongrip/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "sponge",
+    "oven": {
+      "top": 180,
+      "bottom": 160,
+      "unit": "celsius",
+      "timeSec": 1650
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "공립법",
+          "계량 6분"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "중탕 43~50℃",
+          "아이보리 거품",
+          "비중 0.5±0.05"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "팬 50~60%",
+          "펀칭"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "180/160℃ 25~30분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "윗면 갈라짐",
+          "기공 과다",
+          "버터 뭉침"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 500,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "설탕",
+      "amount": 600,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 900,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "소금",
+      "amount": 5,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 2.5,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 100,
+      "unit": "g",
+      "category": "fat"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 거품",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step1.jpg",
+      "description": [
+        "계량",
+        "달걀+설탕 중탕",
+        "고속→중속 안정화"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 혼합",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step2.jpg",
+      "description": [
+        "버터 60℃",
+        "가루 접기",
+        "버터 혼합"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/butter_sponge_cake_gongrip/step2.jpg",
+      "description": [
+        "50~60% 팬닝",
+        "펀칭",
+        "180/160℃ 25~30분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "surface",
+      "text": "과도한 갈라짐·기공 없음"
+    },
+    {
+      "id": "volume",
+      "text": "4개 부피 균일"
+    },
+    {
+      "id": "crumb",
+      "text": "버터 고르게·황금갈색"
+    }
+  ]
+}

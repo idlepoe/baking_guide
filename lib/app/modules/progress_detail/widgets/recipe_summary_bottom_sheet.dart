@@ -6,6 +6,7 @@ import '../../../core/utils/duration_format.dart';
 import '../../../core/utils/network_image_url.dart';
 import '../../../core/widgets/app_bottom_action_bar.dart';
 import '../../../core/widgets/app_primary_button.dart';
+import '../../../core/widgets/difficulty_stars.dart';
 import '../../../data/models/key_point_group.dart';
 import '../../../data/models/recipe_list_item.dart';
 import '../../../data/models/recipe_summary.dart';
@@ -115,7 +116,10 @@ class RecipeSummaryBottomSheet extends StatelessWidget {
           title: group.title == '시험 정보' ? '' : group.title,
           lines: lines,
           trailing: group.title == '시험 정보'
-              ? _DifficultyStars(difficulty: listItem.difficulty)
+              ? DifficultyStars(
+                  difficulty: listItem.difficulty,
+                  size: 18,
+                )
               : null,
           isWarning: _isWarningKeyPoint(group),
         ),
@@ -349,37 +353,3 @@ class _KeyPointImage extends StatelessWidget {
   }
 }
 
-class _DifficultyStars extends StatelessWidget {
-  const _DifficultyStars({required this.difficulty});
-
-  final int difficulty;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final starColor = theme.brightness == Brightness.dark
-        ? theme.colorScheme.primary
-        : Colors.amber.shade700;
-
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          '난이도',
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
-        ),
-        const SizedBox(width: 4),
-        ...List.generate(
-          5,
-          (i) => Icon(
-            i < difficulty ? Icons.star : Icons.star_border,
-            size: 18,
-            color: starColor,
-          ),
-        ),
-      ],
-    );
-  }
-}

@@ -31,4 +31,11 @@ const _$MixingMethodEnumMap = {
   MixingMethod.sponge: 'sponge',
   MixingMethod.modifiedStraight: 'modified_straight',
   MixingMethod.emergencyStraight: 'emergency_straight',
+  MixingMethod.cream: 'cream',
+  MixingMethod.separatedEgg: 'separated_egg',
+  MixingMethod.chiffon: 'chiffon',
+  MixingMethod.meringue: 'meringue',
+  MixingMethod.oneStage: 'one_stage',
+  MixingMethod.choux: 'choux',
+  MixingMethod.blending: 'blending',
 };

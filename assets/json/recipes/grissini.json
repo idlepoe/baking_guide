@@ -67,30 +67,40 @@
       }
     ]
   },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 700,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "설탕",
       "amount": 7,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "건조 로즈마리",
       "amount": 1,
       "unit": "g",
-      "category": "spice"
+      "category": "spice",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "소금",
       "amount": 14,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "이스트",

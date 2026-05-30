@@ -1,8 +1,10 @@
 export 'calculator_config.dart';
+export 'catalog_ingredient.dart';
 export 'checklist_item.dart';
 export 'deduction_point.dart';
 export 'enums/calculator_kind.dart';
 export 'enums/deduction_severity.dart';
+export 'enums/exam_type.dart';
 export 'enums/ingredient_category.dart';
 export 'enums/mixing_method.dart';
 export 'enums/progress_session_status.dart';
@@ -10,6 +12,7 @@ export 'enums/step_image_type.dart';
 export 'enums/temperature_unit.dart';
 export 'enums/timer_kind.dart';
 export 'evaluation_criterion.dart';
+export 'ingredient_weigh_group.dart';
 export 'key_point_group.dart';
 export 'oven_setting.dart';
 export 'progress_session.dart';

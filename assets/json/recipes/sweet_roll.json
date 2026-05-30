@@ -2,6 +2,7 @@
   "id": "sweet_roll",
   "name": "스위트롤",
   "category": "bread",
+  "thumbnailUrl": "assets/images/recipes/sweet_roll/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -81,12 +82,19 @@
       }
     ]
   },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 900,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "물",
@@ -104,19 +112,22 @@
       "name": "제빵개량제",
       "amount": 9,
       "unit": "g",
-      "category": "improver"
+      "category": "improver",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "소금",
       "amount": 18,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "설탕",
       "amount": 180,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "쇼트닝",
@@ -128,7 +139,8 @@
       "name": "탈지분유",
       "amount": 27,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "달걀",
@@ -653,6 +665,5 @@
       "id": "good_color_volume",
       "text": "노릇한 색이 균일하고 층이 과도하게 벌어지지 않아야 한다."
     }
-  ],
-  "thumbnailUrl": "assets/images/recipes/sweet_roll/main.png"
+  ]
 }

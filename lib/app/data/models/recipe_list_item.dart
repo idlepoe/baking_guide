@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'enums/exam_type.dart';
+
 part 'recipe_list_item.freezed.dart';
 part 'recipe_list_item.g.dart';
 
@@ -9,6 +11,7 @@ abstract class RecipeListItem with _$RecipeListItem {
     required String id,
     required String name,
     required String category,
+    @Default(ExamType.baking) ExamType examType,
     @Default('') String thumbnailUrl,
     required int difficulty,
     required int totalTimeSec,

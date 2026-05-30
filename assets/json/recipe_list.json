@@ -4,64 +4,72 @@
     "name": "풀만식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/pullman_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 13200
+    "difficulty": 5,
+    "totalTimeSec": 13200,
+    "examType": "baking"
   },
   {
     "id": "chestnut_bread",
     "name": "밤식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/chestnut_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 13200
+    "difficulty": 5,
+    "totalTimeSec": 13200,
+    "examType": "baking"
   },
   {
     "id": "corn_bread",
     "name": "옥수수식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/corn_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 13200
+    "difficulty": 4,
+    "totalTimeSec": 13200,
+    "examType": "baking"
   },
   {
     "id": "butter_top",
     "name": "버터톱 식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/butter_top/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 5,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "butter_roll",
     "name": "버터롤",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/butter_roll/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 3,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "red_bean_bread",
     "name": "단팥빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/red_bean_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 10800
+    "difficulty": 3,
+    "totalTimeSec": 10800,
+    "examType": "baking"
   },
   {
     "id": "pastry_twist",
     "name": "단과자 트위스트",
     "category": "pastry",
     "thumbnailUrl": "assets/images/recipes/pastry_twist/main.jpg",
-    "difficulty": 3,
-    "totalTimeSec": 12600
+    "difficulty": 4,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "soboro_bread",
     "name": "소보로빵",
     "category": "pastry",
     "thumbnailUrl": "assets/images/recipes/soboro_bread/main.jpg",
-    "difficulty": 3,
-    "totalTimeSec": 12600
+    "difficulty": 5,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "cream_bread",
@@ -69,94 +77,286 @@
     "category": "pastry",
     "thumbnailUrl": "assets/images/recipes/cream_bread/main.jpg",
     "difficulty": 3,
-    "totalTimeSec": 12600
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "mocha_bread",
     "name": "모카빵",
     "category": "hard",
     "thumbnailUrl": "assets/images/recipes/mocha_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 5,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "grissini",
     "name": "그리시니",
     "category": "hard",
     "thumbnailUrl": "assets/images/recipes/grissini/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 9000
+    "difficulty": 3,
+    "totalTimeSec": 9000,
+    "examType": "baking"
   },
   {
     "id": "whole_wheat_bread",
     "name": "통밀빵",
     "category": "hard",
     "thumbnailUrl": "assets/images/recipes/whole_wheat_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 4,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "rye_bread",
     "name": "호밀빵",
     "category": "hard",
     "thumbnailUrl": "assets/images/recipes/rye_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 4,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "sausage_bread",
     "name": "소시지빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/sausage_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 5,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "bagel",
     "name": "베이글",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/bagel/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 12600
+    "difficulty": 3,
+    "totalTimeSec": 12600,
+    "examType": "baking"
   },
   {
     "id": "bread_donut",
     "name": "빵도넛",
     "category": "specialty",
     "thumbnailUrl": "assets/images/recipes/bread_donut/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 10800
+    "difficulty": 4,
+    "totalTimeSec": 10800,
+    "examType": "baking"
   },
   {
     "id": "rice_bread",
     "name": "쌀식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/rice_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 13200
+    "difficulty": 4,
+    "totalTimeSec": 13200,
+    "examType": "baking"
   },
   {
     "id": "milk_bread",
     "name": "우유식빵",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/milk_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 13200
+    "difficulty": 4,
+    "totalTimeSec": 13200,
+    "examType": "baking"
   },
   {
     "id": "emergency_white_bread",
     "name": "식빵(비상스트레이트법)",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/emergency_white_bread/main.jpg",
-    "difficulty": 2,
-    "totalTimeSec": 9600
+    "difficulty": 4,
+    "totalTimeSec": 9600,
+    "examType": "baking"
   },
   {
     "id": "sweet_roll",
     "name": "스위트롤",
     "category": "bread",
     "thumbnailUrl": "assets/images/recipes/sweet_roll/main.png",
+    "difficulty": 5,
+    "totalTimeSec": 12600,
+    "examType": "baking"
+  },
+  {
+    "id": "butter_cookie",
+    "name": "버터쿠키",
+    "category": "cookie",
+    "thumbnailUrl": "assets/images/recipes/butter_cookie/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 7200,
+    "examType": "confectionery"
+  },
+  {
+    "id": "fruit_cake",
+    "name": "과일케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/fruit_cake/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 9000,
+    "examType": "confectionery"
+  },
+  {
+    "id": "dacquoise",
+    "name": "다쿠와즈",
+    "category": "cookie",
+    "thumbnailUrl": "assets/images/recipes/dacquoise/main.jpg",
     "difficulty": 2,
-    "totalTimeSec": 12600
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "madera_cake",
+    "name": "마데라케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/madera_cake/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 7200,
+    "examType": "confectionery"
+  },
+  {
+    "id": "madeleine",
+    "name": "마드레느",
+    "category": "specialty",
+    "thumbnailUrl": "assets/images/recipes/madeleine/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "butter_sponge_cake_gongrip",
+    "name": "버터스펀지케이크(공립법)",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/butter_sponge_cake_gongrip/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "butter_sponge_cake_separated",
+    "name": "버터스펀지케이크(별립법)",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/butter_sponge_cake_separated/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "brownie",
+    "name": "브라우니",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/brownie/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "shortbread_cookie",
+    "name": "쇼트브레드 쿠키",
+    "category": "cookie",
+    "thumbnailUrl": "assets/images/recipes/shortbread_cookie/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 7200,
+    "examType": "confectionery"
+  },
+  {
+    "id": "soft_roll_cake",
+    "name": "소프트롤케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/soft_roll_cake/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "choux",
+    "name": "슈",
+    "category": "pastry",
+    "thumbnailUrl": "assets/images/recipes/choux/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 7200,
+    "examType": "confectionery"
+  },
+  {
+    "id": "chiffon_cake",
+    "name": "시퐁케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/chiffon_cake/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 6000,
+    "examType": "confectionery"
+  },
+  {
+    "id": "jelly_roll_cake",
+    "name": "젤리롤케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/jelly_roll_cake/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 5400,
+    "examType": "confectionery"
+  },
+  {
+    "id": "choco_roll_cake",
+    "name": "초코롤케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/choco_roll_cake/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "choco_muffin",
+    "name": "초코머핀",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/choco_muffin/main.jpg",
+    "difficulty": 2,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
+  },
+  {
+    "id": "cheesecake",
+    "name": "치즈케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/cheesecake/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 9000,
+    "examType": "confectionery"
+  },
+  {
+    "id": "tart",
+    "name": "타르트",
+    "category": "pastry",
+    "thumbnailUrl": "assets/images/recipes/tart/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 8400,
+    "examType": "confectionery"
+  },
+  {
+    "id": "pound_cake",
+    "name": "파운드 케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/pound_cake/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 9000,
+    "examType": "confectionery"
+  },
+  {
+    "id": "walnut_pie",
+    "name": "호두파이",
+    "category": "specialty",
+    "thumbnailUrl": "assets/images/recipes/walnut_pie/main.jpg",
+    "difficulty": 3,
+    "totalTimeSec": 9000,
+    "examType": "confectionery"
+  },
+  {
+    "id": "black_rice_roll_cake",
+    "name": "흑미롤케이크",
+    "category": "cake",
+    "thumbnailUrl": "assets/images/recipes/black_rice_roll_cake/main.jpg",
+    "difficulty": 1,
+    "totalTimeSec": 6600,
+    "examType": "confectionery"
   }
 ]

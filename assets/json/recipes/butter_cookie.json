@@ -1,0 +1,288 @@
+{
+  "id": "butter_cookie",
+  "name": "버터쿠키",
+  "category": "cookie",
+  "thumbnailUrl": "assets/images/recipes/butter_cookie/main.jpg",
+  "summary": {
+    "examTimeSec": 7200,
+    "mixingMethod": "cream",
+    "oven": {
+      "top": 200,
+      "bottom": 140,
+      "unit": "celsius",
+      "timeSec": 660
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "2시간",
+          "구움 과자류",
+          "반죽형 쿠키·크림법(수작업)"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "크림법",
+          "반죽온도 22℃",
+          "가루 90% 혼합"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "별 깍지",
+          "8자·장미",
+          "반죽 전량"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "200/140℃",
+          "10~12분",
+          "바닥 과색 주의"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "모양·크기·두께 불균일",
+          "바닥 과다 착색"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "박력분",
+      "amount": 400,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 280,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "설탕",
+      "amount": 200,
+      "unit": "g",
+      "category": "sweetener"
+    },
+    {
+      "name": "소금",
+      "amount": 4,
+      "unit": "g",
+      "category": "salt"
+    },
+    {
+      "name": "달걀",
+      "amount": 120,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 2,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 재료 계량",
+      "estimatedTimeSec": 360,
+      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "description": [
+        "6분 내 계량·진열",
+        "달걀은 감독 지시"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 버터 크림화",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "description": [
+        "버터 부드럽게 풀기"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 설탕·소금",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "description": [
+        "설탕·소금 혼합",
+        "설탕 과다 용해 방지"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 달걀 투입",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "description": [
+        "달걀 나누어 크림화"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 가루 혼합",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "description": [
+        "체질 가루 가볍게",
+        "글루텐 형성 방지"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 반죽 완성",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "description": [
+        "90% 혼합",
+        "반죽온 22℃"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 짤주머니",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "description": [
+        "별 깍지",
+        "오븐 예열·체질"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 장미 성형",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "description": [
+        "장미 모양 짜기",
+        "간격·두께 균일"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 8자 성형",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "description": [
+        "S자 8자",
+        "반죽 전량"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 굽기",
+      "estimatedTimeSec": 660,
+      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "description": [
+        "200/140℃ 10~12분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 660
+        }
+      ],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "color",
+      "text": "전체 황금갈색"
+    },
+    {
+      "id": "shape",
+      "text": "8자·장미 선명"
+    },
+    {
+      "id": "uniformity",
+      "text": "크기·두께 균일"
+    }
+  ]
+}

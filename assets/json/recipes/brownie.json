@@ -1,0 +1,178 @@
+{
+  "id": "brownie",
+  "name": "브라우니",
+  "category": "cake",
+  "thumbnailUrl": "assets/images/recipes/brownie/main.jpg",
+  "summary": {
+    "examTimeSec": 6600,
+    "mixingMethod": "one_stage",
+    "oven": {
+      "top": 170,
+      "bottom": 150,
+      "unit": "celsius",
+      "timeSec": 2700
+    },
+    "fermentation": {},
+    "keyPoints": [
+      {
+        "title": "시험 정보",
+        "imageUrl": "assets/images/keypoints/exam.png",
+        "items": [
+          "1시간 50분",
+          "1단계법(변형)",
+          "반죽온 27℃"
+        ]
+      },
+      {
+        "title": "반죽",
+        "imageUrl": "assets/images/keypoints/mixer.png",
+        "items": [
+          "초코+버터 50℃",
+          "과혼합·고온 금지"
+        ]
+      },
+      {
+        "title": "성형",
+        "imageUrl": "assets/images/keypoints/shaping.png",
+        "items": [
+          "원형팬 3호 2개",
+          "호두 토핑"
+        ]
+      },
+      {
+        "title": "굽기",
+        "imageUrl": "assets/images/keypoints/oven.png",
+        "items": [
+          "170/150℃ 40~50분"
+        ]
+      },
+      {
+        "title": "주요 감점 포인트",
+        "imageUrl": "assets/images/keypoints/warning.png",
+        "items": [
+          "함몰",
+          "내부 묻어남",
+          "맨홀"
+        ]
+      }
+    ]
+  },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "중력분",
+      "amount": 300,
+      "unit": "g",
+      "category": "flour",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "달걀",
+      "amount": 360,
+      "unit": "g",
+      "category": "egg"
+    },
+    {
+      "name": "설탕",
+      "amount": 390,
+      "unit": "g",
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "소금",
+      "amount": 6,
+      "unit": "g",
+      "category": "salt",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "버터",
+      "amount": 150,
+      "unit": "g",
+      "category": "fat"
+    },
+    {
+      "name": "다크초콜릿",
+      "amount": 450,
+      "unit": "g",
+      "category": "filling"
+    },
+    {
+      "name": "코코아파우더",
+      "amount": 30,
+      "unit": "g",
+      "category": "powder",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "바닐라향",
+      "amount": 6,
+      "unit": "g",
+      "category": "spice",
+      "weighGroupId": "dry_powder"
+    },
+    {
+      "name": "호두",
+      "amount": 150,
+      "unit": "g",
+      "category": "filling"
+    }
+  ],
+  "steps": [
+    {
+      "stepNo": 1,
+      "title": "01. 반죽",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/brownie/step1.jpg",
+      "description": [
+        "계량",
+        "호두 구움",
+        "초코중탕",
+        "달걀+가루+호두1/2"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 굽기",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/brownie/step2.jpg",
+      "description": [
+        "2팬 팬닝",
+        "호두 토핑",
+        "170/150℃ 40~50분"
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    }
+  ],
+  "resultEvaluation": [
+    {
+      "id": "structure",
+      "text": "함몰·기포 없음"
+    },
+    {
+      "id": "doneness",
+      "text": "내부 묻어남 없음"
+    },
+    {
+      "id": "color",
+      "text": "짙은 초콜릿색·호두 고르게"
+    }
+  ]
+}

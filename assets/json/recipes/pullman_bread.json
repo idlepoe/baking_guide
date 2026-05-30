@@ -3,18 +3,15 @@
   "name": "풀만식빵",
   "category": "bread",
   "thumbnailUrl": "assets/images/recipes/pullman_bread/main.jpg",
-
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",
-
     "oven": {
       "top": 190,
       "bottom": 190,
       "unit": "celsius",
       "timeSec": 2100
     },
-
     "fermentation": {
       "first": {
         "temperature": 27,
@@ -31,7 +28,6 @@
         "timeSec": 1800
       }
     },
-
     "keyPoints": [
       {
         "title": "시험 정보",
@@ -92,13 +88,19 @@
       }
     ]
   },
-
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 1400,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "물",
@@ -116,19 +118,22 @@
       "name": "제빵개량제",
       "amount": 14,
       "unit": "g",
-      "category": "improver"
+      "category": "improver",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "소금",
       "amount": 28,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "설탕",
       "amount": 84,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "쇼트닝",
@@ -146,10 +151,10 @@
       "name": "분유",
       "amount": 42,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     }
   ],
-
   "steps": [
     {
       "stepNo": 1,
@@ -168,16 +173,38 @@
         "계량 완료 후 작업대 정리·정돈"
       ],
       "checklist": [
-        { "id": "weigh_complete", "text": "재료 계량 완료" },
-        { "id": "ingredients_arranged", "text": "재료별 진열 완료" },
-        { "id": "supervisor_check", "text": "감독 위원 계량 확인" }
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
       ],
       "deductionPoints": [
-        { "severity": "high", "text": "9분 내 계량·진열 미완료 주의" },
-        { "severity": "medium", "text": "계량 오차 주의" }
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
       ],
       "timers": [],
-      "calculators": [{ "type": "dough_temp", "params": { "target": 27 } }],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
       "images": []
     },
     {
@@ -194,10 +221,16 @@
         "계절에 따라 물·달걀 온도를 조절"
       ],
       "checklist": [
-        { "id": "mix_without_shortening", "text": "쇼트닝 제외 믹싱 완료" }
+        {
+          "id": "mix_without_shortening",
+          "text": "쇼트닝 제외 믹싱 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "high", "text": "쇼트닝 조기 투입 주의" }
+        {
+          "severity": "high",
+          "text": "쇼트닝 조기 투입 주의"
+        }
       ],
       "timers": [],
       "calculators": [],
@@ -216,10 +249,16 @@
         "글루텐막(윈도우페인) 상태를 확인"
       ],
       "checklist": [
-        { "id": "final_stage", "text": "최종 단계 도달" }
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
       ],
       "deductionPoints": [
-        { "severity": "medium", "text": "과믹싱·반죽 찢김 주의" }
+        {
+          "severity": "medium",
+          "text": "과믹싱·반죽 찢김 주의"
+        }
       ],
       "timers": [],
       "calculators": [],
@@ -237,7 +276,10 @@
         "계절에 따라 물·달걀로 반죽온도를 조절"
       ],
       "checklist": [
-        { "id": "dough_temp_27", "text": "반죽 온도 27℃ 확인" }
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
       ],
       "deductionPoints": [],
       "timers": [],
@@ -257,15 +299,31 @@
         "과발효 주의"
       ],
       "checklist": [
-        { "id": "bulk_round_done", "text": "벌크 둥글리기 완료" },
-        { "id": "first_fermentation_done", "text": "1차 발효 완료" }
+        {
+          "id": "bulk_round_done",
+          "text": "벌크 둥글리기 완료"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "medium", "text": "발효 부족 주의" },
-        { "severity": "high", "text": "과발효 주의" }
+        {
+          "severity": "medium",
+          "text": "발효 부족 주의"
+        },
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
       ],
       "timers": [
-        { "type": "fermentation", "label": "1차 발효", "durationSec": 3000 }
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 3000
+        }
       ],
       "calculators": [],
       "images": []
@@ -284,14 +342,25 @@
         "제공된 팬의 용량을 고려하여 최종 판단"
       ],
       "checklist": [
-        { "id": "divide_10_done", "text": "250g*10개 분할 완료" }
+        {
+          "id": "divide_10_done",
+          "text": "250g*10개 분할 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "medium", "text": "분할 오차 주의" }
+        {
+          "severity": "medium",
+          "text": "분할 오차 주의"
+        }
       ],
       "timers": [],
       "calculators": [
-        { "type": "division_weight", "params": { "target": 250 } }
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 250
+          }
+        }
       ],
       "images": []
     },
@@ -307,7 +376,10 @@
         "10개 모두 균일하게 둥글리기"
       ],
       "checklist": [
-        { "id": "round_10_done", "text": "10개 둥글리기 완료" }
+        {
+          "id": "round_10_done",
+          "text": "10개 둥글리기 완료"
+        }
       ],
       "deductionPoints": [],
       "timers": [],
@@ -326,13 +398,23 @@
         "반죽이 마르지 않도록 덮어 둔다"
       ],
       "checklist": [
-        { "id": "bench_rest_done", "text": "중간발효 완료" }
+        {
+          "id": "bench_rest_done",
+          "text": "중간발효 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "low", "text": "반죽 건조 주의" }
+        {
+          "severity": "low",
+          "text": "반죽 건조 주의"
+        }
       ],
       "timers": [
-        { "type": "rest", "label": "중간발효", "durationSec": 1200 }
+        {
+          "type": "rest",
+          "label": "중간발효",
+          "durationSec": 1200
+        }
       ],
       "calculators": [],
       "images": []
@@ -349,7 +431,10 @@
         "덧가루를 최소화한다"
       ],
       "checklist": [
-        { "id": "degas_done", "text": "가스 제거(밀어펴기) 완료" }
+        {
+          "id": "degas_done",
+          "text": "가스 제거(밀어펴기) 완료"
+        }
       ],
       "deductionPoints": [],
       "timers": [],
@@ -368,7 +453,10 @@
         "10개 모두 동일하게 접는다"
       ],
       "checklist": [
-        { "id": "fold_10_done", "text": "10개 3겹 접기 완료" }
+        {
+          "id": "fold_10_done",
+          "text": "10개 3겹 접기 완료"
+        }
       ],
       "deductionPoints": [],
       "timers": [],
@@ -387,7 +475,10 @@
         "팽팽하게 말아준다"
       ],
       "checklist": [
-        { "id": "roll_done", "text": "말기 완료" }
+        {
+          "id": "roll_done",
+          "text": "말기 완료"
+        }
       ],
       "deductionPoints": [],
       "timers": [],
@@ -406,10 +497,16 @@
         "이음매를 단단히 봉합한다"
       ],
       "checklist": [
-        { "id": "seal_done", "text": "이음매 봉합 완료" }
+        {
+          "id": "seal_done",
+          "text": "이음매 봉합 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "high", "text": "이음매 터짐·벌어짐 주의" }
+        {
+          "severity": "high",
+          "text": "이음매 터짐·벌어짐 주의"
+        }
       ],
       "timers": [],
       "calculators": [],
@@ -428,10 +525,16 @@
         "이음매는 반드시 아래 방향"
       ],
       "checklist": [
-        { "id": "panning_done", "text": "5팬 패닝 완료 (팬당 2개)" }
+        {
+          "id": "panning_done",
+          "text": "5팬 패닝 완료 (팬당 2개)"
+        }
       ],
       "deductionPoints": [
-        { "severity": "medium", "text": "패닝·아랫부분 밀착 불균일 주의" }
+        {
+          "severity": "medium",
+          "text": "패닝·아랫부분 밀착 불균일 주의"
+        }
       ],
       "timers": [],
       "calculators": [],
@@ -451,14 +554,27 @@
         "과발효 시 살짝 눌러준 후 뚜껑을 덮는다"
       ],
       "checklist": [
-        { "id": "second_fermentation_done", "text": "2차 발효 완료" },
-        { "id": "lid_on", "text": "뚜껑 덮기 완료" }
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료"
+        },
+        {
+          "id": "lid_on",
+          "text": "뚜껑 덮기 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "high", "text": "과발효 주의" }
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
       ],
       "timers": [
-        { "type": "proofing", "label": "2차 발효", "durationSec": 1800 }
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1800
+        }
       ],
       "calculators": [],
       "images": []
@@ -477,20 +593,32 @@
         "과색·미숙성이 없도록 굽기 상태를 확인"
       ],
       "checklist": [
-        { "id": "baking_done", "text": "굽기 완료" }
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
       ],
       "deductionPoints": [
-        { "severity": "high", "text": "과색 주의" },
-        { "severity": "medium", "text": "미숙성 주의" }
+        {
+          "severity": "high",
+          "text": "과색 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "미숙성 주의"
+        }
       ],
       "timers": [
-        { "type": "baking", "label": "굽기", "durationSec": 2100 }
+        {
+          "type": "baking",
+          "label": "굽기",
+          "durationSec": 2100
+        }
       ],
       "calculators": [],
       "images": []
     }
   ],
-
   "resultEvaluation": [
     {
       "id": "sharp_corners",

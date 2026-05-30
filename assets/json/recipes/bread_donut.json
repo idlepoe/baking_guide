@@ -57,24 +57,33 @@
       }
     ]
   },
+  "weighGroups": [
+    {
+      "id": "dry_powder",
+      "label": "가루류·합침 가능"
+    }
+  ],
   "ingredients": [
     {
       "name": "강력분",
       "amount": 880,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "박력분",
       "amount": 220,
       "unit": "g",
-      "category": "flour"
+      "category": "flour",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "설탕",
       "amount": 110,
       "unit": "g",
-      "category": "sweetener"
+      "category": "sweetener",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "쇼트닝",
@@ -86,13 +95,15 @@
       "name": "소금",
       "amount": 16.5,
       "unit": "g",
-      "category": "salt"
+      "category": "salt",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "탈지분유",
       "amount": 33,
       "unit": "g",
-      "category": "powder"
+      "category": "powder",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "이스트",
@@ -104,13 +115,15 @@
       "name": "제빵개량제",
       "amount": 11,
       "unit": "g",
-      "category": "improver"
+      "category": "improver",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "바닐라향",
       "amount": 2.2,
       "unit": "g",
-      "category": "spice"
+      "category": "spice",
+      "weighGroupId": "dry_powder"
     },
     {
       "name": "달걀",
@@ -128,7 +141,8 @@
       "name": "넛메그",
       "amount": 2.2,
       "unit": "g",
-      "category": "spice"
+      "category": "spice",
+      "weighGroupId": "dry_powder"
     }
   ],
   "steps": [
