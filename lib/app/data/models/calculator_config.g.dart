@@ -24,4 +24,5 @@ const _$CalculatorKindEnumMap = {
   CalculatorKind.doughTemp: 'dough_temp',
   CalculatorKind.divisionWeight: 'division_weight',
   CalculatorKind.bakerPercentage: 'baker_percentage',
+  CalculatorKind.specificGravity: 'specific_gravity',
 };

@@ -20,6 +20,7 @@ class RecipeThumbnail extends StatelessWidget {
     final theme = Theme.of(context);
 
     if (imageUrl.isEmpty) {
+      debugPrint('[RecipeThumbnail] imageUrl is empty');
       return _placeholder(theme);
     }
 
@@ -29,20 +30,51 @@ class RecipeThumbnail extends StatelessWidget {
             width: size,
             height: size,
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => _placeholder(theme),
+            errorBuilder: (context, error, stackTrace) =>
+                _onImageError(theme, 'asset', imageUrl, error, stackTrace),
           )
         : Image.network(
-            normalizeNetworkImageUrl(imageUrl),
+            _networkImageUrl(imageUrl),
             width: size,
             height: size,
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => _placeholder(theme),
+            errorBuilder: (context, error, stackTrace) => _onImageError(
+              theme,
+              'network',
+              imageUrl,
+              error,
+              stackTrace,
+            ),
           );
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(borderRadius),
       child: image,
     );
+  }
+
+  String _networkImageUrl(String source) {
+    final normalized = normalizeNetworkImageUrl(source);
+    if (normalized != source) {
+      debugPrint('[RecipeThumbnail] normalized URL: $source -> $normalized');
+    }
+    return normalized;
+  }
+
+  Widget _onImageError(
+    ThemeData theme,
+    String kind,
+    String source,
+    Object error,
+    StackTrace? stackTrace,
+  ) {
+    debugPrint(
+      '[RecipeThumbnail] $kind load failed\n'
+      '  source: $source\n'
+      '  error: $error\n'
+      '  stackTrace: $stackTrace',
+    );
+    return _placeholder(theme);
   }
 
   Widget _placeholder(ThemeData theme) {

@@ -126,39 +126,6 @@ class _ProgressDetailViewState extends State<ProgressDetailView> {
                     onStepTap: controller.goToStep,
                   ),
                   const SizedBox(height: 8),
-                  Container(
-                    height: 56,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Obx(() {
-                      final session = controller.session.value;
-                      final listItem = controller.recipeListItem.value;
-                      if (session == null || listItem == null) {
-                        return const SizedBox.shrink();
-                      }
-                      final stepCount = detail.steps.length;
-                      if (stepCount <= 0) return const SizedBox.shrink();
-
-                      final isInProgress =
-                          session.status == ProgressSessionStatus.inProgress;
-
-                      final stepProgress =
-                          session.status == ProgressSessionStatus.completed
-                          ? 1.0
-                          : (session.currentStepNo / stepCount).clamp(0.0, 1.0);
-
-                      final estimatedEndAt = session.startedAt.add(
-                        Duration(seconds: listItem.totalTimeSec),
-                      );
-
-                      return SessionTimeProgressBar(
-                        startedAt: session.startedAt,
-                        estimatedEndAt: estimatedEndAt,
-                        completedAt: session.completedAt,
-                        isInProgress: isInProgress,
-                        stepProgress: stepProgress,
-                      );
-                    }),
-                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       controller: controller.scrollController,

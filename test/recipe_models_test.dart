@@ -54,11 +54,10 @@ void main() {
       );
       final rawItems = items.where((e) => rawRecipeIds.contains(e.id));
       expect(
-        rawItems.every((e) => e.thumbnailUrl.contains('/main.jpg')),
+        rawItems.every((e) => e.thumbnailUrl.contains('/main.png')),
         isTrue,
       );
-      expect(items.firstWhere((e) => e.id == 'sweet_roll').thumbnailUrl,
-          contains('main.png'));
+      expect(items.every((e) => e.thumbnailUrl.contains('/main.png')), isTrue);
     });
   });
 

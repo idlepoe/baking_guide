@@ -8,4 +8,6 @@ enum CalculatorKind {
   divisionWeight,
   @JsonValue('baker_percentage')
   bakerPercentage,
+  @JsonValue('specific_gravity')
+  specificGravity,
 }
