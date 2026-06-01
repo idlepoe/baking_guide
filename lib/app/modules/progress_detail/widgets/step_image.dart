@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/network_image_url.dart';
+import '../../../core/widgets/zoomable_image_dialog.dart';
 
 class StepImage extends StatelessWidget {
   const StepImage({super.key, required this.imageSource});
@@ -11,13 +12,23 @@ class StepImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    final hasImage = imageSource != null && imageSource!.isNotEmpty;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: AspectRatio(
           aspectRatio: 16 / 10,
-          child: _buildImage(context, theme),
+          child: hasImage
+              ? GestureDetector(
+                  onTap: () => ZoomableImageDialog.show(
+                    context,
+                    imageUrl: imageSource!,
+                  ),
+                  child: _buildImage(context, theme),
+                )
+              : _buildImage(context, theme),
         ),
       ),
     );

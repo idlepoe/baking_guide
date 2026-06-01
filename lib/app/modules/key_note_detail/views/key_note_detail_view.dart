@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/widgets/recipe_thumbnail.dart';
+import '../../../core/widgets/zoomable_image_dialog.dart';
 import '../../../data/models/enums/deduction_severity.dart';
 import '../../../data/models/study_common_mistake.dart';
 import '../../../data/models/study_note_image.dart';
@@ -408,9 +409,7 @@ class _ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final provider = note.imageUrl.startsWith('assets/')
-        ? AssetImage(note.imageUrl) as ImageProvider
-        : NetworkImage(note.imageUrl);
+    final provider = ZoomableImageDialog.imageProviderFor(note.imageUrl);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -433,17 +432,24 @@ class _ImageCard extends StatelessWidget {
             const SizedBox(height: 8),
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image(
-                image: provider,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(
-                  height: 160,
-                  color: scheme.surfaceContainerHighest,
-                  alignment: Alignment.center,
-                  child: Icon(
-                    Icons.broken_image_outlined,
-                    color: scheme.onSurfaceVariant,
-                    size: 36,
+              child: GestureDetector(
+                onTap: () => ZoomableImageDialog.show(
+                  context,
+                  imageUrl: note.imageUrl,
+                  title: note.title,
+                ),
+                child: Image(
+                  image: provider,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    height: 160,
+                    color: scheme.surfaceContainerHighest,
+                    alignment: Alignment.center,
+                    child: Icon(
+                      Icons.broken_image_outlined,
+                      color: scheme.onSurfaceVariant,
+                      size: 36,
+                    ),
                   ),
                 ),
               ),
