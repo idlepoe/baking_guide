@@ -120,70 +120,75 @@ class _RecipeCard extends GetView<RecipeController> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    child: InkWell(
-                      key: recipe.id == TutorialGuideKeys.demoRecipeId
-                          ? TutorialGuideKeys.recipeCard
-                          : null,
-                      onTap: () => Get.toNamed(
-                        Routes.PROGRESS_DETAIL,
-                        arguments: recipe.id,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 8,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        key: recipe.id == TutorialGuideKeys.demoRecipeId
+                            ? TutorialGuideKeys.recipeCard
+                            : null,
+                        onTap: () => Get.toNamed(
+                          Routes.PROGRESS_DETAIL,
+                          arguments: recipe.id,
                         ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RecipeThumbnail(
-                              imageUrl: recipe.thumbnailUrl,
-                              size: 56,
-                              borderRadius: 6,
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: hasAllIngredients ? 14 : 0,
-                                    ),
-                                    child: Text(
-                                      recipe.name,
-                                      style: theme.textTheme.titleSmall
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.schedule,
-                                        size: 14,
-                                        color: scheme.onSurfaceVariant,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 8,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RecipeThumbnail(
+                                imageUrl: recipe.thumbnailUrl,
+                                size: 56,
+                                borderRadius: 6,
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: hasAllIngredients ? 14 : 0,
                                       ),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        formatExamDuration(recipe.totalTimeSec),
-                                        style: theme.textTheme.bodySmall
+                                      child: Text(
+                                        recipe.name,
+                                        style: theme.textTheme.titleSmall
                                             ?.copyWith(
-                                              color: scheme.onSurfaceVariant,
+                                              fontWeight: FontWeight.w600,
                                             ),
                                       ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 2),
-                                  DifficultyStars(
-                                    difficulty: recipe.difficulty,
-                                  ),
-                                ],
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.schedule,
+                                          size: 14,
+                                          color: scheme.onSurfaceVariant,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          formatExamDuration(
+                                            recipe.totalTimeSec,
+                                          ),
+                                          style: theme.textTheme.bodySmall
+                                              ?.copyWith(
+                                                color: scheme.onSurfaceVariant,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 2),
+                                    DifficultyStars(
+                                      difficulty: recipe.difficulty,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

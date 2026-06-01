@@ -43,6 +43,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/json/recipe_list.json
+    - assets/json/study_list.json
+    - assets/json/studies/
     - assets/json/recipes/
     - assets/icons/
     - assets/text/app_about.md

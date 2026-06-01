@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../key_note/views/key_note_view.dart';
 import '../../progress_list/views/progress_list_view.dart';
 import '../../recipe/views/recipe_view.dart';
 import '../../recipe/widgets/recipe_app_bar_actions.dart';
@@ -11,7 +12,7 @@ import '../widgets/active_timers_bar.dart';
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
 
-  static const _appBarTitles = ['레시피', '진행 중인 레시피', '설정'];
+  static const _appBarTitles = ['레시피', '진행 중인 레시피', '핵심노트', '설정'];
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,7 @@ class HomeView extends GetView<HomeController> {
                 children: const [
                   RecipeView(),
                   ProgressListView(),
+                  KeyNoteView(),
                   SettingsView(),
                 ],
               ),
@@ -63,6 +65,10 @@ class HomeView extends GetView<HomeController> {
             BottomNavigationBarItem(
               icon: Icon(Icons.timer),
               label: '진행 중인 레시피',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.lightbulb_outline),
+              label: '핵심노트',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),

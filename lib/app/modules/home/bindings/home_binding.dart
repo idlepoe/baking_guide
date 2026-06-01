@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../key_note/controllers/key_note_controller.dart';
 import '../../progress_list/controllers/progress_list_controller.dart';
 import '../../recipe/controllers/recipe_controller.dart';
 import '../../settings/controllers/settings_controller.dart';
@@ -11,6 +12,7 @@ class HomeBinding extends Bindings {
     Get.lazyPut<HomeController>(() => HomeController());
     Get.lazyPut<RecipeController>(() => RecipeController());
     Get.lazyPut<ProgressListController>(() => ProgressListController());
+    Get.lazyPut<KeyNoteController>(() => KeyNoteController());
     Get.lazyPut<SettingsController>(() => SettingsController());
   }
 }
