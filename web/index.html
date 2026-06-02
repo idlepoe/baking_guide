@@ -4,7 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="광고없는제과제빵실기 - 제빵기능사 실기 준비를 위한 무료·무광고 연습 가이드 앱" />
+  <meta name="keywords" content="제빵기능사,제과제빵,실기,베이킹,레시피,타이머,반죽온도,빵실기,무료,무광고" />
+  <meta name="author" content="황금풍뎅이" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://bbangsilgi.web.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="광고없는제과제빵실기" />
+  <meta property="og:title" content="광고없는제과제빵실기" />
+  <meta property="og:description" content="제빵기능사 실기 준비를 위한 무료·무광고 연습 가이드 앱. 레시피, 타이머, 반죽 온도 계산, 핵심노트를 한곳에서." />
+  <meta property="og:url" content="https://bbangsilgi.web.app/" />
+  <meta property="og:image" content="https://bbangsilgi.web.app/icons/Icon-512.png" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="광고없는제과제빵실기" />
+  <meta name="twitter:description" content="제빵기능사 실기 준비를 위한 무료·무광고 연습 가이드 앱" />
+  <meta name="twitter:image" content="https://bbangsilgi.web.app/icons/Icon-512.png" />
+
   <title>광고없는제과제빵실기</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "광고없는제과제빵실기",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Android, iOS",
+      "description": "제빵기능사 실기 준비를 위한 무료·무광고 연습 가이드 앱",
+      "author": {
+        "@type": "Person",
+        "name": "황금풍뎅이"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "downloadUrl": "https://bbangsilgi.web.app/download/latest.apk",
+      "url": "https://bbangsilgi.web.app/"
+    }
+  </script>
   <style>
     :root {
       color-scheme: light dark;
@@ -34,6 +74,30 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.92rem;
+      background: #fff;
+    }
+    .top-nav a:hover,
+    .top-nav a:focus-visible {
+      border-color: var(--primary);
+      color: var(--primary);
+      outline: none;
     }
     h1 {
       margin: 0 0 6px;
@@ -90,11 +154,50 @@
       color: var(--muted);
       font-size: 0.92rem;
     }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .download-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+    }
+    .download-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .download-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .qr {
+      display: block;
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 12px;
+      background: #fff;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="card">
+      <nav class="top-nav" aria-label="페이지 주요 메뉴">
+        <a href="#intro">소개</a>
+        <a href="#features">주요 기능</a>
+        <a href="#download">다운로드</a>
+        <a href="#policy">개인정보처리방침</a>
+        <a href="#contact">문의</a>
+      </nav>
+
+      <div id="intro"></div>
       <span class="badge">무료 · 무광고</span>
       <h1>광고없는제과제빵실기</h1>
       <p class="subtitle">제빵기능사 실기를 앱 하나로 연습하는 실전 가이드</p>
@@ -104,7 +207,7 @@
         품목별 단계 안내와 타이머, 반죽 온도 계산, 핵심노트를 통해 실기 연습에 집중할 수 있습니다.
       </p>
 
-      <div class="section">
+      <div class="section" id="features">
         <h2>주요 기능</h2>
         <ul>
           <li>품목별 실기 레시피와 단계별 체크리스트</li>
@@ -114,9 +217,36 @@
         </ul>
       </div>
 
+      <div class="section" id="download">
+        <h2>다운로드</h2>
+        <div class="download-grid">
+          <article class="download-card">
+            <h3>Android APK</h3>
+            <p>APK 파일을 직접 다운로드해 설치할 수 있습니다.</p>
+            <a class="btn primary" href="/download/latest.apk" download aria-label="Android APK 파일 다운로드">APK 다운로드</a>
+            <img
+              class="qr"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https%3A%2F%2Fbbangsilgi.web.app%2Fdownload%2Flatest.apk"
+              alt="Android APK 다운로드 QR"
+            />
+          </article>
+
+          <article class="download-card">
+            <h3>iOS (App Store)</h3>
+            <p>iPhone/iPad에서는 App Store 링크로 이동해 설치합니다.</p>
+            <a class="btn" href="https://apps.apple.com/app/id6775720817" target="_blank" rel="noopener" aria-label="iOS App Store 페이지 열기">iOS 다운로드</a>
+            <img
+              class="qr"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fid6775720817"
+              alt="iOS App Store 다운로드 QR"
+            />
+          </article>
+        </div>
+      </div>
+
       <div class="actions">
-        <a class="btn primary" href="/etc/policy.html">개인정보처리방침</a>
-        <a class="btn" href="mailto:idlepoe@gmail.com">문의하기</a>
+        <a class="btn primary" id="policy" href="/etc/policy.html" aria-label="개인정보처리방침 페이지 이동">개인정보처리방침</a>
+        <a class="btn" id="contact" href="mailto:idlepoe@gmail.com" aria-label="이메일 문의하기">문의하기</a>
       </div>
 
       <p class="foot">개발자: 황금풍뎅이</p>
