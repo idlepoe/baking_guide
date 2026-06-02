@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:upgrader/upgrader.dart';
 
 import 'app/data/repositories/progress_session_repository.dart';
 import 'app/data/repositories/timer_repository.dart';
@@ -82,6 +83,8 @@ Future<void> main() async {
 class BakingGuideApp extends StatelessWidget {
   const BakingGuideApp({super.key});
 
+  static const _androidAppcastUrl = 'https://bbangsilgi.web.app/appcast.xml';
+
   @override
   Widget build(BuildContext context) {
     final themeController = Get.find<AppThemeController>();
@@ -103,14 +106,26 @@ class BakingGuideApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: (context, child) {
             final mediaQuery = MediaQuery.maybeOf(context);
+            final wrappedChild = UpgradeAlert(
+              upgrader: Upgrader(
+                storeController: UpgraderStoreController(
+                  onAndroid: () => UpgraderAppcastStore(
+                    appcastURL: _androidAppcastUrl,
+                  ),
+                  oniOS: () => UpgraderAppStore(
+                  ),
+                ),
+              ),
+              child: child ?? const SizedBox.shrink(),
+            );
             if (mediaQuery == null) {
-              return child ?? const SizedBox.shrink();
+              return wrappedChild;
             }
             return MediaQuery(
               data: mediaQuery.copyWith(
                 textScaler: TextScaler.linear(fontSizeFactor),
               ),
-              child: child ?? const SizedBox.shrink(),
+              child: wrappedChild,
             );
           },
         );

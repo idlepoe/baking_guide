@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>광고없는제과제빵실기 Android Appcast</title>
+    <link>https://bbangsilgi.web.app/</link>
+    <description>Android APK update feed for upgrader</description>
+    <language>ko-KR</language>
+    <item>
+      <title>1.0.0</title>
+      <description>최신 APK 배포 버전입니다.</description>
+      <pubDate>Tue, 02 Jun 2026 16:55:00 +0900</pubDate>
+      <enclosure
+        url="https://bbangsilgi.web.app/download/latest.apk"
+        sparkle:version="1"
+        sparkle:shortVersionString="1.0.0"
+        length="0"
+        type="application/vnd.android.package-archive" />
+    </item>
+  </channel>
+</rss>
