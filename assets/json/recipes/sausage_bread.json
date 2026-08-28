@@ -2,7 +2,7 @@
   "id": "sausage_bread",
   "name": "소시지빵",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/sausage_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/sausage_bread/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -20,7 +20,7 @@
       },
       "bench": {
         "temperature": "room",
-        "timeSec": 900
+        "timeSec": 450
       },
       "second": {
         "temperature": "35~40",
@@ -34,16 +34,19 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "70g*12",
-          "낙엽 6+꽃잎 6"
+          "계량 10분",
+          "70g × 12개",
+          "낙엽 6개 + 꽃잎 6개"
         ]
       },
       {
         "title": "토핑",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "1차 발효 중 준비",
-          "소시지·양파·치즈·케첩·마요"
+          "1차 발효 때 양파 손질",
+          "2차 발효 후 마요네즈 버무리기",
+          "양파는 소시지 2/3 덮기",
+          "케첩은 짤주머니로 고르게"
         ]
       },
       {
@@ -58,7 +61,10 @@
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "형태·토핑 불균일"
+          "12개 미달",
+          "잎사귀 좌우 비대칭",
+          "토핑 흐름·부족",
+          "케첩 굵기 불균일"
         ]
       }
     ]
@@ -172,13 +178,12 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/sausage_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/sausage_bread/1.png",
       "description": [
-        "재료를 시간 내에 정확하게 계량한다.",
-        "배합표의 각 재료를 계량하여 재료별로 진열한다 (10분).",
+        "반죽 재료를 계량하여 재료별로 진열한다 (10분).",
+        "토핑 및 충전물 재료의 계량은 휴지시간을 활용한다.",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
-        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
-        "토핑·충전물은 1차 발효 중 준비."
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
       "checklist": [
@@ -206,6 +211,76 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/sausage_bread/2.png",
+      "description": [
+        "마가린을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 마가린을 넣고 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "margarine_at_cleanup",
+          "text": "클린업 단계에서 마가린 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/sausage_bread/3.png",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도·1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/sausage_bread/4.png",
+      "description": [
+        "반죽온도를 27℃로 맞춘 후 온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 2700
+        }
+      ],
       "calculators": [
         {
           "type": "dough_temp",
@@ -217,124 +292,35 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/sausage_bread/step1.jpg",
+      "stepNo": 5,
+      "title": "05. 분할·둥글리기·중간 발효",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/sausage_bread/5.png",
       "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "마가린을(를) 제외한 모든 재료를 넣고 믹싱한다."
+        "손(또는 스크래퍼)으로 70g씩 분할하여 둥글리기를 한 후 실온에서 5~10분 동안 중간 발효를 한다."
       ],
-      "tips": [],
+      "tips": [
+        "중간 발효를 길게 하지 않고, 둥글리기 후 조금 있다가 바로 밀어 정형하는 것이 작업성이 좋다."
+      ],
       "checklist": [
         {
-          "id": "mix_without_fat",
-          "text": "마가린 제외 믹싱 완료"
+          "id": "divide_70g",
+          "text": "70g씩 분할"
         }
       ],
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "마가린 조기 투입 주의"
+          "text": "12개 미달 주의"
         }
       ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/sausage_bread/step1.jpg",
-      "description": [
-        "클린업 단계에서 마가린을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "마가린 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/sausage_bread/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 5,
-      "title": "05. 1차 발효·토핑 준비",
-      "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
-      "description": [
-        "27℃, 40~50분 1차 발효.",
-        "발효 중 토핑·충전물(소시지·양파·치즈·케첩·마요) 준비."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "topping_prep",
-          "text": "토핑 준비 완료"
-        }
-      ],
-      "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 3000
+          "label": "중간 발효",
+          "durationSec": 450
         }
       ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 6,
-      "title": "06. 분할·둥글리기",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
-      "description": [
-        "70g*12."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
       "calculators": [
         {
           "type": "division_weight",
@@ -346,22 +332,37 @@
       "images": []
     },
     {
-      "stepNo": 7,
-      "title": "07. 성형",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
+      "stepNo": 6,
+      "title": "06. 밀어 펴기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/sausage_bread/6.png",
       "description": [
-        "낙엽형 6개, 꽃잎형 6개로 성형·토핑."
+        "밀대를 이용하여 반죽을 길게 밀어 가스를 뺀다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 소시지 넣고 봉합·팬닝",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/sausage_bread/7.png",
+      "description": [
+        "소시지를 넣고 이음매를 봉합한 후 이음매가 밑으로 가도록 하여 한 팬에 6개씩 사선으로 팬닝한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "leaf_6",
-          "text": "낙엽형 6"
+          "id": "seam_down",
+          "text": "이음매 아래로 팬닝"
         },
         {
-          "id": "flower_6",
-          "text": "꽃잎형 6"
+          "id": "panning_6each",
+          "text": "한 팬에 6개씩 사선 팬닝"
         }
       ],
       "deductionPoints": [],
@@ -371,11 +372,60 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 2차 발효",
-      "estimatedTimeSec": 1500,
-      "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
+      "title": "08. 낙엽 모양 성형 (6개)",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/sausage_bread/8.png",
       "description": [
-        "20~30분 2차 발효."
+        "낙엽 모양은 가위를 최대한 눕혀서 9~10등분으로 자른 후 펼쳐 모양을 낸다."
+      ],
+      "tips": [
+        "끝부분을 뾰족하게 누르지 않고, 정형 시 끊어지거나 손자국이 남지 않도록 주의한다."
+      ],
+      "checklist": [
+        {
+          "id": "leaf_shape",
+          "text": "낙엽 모양 6개"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "잎사귀는 좌우 대칭·길게 마무리"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 꽃잎 모양 성형 (6개)",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/sausage_bread/9.png",
+      "description": [
+        "꽃잎 모양은 8~9등분으로 자른 후 앞의 반죽을 안에 넣고 동그랗게 펼쳐서 모양을 낸다."
+      ],
+      "tips": [
+        "원형으로 만들 때는 처음 자른 반죽을 안으로 넣어줘야 충전물을 올리기 쉽다."
+      ],
+      "checklist": [
+        {
+          "id": "flower_shape",
+          "text": "꽃잎 모양 6개"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 2차 발효",
+      "estimatedTimeSec": 1500,
+      "imageUrl": "assets/images/recipes/sausage_bread/10.png",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 20~30분 동안 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -384,47 +434,111 @@
           "text": "2차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1800
+          "durationSec": 1500
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 굽기",
-      "estimatedTimeSec": 1050,
-      "imageUrl": "assets/images/recipes/sausage_bread/step2.jpg",
+      "stepNo": 11,
+      "title": "11. 양파 손질·토핑 계량",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/sausage_bread/11.png",
       "description": [
-        "190/160℃, 15~20분."
+        "1차 발효시간을 이용해 양파를 씻어서 잘게 썰고 토핑물을 재료 계량한다."
+      ],
+      "tips": [
+        "케첩도 짤 주머니에 넣어놓는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 양파·마요네즈 혼합",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/sausage_bread/12.png",
+      "description": [
+        "양파에 마요네즈를 섞는다."
+      ],
+      "tips": [
+        "양파는 마요네즈와 미리 버무려두면 물이 나오기 때문에 반죽이 2차 발효에 들어간 후 버무린다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 충전물·치즈 올리기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/sausage_bread/13.png",
+      "description": [
+        "2차 발효된 반죽의 가운데로 양파(충전물)를 올린 후 그 위에 피자치즈를 올린다."
+      ],
+      "tips": [
+        "양파는 소시지의 2/3 정도 덮히도록 올린다."
+      ],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "토핑 양이 부족하지 않도록 조절"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 케첩 짜기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/sausage_bread/14.png",
+      "description": [
+        "비닐 짤주머니에 케첩을 담은 후 일정하게 짜준다."
       ],
       "tips": [],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "케첩이 너무 굵거나 가늘지 않게, 겹침 없이 고르게"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 굽기",
+      "estimatedTimeSec": 1050,
+      "imageUrl": "assets/images/recipes/sausage_bread/15.png",
+      "description": [
+        "윗불 190℃, 아랫불 160℃에서 15~20분 동안 굽는다."
+      ],
+      "tips": [
+        "식기 전에는 토핑이 흘러내릴 수 있으므로 철판에서 약간 식힌 후 타공팬으로 옮긴다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
@@ -438,16 +552,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "leaf_flower",
-      "text": "낙엽형·꽃잎형 각 6개."
+      "id": "color",
+      "text": "밑면 색이 조금 진하고, 윗면 치즈가 갈색을 띠며 가장자리가 황금 갈색이면 완성이다."
     },
     {
-      "id": "topping_even",
-      "text": "토핑이 고르게 올라가야 한다."
+      "id": "shape_uniform",
+      "text": "토핑 양과 잎사귀·꽃 모양이 균일해야 하며, 토핑이 흐르지 않아야 한다. 잎사귀는 좌우 대칭·길게, 꽃잎은 둥근 원형으로 마무리한다."
     },
     {
-      "id": "golden_brown",
-      "text": "황금색 균일."
+      "id": "topping_amount",
+      "text": "토핑은 부족하지 않도록 양 조절이 적당해야 하며, 케첩은 너무 굵거나 가늘지 않게 겹침 없이 고르게 짜여 있어야 한다."
     }
   ]
 }

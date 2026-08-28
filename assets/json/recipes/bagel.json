@@ -2,7 +2,7 @@
   "id": "bagel",
   "name": "베이글",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/bagel/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/bagel/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -34,7 +34,8 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "80g*16",
+          "계량 7분",
+          "80g×16개",
           "2팬"
         ]
       },
@@ -50,7 +51,8 @@
         "title": "삶기",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "2차 발효 후 끓는물 데치기"
+          "2차 발효 후 표면 건조",
+          "끓는 물에 앞·뒤 각 10초"
         ]
       },
       {
@@ -66,7 +68,9 @@
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
           "16개 미달",
-          "광택·고리 불균일"
+          "찌그러짐·두께 차이",
+          "이음매 들림",
+          "광택 불량"
         ]
       }
     ]
@@ -130,7 +134,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/bagel/step1.jpg",
+      "imageUrl": "",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (7분).",
@@ -163,6 +167,63 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/bagel/2.png",
+      "description": [
+        "모든 재료를 넣고 발전 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "development_stage",
+          "text": "발전 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 반죽 온도·1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/bagel/3.png",
+      "description": [
+        "반죽온도를 27℃로 맞춘 후 온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [
+        "베이글은 일반 빵에 비해 발효를 약간 덜 하는 것이 좋다."
+      ],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과발효 주의"
+        }
+      ],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 2700
+        }
+      ],
       "calculators": [
         {
           "type": "dough_temp",
@@ -174,82 +235,28 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 믹싱",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/bagel/step1.jpg",
-      "description": [
-        "모든 재료 일괄 투입.",
-        "발전 단계까지 믹싱."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/bagel/step1.jpg",
-      "description": [
-        "27℃."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 4,
-      "title": "04. 1차 발효",
-      "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/bagel/step1.jpg",
+      "title": "04. 분할·둥글리기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/bagel/4.png",
       "description": [
-        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+        "손(또는 스크래퍼)으로 80g씩 분할하여 둥글리기를 한다."
       ],
-      "tips": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
       "checklist": [
         {
-          "id": "first_fermentation_done",
-          "text": "1차 발효 완료"
+          "id": "divide_80g",
+          "text": "80g씩 분할·둥글리기"
         }
       ],
       "deductionPoints": [
         {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "16개 미달 주의"
         }
       ],
-      "timers": [
-        {
-          "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 3000
-        }
-      ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 5,
-      "title": "05. 분할·둥글리기",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/bagel/step2.jpg",
-      "description": [
-        "80g*16."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
       "timers": [],
       "calculators": [
         {
@@ -262,18 +269,91 @@
       "images": []
     },
     {
-      "stepNo": 6,
-      "title": "06. 고리 성형",
-      "estimatedTimeSec": 720,
-      "imageUrl": "assets/images/recipes/bagel/step2.jpg",
+      "stepNo": 5,
+      "title": "05. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "",
       "description": [
-        "고리 모양으로 성형. 2팬(16개)."
+        "실온에서 10~20분 동안 중간 발효를 한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "ring_16",
-          "text": "고리형 16개"
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 6,
+      "title": "06. 밀어 펴기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/bagel/6.png",
+      "description": [
+        "밀대를 이용하여 반죽을 길게 밀어 가스를 뺀다."
+      ],
+      "tips": [
+        "된 반죽이므로 덧가루를 최소화한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 윗면·아랫면 접기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/bagel/7.png",
+      "description": [
+        "반죽의 윗면과 아랫면을 접는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 가스 빼기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/bagel/8.png",
+      "description": [
+        "반죽을 접어주면서 가스를 뺀다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 막대 모양 밀기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "",
+      "description": [
+        "20cm 길이의 두께가 일정한 막대 모양으로 민다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "stick_20cm",
+          "text": "20cm 막대 모양"
         }
       ],
       "deductionPoints": [],
@@ -282,14 +362,115 @@
       "images": []
     },
     {
-      "stepNo": 7,
-      "title": "07. 2차 발효",
-      "estimatedTimeSec": 1050,
-      "imageUrl": "assets/images/recipes/bagel/step2.jpg",
+      "stepNo": 10,
+      "title": "10. 끝부분 밀어 펴기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/bagel/10.png",
       "description": [
-        "15~20분 2차 발효."
+        "이음매를 위로 뒤집어 끝부분을 밀대로 얇게 밀어 편다."
       ],
       "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 링 감싸기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/bagel/11.png",
+      "description": [
+        "얇게 민 부분으로 반대쪽 끝을 감싼다."
+      ],
+      "tips": [
+        "이음매를 위쪽으로 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 이음매 봉합",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/bagel/12.png",
+      "description": [
+        "떨어지지 않도록 이음매를 봉합하여 일정한 원형이 되도록 한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매 벌어짐 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 원형 정형",
+      "estimatedTimeSec": 180,
+      "imageUrl": "",
+      "description": [
+        "동일한 크기의 원형이 되도록 모양을 잡아준다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "ring_uniform",
+          "text": "동일한 크기의 링 모양"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "링 크기 불균일 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 팬닝",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/bagel/14.png",
+      "description": [
+        "한 팬에 8개씩 일정한 간격으로 팬닝한다."
+      ],
+      "tips": [
+        "팬닝할 때 밑면에 덧가루를 살짝 묻히면 철판에서 떼어내기 쉽고, 모양이 흐트러지는 것을 방지할 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "panning_8each",
+          "text": "한 팬에 8개씩 팬닝"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 15,
+      "title": "15. 2차 발효",
+      "estimatedTimeSec": 1050,
+      "imageUrl": "assets/images/recipes/bagel/15.png",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 15~20분 동안 2차 발효를 한다."
+      ],
+      "tips": [
+        "2차 발효가 오버되지 않도록 한다."
+      ],
       "checklist": [
         {
           "id": "second_fermentation_done",
@@ -299,39 +480,40 @@
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "2차 발효 과다 주의"
         }
       ],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1350
+          "durationSec": 1050
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 8,
-      "title": "08. 삶기",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/bagel/step2.jpg",
+      "stepNo": 16,
+      "title": "16. 데치기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/bagel/16.png",
       "description": [
-        "2차 발효 후 끓는 물에 데친다.",
-        "데친 후 팬닝·짧은 추가 발효."
+        "실온에서 표면을 살짝 건조시킨 후 끓는 물에 앞·뒤로 데친다."
       ],
-      "tips": [],
+      "tips": [
+        "앞·뒤로 각 10초씩 데친 후 팬닝 시 반죽이 쭈글거리면 2차 발효 과다이므로 주의한다."
+      ],
       "checklist": [
         {
-          "id": "boil_done",
-          "text": "삶기 완료"
+          "id": "boiled",
+          "text": "앞·뒤 데치기 완료"
         }
       ],
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "삶기 누락 주의"
+          "text": "광택 불량 주의"
         }
       ],
       "timers": [],
@@ -339,14 +521,39 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 굽기",
-      "estimatedTimeSec": 1140,
-      "imageUrl": "assets/images/recipes/bagel/evaluation.jpg",
+      "stepNo": 17,
+      "title": "17. 재팬닝·추가 발효",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/bagel/17.png",
       "description": [
-        "200/170℃, 18~20분."
+        "물기를 뺀 후 이음매가 아래로 가도록 다시 팬닝을 한다."
       ],
-      "tips": [],
+      "tips": [
+        "감독 위원의 지시에 따라 실온에서 10분 또는 발효실에서 5분 정도 추가 발효를 한다. 데친 후 추가 발효를 하지 않는 경우 1차 발효를 길게 한다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "추가 발효",
+          "durationSec": 600
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 18,
+      "title": "18. 굽기",
+      "estimatedTimeSec": 1140,
+      "imageUrl": "assets/images/recipes/bagel/18.png",
+      "description": [
+        "윗불 200℃, 아랫불 170℃에서 18~20분 동안 굽는다."
+      ],
+      "tips": [
+        "윗면이 단단하고 광택이 나야 된다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
@@ -356,11 +563,11 @@
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과색 주의"
+          "text": "광택 불량 주의"
         },
         {
           "severity": "medium",
-          "text": "미숙성 주의"
+          "text": "과색 주의"
         }
       ],
       "timers": [
@@ -376,16 +583,12 @@
   ],
   "resultEvaluation": [
     {
-      "id": "ring_16",
-      "text": "고리형 16개."
+      "id": "shape_uniform",
+      "text": "완성된 베이글은 크기와 부피가 균일하고 둥글어야 하며, 찌그러짐·두께 차이·이음매 들림이 없어야 한다."
     },
     {
-      "id": "glossy_crust",
-      "text": "윤기 있는 껍질."
-    },
-    {
-      "id": "even_color",
-      "text": "색·크기 균일."
+      "id": "surface_glossy",
+      "text": "겉면은 줄무늬 없이 매끈하고 윤기가 돌며 연한 갈색이어야 하고, 내부는 기공 없이 촘촘하면 좋다."
     }
   ]
 }

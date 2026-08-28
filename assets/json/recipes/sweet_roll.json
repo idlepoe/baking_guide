@@ -218,7 +218,7 @@
         }
       ],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step01.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/1.png"
     },
     {
       "stepNo": 2,
@@ -247,7 +247,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step02.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/2.png"
     },
     {
       "stepNo": 3,
@@ -284,7 +284,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step03.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/3.png"
     },
     {
       "stepNo": 4,
@@ -327,7 +327,7 @@
       ],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step04.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/4.png"
     },
     {
       "stepNo": 5,
@@ -360,7 +360,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step05.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/5.png"
     },
     {
       "stepNo": 6,
@@ -383,7 +383,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step06.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/6.png"
     },
     {
       "stepNo": 7,
@@ -411,7 +411,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step07.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/7.png"
     },
     {
       "stepNo": 8,
@@ -434,7 +434,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step08.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/8.png"
     },
     {
       "stepNo": 9,
@@ -463,7 +463,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step09.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/9.png"
     },
     {
       "stepNo": 10,
@@ -497,7 +497,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step10.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/10.png"
     },
     {
       "stepNo": 11,
@@ -526,7 +526,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step11.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/11.png"
     },
     {
       "stepNo": 12,
@@ -560,7 +560,7 @@
       "timers": [],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step12.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/12.png"
     },
     {
       "stepNo": 13,
@@ -602,7 +602,7 @@
       ],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step13.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/13.png"
     },
     {
       "stepNo": 14,
@@ -641,7 +641,7 @@
       ],
       "calculators": [],
       "images": [],
-      "imageUrl": "assets/images/recipes/sweet_roll/step14.png"
+      "imageUrl": "assets/images/recipes/sweet_roll/14.png"
     }
   ],
   "resultEvaluation": [

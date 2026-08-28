@@ -2,7 +2,7 @@
   "id": "grissini",
   "name": "그리시니",
   "category": "hard",
-  "thumbnailUrl": "assets/images/recipes/grissini/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/grissini/main.png",
   "summary": {
     "examTimeSec": 9000,
     "mixingMethod": "straight",
@@ -10,7 +10,7 @@
       "top": 200,
       "bottom": 150,
       "unit": "celsius",
-      "timeSec": 1050
+      "timeSec": 1200
     },
     "fermentation": {
       "first": {
@@ -47,7 +47,8 @@
         "imageUrl": "assets/images/keypoints/fermentation.png",
         "items": [
           "1차 15~30분",
-          "2차 20분"
+          "중간 10~20분",
+          "2차 20분 전후"
         ]
       },
       {
@@ -55,14 +56,16 @@
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
           "200/150℃",
-          "15~20분"
+          "20분 전후"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "길이·두께 불균일"
+          "길이 35~40cm 벗어남",
+          "굵기·두께 불균일",
+          "중간 끊어짐·손자국"
         ]
       }
     ]
@@ -132,7 +135,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/grissini/step1.jpg",
+      "imageUrl": "assets/images/recipes/grissini/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (8분).",
@@ -165,24 +168,38 @@
         }
       ],
       "timers": [],
-      "calculators": [
-        {
-          "type": "dough_temp",
-          "params": {
-            "target": 27
-          }
-        }
-      ],
+      "calculators": [],
       "images": []
     },
     {
       "stepNo": 2,
-      "title": "02. 믹싱",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/grissini/step1.jpg",
+      "title": "02. 로즈마리 손질",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/grissini/2.png",
       "description": [
-        "모든 재료를 한 번에 넣고 스트레이트법으로 믹싱한다.",
-        "발전 단계까지 믹싱한다."
+        "로즈마리는 칼로 살짝 잘라서 믹싱할 때 같이 넣는다."
+      ],
+      "tips": [
+        "손으로 부수어서 넣어도 된다."
+      ],
+      "checklist": [
+        {
+          "id": "rosemary_ready",
+          "text": "로즈마리 손질 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/grissini/3.png",
+      "description": [
+        "버터를 포함한 전 재료를 넣고 발전 단계까지 믹싱한다."
       ],
       "tips": [],
       "checklist": [
@@ -197,30 +214,24 @@
       "images": []
     },
     {
-      "stepNo": 3,
-      "title": "03. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/grissini/step1.jpg",
-      "description": [
-        "반죽온도 27℃."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 4,
-      "title": "04. 1차 발효",
+      "title": "04. 반죽 온도·1차 발효",
       "estimatedTimeSec": 1350,
-      "imageUrl": "assets/images/recipes/grissini/step2.jpg",
+      "imageUrl": "assets/images/recipes/grissini/4.png",
       "description": [
-        "27℃, 75~80%에서 15~30분 1차 발효."
+        "반죽온도를 27℃로 맞춘 후 온도 27℃, 습도 75~80%에서 15~30분 동안 1차 발효를 한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -229,21 +240,41 @@
           "durationSec": 1800
         }
       ],
-      "calculators": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 27
+          }
+        }
+      ],
       "images": []
     },
     {
       "stepNo": 5,
-      "title": "05. 분할·둥글리기",
+      "title": "05. 분할·둥글리기·중간 발효",
       "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/grissini/step2.jpg",
+      "imageUrl": "assets/images/recipes/grissini/5.png",
       "description": [
-        "30g씩 분할·둥글리기. 반죽 전량 사용."
+        "30g씩 분할하고 둥글리기를 한 후 실온에서 10~20분 동안 중간 발효를 한다."
       ],
-      "tips": [],
-      "checklist": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_30g",
+          "text": "30g씩 분할·둥글리기"
+        }
+      ],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
       "calculators": [
         {
           "type": "division_weight",
@@ -256,33 +287,46 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 막대 성형",
+      "title": "06. 성형",
       "estimatedTimeSec": 1200,
-      "imageUrl": "assets/images/recipes/grissini/step2.jpg",
+      "imageUrl": "assets/images/recipes/grissini/6.png",
       "description": [
-        "35~40cm 길이의 막대 모양으로 성형한다."
+        "한 번에 밀어 펴지 말고 세 번에 나누어 35~40cm로 밀어 편다."
       ],
-      "tips": [],
+      "tips": [
+        "끝부분을 뾰족하게 누르지 않고, 정형 시 끊어지거나 손자국이 남지 않도록 주의한다."
+      ],
       "checklist": [
         {
           "id": "stick_shape",
           "text": "35~40cm 막대 성형"
         }
       ],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "길이가 35cm보다 짧거나 40cm보다 길면 감점"
+        },
+        {
+          "severity": "medium",
+          "text": "중간이 끊어지거나 손자국이 남지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 7,
-      "title": "07. 2차 발효",
+      "title": "07. 팬닝·2차 발효",
       "estimatedTimeSec": 1200,
-      "imageUrl": "assets/images/recipes/grissini/step2.jpg",
+      "imageUrl": "assets/images/recipes/grissini/7.png",
       "description": [
-        "35~40℃, 85~90%에서 20분 전후 2차 발효."
+        "팬닝한 후 온도 35~40℃, 습도 85~90%에서 20분 전후로 2차 발효를 한다."
       ],
-      "tips": [],
+      "tips": [
+        "두께와 굵기가 일정해야 오븐에서 구웠을 때 비슷한 색깔이 난다."
+      ],
       "checklist": [
         {
           "id": "second_fermentation_done",
@@ -299,7 +343,7 @@
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1500
+          "durationSec": 1200
         }
       ],
       "calculators": [],
@@ -308,10 +352,10 @@
     {
       "stepNo": 8,
       "title": "08. 굽기",
-      "estimatedTimeSec": 1050,
-      "imageUrl": "assets/images/recipes/grissini/step2.jpg",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/grissini/8.png",
       "description": [
-        "200/150℃에서 15~20분 굽는다."
+        "윗불 200℃, 아랫불 150℃에서 20분 전후로 굽는다."
       ],
       "tips": [],
       "checklist": [
@@ -334,7 +378,7 @@
         {
           "type": "baking",
           "label": "굽기",
-          "durationSec": 1050
+          "durationSec": 1200
         }
       ],
       "calculators": [],
@@ -344,15 +388,19 @@
   "resultEvaluation": [
     {
       "id": "length_uniform",
-      "text": "35~40cm 길이가 균일해야 한다."
+      "text": "길이가 35cm보다 짧거나 40cm보다 길면 감점 대상이며, 굵기·두께·길이가 전체적으로 균일해야 한다."
+    },
+    {
+      "id": "surface_smooth",
+      "text": "중간이 끊어지거나 손자국이 남는 경우, 표면이 매끈하지 않아 울퉁불퉁한 경우 감점 요인이 된다."
+    },
+    {
+      "id": "crisp_sound",
+      "text": "완성된 그리시니는 부러뜨렸을 때 '틱' 소리가 나며, 윗면·아랫면·옆면까지 연한 황금 갈색을 띠는 것이 좋다."
     },
     {
       "id": "crisp_texture",
-      "text": "바삭한 식감이어야 한다."
-    },
-    {
-      "id": "light_golden",
-      "text": "균일한 연한 황금색이어야 한다."
+      "text": "다소 높은 온도에서 구워야 황금 갈색이 나며, 완성 시 건빵과 같은 바삭한 식감을 내야 한다."
     }
   ]
 }

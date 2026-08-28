@@ -2,7 +2,7 @@
   "id": "milk_bread",
   "name": "우유식빵",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/milk_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/milk_bread/main.png",
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",

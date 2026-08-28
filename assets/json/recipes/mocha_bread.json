@@ -2,7 +2,7 @@
   "id": "mocha_bread",
   "name": "모카빵",
   "category": "hard",
-  "thumbnailUrl": "assets/images/recipes/mocha_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/mocha_bread/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -34,23 +34,28 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "250g+100g 비스킷*6"
+          "계량 11분",
+          "반죽 250g + 비스킷 100g",
+          "완제품 6개",
+          "타원형(럭비공)"
         ]
       },
       {
         "title": "비스킷 토핑",
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
-          "비스킷 직접 제조",
-          "100g씩 올리기"
+          "1차 발효 시간에 제조",
+          "30분 냉장 휴지",
+          "많이 섞으면 윗면이 갈라지지 않음"
         ]
       },
       {
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "타원형",
-          "건포도 포함"
+          "건포도가 윗면에 올라오지 않게",
+          "비스킷은 바닥까지 거의 덮기",
+          "물칠 후 씌우기"
         ]
       },
       {
@@ -65,7 +70,10 @@
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "비스킷 균열·건포도 분포"
+          "윗면 안 갈라짐",
+          "토핑 얇아 찢어짐",
+          "빵색 드러남",
+          "건포도 튀어나옴"
         ]
       }
     ]
@@ -196,13 +204,12 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 660,
-      "imageUrl": "assets/images/recipes/mocha_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/mocha_bread/1.png",
       "description": [
-        "재료를 시간 내에 정확하게 계량한다.",
-        "배합표의 각 재료를 계량하여 재료별로 진열한다 (11분).",
+        "배합표의 빵 반죽 재료를 계량하여 재료별로 진열한다 (11분).",
+        "토핑용 비스킷 재료는 계량시간에서 제외된다.",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
-        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
-        "토핑용 비스킷 재료 포함 11분."
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
       "checklist": [
@@ -230,6 +237,98 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 건포도 전처리",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/mocha_bread/2.png",
+      "description": [
+        "건포도를 물로 전처리한 후 체에 거른다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "raisin_soaked",
+          "text": "건포도 전처리 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/mocha_bread/3.png",
+      "description": [
+        "건포도와 버터를 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 버터를 넣고 최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 건포도 혼합",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/mocha_bread/4.png",
+      "description": [
+        "최종 단계에서 물기를 제거한 건포도를 넣고 골고루 섞일 때까지 저속으로 섞는다."
+      ],
+      "tips": [
+        "고속으로 섞을 경우 건포도가 부서진다."
+      ],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "건포도가 부서지지 않도록 저속 혼합"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 5,
+      "title": "05. 반죽 온도·1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/mocha_bread/5.png",
+      "description": [
+        "반죽온도를 27℃로 맞춘 후 온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 2700
+        }
+      ],
       "calculators": [
         {
           "type": "dough_temp",
@@ -241,135 +340,18 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/mocha_bread/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "버터을(를) 제외한 모든 재료를 넣고 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "버터 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "버터 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/mocha_bread/step1.jpg",
-      "description": [
-        "클린업 단계에서 버터을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "버터 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/mocha_bread/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 5,
-      "title": "05. 1차 발효",
-      "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
-      "description": [
-        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "first_fermentation_done",
-          "text": "1차 발효 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
-      "timers": [
-        {
-          "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 3000
-        }
-      ],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 6,
-      "title": "06. 비스킷 토핑",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
+      "title": "06. 비스킷 - 유지 크림화",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/mocha_bread/6.png",
       "description": [
-        "배합표에 따라 토핑용 비스킷 반죽을 제조한다."
+        "[06~09 비스킷 만들기, 1차 발효시간 이용]",
+        "버터를 풀어준 후 설탕, 소금을 넣어 크림화한다."
       ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "biscuit_ready",
-          "text": "비스킷 토핑 완료"
-        }
+      "tips": [
+        "1차 발효 시간을 이용해 비스킷을 만든다."
       ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -377,35 +359,11 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 분할",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
+      "title": "07. 비스킷 - 달걀 투입",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/mocha_bread/7.png",
       "description": [
-        "반죽 250g*6, 비스킷 100g*6으로 분할."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "divide_dough",
-          "text": "250g*6 분할"
-        },
-        {
-          "id": "divide_biscuit",
-          "text": "100g*6 분할"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 8,
-      "title": "08. 성형·토핑",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
-      "description": [
-        "타원형(럭비공)으로 성형하고 비스킷 토핑을 올린다."
+        "달걀을 나누어 넣으면서 크림화한다."
       ],
       "tips": [],
       "checklist": [],
@@ -415,12 +373,145 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 2차 발효",
-      "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
+      "stepNo": 8,
+      "title": "08. 비스킷 - 가루·우유 혼합",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/mocha_bread/8.png",
       "description": [
-        "35~40℃, 85~90%에서 30분 전후 2차 발효."
+        "체질한 가루재료(박력분, 베이킹파우더)를 넣고 가볍게 섞다가 우유를 넣고 섞는다."
+      ],
+      "tips": [
+        "너무 많이 섞으면 글루텐이 생겨 윗면이 갈라지지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 비스킷 휴지",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/mocha_bread/9.png",
+      "description": [
+        "비닐에 싸서 밀봉한 후 30분 정도 냉장 휴지시킨다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "biscuit_rested",
+          "text": "비스킷 냉장 휴지 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "비스킷 휴지",
+          "durationSec": 1800
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 분할·중간 발효",
+      "estimatedTimeSec": 1200,
+      "imageUrl": "assets/images/recipes/mocha_bread/10.png",
+      "description": [
+        "[10~15 제품 만들기]",
+        "250g씩 6개를 분할하여 둥글리기 후 중간발효를 하고, 휴지한 토핑도 100g으로 분할해 고구마 형태로 중간정형한다."
+      ],
+      "tips": [
+        "건포도가 윗부분에 올라오지 않도록 주의한다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_250g",
+          "text": "반죽 250g × 6개 분할"
+        },
+        {
+          "id": "biscuit_100g",
+          "text": "비스킷 100g씩 분할"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 250
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 비스킷 분할·치대기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/mocha_bread/11.png",
+      "description": [
+        "비스킷을 100g씩 분할하여 살짝 치댄다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 반죽 성형",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/mocha_bread/12.png",
+      "description": [
+        "반죽을 밀대로 밀어 편 후 타원형으로 말아 이음매를 잘 봉합한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "oval_shape",
+          "text": "타원형(럭비공) 성형"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 비스킷 밀기·물칠",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/mocha_bread/13.png",
+      "description": [
+        "비스킷을 밀대로 밀고, 붓(또는 스프레이)으로 반죽 위에 물을 바른다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 비스킷 씌우기·2차 발효",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/mocha_bread/14.png",
+      "description": [
+        "비스킷이 반죽의 바닥까지 거의 덮일 정도로 씌운 후 온도 35~40℃, 습도 85~90%에서 30분 전후로 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -432,44 +523,37 @@
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "빵을 충분히 덮지 않아 빵색이 드러나지 않도록 주의"
         }
       ],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 2100
+          "durationSec": 1800
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 10,
-      "title": "10. 굽기",
+      "stepNo": 15,
+      "title": "15. 굽기",
       "estimatedTimeSec": 1650,
-      "imageUrl": "assets/images/recipes/mocha_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/mocha_bread/15.png",
       "description": [
-        "190/160℃에서 25~30분 굽는다."
+        "윗불 190℃, 아랫불 160℃에서 25~30분 동안 굽는다."
       ],
-      "tips": [],
+      "tips": [
+        "옆면까지 색이 나고 윗면은 갈라져야 한다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
@@ -483,16 +567,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "tiger_crack",
-      "text": "비스킷 토핑 균열이 균일해야 한다."
+      "id": "oval_uniform",
+      "text": "완성된 모카빵은 타원형(럭비공 모양)으로 균일하게 만들어져야 하며, 부피도 일정해야 한다."
     },
     {
-      "id": "raisin_even",
-      "text": "건포도가 고르게 분포해야 한다."
+      "id": "top_cracked",
+      "text": "윗면은 거북이 등처럼 자연스럽게 갈라져 균일한 색을 띠어야 하고 주저앉지 않아야 한다."
     },
     {
-      "id": "coffee_crumb",
-      "text": "커피색 조직이 균일해야 한다."
+      "id": "topping_cover",
+      "text": "토핑이 매끈하게 나오거나 얇아 찢어지는 경우, 빵을 충분히 덮지 않아 빵색이 진하게 드러나는 경우 감점 요인이 된다. 또한 건포도가 윗면으로 튀어나오는 경우에도 감점된다."
     }
   ]
 }

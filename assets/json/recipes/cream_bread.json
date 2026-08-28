@@ -2,7 +2,7 @@
   "id": "cream_bread",
   "name": "크림빵",
   "category": "pastry",
-  "thumbnailUrl": "assets/images/recipes/cream_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/cream_bread/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -34,16 +34,19 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "46g*24",
-          "충전 12 + 반달 12"
+          "계량 9분",
+          "46g×24개",
+          "충전 12개 + 반달형 12개"
         ]
       },
       {
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "충전형 12",
-          "반달형 12"
+          "크림 30g 충전",
+          "윗면을 밑면보다 길게 덮기",
+          "칼집 5군데",
+          "비충전 12개는 식용유 바르기"
         ]
       },
       {
@@ -58,7 +61,9 @@
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "형태·개수 미달"
+          "크림 비침·샘",
+          "아랫면 노출",
+          "밑색 진함"
         ]
       }
     ]
@@ -141,13 +146,12 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/cream_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/cream_bread/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
-        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
-        "충전용 커스터드 크림은 계량 시간에서 제외."
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
       "checklist": [
@@ -175,6 +179,66 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/cream_bread/2.png",
+      "description": [
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 쇼트닝을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "shortening_at_cleanup",
+          "text": "클린업 단계에서 쇼트닝 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/cream_bread/3.png",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/cream_bread/4.png",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [
         {
           "type": "dough_temp",
@@ -186,90 +250,10 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/cream_bread/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "쇼트닝을(를) 제외한 모든 재료를 넣고 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "쇼트닝 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "쇼트닝 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/cream_bread/step1.jpg",
-      "description": [
-        "클린업 단계에서 쇼트닝을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "쇼트닝 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/cream_bread/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/cream_bread/5.png",
       "description": [
         "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
       ],
@@ -280,21 +264,12 @@
           "text": "1차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 3000
+          "durationSec": 2700
         }
       ],
       "calculators": [],
@@ -302,14 +277,21 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 분할·둥글리기",
+      "title": "06. 분할",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/cream_bread/6.png",
       "description": [
-        "46g씩 24개 분할·둥글리기."
+        "손(또는 스크래퍼)으로 46g씩 분할한다."
       ],
-      "tips": [],
-      "checklist": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_46g",
+          "text": "46g씩 분할"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [
@@ -324,19 +306,14 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 충전형 12개",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/cream_bread/7.png",
       "description": [
-        "12개에 커스터드 크림 30g씩 충전·봉합한다."
+        "매끄럽게 둥글리기를 한다."
       ],
       "tips": [],
-      "checklist": [
-        {
-          "id": "cream_12",
-          "text": "충전형 12개 완료"
-        }
-      ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -344,17 +321,99 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 반달형 12개",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/cream_bread/8.png",
       "description": [
-        "12개는 크림 없이 반달형으로 성형한다."
+        "실온에서 10~20분 동안 중간 발효를 한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "half_moon_12",
-          "text": "반달형 12개 완료"
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 밀어 펴기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/cream_bread/9.png",
+      "description": [
+        "타원형으로 밀어 편다."
+      ],
+      "tips": [
+        "너무 세게 밀 경우 구웠을 때 색이 고르게 나지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "가운데가 얇아 크림이 비치지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 크림 충전 (12개)",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/cream_bread/10.png",
+      "description": [
+        "12개는 크림 30g을 넣고 가장자리에 물을 발라 붙인다."
+      ],
+      "tips": [
+        "크림이 너무 질면 작업하기가 힘들다."
+      ],
+      "checklist": [
+        {
+          "id": "cream_30g",
+          "text": "크림 30g씩 충전"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매에 크림이 묻어 벌어지거나 새지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 30
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 덮기·칼집",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/cream_bread/11.png",
+      "description": [
+        "밑면보다 윗면을 조금 더 길게 덮은 후 스크래퍼를 이용하여 칼집을 5군데 낸다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "cuts_5",
+          "text": "칼집 5군데"
         }
       ],
       "deductionPoints": [],
@@ -363,12 +422,47 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 2차 발효",
-      "estimatedTimeSec": 2100,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "stepNo": 12,
+      "title": "12. 식용유 바르기 (12개)",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/cream_bread/12.png",
       "description": [
-        "35~40℃, 85~90%에서 30~40분 2차 발효."
+        "크림을 충전하지 않는 반죽은 반죽의 절반 정도에 식용유를 바른다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 반달형 성형",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/cream_bread/13.png",
+      "description": [
+        "식용유를 바른 부분을 밑면으로 하고 윗면을 조금 더 길게 덮는다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "아랫면이 보이지 않도록 윗면을 더 길게 덮기"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 팬닝·2차 발효",
+      "estimatedTimeSec": 2100,
+      "imageUrl": "assets/images/recipes/cream_bread/14.png",
+      "description": [
+        "간격을 맞춰 팬닝 후 온도 35~40℃, 습도 85~90%에서 30~40분 동안 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -377,47 +471,35 @@
           "text": "2차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 2400
+          "durationSec": 2100
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 10,
-      "title": "10. 굽기",
+      "stepNo": 15,
+      "title": "15. 굽기",
       "estimatedTimeSec": 660,
-      "imageUrl": "assets/images/recipes/cream_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/cream_bread/15.png",
       "description": [
-        "200/150℃에서 10~12분 굽는다."
+        "윗불 200℃, 아랫불 150℃에서 10~12분 동안 굽는다."
       ],
-      "tips": [],
+      "tips": [
+        "밑색이 진하면 철판을 하나 더 깔아준다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
@@ -431,16 +513,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "cream_12",
-      "text": "충전형 12개가 균일해야 한다."
+      "id": "cream_leak",
+      "text": "반죽을 밀 때 가운데가 얇아 크림이 비치거나, 이음매에 크림이 묻어 벌어지거나 새는 일이 없어야 한다."
     },
     {
-      "id": "half_moon_12",
-      "text": "반달형 12개가 균일해야 한다."
+      "id": "top_covers_bottom",
+      "text": "완성된 크림빵은 충전용·비충전용 모두 윗면 반죽이 아랫면 반죽을 덮도록 정형해 아랫면이 보이지 않아야 한다."
     },
     {
-      "id": "no_leak",
-      "text": "크림 누출이 없어야 한다."
+      "id": "color_moist",
+      "text": "완성품의 윗면은 매끈하고 균일한 황금 갈색을 띠어야 하며, 밑면 색은 연하게 나와 빵의 내부가 촉촉해야 한다."
     }
   ]
 }

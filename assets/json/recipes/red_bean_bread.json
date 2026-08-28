@@ -2,7 +2,7 @@
   "id": "red_bean_bread",
   "name": "단팥빵",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/red_bean_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/red_bean_bread/main.png",
   "summary": {
     "examTimeSec": 10800,
     "mixingMethod": "emergency_straight",
@@ -22,6 +22,10 @@
         "temperature": "35~40",
         "humidity": "85~90%",
         "timeSec": 1500
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 750
       }
     },
     "keyPoints": [
@@ -30,16 +34,19 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간",
-          "비상스트레이트법",
-          "50g+40g*24"
+          "계량 9분",
+          "반죽 50g + 앙금 40g",
+          "24개"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "30℃",
-          "최종단계 20~25% 과믹싱"
+          "비상스트레이트법",
+          "유지는 클린업 단계 투입",
+          "최종 단계 + 20~25%",
+          "30℃"
         ]
       },
       {
@@ -47,6 +54,7 @@
         "imageUrl": "assets/images/keypoints/fermentation.png",
         "items": [
           "1차 15~30분",
+          "중간 10~15분",
           "2차 20~30분"
         ]
       },
@@ -54,16 +62,19 @@
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "배꼽 모양",
-          "팥 중앙 배치"
+          "앙금 40g 충전",
+          "이음매 봉합",
+          "12개는 중앙 눌러주기"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "팥 노출·편향",
-          "24개 미달"
+          "24개 미달",
+          "단팥 치우침·납작함",
+          "밑면 단팥 노출",
+          "이음매 터짐"
         ]
       }
     ]
@@ -146,13 +157,12 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/red_bean_bread/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
-        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
-        "충전재(통팥앙금)는 계량 시간에서 제외한다."
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
       "checklist": [
@@ -180,27 +190,24 @@
         }
       ],
       "timers": [],
-      "calculators": [
-        {
-          "type": "dough_temp",
-          "params": {
-            "target": 30
-          }
-        }
-      ],
+      "calculators": [],
       "images": []
     },
     {
       "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step1.jpg",
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/red_bean_bread/2.png",
       "description": [
-        "비상스트레이트법으로 제조한다.",
-        "마가린을 제외한 모든 재료를 넣고 믹싱한다."
+        "마가린과 팥앙금을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 마가린을 넣는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "margarine_at_cleanup",
+          "text": "클린업 단계에서 마가린 투입"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -208,18 +215,17 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 클린업·과믹싱",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step1.jpg",
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/red_bean_bread/3.png",
       "description": [
-        "클린업 단계에서 마가린을 넣는다.",
-        "최종 단계보다 20~25% 더 믹싱한다."
+        "최종 단계에서 20~25% 더 믹싱한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "overmix",
-          "text": "과믹싱(20~25%) 완료"
+          "id": "over_mixed",
+          "text": "최종 단계 + 20~25% 믹싱"
         }
       ],
       "deductionPoints": [],
@@ -231,33 +237,52 @@
       "stepNo": 4,
       "title": "04. 반죽 온도",
       "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/red_bean_bread/4.png",
       "description": [
-        "반죽온도는 30℃로 한다."
+        "비상스트레이트법이므로 반죽온도는 30℃로 한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "dough_temp_30",
+          "text": "반죽 온도 30℃ 확인"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
-      "calculators": [],
+      "calculators": [
+        {
+          "type": "dough_temp",
+          "params": {
+            "target": 30
+          }
+        }
+      ],
       "images": []
     },
     {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 1350,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/red_bean_bread/5.png",
       "description": [
-        "온도 30℃, 습도 75~80%에서 15~30분 1차 발효."
+        "온도 30℃, 습도 75~80%에서 15~30분 동안 1차 발효를 한다."
       ],
-      "tips": [],
-      "checklist": [],
+      "tips": [
+        "비상스트레이트법이므로 일반 빵보다 1차 발효를 적게 한다."
+      ],
+      "checklist": [
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 1800
+          "durationSec": 1350
         }
       ],
       "calculators": [],
@@ -265,15 +290,27 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 분할·둥글리기",
+      "title": "06. 분할",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/red_bean_bread/6.png",
       "description": [
-        "50g씩 24개 분할·둥글리기."
+        "손(또는 스크래퍼)으로 50g씩 분할한다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_50g",
+          "text": "50g씩 분할"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "24개 미달 주의"
+        }
+      ],
       "timers": [],
       "calculators": [
         {
@@ -287,19 +324,14 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 충전",
-      "estimatedTimeSec": 720,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/red_bean_bread/7.png",
       "description": [
-        "각 반죽에 통팥앙금 40g을 충전한다."
+        "매끄럽게 둥글리기를 한다."
       ],
       "tips": [],
-      "checklist": [
-        {
-          "id": "fill_40g",
-          "text": "40g 충전 완료"
-        }
-      ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -307,18 +339,75 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 봉합·성형",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 750,
+      "imageUrl": "assets/images/recipes/red_bean_bread/8.png",
       "description": [
-        "이음매를 단단히 봉합하고 배꼽 모양으로 성형한다."
+        "실온에서 10~15분 동안 중간 발효를 한다."
       ],
       "tips": [],
+      "checklist": [
+        {
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 750
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 앙금 충전",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/red_bean_bread/9.png",
+      "description": [
+        "헤라를 이용하여 팥앙금을 40g씩 넣는다."
+      ],
+      "tips": [
+        "앙금은 미리 소분해두면 시간이 절약되고, 소분하지 않고 바로 충전 시 숙련도 점수가 높게 나온다."
+      ],
+      "checklist": [
+        {
+          "id": "filling_40g",
+          "text": "팥앙금 40g씩 충전"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 40
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 봉합",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/red_bean_bread/10.png",
+      "description": [
+        "이음매가 터지지 않도록 잘 봉합한다."
+      ],
+      "tips": [
+        "헤라를 손으로 잡은 상태에서 봉합해야 시간을 절약할 수 있다."
+      ],
       "checklist": [],
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "팥 노출·터짐 주의"
+          "text": "이음매 터짐·밑면 단팥 노출 주의"
         }
       ],
       "timers": [],
@@ -326,62 +415,73 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 2차 발효",
-      "estimatedTimeSec": 1500,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "stepNo": 11,
+      "title": "11. 중앙 누르기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/red_bean_bread/11.png",
       "description": [
-        "35~40℃, 85~90%에서 20~30분 2차 발효.",
-        "발효 후 윗면을 살짝 건조시킨 뒤 중앙을 손가락으로 다시 눌러준다."
+        "성형이 끝난 후 12개는 단팥이 상하좌우로 고루 분포되도록 반죽 중앙을 눌러준다(감독 위원의 지시에 따른다)."
       ],
-      "tips": [],
+      "tips": [
+        "돌려서 구멍을 뚫지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "구멍이 뚫리지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 2차 발효",
+      "estimatedTimeSec": 1500,
+      "imageUrl": "assets/images/recipes/red_bean_bread/12.png",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 20~30분 동안 2차 발효를 한다."
+      ],
+      "tips": [
+        "2차 발효가 끝나면 윗면을 말린 후 손가락으로 중앙부분을 살짝 눌러준다."
+      ],
       "checklist": [
         {
           "id": "second_fermentation_done",
           "text": "2차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1800
+          "durationSec": 1500
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 10,
-      "title": "10. 굽기",
+      "stepNo": 13,
+      "title": "13. 굽기",
       "estimatedTimeSec": 750,
-      "imageUrl": "assets/images/recipes/red_bean_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/red_bean_bread/13.png",
       "description": [
-        "190/170℃에서 10~15분 굽는다."
+        "윗불 190℃, 아랫불 170℃에서 10~15분 동안 굽는다."
       ],
-      "tips": [],
+      "tips": [
+        "오븐이나 발효 정도에 따라 약간의 색 차이가 있을 수 있으므로 상황에 따라 조절한다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
@@ -395,16 +495,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "belly_button",
-      "text": "배꼽 모양 중앙이 선명하고 대비가 있어야 한다."
+      "id": "navel_shape",
+      "text": "빵의 중심부는 반죽이 위로 솟지 않고 배꼽 모양의 하얀 부분이 선명하게 대비되어 나타나야 하며, 밑면에서 단팥이 보이지 않아야 한다."
     },
     {
-      "id": "no_leak",
-      "text": "밑면·옆면에서 팥이 보이지 않아야 한다."
+      "id": "volume_color",
+      "text": "전체적인 두께·부피·크기는 볼륨감 있게 동그랗게 형성되어야 하며, 다른 빵에 비해 윗면과 밑면의 색이 다소 진하게 나오는 것이 좋다."
     },
     {
-      "id": "round_volume",
-      "text": "둥글고 두툼한 부피여야 한다."
+      "id": "filling_centered",
+      "text": "단팥은 중심에 단단히 자리 잡아야 하며, 한쪽으로 치우치거나 납작하게 퍼진 형태는 좋지 않다. 반죽이 얇아 단팥이 드러나는 경우도 바람직하지 않다."
     }
   ]
 }

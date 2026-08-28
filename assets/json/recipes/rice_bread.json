@@ -2,7 +2,7 @@
   "id": "rice_bread",
   "name": "쌀식빵",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/rice_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/rice_bread/main.png",
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",
@@ -20,7 +20,7 @@
       },
       "bench": {
         "temperature": "room",
-        "timeSec": 900
+        "timeSec": 750
       },
       "second": {
         "temperature": "35~40",
@@ -34,15 +34,18 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 40분",
-          "198g*12",
-          "3개/팬*4"
+          "계량 9분",
+          "198g × 12개",
+          "식빵 4개 (3개 = 1개)"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "발전 후기",
+          "유지는 클린업 단계 투입",
+          "발전 단계까지만",
+          "쌀가루는 글루텐 없음",
           "27℃"
         ]
       },
@@ -50,7 +53,9 @@
         "title": "발효",
         "imageUrl": "assets/images/keypoints/fermentation.png",
         "items": [
-          "2차: 팬 위 1cm"
+          "1차 40~50분",
+          "중간 10~15분",
+          "2차 30분 전후 (팬 위 0.5cm)"
         ]
       },
       {
@@ -58,15 +63,17 @@
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
           "170/190℃",
-          "30분"
+          "30분 전후"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "4팬 균일",
-          "흰 조직"
+          "과믹싱",
+          "윗면 3봉 불균일",
+          "내부 큰 기공·이중층",
+          "밑면 패임·옆면 찢어짐"
         ]
       }
     ]
@@ -144,7 +151,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/rice_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/rice_bread/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
@@ -177,6 +184,73 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/rice_bread/2.png",
+      "description": [
+        "쇼트닝을 제외한 모든 재료를 믹싱하다가 클린업 단계에서 쇼트닝을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "shortening_at_cleanup",
+          "text": "클린업 단계에서 쇼트닝 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/rice_bread/3.png",
+      "description": [
+        "발전 단계까지 믹싱한다."
+      ],
+      "tips": [
+        "쌀가루에는 글루텐이 없기 때문에 발전 단계까지만 믹싱을 한다."
+      ],
+      "checklist": [
+        {
+          "id": "development_stage",
+          "text": "발전 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/rice_bread/4.png",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [
         {
           "type": "dough_temp",
@@ -188,56 +262,10 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/rice_bread/step1.jpg",
-      "description": [
-        "쇼트닝 제외 믹싱."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·발전 후기",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/rice_bread/step1.jpg",
-      "description": [
-        "클린업에 쇼트닝.",
-        "발전 단계 후기까지."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/rice_bread/step1.jpg",
-      "description": [
-        "27℃."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/rice_bread/5.png",
       "description": [
         "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
       ],
@@ -248,21 +276,12 @@
           "text": "1차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 3000
+          "durationSec": 2700
         }
       ],
       "calculators": [],
@@ -272,13 +291,23 @@
       "stepNo": 6,
       "title": "06. 분할·둥글리기",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/rice_bread/6.png",
       "description": [
-        "198g*12."
+        "스크래퍼를 이용해 한두 번의 가감으로 198g 12개를 분할한 후 둥글리기 한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "divide_198g",
+          "text": "198g × 12개 분할"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "12개 미달 주의"
+        }
+      ],
       "timers": [],
       "calculators": [
         {
@@ -293,19 +322,24 @@
     {
       "stepNo": 7,
       "title": "07. 중간 발효",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "estimatedTimeSec": 750,
+      "imageUrl": "assets/images/recipes/rice_bread/7.png",
       "description": [
-        "10~20분."
+        "실온에서 10~15분 동안 중간 발효를 한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
-          "type": "rest",
+          "type": "fermentation",
           "label": "중간 발효",
-          "durationSec": 1200
+          "durationSec": 750
         }
       ],
       "calculators": [],
@@ -313,11 +347,11 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 밀어펴기",
-      "estimatedTimeSec": 180,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "title": "08. 밀어 펴기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/rice_bread/8.png",
       "description": [
-        "가스 제거."
+        "밀대로 반죽을 밀어 펴 가스를 뺀다."
       ],
       "tips": [],
       "checklist": [],
@@ -329,10 +363,10 @@
     {
       "stepNo": 9,
       "title": "09. 3겹 접기",
-      "estimatedTimeSec": 240,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/rice_bread/9.png",
       "description": [
-        "3겹 접기."
+        "3겹 접기를 한다."
       ],
       "tips": [],
       "checklist": [],
@@ -343,11 +377,11 @@
     },
     {
       "stepNo": 10,
-      "title": "10. 말기·봉합",
+      "title": "10. 재밀기",
       "estimatedTimeSec": 300,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/rice_bread/10.png",
       "description": [
-        "말기·봉합."
+        "밀대로 다시 3겹 접기한 부분을 밀어 편다."
       ],
       "tips": [],
       "checklist": [],
@@ -358,19 +392,14 @@
     },
     {
       "stepNo": 11,
-      "title": "11. 패닝",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "title": "11. 말기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/rice_bread/11.png",
       "description": [
-        "3개씩 4팬 패닝 (198g*3=1식빵)."
+        "끝부분부터 반죽을 말아준다."
       ],
       "tips": [],
-      "checklist": [
-        {
-          "id": "pan_4",
-          "text": "4팬 패닝"
-        }
-      ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -378,61 +407,78 @@
     },
     {
       "stepNo": 12,
-      "title": "12. 2차 발효",
-      "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "title": "12. 봉합",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/rice_bread/12.png",
       "description": [
-        "30분 전후, 팬 위 1cm."
+        "이음매 부분이 터지지 않도록 잘 봉합한다."
       ],
       "tips": [],
-      "checklist": [
-        {
-          "id": "second_fermentation_done",
-          "text": "2차 발효 완료"
-        }
-      ],
+      "checklist": [],
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "이음매 터짐 주의"
         }
       ],
-      "timers": [
-        {
-          "type": "proofing",
-          "label": "2차 발효",
-          "durationSec": 2100
-        }
-      ],
+      "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 13,
-      "title": "13. 굽기",
-      "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/rice_bread/step2.jpg",
+      "title": "13. 팬닝",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/rice_bread/13.png",
       "description": [
-        "170/190℃, 30분."
+        "이음매가 바닥으로 향하게 3개씩 팬닝하고 아랫부분에 공간이 남지 않도록 윗부분을 살짝 눌러준다."
       ],
       "tips": [],
       "checklist": [
+        {
+          "id": "panning_3each",
+          "text": "3개씩 팬닝 (식빵 4개)"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "밑면 패임 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 2차 발효·굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/rice_bread/14.png",
+      "description": [
+        "온도 35~40℃, 상대습도 85~90%에서 30분 전후로 2차 발효를 한다(팬 위로 0.5cm 정도 올라온 상태).",
+        "윗불 170℃, 아랫불 190℃에서 30분 전후로 굽는다."
+      ],
+      "tips": [
+        "제품이 전체적으로 황금 갈색이 나오지 않으면 제품을 식히는 과정에서 주저 앉는다."
+      ],
+      "checklist": [
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료 (팬 위 0.5cm)"
+        },
         {
           "id": "baking_done",
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1800
+        },
         {
           "type": "baking",
           "label": "굽기",
@@ -445,16 +491,12 @@
   ],
   "resultEvaluation": [
     {
-      "id": "white_crumb",
-      "text": "흰색 조직."
+      "id": "top_three_peaks",
+      "text": "윗면이 3봉 형태로 고르게 올라오고, 내부에 큰 기공·뭉침·이중층이 없어야 한다."
     },
     {
-      "id": "four_loaves",
-      "text": "4개 식빵 균일."
-    },
-    {
-      "id": "three_peaks",
-      "text": "3봉우리 균일."
+      "id": "volume_color",
+      "text": "식빵 4개의 부피가 균일해야 하며, 밑면 패임·옆면 찢어짐 없이 황금 갈색이 고르게 나와야 한다."
     }
   ]
 }

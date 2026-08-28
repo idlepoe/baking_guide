@@ -32,6 +32,7 @@ dev_dependencies:
   build_runner: ^2.4.15
   freezed: ^3.0.0
   json_serializable: ^6.9.5
+  image: ^4.5.4
 flutter_launcher_icons:
   android: true
   ios: true

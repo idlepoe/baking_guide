@@ -2,7 +2,7 @@
   "id": "soboro_bread",
   "name": "소보로빵",
   "category": "pastry",
-  "thumbnailUrl": "assets/images/recipes/soboro_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/soboro_bread/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -10,7 +10,7 @@
       "top": 190,
       "bottom": 160,
       "unit": "celsius",
-      "timeSec": 810
+      "timeSec": 900
     },
     "fermentation": {
       "first": {
@@ -34,16 +34,19 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "50g+30g 토핑*24",
-          "단과자"
+          "계량 9분",
+          "반죽 50g + 소보로 약 30g",
+          "완제품 80g × 24개"
         ]
       },
       {
         "title": "토핑",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "소보로 직접 제조",
-          "반죽당 30g"
+          "1차 발효 시간에 제조",
+          "마가린·땅콩버터 크림화",
+          "가루는 살짝만 혼합",
+          "보슬보슬하게 비비기"
         ]
       },
       {
@@ -51,14 +54,17 @@
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
           "190/160℃",
-          "12~15분"
+          "15분 내외"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "토핑 균일·균열"
+          "24개 미달",
+          "토핑 두께 불균일",
+          "토핑 부족으로 빵 노출",
+          "생밀가루 냄새"
         ]
       }
     ]
@@ -191,13 +197,12 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/soboro_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/soboro_bread/1.png",
       "description": [
-        "재료를 시간 내에 정확하게 계량한다.",
-        "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
+        "빵 반죽 재료를 계량하여 재료별로 진열한다 (9분).",
+        "토핑용 소보로 재료는 계량시간에서 제외된다.",
         "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
-        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다.",
-        "소보로 토핑 재료는 계량 시간에서 제외할 수 있다."
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
       "checklist": [
@@ -225,6 +230,76 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/soboro_bread/2.png",
+      "description": [
+        "마가린을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 마가린을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "margarine_at_cleanup",
+          "text": "클린업 단계에서 마가린 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/soboro_bread/3.png",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도·1차 발효",
+      "estimatedTimeSec": 2700,
+      "imageUrl": "assets/images/recipes/soboro_bread/4.png",
+      "description": [
+        "반죽온도를 27℃로 맞춘 후 온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 2700
+        }
+      ],
       "calculators": [
         {
           "type": "dough_temp",
@@ -236,151 +311,28 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/soboro_bread/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "마가린을(를) 제외한 모든 재료를 넣고 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "마가린 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "마가린 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/soboro_bread/step1.jpg",
-      "description": [
-        "클린업 단계에서 마가린을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "마가린 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/soboro_bread/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
-      "title": "05. 1차 발효",
-      "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
+      "title": "05. 분할",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/soboro_bread/5.png",
       "description": [
-        "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
+        "50g씩 손(또는 스크래퍼)으로 분할한다."
       ],
-      "tips": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
       "checklist": [
         {
-          "id": "first_fermentation_done",
-          "text": "1차 발효 완료"
+          "id": "divide_50g",
+          "text": "50g씩 분할"
         }
       ],
       "deductionPoints": [
         {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "24개 미달 주의"
         }
       ],
-      "timers": [
-        {
-          "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 3000
-        }
-      ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 6,
-      "title": "06. 소보로 토핑",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
-      "description": [
-        "배합표에 따라 소보로 토핑을 직접 제조한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "soboro_ready",
-          "text": "소보로 토핑 완료"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 7,
-      "title": "07. 분할·둥글리기",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
-      "description": [
-        "50g씩 24개 분할·둥글리기."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
       "timers": [],
       "calculators": [
         {
@@ -393,20 +345,59 @@
       "images": []
     },
     {
-      "stepNo": 8,
-      "title": "08. 토핑",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
+      "stepNo": 6,
+      "title": "06. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/soboro_bread/6.png",
       "description": [
-        "각 반죽 위에 소보로 30g씩 올린다."
+        "매끄럽게 둥글리기를 한다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 7,
+      "title": "07. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/soboro_bread/7.png",
+      "description": [
+        "실온에서 10~20분 동안 중간 발효를 한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "topping_30g",
-          "text": "30g 토핑 완료"
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
         }
       ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 토핑 - 유지 크림화",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/soboro_bread/8.png",
+      "description": [
+        "[08~10 토핑 만들기, 1차 발효시간 이용]",
+        "거품기를 이용하여 마가린과 땅콩버터를 풀어준 후 소금과 설탕, 물엿을 넣고 크림화한다."
+      ],
+      "tips": [
+        "1차 발효 시간을 이용해 토핑을 만든다."
+      ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -414,11 +405,119 @@
     },
     {
       "stepNo": 9,
-      "title": "09. 2차 발효",
-      "estimatedTimeSec": 1350,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
+      "title": "09. 토핑 - 달걀 투입",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/soboro_bread/9.png",
       "description": [
-        "35~40℃, 85~90%에서 20~25분 2차 발효."
+        "달걀을 넣으며 섞일 정도까지 크림화한다."
+      ],
+      "tips": [
+        "크림화를 너무 많이 하면 질어지거나 뭉쳐지는(갈라지지 않는) 현상이 생긴다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 10,
+      "title": "10. 토핑 - 가루 혼합",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/soboro_bread/10.png",
+      "description": [
+        "체질한 가루재료(중력분, 탈지분유, 베이킹파우더)를 살짝만 혼합하고 노란색이 될 때까지 손으로 보슬보슬 비벼준다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "topping_crumbly",
+          "text": "보슬보슬한 소보로 완성"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "생밀가루 냄새가 나지 않도록 충분히 비비기"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 재둥글리기·물 적시기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/soboro_bread/11.png",
+      "description": [
+        "[11~15 제품 만들기]",
+        "바닥에 소보로를 적당히 깔고 중간 발효된 반죽을 재둥글리기하여 가스를 뺀 후 살짝 물을 적신다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 소보로 묻히기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/soboro_bread/12.png",
+      "description": [
+        "반죽을 소보로 위에 올리고 손으로 힘껏 누른다.",
+        "소보로를 골고루 묻히면서 전체 무게를 80g으로 맞춘다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "total_80g",
+          "text": "전체 무게 80g 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "토핑이 치우치거나 부족해 빵이 드러나지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [
+        {
+          "type": "division_weight",
+          "params": {
+            "target": 80
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 팬닝",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/soboro_bread/13.png",
+      "description": [
+        "철판에 팬닝 후 동그란 모양을 잡아주고 윗부분을 살짝 눌러준다."
+      ],
+      "tips": [
+        "토핑물이 많으면 주저앉거나 윗면이 갈라지지 않는다."
+      ],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 14,
+      "title": "14. 2차 발효",
+      "estimatedTimeSec": 1350,
+      "imageUrl": "assets/images/recipes/soboro_bread/14.png",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 20~25분 동안 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -427,29 +526,24 @@
           "text": "2차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1650
+          "durationSec": 1350
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 10,
-      "title": "10. 굽기",
-      "estimatedTimeSec": 810,
-      "imageUrl": "assets/images/recipes/soboro_bread/step2.jpg",
+      "stepNo": 15,
+      "title": "15. 굽기",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/soboro_bread/15.png",
       "description": [
-        "190/160℃에서 12~15분 굽는다."
+        "윗불 190℃, 아랫불 160℃에서 15분 내외로 굽는다."
       ],
       "tips": [],
       "checklist": [
@@ -458,21 +552,12 @@
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
           "label": "굽기",
-          "durationSec": 810
+          "durationSec": 900
         }
       ],
       "calculators": [],
@@ -481,16 +566,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "soboro_cover",
-      "text": "소보로가 반죽을 고르게 덮어야 한다."
+      "id": "color_even",
+      "text": "전체적으로 균일한 황금 갈색을 띠어야 하며, 토핑으로 인해 밑면 색은 다소 진해질 수 있다."
     },
     {
-      "id": "crack_pattern",
-      "text": "균열 무늬가 균일해야 한다."
+      "id": "topping_inside",
+      "text": "절단 시 내부 토핑이 뭉쳐 있거나 생밀가루 냄새가 나서는 안 된다."
     },
     {
-      "id": "count_24",
-      "text": "24개가 균일해야 한다."
+      "id": "topping_even",
+      "text": "윗면의 토핑 두께가 전체적으로 균일하게 입혀져야 하며, 토핑이 치우치거나 부족해 빵이 드러나거나 한쪽 면의 색이 진하게 나타나지 않아야 한다."
     }
   ]
 }

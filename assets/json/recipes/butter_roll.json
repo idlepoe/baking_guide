@@ -2,7 +2,7 @@
   "id": "butter_roll",
   "name": "버터롤",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/butter_roll/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/butter_roll/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -34,15 +34,17 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "50g*24개",
-          "번데기형"
+          "계량 9분",
+          "50g×24개",
+          "번데기 모양"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "버터 클린업 투입",
+          "유지는 클린업 단계 투입",
+          "최종 단계",
           "27℃"
         ]
       },
@@ -51,6 +53,7 @@
         "imageUrl": "assets/images/keypoints/fermentation.png",
         "items": [
           "1차 40~50분",
+          "중간 10~20분",
           "2차 25~30분"
         ]
       },
@@ -58,16 +61,18 @@
         "title": "굽기",
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
-          "200/140~150℃",
-          "10~12분"
+          "200/140℃",
+          "10~12분 전후"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "24개 미달 실격",
-          "형태·색 불균일"
+          "24개 미달",
+          "좌우 대칭 불균일",
+          "줄무늬 불선명",
+          "이음매 옆면 노출"
         ]
       }
     ]
@@ -144,7 +149,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/butter_roll/step1.jpg",
+      "imageUrl": "assets/images/recipes/butter_roll/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
@@ -177,6 +182,68 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/butter_roll/2.png",
+      "description": [
+        "버터를 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 버터를 넣는다."
+      ],
+      "tips": [
+        "버터가 많이 들어가는 반죽이므로 버터를 나누어 넣으면 반죽시간을 줄일 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "butter_at_cleanup",
+          "text": "클린업 단계에서 버터 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_roll/3.png",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/butter_roll/4.png",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [
         {
           "type": "dough_temp",
@@ -188,91 +255,10 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/butter_roll/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "버터을(를) 제외한 모든 재료를 넣고 믹싱한다.",
-        "버터가 많으므로 나누어 넣으면 믹싱 시간을 줄일 수 있다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "버터 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "버터 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/butter_roll/step1.jpg",
-      "description": [
-        "클린업 단계에서 버터을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "버터 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/butter_roll/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/butter_roll/step2.jpg",
+      "imageUrl": "assets/images/recipes/butter_roll/5.png",
       "description": [
         "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
       ],
@@ -285,10 +271,6 @@
       ],
       "deductionPoints": [
         {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
           "severity": "high",
           "text": "과발효 주의"
         }
@@ -297,7 +279,7 @@
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 3000
+          "durationSec": 2700
         }
       ],
       "calculators": [],
@@ -305,20 +287,27 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 분할·둥글리기",
-      "estimatedTimeSec": 720,
-      "imageUrl": "assets/images/recipes/butter_roll/step2.jpg",
+      "title": "06. 분할",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_roll/6.png",
       "description": [
-        "50g씩 24개로 분할한 후 둥글리기 한다."
+        "손(또는 스크래퍼)으로 50g씩 분할한다."
       ],
-      "tips": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
       "checklist": [
         {
-          "id": "divide_24",
-          "text": "50g*24개 분할·둥글리기"
+          "id": "divide_50g",
+          "text": "50g씩 분할"
         }
       ],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "24개 미달 주의"
+        }
+      ],
       "timers": [],
       "calculators": [
         {
@@ -332,39 +321,58 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 중간 발효",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/butter_roll/step2.jpg",
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_roll/7.png",
       "description": [
-        "실온에서 10~20분 중간 발효."
+        "매끄럽게 둥글리기를 한다."
       ],
       "tips": [],
       "checklist": [],
       "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/butter_roll/8.png",
+      "description": [
+        "실온에서 10~20분 동안 중간 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
       "timers": [
         {
-          "type": "rest",
+          "type": "fermentation",
           "label": "중간 발효",
-          "durationSec": 1200
+          "durationSec": 900
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 8,
-      "title": "08. 성형",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/butter_roll/step2.jpg",
+      "stepNo": 9,
+      "title": "09. 중간 성형",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/butter_roll/9.png",
       "description": [
-        "번데기 모양(쐐기형)으로 성형한다.",
-        "24개 모두 동일하게 성형한다."
+        "한쪽 끝은 가늘고 다른 쪽은 둥글게 중간 성형을 한다(원추모양)."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "shape_24",
-          "text": "번데기형 24개 성형"
+          "id": "cone_shape",
+          "text": "원추 모양 성형"
         }
       ],
       "deductionPoints": [],
@@ -373,14 +381,78 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 2차 발효",
-      "estimatedTimeSec": 1650,
-      "imageUrl": "assets/images/recipes/butter_roll/step3.jpg",
+      "stepNo": 10,
+      "title": "10. 밀어 펴기",
+      "estimatedTimeSec": 480,
+      "imageUrl": "assets/images/recipes/butter_roll/10.png",
       "description": [
-        "35~40℃, 85~90%에서 25~30분 2차 발효."
+        "밀대를 이용하여 반죽을 27~28cm(가로 길이는 9~10cm)로 밀어준다."
       ],
       "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 말기",
+      "estimatedTimeSec": 600,
+      "imageUrl": "assets/images/recipes/butter_roll/11.png",
+      "description": [
+        "간격이 넓은 부분부터 좌우 간격을 일정하게 하여 끝부분까지 잘 말아준다."
+      ],
+      "tips": [
+        "느슨하게 말아야 줄무늬가 잘 생긴다. 이음매 부분이 두꺼우면 발효가 되었을 때 이음매가 위로 올라올 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "rolled_even",
+          "text": "좌우 간격 일정하게 말기"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "이음매가 두껍게 풀려 옆면으로 드러나지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 팬닝",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/butter_roll/12.png",
+      "description": [
+        "이음매 부분을 아래로 하여 팬닝한 후 윗부분을 살짝 눌러준다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "seam_down",
+          "text": "이음매 아래로 팬닝"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 13,
+      "title": "13. 2차 발효",
+      "estimatedTimeSec": 1650,
+      "imageUrl": "assets/images/recipes/butter_roll/13.png",
+      "description": [
+        "온도 35~40℃, 습도 85~90%에서 25~30분 동안 2차 발효를 한다."
+      ],
+      "tips": [
+        "2차 발효가 오버되면 위에 줄무늬가 없어질 수 있고 덜 되면 옆면이 터지거나 윗면이 갈라질 수 있다."
+      ],
       "checklist": [
         {
           "id": "second_fermentation_done",
@@ -390,28 +462,30 @@
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "과발효 시 줄무늬 소실 주의"
         }
       ],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1950
+          "durationSec": 1650
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 10,
-      "title": "10. 굽기",
+      "stepNo": 14,
+      "title": "14. 굽기",
       "estimatedTimeSec": 660,
-      "imageUrl": "assets/images/recipes/butter_roll/evaluation.jpg",
+      "imageUrl": "assets/images/recipes/butter_roll/14.png",
       "description": [
-        "윗불 200℃, 아랫불 140~150℃에서 10~12분 굽는다."
+        "윗불 200℃, 아랫불 140℃에서 10~12분 전후로 굽는다."
       ],
-      "tips": [],
+      "tips": [
+        "윗불이 높아 아랫면 색이 진하게 날 수 있어 철판을 밑면에 덧대어준다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
@@ -420,12 +494,8 @@
       ],
       "deductionPoints": [
         {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
           "severity": "medium",
-          "text": "미숙성 주의"
+          "text": "아랫면 과색 주의"
         }
       ],
       "timers": [
@@ -441,16 +511,12 @@
   ],
   "resultEvaluation": [
     {
-      "id": "count_24",
-      "text": "50g*24개가 모두 제출되어야 한다."
+      "id": "shape_symmetric",
+      "text": "완성된 버터롤은 길이와 부피, 좌우 대칭이 균일해야 하며 먹음직스러운 황금 갈색을 띠어야 한다."
     },
     {
-      "id": "chrysalis_shape",
-      "text": "번데기형이 균일해야 한다."
-    },
-    {
-      "id": "golden_gloss",
-      "text": "황금색·윤기가 균일해야 한다."
+      "id": "stripe_clear",
+      "text": "윗면의 줄무늬는 선명해야 하며, 이음매가 두껍게 풀려 옆면으로 드러나서는 안 된다."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "id": "pound_cake",
   "name": "파운드 케이크",
   "category": "cake",
-  "thumbnailUrl": "assets/images/recipes/pound_cake/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/pound_cake/main.png",
   "summary": {
     "examTimeSec": 9000,
     "mixingMethod": "cream",
@@ -118,7 +118,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/pound_cake/step1.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다."
       ],
@@ -133,7 +133,7 @@
       "stepNo": 2,
       "title": "02. 버터 풀기",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step2.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/2.png",
       "description": [
         "믹싱기에 버터를 넣고 고속으로 풀어준다."
       ],
@@ -148,7 +148,7 @@
       "stepNo": 3,
       "title": "03. 설탕 크림화",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step3.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/3.png",
       "description": [
         "설탕, 소금, 유화제를 2번에 나누어 넣으면서 크림화한다."
       ],
@@ -165,7 +165,7 @@
       "stepNo": 4,
       "title": "04. 달걀 크림화",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step4.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/4.png",
       "description": [
         "달걀을 조금씩 넣으면서 부드러운 크림을 만든다 (믹싱을 완료한다)."
       ],
@@ -182,7 +182,7 @@
       "stepNo": 5,
       "title": "05. 가루재료 혼합",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step5.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/5.png",
       "description": [
         "체질한 가루재료(박력분, 탈지분유, 베이킹파우더, 바닐라향)를 넣고 손가락을 벌려 믹싱볼 아래에서 위로 털어내듯이 섞는다."
       ],
@@ -197,7 +197,7 @@
       "stepNo": 6,
       "title": "06. 반죽 팬닝",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step6.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/6.png",
       "description": [
         "종이를 깔아둔 파운드틀에 비중(0.8±0.05)을 확인한 반죽을 짤주머니(또는 고무주걱)를 이용하여 틀의 70% 정도 팬닝한다."
       ],
@@ -217,7 +217,7 @@
       "stepNo": 7,
       "title": "07. 윗면 U자 정리",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step7.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/7.png",
       "description": [
         "가운데를 U자형으로 정리한다."
       ],
@@ -234,7 +234,7 @@
       "stepNo": 8,
       "title": "08. 1차 굽기",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step8.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/8.png",
       "description": [
         "윗불 200℃, 아랫불 180℃에서 15분 정도 윗면에 색이 나고 겉껍질이 살짝 익을 정도로 굽는다."
       ],
@@ -255,7 +255,7 @@
       "stepNo": 9,
       "title": "09. 윗면 자르기",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step9.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/9.png",
       "description": [
         "오븐에서 꺼내어 고무주걱(또는 칼)에 식용유를 바른 후 양 끝 1cm씩 남기고 가운데를 일자로 자른다."
       ],
@@ -272,7 +272,7 @@
       "stepNo": 10,
       "title": "10. 뚜껑 덮기",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step10.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/10.png",
       "description": [
         "뚜껑을 덮을 경우에는 가운데 식빵 틀 2개를 놓고 철판으로 뚜껑을 덮는다(감독위원의 지시에 따라 덮지 않을 수도 있다)."
       ],
@@ -289,7 +289,7 @@
       "stepNo": 11,
       "title": "11. 2차 굽기",
       "estimatedTimeSec": 818,
-      "imageUrl": "assets/images/recipes/pound_cake/step11.jpg",
+      "imageUrl": "assets/images/recipes/pound_cake/11.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 20~30분 동안 굽는다."
       ],

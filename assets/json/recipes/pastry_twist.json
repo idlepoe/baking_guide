@@ -2,7 +2,7 @@
   "id": "pastry_twist",
   "name": "단과자 트위스트",
   "category": "pastry",
-  "thumbnailUrl": "assets/images/recipes/pastry_twist/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/pastry_twist/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -25,7 +25,7 @@
       "second": {
         "temperature": "35~40",
         "humidity": "85~90%",
-        "timeSec": 1650
+        "timeSec": 1800
       }
     },
     "keyPoints": [
@@ -34,15 +34,17 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "50g*24",
-          "8자 12 + 달팽이 12"
+          "계량 9분",
+          "50g × 24개",
+          "8자형 12개 + 달팽이형 12개"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "쇼트닝 클린업",
+          "유지는 클린업 단계 투입",
+          "최종 단계",
           "27℃"
         ]
       },
@@ -50,7 +52,9 @@
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "8자형·달팽이형 각 12개"
+          "8자형은 28cm",
+          "달팽이형은 30~35cm",
+          "달팽이는 느슨하게 말기"
         ]
       },
       {
@@ -65,7 +69,10 @@
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "형태·개수 미달 실격"
+          "24개 미달",
+          "두께 불균일",
+          "이음매 풀림",
+          "밑면 과색"
         ]
       }
     ]
@@ -142,7 +149,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 540,
-      "imageUrl": "assets/images/recipes/pastry_twist/step1.jpg",
+      "imageUrl": "assets/images/recipes/pastry_twist/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (9분).",
@@ -175,6 +182,66 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/pastry_twist/2.png",
+      "description": [
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 쇼트닝을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "shortening_at_cleanup",
+          "text": "클린업 단계에서 쇼트닝 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/pastry_twist/3.png",
+      "description": [
+        "최종 단계까지 믹싱한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "final_stage",
+          "text": "최종 단계 도달"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/pastry_twist/4.png",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [
         {
           "type": "dough_temp",
@@ -186,90 +253,10 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/pastry_twist/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "쇼트닝을(를) 제외한 모든 재료를 넣고 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "쇼트닝 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "쇼트닝 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/pastry_twist/step1.jpg",
-      "description": [
-        "클린업 단계에서 쇼트닝을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "쇼트닝 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/pastry_twist/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
+      "imageUrl": "assets/images/recipes/pastry_twist/5.png",
       "description": [
         "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
       ],
@@ -280,21 +267,12 @@
           "text": "1차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 3000
+          "durationSec": 2700
         }
       ],
       "calculators": [],
@@ -302,15 +280,27 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 분할·둥글리기",
+      "title": "06. 분할",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
+      "imageUrl": "assets/images/recipes/pastry_twist/6.png",
       "description": [
-        "50g씩 24개 분할·둥글리기."
+        "손(또는 스크래퍼)으로 50g씩 분할한다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "손으로 분할 시 기술점수를 받을 수 있다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_50g",
+          "text": "50g씩 분할"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "24개 미달 주의"
+        }
+      ],
       "timers": [],
       "calculators": [
         {
@@ -324,60 +314,57 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 중간 발효",
-      "estimatedTimeSec": 900,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
+      "title": "07. 둥글리기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/pastry_twist/7.png",
       "description": [
-        "실온 10~20분."
+        "매끄럽게 둥글리기를 한다."
       ],
       "tips": [],
       "checklist": [],
-      "deductionPoints": [],
-      "timers": [
-        {
-          "type": "rest",
-          "label": "중간 발효",
-          "durationSec": 1200
-        }
-      ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 8,
-      "title": "08. 8자형 성형",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
-      "description": [
-        "12개를 8자형으로 성형한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "figure8_12",
-          "text": "8자형 12개 완료"
-        }
-      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 달팽이형 성형",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
+      "stepNo": 8,
+      "title": "08. 중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/pastry_twist/8.png",
       "description": [
-        "12개를 달팽이형으로 성형한다."
+        "실온에서 10~20분 동안 중간 발효를 한다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "snail_12",
-          "text": "달팽이형 12개 완료"
+          "id": "bench_time_done",
+          "text": "중간 발효 완료"
         }
       ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "중간 발효",
+          "durationSec": 900
+        }
+      ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 중간 성형",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/pastry_twist/9.png",
+      "description": [
+        "반죽을 손바닥으로 눌러 납작하게 만든 후 중간 성형을 한다."
+      ],
+      "tips": [
+        "반죽을 밀어 펼 때는 일정한 굵기로 신속하게 밀어 편다. 너무 세게 밀 경우 구웠을 때 색이 고르게 나지 않는다."
+      ],
+      "checklist": [],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -385,11 +372,58 @@
     },
     {
       "stepNo": 10,
-      "title": "10. 2차 발효",
-      "estimatedTimeSec": 1650,
-      "imageUrl": "assets/images/recipes/pastry_twist/step2.jpg",
+      "title": "10. 8자형 성형 (12개)",
+      "estimatedTimeSec": 720,
+      "imageUrl": "assets/images/recipes/pastry_twist/10.png",
       "description": [
-        "35~40℃, 85~90%에서 25~30분 2차 발효."
+        "팔자형은 반죽을 28cm 길이로 늘인 후 8자 모양으로 꼬아 만든다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "shape_figure8",
+          "text": "8자형 12개"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "짧게 밀어 이음매가 풀리거나 완성품이 작아지지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 11,
+      "title": "11. 달팽이형 성형 (12개)",
+      "estimatedTimeSec": 720,
+      "imageUrl": "assets/images/recipes/pastry_twist/11.png",
+      "description": [
+        "달팽이형은 반죽을 30~35cm로 늘인 후 굵은 쪽을 중심으로 돌려감아 원을 만들고 끝부분을 아래쪽으로 넣는다."
+      ],
+      "tips": [
+        "너무 바짝 말면 위로 솟아오르게 완성되니, 동그랗게 말 때는 팽창을 고려해 느슨하게 말아준다."
+      ],
+      "checklist": [
+        {
+          "id": "shape_snail",
+          "text": "달팽이형 12개"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 12,
+      "title": "12. 팬닝·2차 발효",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/pastry_twist/12.png",
+      "description": [
+        "반죽끼리 달라붙지 않도록 팬닝 후 온도 35~40℃, 습도 85~90%에서 30분 전후로 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -398,31 +432,28 @@
           "text": "2차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 1950
+          "durationSec": 1800
         }
       ],
       "calculators": [],
       "images": []
     },
     {
-      "stepNo": 11,
-      "title": "11. 굽기",
+      "stepNo": 13,
+      "title": "13. 굽기",
       "estimatedTimeSec": 660,
-      "imageUrl": "assets/images/recipes/pastry_twist/evaluation.jpg",
+      "imageUrl": "assets/images/recipes/pastry_twist/13.png",
       "description": [
-        "200/150℃에서 10~12분 굽는다."
+        "윗불 200℃, 아랫불 150℃에서 10~12분 동안 굽는다."
       ],
-      "tips": [],
+      "tips": [
+        "윗불이 높아서 밑면 색이 진하게 날 수 있으니 철판을 덧대거나 온도에 주의한다."
+      ],
       "checklist": [
         {
           "id": "baking_done",
@@ -431,12 +462,8 @@
       ],
       "deductionPoints": [
         {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
           "severity": "medium",
-          "text": "미숙성 주의"
+          "text": "밑면 과색 주의"
         }
       ],
       "timers": [
@@ -452,16 +479,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "figure8_12",
-      "text": "8자형 12개가 균일해야 한다."
+      "id": "thickness_even",
+      "text": "8자 모양과 달팽이형은 두께가 균일해야 하며, 반죽을 너무 짧게 밀어 정형 시 이음매가 풀리거나 완성품이 작게 나오는 일이 없어야 한다."
     },
     {
-      "id": "snail_12",
-      "text": "달팽이형 12개가 균일해야 한다."
+      "id": "color_surface",
+      "text": "전체적으로 황금 갈색을 띠며, 밑면색은 연하고 윗면은 반죽의 주름진 부분 없이 매끈하게 나와야 한다."
     },
     {
-      "id": "golden_even",
-      "text": "색·광택이 균일해야 한다."
+      "id": "snail_loose",
+      "text": "달팽이 정형 시 너무 바짝 말면 위로 솟아오르게 완성되니, 동그랗게 말 때는 팽창을 고려해 느슨하게 말아준다."
     }
   ]
 }

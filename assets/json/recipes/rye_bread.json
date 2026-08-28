@@ -2,7 +2,7 @@
   "id": "rye_bread",
   "name": "호밀빵",
   "category": "hard",
-  "thumbnailUrl": "assets/images/recipes/rye_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/rye_bread/main.png",
   "summary": {
     "examTimeSec": 12600,
     "mixingMethod": "straight",
@@ -22,6 +22,10 @@
         "temperature": "35~40",
         "humidity": "85~90%",
         "timeSec": 2100
+      },
+      "bench": {
+        "temperature": "room",
+        "timeSec": 900
       }
     },
     "keyPoints": [
@@ -30,40 +34,47 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 30분",
-          "330g*6",
-          "2단계 굽기"
+          "계량 10분",
+          "330g × 6개",
+          "타원형(럭비공)"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "25℃",
-          "발전 단계"
+          "유지는 클린업 단계 투입",
+          "발전 단계까지만",
+          "호밀은 짧게 믹싱",
+          "25℃"
         ]
       },
       {
         "title": "칼집·성형",
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
-          "일자 칼집",
-          "분무",
-          "타원형"
+          "아랫부분을 더 넓게 밀기",
+          "칼은 사선, 가운데 일자",
+          "깊으면 중심이 퍼짐",
+          "굽기 전 물 스프레이"
         ]
       },
       {
         "title": "굽기",
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
-          "190/180→180/160",
-          "10분+15~20분"
+          "190/180℃ 10분",
+          "→ 180/160℃ 15~20분"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "칼집·발색 불균일"
+          "절개 과다로 중심 퍼짐",
+          "이음매 돌아감",
+          "옆면 터짐",
+          "길이·부피 불균일"
         ]
       }
     ]
@@ -147,7 +158,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/rye_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/rye_bread/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (10분).",
@@ -180,6 +191,63 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/rye_bread/2.png",
+      "description": [
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 쇼트닝을 넣은 후 발전 단계까지 믹싱한다."
+      ],
+      "tips": [
+        "호밀가루가 들어가서 일반 빵 반죽에 비해 짧게 믹싱한다."
+      ],
+      "checklist": [
+        {
+          "id": "development_stage",
+          "text": "발전 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 반죽 온도·1차 발효",
+      "estimatedTimeSec": 4800,
+      "imageUrl": "assets/images/recipes/rye_bread/3.png",
+      "description": [
+        "반죽온도를 25℃로 맞춘 후 온도 27℃, 습도 75~80%에서 1시간 10분~1시간 30분 동안 1차 발효를 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_25",
+          "text": "반죽 온도 25℃ 확인"
+        },
+        {
+          "id": "first_fermentation_done",
+          "text": "1차 발효 완료"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [
+        {
+          "type": "fermentation",
+          "label": "1차 발효",
+          "durationSec": 4800
+        }
+      ],
       "calculators": [
         {
           "type": "dough_temp",
@@ -191,84 +259,33 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/rye_bread/step1.jpg",
-      "description": [
-        "스트레이트법. 쇼트닝 제외."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·발전 믹싱",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/rye_bread/step1.jpg",
-      "description": [
-        "클린업에 쇼트닝.",
-        "발전 단계까지."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/rye_bread/step1.jpg",
+      "title": "04. 분할·둥글리기·중간 발효",
+      "estimatedTimeSec": 900,
+      "imageUrl": "assets/images/recipes/rye_bread/4.png",
       "description": [
-        "25℃."
+        "330g씩 분할하여 둥글리기를 한 후 실온에서 10~20분 동안 중간 발효를 한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 5,
-      "title": "05. 1차 발효",
-      "estimatedTimeSec": 4800,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
-      "description": [
-        "27℃, 75~80%에서 70~90분."
+      "checklist": [
+        {
+          "id": "divide_330g",
+          "text": "330g씩 분할"
+        }
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "6개 미달 주의"
+        }
+      ],
       "timers": [
         {
           "type": "fermentation",
-          "label": "1차 발효",
-          "durationSec": 5400
+          "label": "중간 발효",
+          "durationSec": 900
         }
       ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 6,
-      "title": "06. 분할·둥글리기",
-      "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
-      "description": [
-        "330g*6."
-      ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [],
       "calculators": [
         {
           "type": "division_weight",
@@ -280,12 +297,12 @@
       "images": []
     },
     {
-      "stepNo": 7,
-      "title": "07. 성형",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
+      "stepNo": 5,
+      "title": "05. 밀어 펴기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "",
       "description": [
-        "타원형(럭비공)으로 성형."
+        "밀대를 이용하여 반죽을 밀어 펴 가스를 뺀다."
       ],
       "tips": [],
       "checklist": [],
@@ -295,19 +312,18 @@
       "images": []
     },
     {
-      "stepNo": 8,
-      "title": "08. 칼집·분무",
-      "estimatedTimeSec": 180,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
+      "stepNo": 6,
+      "title": "06. 말기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/rye_bread/6.png",
       "description": [
-        "윗면에 일자 칼집.",
-        "분무(스프레이) 처리."
+        "윗부분보다 아랫부분의 간격을 더 넓게 한 후 위에서부터 말아준다."
       ],
       "tips": [],
       "checklist": [
         {
-          "id": "slash_spray",
-          "text": "칼집·분무 완료"
+          "id": "oval_shape",
+          "text": "타원형(럭비공) 성형"
         }
       ],
       "deductionPoints": [],
@@ -316,12 +332,12 @@
       "images": []
     },
     {
-      "stepNo": 9,
-      "title": "09. 2차 발효",
+      "stepNo": 7,
+      "title": "07. 봉합·2차 발효",
       "estimatedTimeSec": 2100,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/rye_bread/7.png",
       "description": [
-        "30~40분 2차 발효."
+        "이음매 부분이 터지지 않도록 잘 봉합하고 온도 35~40℃, 습도 85~90%에서 30~40분 동안 2차 발효를 한다."
       ],
       "tips": [],
       "checklist": [
@@ -333,56 +349,93 @@
       "deductionPoints": [
         {
           "severity": "high",
-          "text": "과발효 주의"
+          "text": "이음매가 돌아가거나 옆면이 터지지 않도록 주의"
         }
       ],
       "timers": [
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 2400
+          "durationSec": 2100
         }
       ],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 8,
+      "title": "08. 칼집 내기",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/rye_bread/8.png",
+      "description": [
+        "반죽 표면을 살짝 말리고 칼집을 넣는다."
+      ],
+      "tips": [
+        "칼을 사선으로 잡고 가운데를 일자로 자른다. 칼집을 너무 깊게 넣으면 가운데가 너무 많이 벌어진다."
+      ],
+      "checklist": [
+        {
+          "id": "cut_center",
+          "text": "가운데 일자 칼집"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "절개가 깊어 중심이 퍼지지 않도록 주의"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 9,
+      "title": "09. 물 뿌리기",
+      "estimatedTimeSec": 120,
+      "imageUrl": "assets/images/recipes/rye_bread/9.png",
+      "description": [
+        "스프레이를 이용하여 물을 뿌려준다."
+      ],
+      "tips": [],
+      "checklist": [],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 10,
-      "title": "10. 1차 굽기",
-      "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
+      "title": "10. 굽기",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/rye_bread/10.png",
       "description": [
-        "190/180℃에서 10분 굽는다."
+        "윗불 190℃, 아랫불 180℃로 10분 정도 굽다가 윗불 180℃, 아랫불 160℃로 낮추어 15~20분 정도 더 굽는다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
-      "timers": [
+      "tips": [
+        "윗면이 갈라지고 색이 나기 시작하면 온도를 낮춘다."
+      ],
+      "checklist": [
         {
-          "type": "baking",
-          "label": "1차 굽기",
-          "durationSec": 600
+          "id": "baking_stage1",
+          "text": "190/180℃ 10분"
+        },
+        {
+          "id": "baking_stage2",
+          "text": "180/160℃ 15~20분"
         }
       ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 11,
-      "title": "11. 2차 굽기",
-      "estimatedTimeSec": 1050,
-      "imageUrl": "assets/images/recipes/rye_bread/step2.jpg",
-      "description": [
-        "180/160℃로 낮춰 15~20분 더 굽는다."
-      ],
-      "tips": [],
-      "checklist": [],
       "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
-          "label": "2차 굽기",
-          "durationSec": 1200
+          "label": "굽기 1단계 (190/180℃)",
+          "durationSec": 600
+        },
+        {
+          "type": "baking",
+          "label": "굽기 2단계 (180/160℃)",
+          "durationSec": 1050
         }
       ],
       "calculators": [],
@@ -391,16 +444,16 @@
   ],
   "resultEvaluation": [
     {
-      "id": "center_slash",
-      "text": "중앙 일자 칼집이 선명해야 한다."
+      "id": "center_split",
+      "text": "호밀빵의 중앙 부분은 자연스럽게 갈라져야 하며, 절개가 지나치게 깊어 중심이 퍼지지 않도록 해야 한다."
     },
     {
-      "id": "two_stage_bake",
-      "text": "2단계 굽기로 균일한 발색."
+      "id": "uniform_six",
+      "text": "호밀빵 6개의 길이와 부피, 벌어짐 정도가 동일하며 럭비공 모양을 유지해야 한다."
     },
     {
-      "id": "oval_uniform",
-      "text": "6개 타원형이 균일해야 한다."
+      "id": "seam",
+      "text": "이음매가 돌아가거나 옆면이 터질 경우 감점 요인이 된다."
     }
   ]
 }

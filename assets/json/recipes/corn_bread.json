@@ -2,7 +2,7 @@
   "id": "corn_bread",
   "name": "옥수수식빵",
   "category": "bread",
-  "thumbnailUrl": "assets/images/recipes/corn_bread/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/corn_bread/main.png",
   "summary": {
     "examTimeSec": 13200,
     "mixingMethod": "straight",
@@ -21,7 +21,7 @@
       "second": {
         "temperature": "35~40",
         "humidity": "85~90%",
-        "timeSec": 2100
+        "timeSec": 1800
       }
     },
     "keyPoints": [
@@ -30,15 +30,18 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "3시간 40분",
-          "180g*12",
-          "4팬"
+          "계량 10분",
+          "180g × 12개",
+          "식빵 4개 (3개 = 1개)"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "옥수수분말 20%",
+          "유지는 클린업 단계 투입",
+          "발전 단계까지만",
+          "옥수수분말로 짧게 믹싱",
           "27℃"
         ]
       },
@@ -46,15 +49,18 @@
         "title": "굽기",
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
-          "170/190℃"
+          "170/190℃",
+          "30분 전후"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "4팬 균일",
-          "3봉우리"
+          "과믹싱으로 반죽 찢어짐",
+          "2차 발효 부족",
+          "밑면 패임·옆면 찢어짐",
+          "산봉우리 불균일"
         ]
       }
     ]
@@ -138,7 +144,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/corn_bread/step1.jpg",
+      "imageUrl": "assets/images/recipes/corn_bread/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (10분).",
@@ -171,6 +177,73 @@
         }
       ],
       "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 2,
+      "title": "02. 믹싱·유지 투입",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/corn_bread/2.png",
+      "description": [
+        "쇼트닝을 제외한 모든 재료를 넣고 믹싱하다가 클린업 단계에서 쇼트닝을 넣는다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "shortening_at_cleanup",
+          "text": "클린업 단계에서 쇼트닝 투입"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 3,
+      "title": "03. 믹싱 완료",
+      "estimatedTimeSec": 300,
+      "imageUrl": "assets/images/recipes/corn_bread/3.png",
+      "description": [
+        "발전 단계까지 믹싱한다."
+      ],
+      "tips": [
+        "옥수수분말이 들어가서 일반 빵 반죽에 비해 짧게 믹싱한다(글루텐 형성을 많이 하면 반죽이 찢어질 수 있다)."
+      ],
+      "checklist": [
+        {
+          "id": "development_stage",
+          "text": "발전 단계 도달"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과믹싱 시 반죽이 찢어질 수 있음"
+        }
+      ],
+      "timers": [],
+      "calculators": [],
+      "images": []
+    },
+    {
+      "stepNo": 4,
+      "title": "04. 반죽 온도",
+      "estimatedTimeSec": 60,
+      "imageUrl": "assets/images/recipes/corn_bread/4.png",
+      "description": [
+        "반죽온도는 27℃로 한다."
+      ],
+      "tips": [],
+      "checklist": [
+        {
+          "id": "dough_temp_27",
+          "text": "반죽 온도 27℃ 확인"
+        }
+      ],
+      "deductionPoints": [],
+      "timers": [],
       "calculators": [
         {
           "type": "dough_temp",
@@ -182,115 +255,28 @@
       "images": []
     },
     {
-      "stepNo": 2,
-      "title": "02. 초기 믹싱",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/corn_bread/step1.jpg",
-      "description": [
-        "반죽은 스트레이트법으로 제조한다.",
-        "쇼트닝을(를) 제외한 모든 재료를 넣고 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "mix_without_fat",
-          "text": "쇼트닝 제외 믹싱 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "쇼트닝 조기 투입 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 3,
-      "title": "03. 클린업·최종 믹싱",
-      "estimatedTimeSec": 420,
-      "imageUrl": "assets/images/recipes/corn_bread/step1.jpg",
-      "description": [
-        "클린업 단계에서 쇼트닝을(를) 넣는다.",
-        "최종 단계까지 믹싱한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "cleanup_stage",
-          "text": "클린업 단계 확인"
-        },
-        {
-          "id": "fat_added",
-          "text": "쇼트닝 투입 완료"
-        },
-        {
-          "id": "final_stage",
-          "text": "최종 단계 도달"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "과믹싱·반죽 찢김 주의"
-        }
-      ],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 4,
-      "title": "04. 반죽 온도",
-      "estimatedTimeSec": 60,
-      "imageUrl": "assets/images/recipes/corn_bread/step1.jpg",
-      "description": [
-        "반죽온도는 27℃로 한다."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "dough_temp",
-          "text": "반죽 온도 27℃ 확인"
-        }
-      ],
-      "deductionPoints": [],
-      "timers": [],
-      "calculators": [],
-      "images": []
-    },
-    {
       "stepNo": 5,
       "title": "05. 1차 발효",
       "estimatedTimeSec": 2700,
-      "imageUrl": "assets/images/recipes/corn_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/corn_bread/5.png",
       "description": [
         "온도 27℃, 습도 75~80%에서 40~50분 동안 1차 발효를 한다."
       ],
-      "tips": [],
+      "tips": [
+        "손가락으로 눌렀을 때 반죽이 서서히 올라오면 1차 발효가 완료된 것이다."
+      ],
       "checklist": [
         {
           "id": "first_fermentation_done",
           "text": "1차 발효 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "medium",
-          "text": "발효 부족 주의"
-        },
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "fermentation",
           "label": "1차 발효",
-          "durationSec": 3000
+          "durationSec": 2700
         }
       ],
       "calculators": [],
@@ -300,13 +286,25 @@
       "stepNo": 6,
       "title": "06. 분할·둥글리기",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/corn_bread/step2.jpg",
+      "imageUrl": "assets/images/recipes/corn_bread/6.png",
       "description": [
-        "180g*12."
+        "한두 번의 가감으로 180g 12개를 분할 후, 한 번에 둥글린다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "일반 빵반죽에 비해 반죽이 질고 거칠어 덧가루를 이용해 둥글리기를 가볍게 하는 것이 좋다."
+      ],
+      "checklist": [
+        {
+          "id": "divide_180g",
+          "text": "180g × 12개 분할"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "12개 미달 주의"
+        }
+      ],
       "timers": [],
       "calculators": [
         {
@@ -320,11 +318,11 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 밀어펴기",
-      "estimatedTimeSec": 180,
-      "imageUrl": "assets/images/recipes/corn_bread/step2.jpg",
+      "title": "07. 밀어 펴기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/corn_bread/7.png",
       "description": [
-        "가스 제거."
+        "밀대를 이용하여 반죽을 밀어 펴 가스를 뺀다."
       ],
       "tips": [],
       "checklist": [],
@@ -335,11 +333,11 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 3겹 접기",
-      "estimatedTimeSec": 240,
-      "imageUrl": "assets/images/recipes/corn_bread/step2.jpg",
+      "title": "08. 3겹 접기·말기",
+      "estimatedTimeSec": 420,
+      "imageUrl": "assets/images/recipes/corn_bread/8.png",
       "description": [
-        "3겹 접기."
+        "3겹 접기를 한 후 말아준다."
       ],
       "tips": [],
       "checklist": [],
@@ -350,77 +348,63 @@
     },
     {
       "stepNo": 9,
-      "title": "09. 말기·봉합",
-      "estimatedTimeSec": 300,
-      "imageUrl": "assets/images/recipes/corn_bread/step3.jpg",
+      "title": "09. 봉합",
+      "estimatedTimeSec": 240,
+      "imageUrl": "assets/images/recipes/corn_bread/9.png",
       "description": [
-        "말기·봉합."
+        "이음매 부분이 터지지 않도록 잘 봉합한다."
       ],
       "tips": [],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "이음매 터짐 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 10,
-      "title": "10. 패닝",
-      "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/corn_bread/step3.jpg",
+      "title": "10. 팬닝·2차 발효",
+      "estimatedTimeSec": 1800,
+      "imageUrl": "assets/images/recipes/corn_bread/10.png",
       "description": [
-        "3개씩 4팬 (180g*3=1식빵)."
+        "이음매가 바닥으로 향하게 3개씩 팬닝한 후 온도 35~40℃, 습도 85~90%에서 30분 전후로 2차 발효를 한다(팬 위로 1cm 정도까지)."
       ],
-      "tips": [],
+      "tips": [
+        "오븐 스프링이 적기 때문에 2차 발효를 많이 한다."
+      ],
       "checklist": [
         {
-          "id": "pan_4",
-          "text": "4팬 패닝"
+          "id": "panning_3each",
+          "text": "3개씩 팬닝 (식빵 4개)"
+        },
+        {
+          "id": "second_fermentation_done",
+          "text": "2차 발효 완료 (팬 위 1cm)"
         }
       ],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "proofing",
+          "label": "2차 발효",
+          "durationSec": 1800
+        }
+      ],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 11,
-      "title": "11. 2차 발효",
-      "estimatedTimeSec": 2100,
-      "imageUrl": "assets/images/recipes/corn_bread/step3.jpg",
-      "description": [
-        "30~40분, 팬 위 1cm."
-      ],
-      "tips": [],
-      "checklist": [
-        {
-          "id": "second_fermentation_done",
-          "text": "2차 발효 완료"
-        }
-      ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과발효 주의"
-        }
-      ],
-      "timers": [
-        {
-          "type": "proofing",
-          "label": "2차 발효",
-          "durationSec": 2400
-        }
-      ],
-      "calculators": [],
-      "images": []
-    },
-    {
-      "stepNo": 12,
-      "title": "12. 굽기",
+      "title": "11. 굽기",
       "estimatedTimeSec": 1800,
-      "imageUrl": "assets/images/recipes/corn_bread/evaluation.jpg",
+      "imageUrl": "assets/images/recipes/corn_bread/11.png",
       "description": [
-        "170/190℃, 30분."
+        "윗불 170℃, 아랫불 190℃에서 30분 전후로 굽는다."
       ],
       "tips": [],
       "checklist": [
@@ -429,16 +413,7 @@
           "text": "굽기 완료"
         }
       ],
-      "deductionPoints": [
-        {
-          "severity": "high",
-          "text": "과색 주의"
-        },
-        {
-          "severity": "medium",
-          "text": "미숙성 주의"
-        }
-      ],
+      "deductionPoints": [],
       "timers": [
         {
           "type": "baking",
@@ -452,16 +427,16 @@
   ],
   "resultEvaluation": [
     {
+      "id": "color_even",
+      "text": "균일한 황금 갈색이 나타나야 좋다."
+    },
+    {
       "id": "uniform_four",
-      "text": "4개 식빵 균일"
+      "text": "식빵 4개가 균일하고 밑면이 움푹 패이거나 옆면에 찢어짐 또는 터짐 현상이 없어야 한다."
     },
     {
       "id": "three_peaks",
-      "text": "3봉우리"
-    },
-    {
-      "id": "corn_color",
-      "text": "옥수수색 균일"
+      "text": "산봉우리 모양 3개가 봉긋하게 올라오고 내부를 잘랐을 때 이중구조처럼 층이 분리되지 않아야한다."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "id": "butter_cookie",
   "name": "버터쿠키",
   "category": "cookie",
-  "thumbnailUrl": "assets/images/recipes/butter_cookie/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/butter_cookie/main.png",
   "summary": {
     "examTimeSec": 7200,
     "mixingMethod": "cream",
@@ -19,26 +19,29 @@
         "imageUrl": "assets/images/keypoints/exam.png",
         "items": [
           "2시간",
-          "구움 과자류",
-          "반죽형 쿠키·크림법(수작업)"
+          "계량 6분",
+          "크림법 수작업",
+          "반죽온도 22℃",
+          "8자 + 장미 2가지"
         ]
       },
       {
         "title": "반죽",
         "imageUrl": "assets/images/keypoints/mixer.png",
         "items": [
-          "크림법",
-          "반죽온도 22℃",
-          "가루 90% 혼합"
+          "버터 → 설탕·소금 → 달걀 순",
+          "설탕이 다 녹지 않게",
+          "가루는 90%만 혼합"
         ]
       },
       {
         "title": "성형",
         "imageUrl": "assets/images/keypoints/shaping.png",
         "items": [
-          "별 깍지",
-          "8자·장미",
-          "반죽 전량"
+          "별 모양 깍지",
+          "장미 모양",
+          "8자(S자) 모양",
+          "모양·크기·간격 일정하게"
         ]
       },
       {
@@ -46,16 +49,16 @@
         "imageUrl": "assets/images/keypoints/oven.png",
         "items": [
           "200/140℃",
-          "10~12분",
-          "바닥 과색 주의"
+          "10~12분"
         ]
       },
       {
         "title": "주요 감점 포인트",
         "imageUrl": "assets/images/keypoints/warning.png",
         "items": [
-          "모양·크기·두께 불균일",
-          "바닥 과다 착색"
+          "모양 불선명",
+          "크기·두께 불균일",
+          "밑색 진함"
         ]
       }
     ]
@@ -111,25 +114,49 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 360,
-      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/1.png",
       "description": [
-        "6분 내 계량·진열",
-        "달걀은 감독 지시"
+        "재료를 시간 내에 정확하게 계량한다.",
+        "배합표의 각 재료를 계량하여 재료별로 진열한다 (6분).",
+        "재료당 약 1분씩 계량 후 감독 위원 계량 확인을 받는다.",
+        "계량 시간 초과·오계량 시 추가 시간 없이 제조 시간에 재계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "ingredients_arranged",
+          "text": "재료별 진열 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "6분 내 계량·진열 미완료 주의"
+        },
+        {
+          "severity": "medium",
+          "text": "계량 오차 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 2,
-      "title": "02. 버터 크림화",
-      "estimatedTimeSec": 300,
-      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "title": "02. 버터 풀기",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_cookie/2.png",
       "description": [
-        "버터 부드럽게 풀기"
+        "스텐볼에 버터를 넣고 거품기로 부드럽게 풀어준다."
       ],
       "tips": [],
       "checklist": [],
@@ -140,14 +167,15 @@
     },
     {
       "stepNo": 3,
-      "title": "03. 설탕·소금",
+      "title": "03. 설탕·소금 투입",
       "estimatedTimeSec": 240,
-      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/3.png",
       "description": [
-        "설탕·소금 혼합",
-        "설탕 과다 용해 방지"
+        "설탕, 소금을 넣고 풀어준다."
       ],
-      "tips": [],
+      "tips": [
+        "크림화할 때 설탕이 너무 많이 녹지 않도록 휘핑한다(약간의 퍼짐성을 이용)."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -158,27 +186,38 @@
       "stepNo": 4,
       "title": "04. 달걀 투입",
       "estimatedTimeSec": 300,
-      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/4.png",
       "description": [
-        "달걀 나누어 크림화"
+        "달걀을 조금씩 넣으면서 부드러운 크림을 만든다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "cream_made",
+          "text": "부드러운 크림 상태"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분리되지 않도록 조금씩 투입"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 5,
-      "title": "05. 가루 혼합",
-      "estimatedTimeSec": 240,
-      "imageUrl": "assets/images/recipes/butter_cookie/step1.jpg",
+      "title": "05. 가루 투입",
+      "estimatedTimeSec": 180,
+      "imageUrl": "assets/images/recipes/butter_cookie/5.png",
       "description": [
-        "체질 가루 가볍게",
-        "글루텐 형성 방지"
+        "체질한 가루재료(박력분, 바닐라향)를 넣고 가볍게 섞는다."
       ],
-      "tips": [],
+      "tips": [
+        "가루재료를 섞을 때는 글루텐이 형성되는 것을 방지하기 위해 많이 섞지 않는다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -187,15 +226,19 @@
     },
     {
       "stepNo": 6,
-      "title": "06. 반죽 완성",
-      "estimatedTimeSec": 180,
-      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "title": "06. 혼합 완료",
+      "estimatedTimeSec": 120,
+      "imageUrl": "assets/images/recipes/butter_cookie/6.png",
       "description": [
-        "90% 혼합",
-        "반죽온 22℃"
+        "가루가 보이지 않을 정도(90%)로 혼합한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "mixed_90",
+          "text": "90% 혼합"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -203,12 +246,11 @@
     },
     {
       "stepNo": 7,
-      "title": "07. 짤주머니",
+      "title": "07. 짤주머니 담기",
       "estimatedTimeSec": 180,
-      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/7.png",
       "description": [
-        "별 깍지",
-        "오븐 예열·체질"
+        "짤주머니에 반죽을 넣고 한 손으로 중앙을, 다른 손으로 위쪽을 잡으면서 반죽이 위로 새어 나오지 않게 한다."
       ],
       "tips": [],
       "checklist": [],
@@ -219,31 +261,48 @@
     },
     {
       "stepNo": 8,
-      "title": "08. 장미 성형",
+      "title": "08. 장미 모양 짜기",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/8.png",
       "description": [
-        "장미 모양 짜기",
-        "간격·두께 균일"
+        "평철판에 별 모양 깍지를 끼운 짤주머니를 이용하여 장미 모양으로 짜준다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "일정한 모양, 크기, 두께, 간격으로 성형한다."
+      ],
+      "checklist": [
+        {
+          "id": "shape_rose",
+          "text": "장미 모양 짜기"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "모양·크기·두께 불균일 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 9,
-      "title": "09. 8자 성형",
+      "title": "09. 8자 모양 짜기",
       "estimatedTimeSec": 600,
-      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/9.png",
       "description": [
-        "S자 8자",
-        "반죽 전량"
+        "평철판에 별 모양 깍지를 끼운 짤주머니를 이용하여 8자 모양의 S자로 짜준다."
       ],
-      "tips": [],
-      "checklist": [],
+      "tips": [
+        "일정한 모양, 크기, 두께, 간격으로 성형한다."
+      ],
+      "checklist": [
+        {
+          "id": "shape_figure8",
+          "text": "8자 모양 짜기"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -253,13 +312,25 @@
       "stepNo": 10,
       "title": "10. 굽기",
       "estimatedTimeSec": 660,
-      "imageUrl": "assets/images/recipes/butter_cookie/step2.jpg",
+      "imageUrl": "assets/images/recipes/butter_cookie/10.png",
       "description": [
-        "200/140℃ 10~12분"
+        "윗불 200℃, 아랫불 140℃에서 10~12분 동안 굽는다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "쿠키 밑색이 진해지지 않도록 오븐의 온도 조절에 주의하고, 밑색이 진하면 철판을 덧댄다."
+      ],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "밑색 과다 주의"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -273,16 +344,12 @@
   ],
   "resultEvaluation": [
     {
-      "id": "color",
-      "text": "전체 황금갈색"
+      "id": "color_golden",
+      "text": "전반적인 구움색은 황금 갈색이 나야한다."
     },
     {
-      "id": "shape",
-      "text": "8자·장미 선명"
-    },
-    {
-      "id": "uniformity",
-      "text": "크기·두께 균일"
+      "id": "shape_clear",
+      "text": "8자, 장미모양이 선명하고 크기와 두께가 균일해야 한다."
     }
   ]
 }

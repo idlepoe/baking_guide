@@ -2,7 +2,7 @@
   "id": "chiffon_cake",
   "name": "시퐁케이크",
   "category": "cake",
-  "thumbnailUrl": "assets/images/recipes/chiffon_cake/main.jpg",
+  "thumbnailUrl": "assets/images/recipes/chiffon_cake/main.png",
   "summary": {
     "examTimeSec": 6000,
     "mixingMethod": "chiffon",
@@ -113,7 +113,7 @@
       "stepNo": 1,
       "title": "01. 계량·달걀 분리",
       "estimatedTimeSec": 480,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step1.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량하고 달걀을 노른자와 흰자로 분리한다"
       ],
@@ -130,7 +130,7 @@
       "stepNo": 2,
       "title": "02. 시퐁팬 물 뿌리기",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step2.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/2.png",
       "description": [
         "스프레이를 이용해서 시퐁팬에 물을 뿌려 놓는다."
       ],
@@ -147,7 +147,7 @@
       "stepNo": 3,
       "title": "03. 시퐁팬 물기 제거",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step3.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/3.png",
       "description": [
         "시퐁팬을 엎어 놓아 물기를 제거한다."
       ],
@@ -162,7 +162,7 @@
       "stepNo": 4,
       "title": "04. 노른자 반죽",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step4.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/4.png",
       "description": [
         "노른자와 설탕(A), 소금을 넣고 섞는다."
       ],
@@ -179,7 +179,7 @@
       "stepNo": 5,
       "title": "05. 식용유·물 혼합",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step5.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/5.png",
       "description": [
         "스텐볼에 식용유와 물을 넣고 섞는다."
       ],
@@ -194,7 +194,7 @@
       "stepNo": 6,
       "title": "06. 가루재료 혼합",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step6.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/6.png",
       "description": [
         "체질한 가루재료(박력분, 베이킹파우더)를 넣고 섞는다."
       ],
@@ -209,7 +209,7 @@
       "stepNo": 7,
       "title": "07. 머랭 만들기",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step7.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/7.png",
       "description": [
         "흰자를 젖은 피크(60%)까지 휘핑한 후 설탕(B)을 2~3번에 나누어 넣으면서 중간피크(80%) 상태의 머랭을 만든다.",
         "믹싱을 완료한다"
@@ -225,7 +225,7 @@
       "stepNo": 8,
       "title": "08. 머랭·반죽 혼합",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step8.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/8.png",
       "description": [
         "머랭을 노른자 반죽에 2~3번 정도 나누어 넣으면서 섞는다."
       ],
@@ -240,7 +240,7 @@
       "stepNo": 9,
       "title": "09. 반죽 팬닝",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step9.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/9.png",
       "description": [
         "비중(0.5±0.05)을 확인한 반죽을 짤주머니에 넣은 후 공기층이 생기지 않도록 돌려 짜면서 60% 정도 팬닝한다."
       ],
@@ -262,7 +262,7 @@
       "stepNo": 10,
       "title": "10. 굽기·뒤집기",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step10.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/10.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 30분 전후로 구운 후 오븐에서 꺼내어 뒤집어 놓는다."
       ],
@@ -285,7 +285,7 @@
       "stepNo": 11,
       "title": "11. 팬 냉각",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step11.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/11.png",
       "description": [
         "스프레이로 시퐁팬에 물을 뿌려 냉각시킨다."
       ],
@@ -300,7 +300,7 @@
       "stepNo": 12,
       "title": "12. 제품 분리",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step12.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/12.png",
       "description": [
         "냉각 후 가장자리를 눌러 제품을 분리한다.",
         "시퐁팬을 뒤집어서 위쪽을 손으로 살짝 눌러 제품을 분리한다."
@@ -316,7 +316,7 @@
       "stepNo": 13,
       "title": "13. 익음 확인",
       "estimatedTimeSec": 461,
-      "imageUrl": "assets/images/recipes/chiffon_cake/step13.jpg",
+      "imageUrl": "assets/images/recipes/chiffon_cake/13.png",
       "description": [
         "시퐁 케이크는 가운데 부분이 연한 갈색이 나고 손가락으로 눌렀을 때 들어가지 않으면 다 익은 것이다."
       ],
