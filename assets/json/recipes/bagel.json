@@ -134,7 +134,7 @@
       "stepNo": 1,
       "title": "01. 재료 계량",
       "estimatedTimeSec": 420,
-      "imageUrl": "",
+      "imageUrl": "assets/images/recipes/bagel/1.png",
       "description": [
         "재료를 시간 내에 정확하게 계량한다.",
         "배합표의 각 재료를 계량하여 재료별로 진열한다 (7분).",
@@ -272,7 +272,7 @@
       "stepNo": 5,
       "title": "05. 중간 발효",
       "estimatedTimeSec": 900,
-      "imageUrl": "",
+      "imageUrl": "assets/images/recipes/bagel/5.png",
       "description": [
         "실온에서 10~20분 동안 중간 발효를 한다."
       ],
@@ -345,7 +345,7 @@
       "stepNo": 9,
       "title": "09. 막대 모양 밀기",
       "estimatedTimeSec": 300,
-      "imageUrl": "",
+      "imageUrl": "assets/images/recipes/bagel/9.png",
       "description": [
         "20cm 길이의 두께가 일정한 막대 모양으로 민다."
       ],
@@ -417,7 +417,7 @@
       "stepNo": 13,
       "title": "13. 원형 정형",
       "estimatedTimeSec": 180,
-      "imageUrl": "",
+      "imageUrl": "assets/images/recipes/bagel/13.png",
       "description": [
         "동일한 크기의 원형이 되도록 모양을 잡아준다."
       ],

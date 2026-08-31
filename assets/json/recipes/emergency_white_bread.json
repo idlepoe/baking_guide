@@ -25,7 +25,7 @@
       "second": {
         "temperature": "35~40",
         "humidity": "85~90%",
-        "timeSec": 2100
+        "timeSec": 1800
       }
     },
     "keyPoints": [
@@ -54,7 +54,7 @@
         "items": [
           "1차: 30℃, 75~80%, 15~30분",
           "중간: 실온 10~15분",
-          "2차: 35~40℃, 85~90%, 30~40분 (팬 위 1cm)"
+          "2차: 35~40℃, 85~90%, 30분 전후 (팬 높이 정도까지)"
         ]
       },
       {
@@ -521,11 +521,10 @@
     {
       "stepNo": 13,
       "title": "13. 2차 발효",
-      "estimatedTimeSec": 2100,
+      "estimatedTimeSec": 1800,
       "imageUrl": "assets/images/recipes/emergency_white_bread/13.png",
       "description": [
-        "온도 35~40℃, 습도 85~90%에서 30~40분 전후로 2차 발효를 한다.",
-        "반죽이 팬 위로 약 1cm 정도 올라온 상태가 되면 완료한다."
+        "온도 35~40℃, 습도 85~90%에서 30분 전후로 2차 발효를 한다(팬 높이 정도까지)."
       ],
       "tips": [
         "이스트가 많이 들어가기 때문에 과발효되지 않도록 주의",
@@ -547,7 +546,7 @@
         {
           "type": "proofing",
           "label": "2차 발효",
-          "durationSec": 2400
+          "durationSec": 1800
         }
       ],
       "calculators": [],
