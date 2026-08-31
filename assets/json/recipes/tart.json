@@ -148,8 +148,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "5분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -204,17 +218,28 @@
     {
       "stepNo": 5,
       "title": "05. 반죽 휴지",
-      "estimatedTimeSec": 560,
+      "estimatedTimeSec": 1500,
       "imageUrl": "assets/images/recipes/tart/5.png",
       "description": [
-        "가루가 안 보이면 반죽을 비닐에 넣어 치대고 얇은 네모 모양으로 만든 후 냉장 휴지한다."
+        "가루가 안 보이면 반죽을 비닐에 넣어 치대고 얇은 네모 모양으로 만든 후 냉장고에서 20~30분 정도 휴지한다."
       ],
       "tips": [
         "냉장 휴지를 시켜야 수축을 방지할 수 있다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "rested",
+          "text": "냉장 휴지 완료"
+        }
+      ],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "냉장 휴지",
+          "durationSec": 1500
+        }
+      ],
       "calculators": [],
       "images": []
     },
@@ -224,6 +249,7 @@
       "estimatedTimeSec": 560,
       "imageUrl": "assets/images/recipes/tart/6.png",
       "description": [
+        "[06~09 충전물 만들기]",
         "버터를 풀어준 후 설탕을 나누어 넣으면서 섞는다."
       ],
       "tips": [],
@@ -284,10 +310,16 @@
       "estimatedTimeSec": 560,
       "imageUrl": "assets/images/recipes/tart/10.png",
       "description": [
+        "[10~15 제품 만들기]",
         "휴지시킨 반죽을 분할하여 살짝 치댄 후 밀대를 이용하여 0.3cm로 밀어 편다(8개 제조)."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "roll_03cm",
+          "text": "0.3cm 두께 8개"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -319,7 +351,12 @@
         "짤주머니에 원형깍지를 끼우고 충전물(아몬드 크림)을 균등하게 짠 후 윗면에 아몬드슬라이스를 뿌린다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "topping_even",
+          "text": "아몬드슬라이스 고르게 장식"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -328,7 +365,7 @@
     {
       "stepNo": 13,
       "title": "13. 오븐에 굽기",
-      "estimatedTimeSec": 560,
+      "estimatedTimeSec": 1800,
       "imageUrl": "assets/images/recipes/tart/13.png",
       "description": [
         "윗불 180℃, 아랫불 200℃에서 10분 전후로 구운 후 아랫불을 220℃로 올려 20분 정도 더 굽는다."
@@ -336,7 +373,12 @@
       "tips": [
         "아랫불이 높아야 색이 고르게 난다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -376,7 +418,12 @@
       "tips": [
         "광택제는 뜨거울 때 발라야 한다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "glaze_applied",
+          "text": "광택제 바르기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -386,15 +433,15 @@
   "resultEvaluation": [
     {
       "id": "crust",
-      "text": "겉·바닥 두께 일정"
+      "text": "타르트 전 제품의 겉반죽과 바닥 반죽의 두께가 일정해야 한다."
     },
     {
       "id": "color",
-      "text": "윗면 진한 황금·밑 연갈색"
+      "text": "광택제를 발라 진한 황금 갈색이 나오고, 밑바닥색은 연한 갈색이 나와야 한다."
     },
     {
       "id": "filling",
-      "text": "아몬드 고르게·맨홀 없음"
+      "text": "윗면의 아몬드슬라이스가 골고루 분포되어야 하며, 바닥에 맨홀이 생기지 않아야 한다."
     }
   ]
 }

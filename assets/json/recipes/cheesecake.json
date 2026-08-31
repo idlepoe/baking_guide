@@ -123,8 +123,26 @@
         "재료를 시간 내에 정확하게 계량하고 달걀을 노른자와 흰자로 분리한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "egg_separated",
+          "text": "노른자·흰자 분리 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -230,8 +248,18 @@
       "tips": [
         "건조피크까지 머랭을 올릴 경우 윗면이 터지거나 구운 후 제품이 주저앉을 수 있다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "meringue_70",
+          "text": "중간피크(70%) 머랭 완성"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과도한 머랭으로 윗면 터짐·주저앉음 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -277,7 +305,12 @@
       "tips": [
         "다른 제품에 비해 비중을 크게 설정한다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_80",
+          "text": "팬 80% 팬닝"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [
@@ -291,13 +324,18 @@
     {
       "stepNo": 12,
       "title": "12. 수조법 굽기",
-      "estimatedTimeSec": 642,
+      "estimatedTimeSec": 3000,
       "imageUrl": "assets/images/recipes/cheesecake/12.png",
       "description": [
         "평철판의 1/3 정도 물을 넣은 후 반죽이 담긴 팬을 넣고 윗불 150℃, 아랫불 150℃에서 50분 전후로 굽는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -343,15 +381,15 @@
   "resultEvaluation": [
     {
       "id": "top",
-      "text": "윗면 약간 솟음·갈라짐 없음"
+      "text": "윗면이 살짝 봉긋하거나 평평해야 하며, 갈라지거나 들뜨지 않아야 좋다."
     },
     {
       "id": "crumb",
-      "text": "매끈·촉촉"
+      "text": "잘랐을 때 내부에 거친 기공이 없어야 하고, 매끈하고 촉촉해야 한다."
     },
     {
       "id": "volume",
-      "text": "부피 균일·함몰 없음"
+      "text": "옆면에 주름이 없어야 하며, 전 제품의 부피가 균일해야 하고 비중이 가벼워 주저앉지 않아야 한다."
     }
   ]
 }

@@ -107,8 +107,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "5분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -218,7 +232,12 @@
         "3cm 정도의 원형 모양으로 간격을 일정하게 짠다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "shape_3cm",
+          "text": "3cm 원형 균일하게 짜기"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -242,7 +261,7 @@
     {
       "stepNo": 10,
       "title": "10. 오븐에 굽기",
-      "estimatedTimeSec": 514,
+      "estimatedTimeSec": 2400,
       "imageUrl": "assets/images/recipes/choux/10.png",
       "description": [
         "윗불 180℃, 아랫불 200℃에서 굽다가 약 10분 뒤 팽창된 상태를 확인한 후 아랫불을 160℃로 낮추어 30분 정도 더 굽는다."
@@ -250,8 +269,18 @@
       "tips": [
         "갈라진 부분도 색이 날 때까지 충분히 구워야 제품이 주저앉지 않는다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "덜 구워 일찍 꺼내면 함몰될 수 있음"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -296,7 +325,7 @@
       "stepNo": 13,
       "title": "13. 크림 충전",
       "estimatedTimeSec": 514,
-      "imageUrl": "assets/images/recipes/choux/13.png",
+      "imageUrl": "",
       "description": [
         "비닐 짤주머니를 이용하여 충전용 크림을 넣는다."
       ],
@@ -326,15 +355,15 @@
   "resultEvaluation": [
     {
       "id": "shape",
-      "text": "모양·크기 균일·바삭"
+      "text": "전체적으로 모양과 크기가 균일해야 하며, 갈라진 부분까지 바삭하게 구워져야 한다."
     },
     {
       "id": "batter",
-      "text": "바닥 퍼짐·함몰 없음"
+      "text": "반죽이 질어 바닥이 납작하게 퍼지거나, 오븐에서 일찍 꺼내 윗면이 주저앉지 않아야 한다."
     },
     {
       "id": "interior",
-      "text": "속 공갈·건조"
+      "text": "구운 슈를 잘랐을 때 내부 수분이 충분히 건조되어 속이 공갈빵처럼 비어 있어야 하며, 바삭한 식감을 가져야 한다."
     }
   ]
 }

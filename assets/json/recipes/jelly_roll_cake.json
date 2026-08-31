@@ -123,8 +123,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "8분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -137,7 +151,9 @@
       "description": [
         "달걀을 풀어준 후 설탕, 소금, 물엿을 넣고 중탕한다(43~50℃ 정도)."
       ],
-      "tips": [],
+      "tips": [
+        "중탕 온도는 실내 온도에 따라 가감하고 너무 높으면 달걀이 익거나 가루가 뭉칠 수 있으므로 주의한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -154,7 +170,12 @@
         "중속으로 기포를 안정화시킨다(믹싱을 완료한다)."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "ivory_foam",
+          "text": "아이보리색 거품 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -201,7 +222,12 @@
         "스크래퍼를 이용하여 윗면을 고르게 편다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_done",
+          "text": "평철판 팬닝 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [
@@ -236,10 +262,21 @@
         "비닐 짤주머니에 캐러멜 색소 반죽을 넣어 3cm 간격으로 2/3 지점까지 짜준 후 무늬를 만든다."
       ],
       "tips": [
-        "캐러멜 무늬는 시험 필수 항목이다."
+        "캐러멜 무늬는 시험 필수 항목이다.",
+        "무늬를 만들 때 가는 방향의 반대쪽으로 뉘어서 모양을 낸다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "pattern_done",
+          "text": "캐러멜 무늬 완성"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "무늬 미완성 시 제품 껍질 평가 0점 처리 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -247,14 +284,21 @@
     {
       "stepNo": 9,
       "title": "09. 굽기·뒤집기",
-      "estimatedTimeSec": 385,
+      "estimatedTimeSec": 1350,
       "imageUrl": "assets/images/recipes/jelly_roll_cake/9.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 20~25분 동안 구운 후",
         "물에 적신 면포에 제품을 뒤집어 놓는다(무늬가 아래로 향하도록)."
       ],
-      "tips": [],
-      "checklist": [],
+      "tips": [
+        "면포는 물로 미리 적셔 놓고, 위생지를 사용할 경우 말기 직전에 식용유를 충분히 바른다."
+      ],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -287,7 +331,7 @@
       "estimatedTimeSec": 385,
       "imageUrl": "assets/images/recipes/jelly_roll_cake/11.png",
       "description": [
-        "고무주걱 또는 스패츠라를 이용하여 윗면에 잼을 골고루 바른 후",
+        "고무주걱 또는 스패출러를 이용하여 윗면에 잼을 골고루 바른 후",
         "말기 시작하는 부분을 2cm 간격으로 눌러준다."
       ],
       "tips": [],
@@ -305,7 +349,9 @@
       "description": [
         "밀대를 이용하여 앞부분을 눌러 말기를 한다."
       ],
-      "tips": [],
+      "tips": [
+        "제품을 말 때에는 터지지 않게 일정한 힘을 주어야 한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -346,15 +392,15 @@
   "resultEvaluation": [
     {
       "id": "holes",
-      "text": "내부 빈틈 없음"
+      "text": "잘랐을 때 내부에 구멍이 없어야 한다."
     },
     {
       "id": "pattern",
-      "text": "캐러멜 대칭·균열 없음"
+      "text": "좌우대칭으로 캐러멜 무늬가 고르게 나오고 갈라진 부분이 없어야 한다."
     },
     {
       "id": "volume",
-      "text": "부피·뭉침 없음"
+      "text": "너무 단단하게 말거나 뜨거울 때 말아서 부피가 작게 나오거나 뭉침 현상이 없어야 한다."
     }
   ]
 }

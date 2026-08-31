@@ -123,8 +123,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -156,7 +170,12 @@
         "크림화 중 오버믹싱이 되면 비중이 가벼워져 윗면에 기포가 생기고 터짐이 나빠진다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과도한 크림화로 비중이 가벼워지지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -202,7 +221,12 @@
         "종이를 깔아둔 파운드틀에 비중(0.8±0.05)을 확인한 반죽을 짤주머니(또는 고무주걱)를 이용하여 틀의 70% 정도 팬닝한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_70",
+          "text": "파운드틀 70% 팬닝"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [
@@ -233,7 +257,7 @@
     {
       "stepNo": 8,
       "title": "08. 1차 굽기",
-      "estimatedTimeSec": 818,
+      "estimatedTimeSec": 900,
       "imageUrl": "assets/images/recipes/pound_cake/8.png",
       "description": [
         "윗불 200℃, 아랫불 180℃에서 15분 정도 윗면에 색이 나고 겉껍질이 살짝 익을 정도로 굽는다."
@@ -263,7 +287,12 @@
         "윗면을 자를 때 좌우대칭이 되도록 가운데를 일자로 자른다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "절개가 좌우대칭이 되도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -288,13 +317,18 @@
     {
       "stepNo": 11,
       "title": "11. 2차 굽기",
-      "estimatedTimeSec": 818,
+      "estimatedTimeSec": 1800,
       "imageUrl": "assets/images/recipes/pound_cake/11.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 20~30분 동안 굽는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -310,15 +344,15 @@
   "resultEvaluation": [
     {
       "id": "crumb",
-      "text": "내부 기공 없이 매끈"
+      "text": "잘랐을 때 내부는 기공없이 매끈해야 좋다."
     },
     {
       "id": "appearance",
-      "text": "4개 대칭·진한 황금"
+      "text": "겉면은 진한 황금 갈색으로, 4개가 좌우대칭 균일해야 한다."
     },
     {
       "id": "split",
-      "text": "가운데 속살 잘 벌어짐"
+      "text": "전체적으로 가운데 흰색 속살 부분은 잘 벌어져있고 가라앉지 않아야 한다."
     }
   ]
 }

@@ -120,8 +120,26 @@
       "tips": [
         "노른자를 넣는 스텐볼이 클 것"
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "egg_separated",
+          "text": "노른자·흰자 분리 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "8분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -215,7 +233,12 @@
         "믹싱을 완료한다"
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "meringue_made",
+          "text": "중간피크(80%) 머랭 완성"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -247,7 +270,12 @@
       "tips": [
         "짤주머니를 사용하지 않고 스텐볼째 반죽을 부어도 무관하다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_60",
+          "text": "시퐁팬 60% 팬닝"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [
@@ -261,7 +289,7 @@
     {
       "stepNo": 10,
       "title": "10. 굽기·뒤집기",
-      "estimatedTimeSec": 461,
+      "estimatedTimeSec": 1800,
       "imageUrl": "assets/images/recipes/chiffon_cake/10.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 30분 전후로 구운 후 오븐에서 꺼내어 뒤집어 놓는다."
@@ -269,8 +297,18 @@
       "tips": [
         "시퐁 케이크는 오븐에서 꺼내자마자 바로 뒤집어 놓지 않으면 주저앉는다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "즉시 뒤집지 않으면 주저앉을 수 있음"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -331,15 +369,15 @@
   "resultEvaluation": [
     {
       "id": "surface",
-      "text": "끈적·함몰 없음"
+      "text": "손으로 만졌을 때 끈적이거나 가운데가 가라앉지 않아야 한다."
     },
     {
       "id": "shape",
-      "text": "기공·옆면 손상 없음"
+      "text": "윗면에 큰 기공이 없고 옆면이 틀에서 빼다가 찌그러지지 않아야 한다."
     },
     {
       "id": "volume",
-      "text": "4개 부피 균일·연한 황색"
+      "text": "케이크 4개의 부피가 균일해야 하며, 겉면의 갈색은 진하지 않고 연한 노란색을 띠는게 좋다."
     }
   ]
 }

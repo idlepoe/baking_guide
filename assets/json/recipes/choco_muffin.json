@@ -134,8 +134,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "11분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -163,7 +177,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/choco_muffin/3.png",
       "description": [
-        "믹싱볼 옆면과 바닥면에 붙어 있는 반죙을 긁어 잘 섞이도록 한다."
+        "믹싱볼 옆면과 바닥면에 붙어 있는 반죽을 긁어 잘 섞이도록 한다."
       ],
       "tips": [],
       "checklist": [],
@@ -248,7 +262,12 @@
         "짤주머니에 넣은 반죽이 위쪽으로 새어 나오지 않도록 주의한다(손에 묻으면 감점 요소가 된다)."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "손에 반죽이 묻지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -262,7 +281,12 @@
         "머핀팬에 70% 정도 팬닝한다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_70",
+          "text": "머핀팬 70% 팬닝"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -271,13 +295,18 @@
     {
       "stepNo": 10,
       "title": "10. 오븐에 굽기",
-      "estimatedTimeSec": 600,
+      "estimatedTimeSec": 1650,
       "imageUrl": "assets/images/recipes/choco_muffin/10.png",
       "description": [
         "윗불 180℃, 아랫불 160℃에서 25~30분 동안 굽는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -308,15 +337,15 @@
   "resultEvaluation": [
     {
       "id": "volume",
-      "text": "부피·크기 균일"
+      "text": "부피와 크기가 전체적으로 균일해야 한다."
     },
     {
       "id": "top",
-      "text": "윗면 둥글게"
+      "text": "윗면은 솟아오르지 않고 둥그렇게 나와야 한다."
     },
     {
       "id": "chips",
-      "text": "초코칩 고르게·부드러움"
+      "text": "잘랐을 때 속안의 초코칩이 골고루 분포되고 부드러워야 한다."
     }
   ]
 }

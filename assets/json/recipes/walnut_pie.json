@@ -149,8 +149,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "7분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -220,7 +234,7 @@
     {
       "stepNo": 6,
       "title": "06. 반죽 냉장 휴지",
-      "estimatedTimeSec": 600,
+      "estimatedTimeSec": 1800,
       "imageUrl": "assets/images/recipes/walnut_pie/6.png",
       "description": [
         "반죽을 한 덩어리로 만든 후 비닐에 감싸 30분 정도 냉장 휴지한다."
@@ -228,9 +242,20 @@
       "tips": [
         "반죽을 많이 치대지 않는다(글루텐이 형성되는 것을 방지한다)."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "rested",
+          "text": "냉장 휴지 완료"
+        }
+      ],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "냉장 휴지",
+          "durationSec": 1800
+        }
+      ],
       "calculators": [],
       "images": []
     },
@@ -240,6 +265,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/walnut_pie/7.png",
       "description": [
+        "[07~10 충전물 만들기]",
         "예열된 오븐에 호두를 살짝 구워 전처리한다."
       ],
       "tips": [],
@@ -302,6 +328,7 @@
       "estimatedTimeSec": 600,
       "imageUrl": "assets/images/recipes/walnut_pie/11.png",
       "description": [
+        "[11~15 제품 만들기]",
         "팬에 버터(계량 외)를 바른 후 밀가루(계량 외)를 묻혀 놓는다."
       ],
       "tips": [],
@@ -350,7 +377,12 @@
         "전처리한 호두를 팬에 나누어 넣은 후 충전물을 고르게 넣는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "filling_even",
+          "text": "호두·충전물 고르게 채우기"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -359,7 +391,7 @@
     {
       "stepNo": 15,
       "title": "15. 오븐에 굽기",
-      "estimatedTimeSec": 600,
+      "estimatedTimeSec": 2100,
       "imageUrl": "assets/images/recipes/walnut_pie/15.png",
       "description": [
         "윗불 180℃, 아랫불 200℃에서 30~40분 동안 굽는다."
@@ -367,8 +399,18 @@
       "tips": [
         "파이류는 덜 익으면 제품이 주저앉거나 부서질 수 있기 때문에 아랫불을 높게 한다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "덜 익히면 주저앉거나 부서질 수 있음"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -383,15 +425,15 @@
   "resultEvaluation": [
     {
       "id": "structure",
-      "text": "밑·옆 색·함몰 없음"
+      "text": "밑면과 옆면에 충분한 색이 나도록 구워 완성 후에도 주저앉지 않아야 한다."
     },
     {
       "id": "uniformity",
-      "text": "7개 두께·모양 동일"
+      "text": "7개의 두께와 모양이 동일해야 하며, 윗부분이 터지거나 갈라지지 않아야 한다."
     },
     {
       "id": "layers",
-      "text": "껍질 겹·바닥 적정 두께"
+      "text": "껍질 부분에 결이 생겨야 하며 바닥 두께가 너무 얇지 않아야 한다."
     }
   ]
 }

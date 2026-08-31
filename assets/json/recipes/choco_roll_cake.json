@@ -129,8 +129,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "7분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -143,7 +157,9 @@
       "description": [
         "달걀을 풀어준 후 설탕을 넣고 중탕한다(43~50℃ 정도)."
       ],
-      "tips": [],
+      "tips": [
+        "중탕 온도는 실내 온도에 따라 가감하고, 너무 높으면 달걀이 익거나 가루가 뭉칠 수 있으므로 주의한다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -160,7 +176,12 @@
         "중속으로 기포를 안정화시킨다(믹싱을 완료한다)."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "ivory_foam",
+          "text": "아이보리색 거품 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -199,15 +220,27 @@
     {
       "stepNo": 6,
       "title": "06. 팬닝·굽기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 750,
       "imageUrl": "assets/images/recipes/choco_roll_cake/6.png",
       "description": [
         "종이를 깔아둔 평철판에 비중(0.5±0.05)을 확인한 반죽을 팬닝한 후",
         "윗불 190℃, 아랫불 160℃(이중팬일 경우 180℃)에서 10~15분 동안 굽는다."
       ],
-      "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "tips": [
+        "비중이 높거나 오버베이킹할 경우 제품을 말 때 터지거나 고르게 나오지 않는다."
+      ],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "오버베이킹 주의"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -244,6 +277,7 @@
       "estimatedTimeSec": 507,
       "imageUrl": "assets/images/recipes/choco_roll_cake/8.png",
       "description": [
+        "[08~10 충전물 만들기]",
         "다크커버춰를 중탕으로 녹여 가나슈를 제조한다(45~50℃ 정도)."
       ],
       "tips": [],
@@ -261,7 +295,9 @@
       "description": [
         "생크림을 데워서 섞는다."
       ],
-      "tips": [],
+      "tips": [
+        "생크림 온도는 너무 높지 않게 한다(40~45℃ 정도)."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -276,7 +312,9 @@
       "description": [
         "가나슈 온도가 40℃가 되면 럼주를 넣고 섞는다."
       ],
-      "tips": [],
+      "tips": [
+        "가나슈가 질 경우에는 스텐볼에 찬물을 담고, 단단할 경우에는 중탕하여 농도를 맞춘다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -289,9 +327,12 @@
       "estimatedTimeSec": 507,
       "imageUrl": "assets/images/recipes/choco_roll_cake/11.png",
       "description": [
+        "[11~13 제품 만들기]",
         "물에 적신 면포를 준비하여 제품을 뒤집은 후 종이를 제거한다."
       ],
-      "tips": [],
+      "tips": [
+        "면포는 물로 미리 적셔 놓고, 위생지를 사용할 경우 말기 직전에 식용유를 충분히 바른다."
+      ],
       "checklist": [],
       "deductionPoints": [],
       "timers": [],
@@ -326,7 +367,12 @@
         "말기 방향은 감독 위원의 지시를 따른다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "반대 방향으로 롤을 말면 성형 및 제품평가 해당 항목 감점"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -335,15 +381,15 @@
   "resultEvaluation": [
     {
       "id": "surface",
-      "text": "코코아 뭉침 없음"
+      "text": "윗면에 코코아 뭉침 현상이 없어야 한다."
     },
     {
       "id": "crumb",
-      "text": "내부 구멍 없음"
+      "text": "잘랐을 때 내부에 구멍이 생기지 않아야 한다."
     },
     {
       "id": "roll",
-      "text": "두께 균일·갈라짐 없음"
+      "text": "구운 윗면에 가나슈를 바르며, 가나슈를 넣어 말았을 때 두께가 일정하고 갈라짐이나 터짐 현상이 없어야 한다."
     }
   ]
 }

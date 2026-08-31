@@ -123,8 +123,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -232,8 +246,18 @@
       "tips": [
         "반죽온도가 높거나 과도하게 섞이면 아랫면이 들리는 현상이 나타날 수 있다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "panning_2pans",
+          "text": "원형팬 2개 팬닝"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "과도한 혼합으로 아랫면이 들뜨지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -256,14 +280,24 @@
     {
       "stepNo": 10,
       "title": "10. 오븐에 굽기",
-      "estimatedTimeSec": 660,
+      "estimatedTimeSec": 2700,
       "imageUrl": "assets/images/recipes/brownie/10.png",
       "description": [
         "윗불 170℃, 아랫불 150℃(이중팬일 경우 170℃)에서 40~50분 동안 굽는다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "가운데 함몰·내부 묻어남 주의"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -278,15 +312,15 @@
   "resultEvaluation": [
     {
       "id": "structure",
-      "text": "함몰·기포 없음"
+      "text": "가운데가 가라앉지 않고 기포가 없어야 한다."
     },
     {
       "id": "doneness",
-      "text": "내부 묻어남 없음"
+      "text": "잘랐을 때 내부의 반죽이 묻어나지 않아야 한다."
     },
     {
       "id": "color",
-      "text": "짙은 초콜릿색·호두 고르게"
+      "text": "속은 진한색이며 밑바닥에 맨홀이 생기지 않아야 한다. 전체적으로 짙은 초콜릿색을 띠어야 하고 호두가 뭉쳐져 있으면 안 된다."
     }
   ]
 }
