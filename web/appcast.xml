@@ -6,6 +6,17 @@
     <description>Android APK update feed for upgrader</description>
     <language>ko-KR</language>
     <item>
+      <title>1.0.2</title>
+      <description>레시피 공정 텍스트 정확도 개선 및 단계별 사진 보강</description>
+      <pubDate>Mon, 31 Aug 2026 12:00:00 +0900</pubDate>
+      <enclosure
+        url="https://bbangsilgi.web.app/download/latest.apk"
+        sparkle:version="3"
+        sparkle:shortVersionString="1.0.2"
+        length="0"
+        type="application/vnd.android.package-archive" />
+    </item>
+    <item>
       <title>1.0.0</title>
       <description>최신 APK 배포 버전입니다.</description>
       <pubDate>Tue, 02 Jun 2026 16:55:00 +0900</pubDate>
