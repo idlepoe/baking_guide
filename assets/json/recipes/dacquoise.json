@@ -106,8 +106,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "5분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -115,7 +129,7 @@
     {
       "stepNo": 2,
       "title": "02. 가루재료 체질",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/dacquoise/2.png",
       "description": [
         "가루재료(아몬드 분말, 분당, 박력분)를 2회 이상 체질한다."
@@ -130,13 +144,18 @@
     {
       "stepNo": 3,
       "title": "03. 머랭 만들기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/dacquoise/3.png",
       "description": [
         "흰자를 젖은 피크(60%)까지 휘핑한 후 나머지 설탕을 2~3번에 나누어 넣으면서 중간피크(80~90%) 상태의 머랭을 만든다(믹싱을 완료한다)."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "meringue_made",
+          "text": "중간피크(80~90%) 머랭 완성"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -145,7 +164,7 @@
     {
       "stepNo": 4,
       "title": "04. 가루·머랭 섞기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/dacquoise/4.png",
       "description": [
         "체질한 가루재료(아몬드 분말, 분당, 박력분)에 머랭을 넣고 섞는다."
@@ -162,7 +181,7 @@
     {
       "stepNo": 5,
       "title": "05. 반죽 섞기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/5.png",
       "description": [
         "머랭이 조금 남아 있을 때까지만 섞는다."
@@ -171,7 +190,12 @@
         "과도하게 섞으면 반죽이 질어진다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과도한 혼합으로 반죽이 질어지지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -179,7 +203,7 @@
     {
       "stepNo": 6,
       "title": "06. 짤주머니에 담기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/6.png",
       "description": [
         "짤주머니에 반죽을 넣는다."
@@ -194,7 +218,7 @@
     {
       "stepNo": 7,
       "title": "07. 팬 준비",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/7.png",
       "description": [
         "평철판에 실리콘페이퍼를 깔고 다쿠와즈팬을 올려놓는다."
@@ -211,13 +235,18 @@
     {
       "stepNo": 8,
       "title": "08. 반죽 짜기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/dacquoise/8.png",
       "description": [
         "다쿠와즈팬에 반죽을 짜준다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_done",
+          "text": "다쿠와즈팬 전량 짜기"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -226,7 +255,7 @@
     {
       "stepNo": 9,
       "title": "09. 윗면 평평하게",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/9.png",
       "description": [
         "스크래퍼(또는 L자형 스패출러)를 이용하여 윗면을 평평하게 만든다."
@@ -241,7 +270,7 @@
     {
       "stepNo": 10,
       "title": "10. 분당 살포·팬 제거",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/10.png",
       "description": [
         "분당(계량 외)을 뿌린 후 다쿠와즈팬을 제거한다."
@@ -256,7 +285,7 @@
     {
       "stepNo": 11,
       "title": "11. 윗면 분당 살포",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/dacquoise/11.png",
       "description": [
         "다시 한 번 윗면에 분당을 뿌린다."
@@ -265,7 +294,12 @@
         "분당을 너무 많이 뿌려 뭉치면 윗면 갈라짐이 생기지 않고 오븐 열을 적게 받아 윗면이 눅눅하게 나온다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분당 과다로 갈라짐이 없거나 윗면이 눅눅해지지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -273,7 +307,7 @@
     {
       "stepNo": 12,
       "title": "12. 오븐에 굽기",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 1050,
       "imageUrl": "assets/images/recipes/dacquoise/12.png",
       "description": [
         "윗불 190℃, 아랫불 160℃에서 15~20분 동안 굽는다."
@@ -281,7 +315,12 @@
       "tips": [
         "분당을 체로 친 후 바로 오븐에 굽는다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -296,7 +335,7 @@
     {
       "stepNo": 13,
       "title": "13. 크림 샌드",
-      "estimatedTimeSec": 507,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/dacquoise/13.png",
       "description": [
         "식힌 후 한쪽에 샌드용 크림을 얇게 바르고 2개씩 붙인다."
@@ -304,7 +343,12 @@
       "tips": [
         "다쿠와즈 개수에 따라 크림의 양을 조절한다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "sandwiched",
+          "text": "2개씩 크림 샌드 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -314,15 +358,15 @@
   "resultEvaluation": [
     {
       "id": "uniformity",
-      "text": "두께·크기 균일"
+      "text": "두께와 크기가 균일하고 일정해야 한다."
     },
     {
       "id": "surface",
-      "text": "윗면 갈라짐·옆면 익음"
+      "text": "윗면은 살짝 갈라져야하고 옆면은 흰색이 보이지 않게 익혀야 한다."
     },
     {
       "id": "batter",
-      "text": "반죽 질지 않음"
+      "text": "반죽이 질 경우, 다쿠와즈의 옆면이 퍼지고 얇게 나오거나 분당이 다 적셔 뭉치므로 좋지 않다."
     }
   ]
 }

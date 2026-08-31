@@ -112,8 +112,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "7분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -121,7 +135,7 @@
     {
       "stepNo": 2,
       "title": "02. 레몬껍질 다지기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/madeleine/2.png",
       "description": [
         "칼(또는 강판)로 레몬껍질을 다져 놓는다."
@@ -136,7 +150,7 @@
     {
       "stepNo": 3,
       "title": "03. 버터 중탕 용해",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/madeleine/3.png",
       "description": [
         "중탕으로 버터를 용해한다."
@@ -151,14 +165,19 @@
     {
       "stepNo": 4,
       "title": "04. 달걀 풀기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/madeleine/4.png",
       "description": [
         "달걀을 거품이 생기지 않게 풀어준다."
       ],
       "tips": [],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "거품이 생기지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -166,7 +185,7 @@
     {
       "stepNo": 5,
       "title": "05. 가루·달걀 혼합",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/madeleine/5.png",
       "description": [
         "체질한 가루재료(박력분, 베이킹파우더)에 설탕, 소금, 풀어준 달걀을 넣는다."
@@ -181,14 +200,19 @@
     {
       "stepNo": 6,
       "title": "06. 천천히 섞기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/madeleine/6.png",
       "description": [
         "기포가 생기지 않도록 천천히 섞는다."
       ],
       "tips": [],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "기포 발생 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -196,7 +220,7 @@
     {
       "stepNo": 7,
       "title": "07. 레몬껍질 넣기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 120,
       "imageUrl": "assets/images/recipes/madeleine/7.png",
       "description": [
         "다진 레몬껍질을 넣고 섞는다."
@@ -211,13 +235,18 @@
     {
       "stepNo": 8,
       "title": "08. 용해버터 넣기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 240,
       "imageUrl": "assets/images/recipes/madeleine/8.png",
       "description": [
         "용해한 버터를 넣고 기포가 생기지 않도록 2~3번에 나누어 천천히 섞는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "butter_added",
+          "text": "용해버터 2~3회 분할 투입"
+        }
+      ],
       "deductionPoints": [],
       "timers": [],
       "calculators": [],
@@ -226,7 +255,7 @@
     {
       "stepNo": 9,
       "title": "09. 반죽 휴지",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 1200,
       "imageUrl": "assets/images/recipes/madeleine/9.png",
       "description": [
         "반죽을 비닐로 덮어 실온에서 15~20분 동안 휴지시킨다."
@@ -234,16 +263,27 @@
       "tips": [
         "휴지시간에 팬을 준비한다."
       ],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "rested",
+          "text": "실온 휴지 완료"
+        }
+      ],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "rest",
+          "label": "반죽 휴지",
+          "durationSec": 1200
+        }
+      ],
       "calculators": [],
       "images": []
     },
     {
       "stepNo": 10,
       "title": "10. 팬에 버터 바르기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 300,
       "imageUrl": "assets/images/recipes/madeleine/10.png",
       "description": [
         "마드레느팬에 버터(계량 외)를 손(또는 붓)으로 바른다."
@@ -258,7 +298,7 @@
     {
       "stepNo": 11,
       "title": "11. 짤주머니에 담기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/madeleine/11.png",
       "description": [
         "짤주머니에 반죽을 넣는다(위쪽으로 반죽이 묻지 않도록 한다)."
@@ -273,14 +313,24 @@
     {
       "stepNo": 12,
       "title": "12. 반죽 팬닝",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 420,
       "imageUrl": "assets/images/recipes/madeleine/12.png",
       "description": [
         "짤주머니를 이용하여 반죽을 80% 정도 팬닝한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "panning_80",
+          "text": "팬 80% 팬닝"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "반죽을 많이 짜서 옆면 날개가 심하게 나오지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -288,7 +338,7 @@
     {
       "stepNo": 13,
       "title": "13. 오븐에 굽기",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 900,
       "imageUrl": "assets/images/recipes/madeleine/13.png",
       "description": [
         "윗불 180℃, 아랫불 150℃에서 15분 전후로 굽는다."
@@ -296,8 +346,18 @@
       "tips": [
         "제품의 윗면이 터질 수 있으므로 너무 높은 온도에서 굽지 않는다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "과도한 온도로 윗면이 터지지 않도록 주의"
+        }
+      ],
       "timers": [
         {
           "type": "baking",
@@ -311,7 +371,7 @@
     {
       "stepNo": 14,
       "title": "14. 팬에서 분리",
-      "estimatedTimeSec": 471,
+      "estimatedTimeSec": 180,
       "imageUrl": "assets/images/recipes/madeleine/14.png",
       "description": [
         "위에서 아래로 밀면서 팬에서 분리한다."
@@ -327,15 +387,15 @@
   "resultEvaluation": [
     {
       "id": "color",
-      "text": "황금갈색"
+      "text": "구움색은 먹음직스러운 황금 갈색이 나와야 한다."
     },
     {
-      "id": "shape",
-      "text": "가운데 솟음·날개 적절"
+      "id": "wing_flat",
+      "text": "반죽을 많이 짜서 옆면 날개가 심하게 나오거나, 반죽 온도가 높아 윗면이 너무 납작하게 나오면 좋지 않다."
     },
     {
-      "id": "crumb",
-      "text": "기공 과다 없음"
+      "id": "center_bump",
+      "text": "가운데가 살짝 부풀어 오르고 전반적으로 크기와 모양이 균일해야 하며, 내부를 잘랐을 때 기공이 크지 않아야 한다."
     }
   ]
 }

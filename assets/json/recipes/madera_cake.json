@@ -135,8 +135,22 @@
         "재료를 시간 내에 정확하게 계량한다."
       ],
       "tips": [],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "weigh_complete",
+          "text": "재료 계량 완료"
+        },
+        {
+          "id": "supervisor_check",
+          "text": "감독 위원 계량 확인"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "9분 내 계량·진열 미완료 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -153,7 +167,12 @@
         "전처리를 너무 오래하면 건포도가 무거워져서 완성 시 바닥에 가라앉는다."
       ],
       "checklist": [],
-      "deductionPoints": [],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "전처리 과다로 건포도가 가라앉지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -196,7 +215,7 @@
       "estimatedTimeSec": 480,
       "imageUrl": "assets/images/recipes/madera_cake/5.png",
       "description": [
-        "믹싱볼 옆면과 바닥면에 붙어 있는 반죙을 긁어 잘 섞이도록 한다."
+        "믹싱볼 옆면과 바닥면에 붙어 있는 반죽을 긁어 잘 섞이도록 한다."
       ],
       "tips": [],
       "checklist": [],
@@ -216,8 +235,18 @@
       "tips": [
         "달걀을 조금씩 나누어 넣어 유지와 달걀이 분리되는 것을 방지한다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "cream_made",
+          "text": "부드러운 크림 상태"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "medium",
+          "text": "분리되지 않도록 조금씩 투입"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -302,13 +331,22 @@
     {
       "stepNo": 12,
       "title": "12. 팬닝·굽기",
-      "estimatedTimeSec": 480,
+      "estimatedTimeSec": 1650,
       "imageUrl": "assets/images/recipes/madera_cake/12.png",
       "description": [
         "짤주머니를 이용하여 머핀팬의 70% 정도 팬닝한 후 윗불 180℃, 아랫불 160℃에서 25~30분 동안 굽는다."
       ],
       "tips": [],
-      "checklist": [],
+      "checklist": [
+        {
+          "id": "panning_70",
+          "text": "머핀팬 70% 팬닝"
+        },
+        {
+          "id": "baking_done",
+          "text": "굽기 완료"
+        }
+      ],
       "deductionPoints": [],
       "timers": [
         {
@@ -348,8 +386,18 @@
       "tips": [
         "제품이 익지 않은 상태에서 퐁당을 바르면 껍질이 벗겨지거나 제품이 주저앉는다."
       ],
-      "checklist": [],
-      "deductionPoints": [],
+      "checklist": [
+        {
+          "id": "fondant_applied",
+          "text": "퐁당 골고루 바르기"
+        }
+      ],
+      "deductionPoints": [
+        {
+          "severity": "high",
+          "text": "덜 익은 상태에서 퐁당 바르지 않도록 주의"
+        }
+      ],
       "timers": [],
       "calculators": [],
       "images": []
@@ -367,7 +415,13 @@
       ],
       "checklist": [],
       "deductionPoints": [],
-      "timers": [],
+      "timers": [
+        {
+          "type": "baking",
+          "label": "윗면 건조",
+          "durationSec": 150
+        }
+      ],
       "calculators": [],
       "images": []
     }
@@ -375,15 +429,15 @@
   "resultEvaluation": [
     {
       "id": "shape",
-      "text": "크기 균일·윗면 둥글게"
+      "text": "전체적으로 크기가 균일하며 윗면은 뾰족하지 않고 동그랗게 나와야 한다."
     },
     {
       "id": "filling",
-      "text": "건포도·호두 고르게"
+      "text": "잘랐을 때 내부의 건포도가 뭉치지 않고, 호두도 고르게 분포되어야 한다."
     },
     {
       "id": "texture",
-      "text": "견과 침적·윗면 터짐 없음"
+      "text": "머핀을 잘랐을 때 견과류가 바닥에 가라앉지 않고, 머핀의 윗면이 터지지 않아야 한다."
     }
   ]
 }
